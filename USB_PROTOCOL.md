@@ -50,6 +50,8 @@ QR内容,x0,y0,x1,y1,x2,y2,x3,y3,sequence,capture_us,age_us\r
 `payload,x0,y0,x1,y1,x2,y2,x3,y3,sequence,capture_us,age_us,decode_us\r`
 
 `decode_us`为该帧搜索、归一化、解码、四角精定位的总微秒数，不含取图准备、USB传输和UI显示。
+两级跨帧流水线从 Core 0 开始本帧标记搜索计时，到 Core 1 精修完成为止，包含两核之间的交接等待；
+连续结果频率可约 50 次/秒，而单帧 `decode_us` 仍约 23～24 ms，两者含义不同。
 它不同于`age_us`，无图模式也会上传。`@DEBUGOFF`只关闭图片，不关闭耗时字段。
 `@TIMINGOFF\r`或USB断开恢复原格式。新版调试器兼容旧9/12字段与新13字段。
 启用耗时后，每轮扫描还可发送`@TIMING,sequence,capture_us,decode_us,success\r`，
@@ -60,6 +62,8 @@ QR内容,x0,y0,x1,y1,x2,y2,x3,y3,sequence,capture_us,age_us\r
 两核占用率由各核空闲任务运行时间的增量计算，千分比 1000 表示 100%；
 该数值是采样区间内的总 CPU 占用，包含采集、USB 和解码等任务，不等同于单次解码耗时。
 只有 CDC 已连接且有发送空间时才发送，拥堵时允许丢弃。调试器超过 3 秒未收到更新时显示 `—`。
+默认关闭会阻塞计算的 FS 串口阶段日志，`P4SCAN_PIPELINE_DIAGNOSTICS` 可重新开启；
+CDC 定位、`@TIMING` 和 `@CPU` 仍持续工作。图片和 RAW 的 CRC32 使用 IDF ROM 实现，与原 IEEE CRC32 格式一致。
 
 ## 主机接收
 
@@ -106,6 +110,11 @@ Windows 验证工具为 `tools/check_uvc.py`，按 VID/PID 选择目标设备并
 测试记录见该目录README。旧二进制协议存档为 `test/usb_text_20261002/USB_PROTOCOL_binary_previous.md`，不适用于当前文本固件。
 
 ## 调试软件同帧快照（按需启用）
+
+按需阶段计时：发送 `@PROFILEON\r` 后，每秒最多输出一行
+`@PROFILE,帧序号,前段搜索us,两核交接等待us,归一化us,内容解码us,角点精修us,搜索间隔,归一化尝试次数\r`。
+默认关闭，`@PROFILEOFF\r` 或 CDC 断开关闭。使用长度为 1 的队列，忙时覆盖；不能用其条数统计处理帧数。
+该诊断独立于 `@TIMING`，现有 UI 无需启用或解析它。
 
 `dist/P4ScanDebugger.exe`通过同一个HS CDC请求真实取图和解码结果，UVC仍可并行使用。
 软件发送ASCII `@SNAP\r`，请求后续一次解码完成帧的快照；请求租期为3秒，期间只消费一次编码请求，不持续逐帧编码。

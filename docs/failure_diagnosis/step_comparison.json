@@ -1,0 +1,802 @@
+[
+  {
+    "file": "fail01.gray8",
+    "step": 6,
+    "decoded": 0,
+    "payload": "",
+    "elapsed_us": 275,
+    "marker_us": 274,
+    "normalize_us": 0,
+    "core_us": 0,
+    "refine_us": 0,
+    "marker_roi": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "angle_deg": 0.0,
+    "grid": [
+      0,
+      0
+    ],
+    "geometry_quality": 0,
+    "split": 0,
+    "full_fallback": 0,
+    "core_finder_us": 0,
+    "core_candidate_us": 0,
+    "core_codeword_us": 0,
+    "core_ecc_us": 0,
+    "core_payload_us": 0,
+    "corners": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "file": "fail01.gray8",
+    "step": 5,
+    "decoded": 6,
+    "payload": "012345",
+    "elapsed_us": 693,
+    "marker_us": 453,
+    "normalize_us": 85,
+    "core_us": 64,
+    "refine_us": 30,
+    "marker_roi": [
+      360,
+      255,
+      495,
+      380
+    ],
+    "angle_deg": 86.424,
+    "grid": [
+      10,
+      10
+    ],
+    "geometry_quality": 2,
+    "split": 0,
+    "full_fallback": 0,
+    "core_finder_us": 41,
+    "core_candidate_us": 16,
+    "core_codeword_us": 1,
+    "core_ecc_us": 2,
+    "core_payload_us": 0,
+    "corners": [
+      396,
+      287,
+      451,
+      282,
+      454,
+      340,
+      399,
+      343
+    ]
+  },
+  {
+    "file": "fail01.gray8",
+    "step": 4,
+    "decoded": 6,
+    "payload": "012345",
+    "elapsed_us": 763,
+    "marker_us": 598,
+    "normalize_us": 73,
+    "core_us": 53,
+    "refine_us": 30,
+    "marker_roi": [
+      368,
+      252,
+      488,
+      380
+    ],
+    "angle_deg": 87.138,
+    "grid": [
+      10,
+      10
+    ],
+    "geometry_quality": 2,
+    "split": 0,
+    "full_fallback": 0,
+    "core_finder_us": 31,
+    "core_candidate_us": 16,
+    "core_codeword_us": 3,
+    "core_ecc_us": 1,
+    "core_payload_us": 0,
+    "corners": [
+      396,
+      286,
+      451,
+      282,
+      454,
+      340,
+      399,
+      343
+    ]
+  },
+  {
+    "file": "fail01.gray8",
+    "step": 3,
+    "decoded": 6,
+    "payload": "012345",
+    "elapsed_us": 1192,
+    "marker_us": 1025,
+    "normalize_us": 75,
+    "core_us": 54,
+    "refine_us": 30,
+    "marker_roi": [
+      378,
+      264,
+      477,
+      363
+    ],
+    "angle_deg": 85.684,
+    "grid": [
+      10,
+      10
+    ],
+    "geometry_quality": 2,
+    "split": 0,
+    "full_fallback": 0,
+    "core_finder_us": 32,
+    "core_candidate_us": 16,
+    "core_codeword_us": 2,
+    "core_ecc_us": 1,
+    "core_payload_us": 1,
+    "corners": [
+      396,
+      286,
+      451,
+      282,
+      454,
+      340,
+      399,
+      343
+    ]
+  },
+  {
+    "file": "fail01.gray8",
+    "step": 2,
+    "decoded": 6,
+    "payload": "012345",
+    "elapsed_us": 2295,
+    "marker_us": 2134,
+    "normalize_us": 76,
+    "core_us": 47,
+    "refine_us": 31,
+    "marker_roi": [
+      382,
+      268,
+      472,
+      362
+    ],
+    "angle_deg": 87.173,
+    "grid": [
+      10,
+      10
+    ],
+    "geometry_quality": 2,
+    "split": 0,
+    "full_fallback": 0,
+    "core_finder_us": 25,
+    "core_candidate_us": 17,
+    "core_codeword_us": 2,
+    "core_ecc_us": 1,
+    "core_payload_us": 1,
+    "corners": [
+      396,
+      286,
+      451,
+      282,
+      454,
+      340,
+      399,
+      343
+    ]
+  },
+  {
+    "file": "fail03.gray8",
+    "step": 6,
+    "decoded": 0,
+    "payload": "",
+    "elapsed_us": 361,
+    "marker_us": 360,
+    "normalize_us": 0,
+    "core_us": 0,
+    "refine_us": 0,
+    "marker_roi": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "angle_deg": 0.0,
+    "grid": [
+      0,
+      0
+    ],
+    "geometry_quality": 0,
+    "split": 0,
+    "full_fallback": 0,
+    "core_finder_us": 0,
+    "core_candidate_us": 0,
+    "core_codeword_us": 0,
+    "core_ecc_us": 0,
+    "core_payload_us": 0,
+    "corners": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "file": "fail03.gray8",
+    "step": 5,
+    "decoded": 0,
+    "payload": "",
+    "elapsed_us": 408,
+    "marker_us": 407,
+    "normalize_us": 0,
+    "core_us": 0,
+    "refine_us": 0,
+    "marker_roi": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "angle_deg": 0.0,
+    "grid": [
+      0,
+      0
+    ],
+    "geometry_quality": 0,
+    "split": 0,
+    "full_fallback": 0,
+    "core_finder_us": 0,
+    "core_candidate_us": 0,
+    "core_codeword_us": 0,
+    "core_ecc_us": 0,
+    "core_payload_us": 0,
+    "corners": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "file": "fail03.gray8",
+    "step": 4,
+    "decoded": 6,
+    "payload": "012345",
+    "elapsed_us": 766,
+    "marker_us": 603,
+    "normalize_us": 73,
+    "core_us": 53,
+    "refine_us": 29,
+    "marker_roi": [
+      372,
+      248,
+      488,
+      368
+    ],
+    "angle_deg": 87.138,
+    "grid": [
+      10,
+      10
+    ],
+    "geometry_quality": 2,
+    "split": 0,
+    "full_fallback": 0,
+    "core_finder_us": 30,
+    "core_candidate_us": 16,
+    "core_codeword_us": 1,
+    "core_ecc_us": 3,
+    "core_payload_us": 0,
+    "corners": [
+      397,
+      277,
+      452,
+      273,
+      455,
+      331,
+      400,
+      334
+    ]
+  },
+  {
+    "file": "fail03.gray8",
+    "step": 3,
+    "decoded": 6,
+    "payload": "012345",
+    "elapsed_us": 1223,
+    "marker_us": 1047,
+    "normalize_us": 76,
+    "core_us": 59,
+    "refine_us": 31,
+    "marker_roi": [
+      375,
+      252,
+      483,
+      363
+    ],
+    "angle_deg": 85.764,
+    "grid": [
+      10,
+      10
+    ],
+    "geometry_quality": 2,
+    "split": 0,
+    "full_fallback": 0,
+    "core_finder_us": 36,
+    "core_candidate_us": 17,
+    "core_codeword_us": 3,
+    "core_ecc_us": 1,
+    "core_payload_us": 0,
+    "corners": [
+      397,
+      277,
+      452,
+      273,
+      455,
+      331,
+      400,
+      334
+    ]
+  },
+  {
+    "file": "fail03.gray8",
+    "step": 2,
+    "decoded": 6,
+    "payload": "012345",
+    "elapsed_us": 2357,
+    "marker_us": 2198,
+    "normalize_us": 75,
+    "core_us": 46,
+    "refine_us": 30,
+    "marker_roi": [
+      384,
+      260,
+      470,
+      350
+    ],
+    "angle_deg": 87.138,
+    "grid": [
+      10,
+      10
+    ],
+    "geometry_quality": 2,
+    "split": 0,
+    "full_fallback": 0,
+    "core_finder_us": 24,
+    "core_candidate_us": 17,
+    "core_codeword_us": 1,
+    "core_ecc_us": 2,
+    "core_payload_us": 0,
+    "corners": [
+      397,
+      277,
+      452,
+      273,
+      455,
+      331,
+      400,
+      334
+    ]
+  },
+  {
+    "file": "fail04.gray8",
+    "step": 6,
+    "decoded": 0,
+    "payload": "",
+    "elapsed_us": 295,
+    "marker_us": 292,
+    "normalize_us": 0,
+    "core_us": 0,
+    "refine_us": 0,
+    "marker_roi": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "angle_deg": 0.0,
+    "grid": [
+      0,
+      0
+    ],
+    "geometry_quality": 0,
+    "split": 0,
+    "full_fallback": 0,
+    "core_finder_us": 0,
+    "core_candidate_us": 0,
+    "core_codeword_us": 0,
+    "core_ecc_us": 0,
+    "core_payload_us": 0,
+    "corners": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "file": "fail04.gray8",
+    "step": 5,
+    "decoded": 6,
+    "payload": "012345",
+    "elapsed_us": 577,
+    "marker_us": 414,
+    "normalize_us": 72,
+    "core_us": 55,
+    "refine_us": 29,
+    "marker_roi": [
+      355,
+      235,
+      490,
+      370
+    ],
+    "angle_deg": 86.424,
+    "grid": [
+      10,
+      10
+    ],
+    "geometry_quality": 2,
+    "split": 0,
+    "full_fallback": 0,
+    "core_finder_us": 34,
+    "core_candidate_us": 16,
+    "core_codeword_us": 3,
+    "core_ecc_us": 1,
+    "core_payload_us": 0,
+    "corners": [
+      391,
+      273,
+      446,
+      269,
+      450,
+      327,
+      394,
+      330
+    ]
+  },
+  {
+    "file": "fail04.gray8",
+    "step": 4,
+    "decoded": 6,
+    "payload": "012345",
+    "elapsed_us": 798,
+    "marker_us": 631,
+    "normalize_us": 74,
+    "core_us": 54,
+    "refine_us": 30,
+    "marker_roi": [
+      368,
+      244,
+      480,
+      360
+    ],
+    "angle_deg": 87.138,
+    "grid": [
+      10,
+      10
+    ],
+    "geometry_quality": 2,
+    "split": 0,
+    "full_fallback": 0,
+    "core_finder_us": 33,
+    "core_candidate_us": 16,
+    "core_codeword_us": 3,
+    "core_ecc_us": 1,
+    "core_payload_us": 0,
+    "corners": [
+      391,
+      273,
+      446,
+      269,
+      450,
+      327,
+      394,
+      330
+    ]
+  },
+  {
+    "file": "fail04.gray8",
+    "step": 3,
+    "decoded": 6,
+    "payload": "012345",
+    "elapsed_us": 1183,
+    "marker_us": 1017,
+    "normalize_us": 76,
+    "core_us": 53,
+    "refine_us": 30,
+    "marker_roi": [
+      369,
+      249,
+      477,
+      354
+    ],
+    "angle_deg": 85.764,
+    "grid": [
+      10,
+      10
+    ],
+    "geometry_quality": 2,
+    "split": 0,
+    "full_fallback": 0,
+    "core_finder_us": 31,
+    "core_candidate_us": 17,
+    "core_codeword_us": 2,
+    "core_ecc_us": 1,
+    "core_payload_us": 0,
+    "corners": [
+      391,
+      273,
+      446,
+      269,
+      450,
+      327,
+      394,
+      330
+    ]
+  },
+  {
+    "file": "fail04.gray8",
+    "step": 2,
+    "decoded": 6,
+    "payload": "012345",
+    "elapsed_us": 2641,
+    "marker_us": 2468,
+    "normalize_us": 77,
+    "core_us": 57,
+    "refine_us": 32,
+    "marker_roi": [
+      378,
+      256,
+      464,
+      346
+    ],
+    "angle_deg": 87.138,
+    "grid": [
+      10,
+      10
+    ],
+    "geometry_quality": 2,
+    "split": 0,
+    "full_fallback": 0,
+    "core_finder_us": 27,
+    "core_candidate_us": 17,
+    "core_codeword_us": 1,
+    "core_ecc_us": 2,
+    "core_payload_us": 8,
+    "corners": [
+      391,
+      273,
+      446,
+      269,
+      450,
+      327,
+      394,
+      330
+    ]
+  },
+  {
+    "file": "sample02.gray8",
+    "step": 6,
+    "decoded": 0,
+    "payload": "",
+    "elapsed_us": 280,
+    "marker_us": 278,
+    "normalize_us": 0,
+    "core_us": 0,
+    "refine_us": 0,
+    "marker_roi": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "angle_deg": 0.0,
+    "grid": [
+      0,
+      0
+    ],
+    "geometry_quality": 0,
+    "split": 0,
+    "full_fallback": 0,
+    "core_finder_us": 0,
+    "core_candidate_us": 0,
+    "core_codeword_us": 0,
+    "core_ecc_us": 0,
+    "core_payload_us": 0,
+    "corners": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "file": "sample02.gray8",
+    "step": 5,
+    "decoded": 6,
+    "payload": "012345",
+    "elapsed_us": 628,
+    "marker_us": 401,
+    "normalize_us": 129,
+    "core_us": 62,
+    "refine_us": 30,
+    "marker_roi": [
+      360,
+      240,
+      495,
+      375
+    ],
+    "angle_deg": 86.424,
+    "grid": [
+      10,
+      10
+    ],
+    "geometry_quality": 2,
+    "split": 0,
+    "full_fallback": 0,
+    "core_finder_us": 39,
+    "core_candidate_us": 16,
+    "core_codeword_us": 2,
+    "core_ecc_us": 1,
+    "core_payload_us": 0,
+    "corners": [
+      395,
+      279,
+      451,
+      275,
+      454,
+      332,
+      398,
+      335
+    ]
+  },
+  {
+    "file": "sample02.gray8",
+    "step": 4,
+    "decoded": 6,
+    "payload": "012345",
+    "elapsed_us": 793,
+    "marker_us": 624,
+    "normalize_us": 75,
+    "core_us": 54,
+    "refine_us": 30,
+    "marker_roi": [
+      364,
+      244,
+      488,
+      372
+    ],
+    "angle_deg": 87.138,
+    "grid": [
+      10,
+      10
+    ],
+    "geometry_quality": 2,
+    "split": 0,
+    "full_fallback": 0,
+    "core_finder_us": 33,
+    "core_candidate_us": 16,
+    "core_codeword_us": 2,
+    "core_ecc_us": 2,
+    "core_payload_us": 0,
+    "corners": [
+      395,
+      279,
+      451,
+      275,
+      454,
+      332,
+      398,
+      336
+    ]
+  },
+  {
+    "file": "sample02.gray8",
+    "step": 3,
+    "decoded": 6,
+    "payload": "012345",
+    "elapsed_us": 1171,
+    "marker_us": 1005,
+    "normalize_us": 74,
+    "core_us": 55,
+    "refine_us": 31,
+    "marker_roi": [
+      375,
+      255,
+      477,
+      360
+    ],
+    "angle_deg": 85.764,
+    "grid": [
+      10,
+      10
+    ],
+    "geometry_quality": 2,
+    "split": 0,
+    "full_fallback": 0,
+    "core_finder_us": 32,
+    "core_candidate_us": 17,
+    "core_codeword_us": 2,
+    "core_ecc_us": 1,
+    "core_payload_us": 0,
+    "corners": [
+      395,
+      279,
+      451,
+      275,
+      454,
+      332,
+      398,
+      335
+    ]
+  },
+  {
+    "file": "sample02.gray8",
+    "step": 2,
+    "decoded": 6,
+    "payload": "012345",
+    "elapsed_us": 2604,
+    "marker_us": 2415,
+    "normalize_us": 103,
+    "core_us": 48,
+    "refine_us": 29,
+    "marker_roi": [
+      382,
+      262,
+      468,
+      350
+    ],
+    "angle_deg": 87.138,
+    "grid": [
+      10,
+      10
+    ],
+    "geometry_quality": 2,
+    "split": 0,
+    "full_fallback": 0,
+    "core_finder_us": 24,
+    "core_candidate_us": 16,
+    "core_codeword_us": 1,
+    "core_ecc_us": 3,
+    "core_payload_us": 0,
+    "corners": [
+      395,
+      279,
+      451,
+      275,
+      454,
+      332,
+      398,
+      335
+    ]
+  }
+]

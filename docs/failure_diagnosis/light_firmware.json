@@ -1,0 +1,8 @@
+{
+  "idf": "5.4.0",
+  "application_bytes": 836448,
+  "application_sha256": "65bb29860e18c40679f42a2514cea35bf76e0bdc50097d55b615538fb8d5b2b3",
+  "flash_port": "COM57",
+  "cdc_port": "COM60",
+  "previous_application_backup": "build/before_light_fix.bin"
+}

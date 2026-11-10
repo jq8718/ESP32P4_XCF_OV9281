@@ -10,6 +10,8 @@
 #include "upc_ean.h"
 int xcr_datamatrix_marked_decode(const Image *image, BarcodeResult *result, const XcrDeadline *deadline);
 int xcr_datamatrix_marked_decode_ex(const Image *image, BarcodeResult *result, const XcrDeadline *deadline, int defer_geometry);
+int xcr_datamatrix_marked_decode_prepared(const Image *image, BarcodeResult *result,
+    const XcrDeadline *deadline, int defer_geometry, const XcrDmtxPrepared *prepared);
 
 #include <limits.h>
 #include <stdio.h>
@@ -40,6 +42,7 @@ struct XcrDecoder {
     uint8_t *scratch_pixels;
     size_t scratch_capacity;
     XcrQrTrace qr_trace;
+    const XcrDmtxPrepared *prepared;
 };
 
 static const int k_direction_vectors[XCR_MAX_DIRECTION_ATTEMPTS][2] = {
@@ -522,7 +525,8 @@ static int xcr_decode_datamatrix_once(XcrDecoder *decoder,
 #if CONFIG_XCR_DATAMATRIX_LIBDMTX
     int decoded = xcr_dmtx_decode(image, result, deadline);
 #else
-    int decoded = xcr_datamatrix_marked_decode_ex(image, result, deadline, decoder->config.datamatrix_defer_geometry);
+    int decoded = xcr_datamatrix_marked_decode_prepared(image, result, deadline,
+        decoder->config.datamatrix_defer_geometry, decoder->prepared);
 #endif
     if (decoded > 0 && result->length > 0) {
         result->symbology = BARCODE_SYM_DATAMATRIX;
@@ -906,6 +910,24 @@ finish:
         decoder->stats.max_decode_us = elapsed_us;
     }
     decoder->busy = false;
+    return status;
+}
+
+XcrStatus xcr_decoder_decode_prepared(XcrDecoder *decoder, const XcrGrayImage *image,
+    const XcrDmtxPrepared *prepared, XcrBarcodeResult *results, int max_results,
+    int *out_result_count)
+{
+    if (!decoder || decoder->busy || !image || !prepared ||
+        prepared->pixels != image->pixels || prepared->sequence != image->sequence ||
+        prepared->width != image->width || prepared->height != image->height ||
+        image->roi_width > 0 || image->roi_height > 0 ||
+        (image->stride && image->stride != image->width)) {
+        if (out_result_count) *out_result_count = 0;
+        return XCR_INVALID_ARGUMENT;
+    }
+    decoder->prepared = prepared;
+    XcrStatus status = xcr_decoder_decode(decoder, image, results, max_results, out_result_count);
+    decoder->prepared = NULL;
     return status;
 }
 

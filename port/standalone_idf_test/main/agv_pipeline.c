@@ -1,4 +1,5 @@
 #include "agv_pipeline.h"
+#define LATEST_FRAME_SLOT_COUNT P4SCAN_CAMERA_BUFFER_COUNT
 #include "latest_frame.h"
 #include "scan_usb.h"
 #include "datamatrix.h"
@@ -32,6 +33,9 @@ typedef struct {
     XcrBarcodeResult result;
     XcrQrTrace trace;
     XcrDmtxStats marker_stats;
+    XcrDmtxPrepared prepared;
+    uint64_t backend_start_us;
+    uint64_t preprocess_done_us;
     DataMatrixDecodeDebugStats dm_stats;
     uint64_t decode_start_us;
     uint64_t core_done_us;
@@ -39,7 +43,7 @@ typedef struct {
     XcrStatus status;
 } agv_slot_t;
 
-static agv_slot_t s_slots[3];
+static agv_slot_t s_slots[P4SCAN_CAMERA_BUFFER_COUNT];
 static latest_frame_pool_t s_pool;
 static portMUX_TYPE s_lock = portMUX_INITIALIZER_UNLOCKED;
 static TaskHandle_t s_consumer;
@@ -96,7 +100,7 @@ static void capture_task(void *argument)
     uint32_t returned_total_us = 0, return_wait_max_us = 0;
     for (;;) {
         uint32_t return_us = 0, return_wait_us = 0;
-        for (int index = 0; index < 3; index++) {
+        for (int index = 0; index < P4SCAN_CAMERA_BUFFER_COUNT; index++) {
             portENTER_CRITICAL(&s_lock);
             bool reusable = s_pool.states[index] == FRAME_FREE;
             portEXIT_CRITICAL(&s_lock);
@@ -173,6 +177,16 @@ static void capture_task(void *argument)
         slot->prepare_us = prepare_total_us;
         slot->acquire_us = acquire_total_us;
         slot->light_us = light_done_us - acquired_us;
+        slot->decode_start_us = esp_timer_get_time();
+        XcrGrayImage preprocess_image = {
+            .pixels = slot->pixels, .width = FRAME_WIDTH, .height = FRAME_HEIGHT, .stride = FRAME_WIDTH,
+            .sequence = frame.sequence, .timestamp_us = frame.timestamp_us,
+            .deadline_us = frame.timestamp_us + CONFIG_P4SCAN_FRAME_MAX_AGE_MS * 1000ULL,
+        };
+#if CONFIG_P4SCAN_FRAME_STAGE_PIPELINE
+        xcr_dmtx_prepare(&preprocess_image, &slot->prepared);
+#endif
+        slot->preprocess_done_us = esp_timer_get_time();
         capture_cycle_us = 0;
         prepare_total_us = acquire_total_us = dequeue_total_us = 0;
         returned_total_us = return_wait_max_us = 0;
@@ -210,6 +224,17 @@ static void finish_decoded_slot(int slot_index)
         slot->marker_stats.total_us += slot->marker_stats.geometry_us;
     }
     uint64_t done_us = esp_timer_get_time();
+    scan_profile_t profile = {
+        .sequence = image.sequence,
+        .frontend_us = slot->preprocess_done_us - start_us,
+        .wait_us = slot->backend_start_us - slot->preprocess_done_us,
+        .normalize_us = slot->marker_stats.setup_us,
+        .core_us = slot->marker_stats.decode_us,
+        .refine_us = slot->marker_stats.geometry_us,
+        .sample_step = slot->marker_stats.marker_sample_step,
+        .attempts = slot->marker_stats.normalize_attempts,
+    };
+    scan_usb_profile(&profile);
     bool fresh = frame_is_fresh(image.timestamp_us, done_us, deadline_us);
     if (!fresh) { count = 0; stale++; status = XCR_TIMEOUT_NO_RESULT; }
     bool submitted = count > 0 && scan_usb_submit_measured(&result, deadline_us, done_us - start_us);
@@ -223,7 +248,14 @@ static void finish_decoded_slot(int slot_index)
     portEXIT_CRITICAL(&s_lock);
     slot = &completed;
     p4scan_feedback_set_state(count > 0 ? P4SCAN_FEEDBACK_SUCCESS : P4SCAN_FEEDBACK_FAIL);
+#if CONFIG_P4SCAN_PIPELINE_DIAGNOSTICS
     if (frames % 50 == 0) {
+    ESP_LOGI(TAG, "stages seq=%lu frontend=%llu transfer_wait=%llu backend=%llu full=%llu",
+             (unsigned long)image.sequence,
+             (unsigned long long)(slot->preprocess_done_us - start_us),
+             (unsigned long long)(slot->backend_start_us - slot->preprocess_done_us),
+             (unsigned long long)(done_us - slot->backend_start_us),
+             (unsigned long long)(done_us - start_us));
     ESP_LOGI(TAG, "seq=%lu prepare=%lu acquire=%lu dq=%lu cache=%lu light_off=%lu queue_age=%llu decode=%llu age=%llu total=%llu status=%s queued=%d replaced=%lu stale=%lu ok=%lu/%lu (us)",
              (unsigned long)image.sequence, (unsigned long)slot->prepare_us,
              (unsigned long)slot->acquire_us, (unsigned long)slot->frame.dequeue_us,
@@ -284,6 +316,7 @@ static void finish_decoded_slot(int slot_index)
              (unsigned long long)(esp_timer_get_time() - done_us),
              (unsigned)uxTaskGetStackHighWaterMark(NULL));
     }
+#endif
 }
 
 
@@ -303,17 +336,27 @@ static void decode_task(void *argument)
             .sequence = slot->frame.sequence, .timestamp_us = slot->frame.timestamp_us,
             .capture_generation = 1, .deadline_us = deadline_us,
         };
-        slot->decode_start_us = esp_timer_get_time();
+        slot->backend_start_us = esp_timer_get_time();
+#if !CONFIG_P4SCAN_FRAME_STAGE_PIPELINE
+        slot->decode_start_us = slot->backend_start_us;
+        slot->preprocess_done_us = slot->backend_start_us;
+#endif
         memset(&slot->result, 0, sizeof(slot->result));
         memset(&slot->trace, 0, sizeof(slot->trace));
         memset(&slot->marker_stats, 0, sizeof(slot->marker_stats));
         memset(&slot->dm_stats, 0, sizeof(slot->dm_stats));
         slot->result_count = 0;
         slot->status = XCR_TIMEOUT_NO_RESULT;
-        if (frame_is_fresh(image.timestamp_us, slot->decode_start_us, deadline_us)) {
+        if (frame_is_fresh(image.timestamp_us, slot->backend_start_us, deadline_us)) {
+#if CONFIG_P4SCAN_FRAME_STAGE_PIPELINE
+            slot->status = xcr_decoder_decode_prepared(s_decoder, &image, &slot->prepared,
+                                                     &slot->result, 1, &slot->result_count);
+#else
             slot->status = xcr_decoder_decode(s_decoder, &image, &slot->result, 1, &slot->result_count);
+#endif
             xcr_decoder_get_qr_trace(s_decoder, &slot->trace);
             xcr_dmtx_stats_get(&slot->marker_stats);
+            slot->marker_stats.total_us += slot->prepared.search_us;
             datamatrix_debug_stats_get(&slot->dm_stats);
         }
         slot->core_done_us = esp_timer_get_time();
@@ -354,14 +397,22 @@ esp_err_t agv_pipeline_start(p4scan_camera_t *camera)
     config.image_budget_ms = CONFIG_P4SCAN_FRAME_MAX_AGE_MS;
     s_decoder = xcr_decoder_create(&config);
     if (!s_decoder) return ESP_ERR_NO_MEM;
-    if (!xcr_dmtx_parallel_start()) ESP_LOGW(TAG, "parallel marker worker unavailable; using full-frame search");
+#if !CONFIG_P4SCAN_FRAME_STAGE_PIPELINE
+    if (!xcr_dmtx_parallel_start()) ESP_LOGW(TAG, "parallel marker worker unavailable");
+#endif
     esp_log_level_set("p4scan_camera", ESP_LOG_WARN);
     esp_log_level_set("p4scan_power", ESP_LOG_WARN);
     esp_log_level_set("ov9281", ESP_LOG_WARN);
-    ESP_LOGI(TAG, "capture=core0 decode+refine=core1 pending=latest-only max_age=%dms free_psram=%u",
-             CONFIG_P4SCAN_FRAME_MAX_AGE_MS, (unsigned)heap_caps_get_free_size(MALLOC_CAP_SPIRAM));
+    ESP_LOGI(TAG, "frame_stages=%d capture=core0 backend+refine=core1 pending=latest-only max_age=%dms free_psram=%u",
+#if CONFIG_P4SCAN_FRAME_STAGE_PIPELINE
+             1,
+#else
+             0,
+#endif
+             CONFIG_P4SCAN_FRAME_MAX_AGE_MS,
+             (unsigned)heap_caps_get_free_size(MALLOC_CAP_SPIRAM));
     if (xTaskCreatePinnedToCore(decode_task, "agv_decode", 28672, NULL, 8, &s_consumer, 1) != pdPASS) return ESP_ERR_NO_MEM;
-    if (xTaskCreatePinnedToCore(capture_task, "agv_capture", 6144, camera, 8, NULL, 0) != pdPASS) return ESP_ERR_NO_MEM;
+    if (xTaskCreatePinnedToCore(capture_task, "agv_capture", 12288, camera, 8, NULL, 0) != pdPASS) return ESP_ERR_NO_MEM;
     if (xTaskCreatePinnedToCore(light_button_task, "agv_button", 3072, camera, 9, NULL, 0) != pdPASS) return ESP_ERR_NO_MEM;
     ESP_LOGI(TAG, "button: illumination toggles on press; aiming follows hold; debounce=10/5ms; continuous capture");
     return ESP_OK;

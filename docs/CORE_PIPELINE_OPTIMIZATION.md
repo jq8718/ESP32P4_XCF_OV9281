@@ -1,5 +1,7 @@
 # 双核实时解码流水线优化（2026-11-10）
 
+本文保留前几轮优化记录。当前默认固件已采用跨帧两级流水线、四块 CSI 缓冲与 Core 1 图片发送，最新结果见 [FRAME_STAGE_PIPELINE.md](FRAME_STAGE_PIPELINE.md)。
+
 ## 改动
 
 - Core 0 仅负责 CSI/DMA 缓冲区取帧、灯光控制及 USB/CDC 任务；Core 1 连续执行 DataMatrix 解码、原图角点精修和结果提交。移除了 Core 1 → Core 0 的单槽精修队列，避免已解码结果在等待精修时被新结果替换。

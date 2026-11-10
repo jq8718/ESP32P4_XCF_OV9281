@@ -1,0 +1,10 @@
+{
+  "sequence": 3080,
+  "timestamp_us": 64669572,
+  "width": 1280,
+  "height": 720,
+  "success": false,
+  "decode_us": 50258,
+  "length": 921600,
+  "crc32": "4F84B473"
+}

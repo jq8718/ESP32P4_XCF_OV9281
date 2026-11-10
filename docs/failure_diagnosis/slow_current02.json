@@ -1,0 +1,10 @@
+{
+  "sequence": 33500,
+  "timestamp_us": 878131947,
+  "width": 1280,
+  "height": 720,
+  "success": true,
+  "decode_us": 55127,
+  "length": 921600,
+  "crc32": "DE3E61DA"
+}

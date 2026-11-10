@@ -1,0 +1,11 @@
+{
+  "idf": "5.4.0",
+  "application_bytes": 830128,
+  "application_sha256": "9247298289ea3f832397f01004e09c7064d1b7f5977a0a192ec6a09961c9166e",
+  "flash_port": "COM57",
+  "cdc_port": "COM60",
+  "frame_max_age_ms": 100,
+  "jpeg_priority": 7,
+  "decoder_priority": 8,
+  "previous_application_backup": "build/before_speed_fix.bin"
+}

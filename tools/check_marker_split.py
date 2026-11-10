@@ -11,9 +11,12 @@ CASES = ROOT / 'build/parallel_host_cases'
 WIDTH, HEIGHT = 1280, 720
 
 
-def decode(binary: str, sample: Path) -> dict:
+def decode(binary: str, sample: Path, prepared: bool = False) -> dict:
+    command = ['wsl', '-e']
+    if prepared:
+        command += ['env', 'XCR_DM_PREPARED=1']
     result = subprocess.run(
-        ['wsl', '-e', f'docs/decode_stages/{binary}', str(sample.relative_to(ROOT)).replace('\\', '/')],
+        command + [f'docs/decode_stages/{binary}', str(sample.relative_to(ROOT)).replace('\\', '/')],
         cwd=ROOT, text=True, capture_output=True, check=False,
     )
     if result.returncode not in (0, 1) or not result.stdout.strip():
@@ -80,6 +83,17 @@ def main() -> None:
     output.write_text(json.dumps(report, indent=2), encoding='utf-8')
     if not all(item['match'] for item in report):
         raise SystemExit('Marker split differs from full-frame search')
+    prepared_report = []
+    for sample in sorted(CASES.glob('*.gray8')):
+        full = decode('dm_stage_trace', sample)
+        prepared = decode('dm_stage_trace', sample, prepared=True)
+        match = all(full[key] == prepared[key] for key in ('decoded', 'payload', 'marker_roi', 'corners'))
+        prepared_report.append({'case': sample.name, 'match': match, 'full': full, 'prepared': prepared})
+        print(f'prepared {sample.name}: match={match}')
+    (ROOT / 'docs/decode_stages/marker_prepared_host_results.json').write_text(
+        json.dumps(prepared_report, indent=2), encoding='utf-8')
+    if not all(item['match'] for item in prepared_report):
+        raise SystemExit('Prepared marker state differs from full-frame search')
 
 
 if __name__ == '__main__':

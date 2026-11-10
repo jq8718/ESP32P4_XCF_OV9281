@@ -14,12 +14,13 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--port', required=True)
     parser.add_argument('--output', default='docs/decode_stages/source')
+    parser.add_argument('--kind', choices=('any', 'fail', 'coarse'), default='any')
     args = parser.parse_args()
     destination = pathlib.Path(args.output)
     destination.parent.mkdir(parents=True, exist_ok=True)
     with serial.Serial(args.port, 921600, timeout=0.1, write_timeout=0.5) as connection:
         connection.reset_input_buffer()
-        connection.write(b'@RAW\r')
+        connection.write({'any': b'@RAW\r', 'fail': b'@RAWFAIL\r', 'coarse': b'@RAWCOARSE\r'}[args.kind])
         buffer = bytearray()
         pixels = bytearray()
         metadata = None

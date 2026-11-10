@@ -15,7 +15,7 @@ extern "C" {
 #define P4SCAN_CAMERA_DEFAULT_WIDTH  1280
 #define P4SCAN_CAMERA_DEFAULT_HEIGHT 720
 #define P4SCAN_CAMERA_DEFAULT_FPS    50
-#define P4SCAN_CAMERA_BUFFER_COUNT   3
+#define P4SCAN_CAMERA_BUFFER_COUNT   4
 
 typedef struct {
     uint32_t width;

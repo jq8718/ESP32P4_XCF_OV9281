@@ -1,0 +1,9 @@
+{
+  "idf": "5.4.0",
+  "application_bytes": 838544,
+  "application_sha256": "9a1d27f093385060d8a9cbbf35d16c92478bcbf940c424826c8374d032bdbff2",
+  "flash_port": "COM57",
+  "cdc_port": "COM60",
+  "previous_application_backup": "build/before_half_light.bin",
+  "input": "live CSI, 1280x720 Gray8, 2 lanes, nominal 50 fps"
+}

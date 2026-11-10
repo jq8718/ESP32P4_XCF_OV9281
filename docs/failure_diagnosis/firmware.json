@@ -1,0 +1,10 @@
+{
+  "idf": "5.4.0",
+  "application_bytes": 820720,
+  "application_sha256": "76a8304346228a2d0f2a38e7265f79ddc6dfa18bf1f6204e27dd0bca807fe484",
+  "flash_port": "COM57",
+  "cdc_port": "COM60",
+  "replay_code_in_final_source": false,
+  "raw_replay_crc32": "8D2E631F",
+  "raw_replay_original_crc32": "8D2E631F"
+}

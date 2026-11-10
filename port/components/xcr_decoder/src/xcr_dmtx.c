@@ -7,6 +7,7 @@
 #include "xcr_dmtx.h"
 #include <math.h>
 #include <stdlib.h>
+#include <stdatomic.h>
 #include <string.h>
 #ifdef ESP_PLATFORM
 #include "esp_heap_caps.h"
@@ -41,6 +42,9 @@ static void trace_marker_pgm(const char *name, const uint8_t *pixels, int width,
 #endif
 
 static XcrDmtxStats last_stats;
+/* Grid scale only, never a previous-frame position/ROI. Atomic because a
+ * caller may run preparations on another core; no image data is retained. */
+static atomic_int preferred_marker_step = ATOMIC_VAR_INIT(6);
 
 #ifndef XCR_DM_NORMALIZED_SIDE
 #define XCR_DM_NORMALIZED_SIDE 128
@@ -49,8 +53,12 @@ static XcrDmtxStats last_stats;
 static int marker_step(const Image *image)
 {
     (void)image;
-    /* The printed external markers are about 20 sensor pixels wide at
-     * 1280x720. A 12-pixel step collapses each marker to one or two samples. */
+#ifndef ESP_PLATFORM
+    const char *override = xcr_port_getenv("XCR_DM_MARKER_STEP");
+    if (override && atoi(override) >= 2 && atoi(override) <= 6) return atoi(override);
+#endif
+    /* Fast grid for ordinary markers. Smaller markers also need the
+     * current-frame four-pixel retry below; keep its grid with the result. */
     return 6;
 }
 
@@ -60,6 +68,7 @@ typedef struct {
     int w;
     int h;
     int area;
+    int threshold;
 } MarkerCandidate;
 
 #if defined(XCR_DM_TRACE_STAGES) && !defined(ESP_PLATFORM)
@@ -237,9 +246,9 @@ static int marker_has_qr_rings(const Image *image, int center_x, int center_y,
 
 static int marker_filtered_gray(const Image *image, int sample_x, int sample_y);
 
-static int marker_has_clear_gaps(const Image *image, const float axes[6], int threshold)
+static int marker_has_clear_gaps(const Image *image, const float axes[6], int threshold, int step)
 {
-    const int step = marker_step(image);
+    int ordinary_gaps = 1;
     for (int edge = 0; edge < 2; edge++) {
         int values[16];
         int peak = 0;
@@ -251,18 +260,31 @@ static int marker_has_clear_gaps(const Image *image, const float axes[6], int th
                 ? marker_filtered_gray(image, column, row) : 255;
             if (values[sample] > peak) peak = values[sample];
         }
-        int local_threshold = peak * 65 / 100;
-        if (local_threshold > threshold) local_threshold = threshold;
+        int ordinary_threshold = peak * 65 / 100;
+        if (ordinary_threshold > threshold) ordinary_threshold = threshold;
+        int ordinary_dark = 0;
+        for (int sample = 0; sample < 16; sample++) ordinary_dark += values[sample] < ordinary_threshold;
+        if (ordinary_dark > 2) ordinary_gaps = 0;
         int dark = 0;
-        for (int sample = 0; sample < 16; sample++) dark += values[sample] < local_threshold;
+        for (int sample = 0; sample < 16; sample++) {
+            /* Follow the local paper brightness along this white gap. A
+             * shadow can cover an entire end; the brightest point on the
+             * other end must not classify that paper as a black module. */
+            int local_peak = values[sample];
+            for (int neighbour = sample > 2 ? sample - 2 : 0;
+                 neighbour <= sample + 2 && neighbour < 16; neighbour++)
+                if (values[neighbour] > local_peak) local_peak = values[neighbour];
+            int local_threshold = local_peak * 65 / 100;
+            if (local_threshold > threshold) local_threshold = threshold;
+            dark += values[sample] < local_threshold;
+        }
         if (dark > 2) return 0;
     }
-    return 1;
+    return ordinary_gaps ? 2 : 1;
 }
 
-static int marker_has_solid_edges(const Image *image, const float axes[6], int threshold)
+static int marker_has_solid_edges(const Image *image, const float axes[6], int threshold, int step)
 {
-    const int step = marker_step(image);
     for (int edge = 0; edge < 2; edge++) {
         int best = 0;
         for (int band = -3; band <= 3; band++) {
@@ -296,60 +318,133 @@ static int marker_filtered_gray(const Image *image, int sample_x, int sample_y)
             pixels[stride - 1] + pixels[stride] + pixels[stride + 1] + 4) / 9;
 }
 
-static int find_marker_roi_slice(const Image *image, int sample_left, int sample_right,
-                                 int roi[4], int *orientation, float axes[6],
-                                 int *score_out, unsigned *qr_rejected)
+/* Shadow fallback on the small normalized image, never the full CSI frame. */
+static int normalized_local_binary(uint8_t *pixels, int side)
 {
-    const int step = marker_step(image);
+    int stride = side + 1;
+    uint32_t *integral = xcr_alloc((size_t)stride * stride * sizeof(*integral), XCR_MEM_LARGE);
+    if (!integral) return 0;
+    memset(integral, 0, stride * sizeof(*integral));
+    for (int y = 0; y < side; y++) {
+        uint32_t row_sum = 0;
+        integral[(y + 1) * stride] = 0;
+        for (int x = 0; x < side; x++) {
+            row_sum += pixels[y * side + x];
+            integral[(y + 1) * stride + x + 1] = integral[y * stride + x + 1] + row_sum;
+        }
+    }
+    /* Span several modules so a solid finder edge still has white paper in
+     * its neighbourhood, including when the shadow lowers its contrast. */
+    int radius = side * 5 / 32;
+    for (int y = 0; y < side; y++) {
+        int top = y > radius ? y - radius : 0;
+        int bottom = y + radius + 1 < side ? y + radius + 1 : side;
+        for (int x = 0; x < side; x++) {
+            int left = x > radius ? x - radius : 0;
+            int right = x + radius + 1 < side ? x + radius + 1 : side;
+            unsigned sum = integral[bottom * stride + right] - integral[bottom * stride + left] -
+                integral[top * stride + right] + integral[top * stride + left];
+            unsigned area = (right - left) * (bottom - top);
+            pixels[y * side + x] = (unsigned)pixels[y * side + x] * area * 100 < sum * 92 ? 0 : 255;
+        }
+    }
+    xcr_free(integral);
+    return 1;
+}
+
+static int find_marker_roi_slice_step(const Image *image, int sample_left, int sample_right,
+                                 int roi[4], int *orientation, float axes[6],
+                                 int *score_out, unsigned *qr_rejected, int step)
+{
     const int width = sample_right - sample_left;
     const int height = (image->height + step - 1) / step;
     if (width <= 0) return 0;
     const size_t count = (size_t)width * (size_t)height;
+    /* Keep the established fast-grid work/memory schedule for image upload.
+     * Dense retries use rolling box sums and a narrower queue to reduce
+     * their workspace (288000 -> 175680 bytes at 1280x720 / step 4). */
+    const int integral_grid = step == 6;
+    const int narrow_queue = !integral_grid && count <= UINT16_MAX;
+    const size_t queue_bytes = count * (narrow_queue ? sizeof(uint16_t) : sizeof(int));
+    const size_t column_offset = (queue_bytes + count + (size_t)width * 7 + 1) & ~(size_t)1;
+    const size_t workspace_bytes = integral_grid ? queue_bytes + count :
+        column_offset + (size_t)width * sizeof(uint16_t);
     XcrMemClass queue_class = XCR_MEM_LARGE;
 #ifdef ESP_PLATFORM
-    if (heap_caps_get_largest_free_block(MALLOC_CAP_INTERNAL | MALLOC_CAP_8BIT) > count * (sizeof(int) + 1) + 16384)
+    if (heap_caps_get_largest_free_block(MALLOC_CAP_INTERNAL | MALLOC_CAP_8BIT) > workspace_bytes + 16384)
         queue_class = XCR_MEM_FAST;
 #endif
-    int *queue = xcr_alloc(count * (sizeof(*queue) + 1), queue_class);
-    uint8_t *mask = queue ? (uint8_t *)(queue + count) : NULL;
+    uint8_t *workspace = xcr_alloc(workspace_bytes, queue_class);
+    uint8_t *mask = workspace ? workspace + queue_bytes : NULL;
+    uint8_t *history = mask ? mask + count : NULL;
+    uint16_t *columns = workspace && !integral_grid ? (uint16_t *)(workspace + column_offset) : NULL;
+    uint16_t *queue16 = (uint16_t *)workspace;
+    int *queue32 = (int *)workspace;
     MarkerCandidate candidates[32];
     int candidate_count = 0;
     int minimum = 255;
     int maximum = 0;
-    if (!mask || !queue) {
-        xcr_free(queue);
-        return 0;
-    }
+    if (!workspace) return 0;
     for (int y = 0; y < height; y++) {
         for (int x = 0; x < width; x++) {
             int source_x = (x + sample_left) * step;
+            /* Sample directly here. Almost every pixel of a dim RAW8 frame
+             * can be <48: filtering all of them reads nine source pixels
+             * twice (fast + dense scan). Candidates are still verified with
+             * filtered original pixels below before geometry/ECC200 checks. */
             int value = image->pixels[(size_t)y * step * image->width + source_x];
-            if (value < 48) value = marker_filtered_gray(image, source_x, y * step);
             mask[y * width + x] = value;
-            queue[y * width + x] = value + (x ? queue[y * width + x - 1] : 0) +
-                (y ? queue[(y - 1) * width + x] : 0) -
-                (x && y ? queue[(y - 1) * width + x - 1] : 0);
+            if (integral_grid)
+                queue32[y * width + x] = value + (x ? queue32[y * width + x - 1] : 0) +
+                    (y ? queue32[(y - 1) * width + x] : 0) -
+                    (x && y ? queue32[(y - 1) * width + x - 1] : 0);
             if (value < minimum) minimum = value;
             if (value > maximum) maximum = value;
         }
     }
-    trace_marker_pgm("02_marker_sample_6x.pgm", mask, width, height, 0);
+    trace_marker_pgm(step == 6 ? "02_marker_sample_6x.pgm" : "02_marker_sample_dense.pgm", mask, width, height, 0);
     int threshold = minimum + (maximum - minimum) * 35 / 100;
     if (threshold < 24) threshold = 24;
     if (threshold > 160) threshold = 160;
+    if (integral_grid) {
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                int left = x > 6 ? x - 6 : 0;
+                int top = y > 6 ? y - 6 : 0;
+                int right = x + 6 < width ? x + 6 : width - 1;
+                int bottom = y + 6 < height ? y + 6 : height - 1;
+                int sum = queue32[bottom * width + right] - (left ? queue32[bottom * width + left - 1] : 0) -
+                    (top ? queue32[(top - 1) * width + right] : 0) +
+                    (left && top ? queue32[(top - 1) * width + left - 1] : 0);
+                int area = (right - left + 1) * (bottom - top + 1);
+                int value = mask[y * width + x];
+                mask[y * width + x] = value * area * 100 < sum * 75;
+            }
+        }
+    } else {
+    memset(columns, 0, (size_t)width * sizeof(*columns));
+    for (int y = 0; y < height && y <= 6; y++)
+        for (int x = 0; x < width; x++) columns[x] += mask[y * width + x];
     for (int y = 0; y < height; y++) {
+        memcpy(history + (y % 7) * width, mask + y * width, width);
+        int sum = 0;
+        for (int x = 0; x < width && x <= 6; x++) sum += columns[x];
+        int top = y > 6 ? y - 6 : 0;
+        int bottom = y + 6 < height ? y + 6 : height - 1;
         for (int x = 0; x < width; x++) {
             int left = x > 6 ? x - 6 : 0;
-            int top = y > 6 ? y - 6 : 0;
             int right = x + 6 < width ? x + 6 : width - 1;
-            int bottom = y + 6 < height ? y + 6 : height - 1;
-            int sum = queue[bottom * width + right] - (left ? queue[bottom * width + left - 1] : 0) -
-                (top ? queue[(top - 1) * width + right] : 0) +
-                (left && top ? queue[(top - 1) * width + left - 1] : 0);
             int area = (right - left + 1) * (bottom - top + 1);
             int value = mask[y * width + x];
-            mask[y * width + x] = value < threshold && value * area * 100 < sum * 75;
+            mask[y * width + x] = value * area * 100 < sum * 75;
+            if (x >= 6) sum -= columns[x - 6];
+            if (x + 7 < width) sum += columns[x + 7];
         }
+        for (int x = 0; x < width; x++) {
+            if (y >= 6) columns[x] -= history[((y - 6) % 7) * width + x];
+            if (y + 7 < height) columns[x] += mask[(y + 7) * width + x];
+        }
+    }
     }
     trace_marker_pgm("03_marker_binary.pgm", mask, width, height, 1);
     for (int start_y = 0; start_y < height; start_y++) {
@@ -360,9 +455,10 @@ static int find_marker_roi_slice(const Image *image, int sample_left, int sample
             int tail = 0;
             int min_x = start_x, max_x = start_x, min_y = start_y, max_y = start_y;
             mask[start] = 0;
-            queue[tail++] = start_y * width + start_x;
+            if (narrow_queue) queue16[tail++] = start_y * width + start_x;
+            else queue32[tail++] = start_y * width + start_x;
             while (head < tail) {
-                int point = queue[head++];
+                int point = narrow_queue ? queue16[head++] : queue32[head++];
                 int x = point % width;
                 int y = point / width;
                 if (x < min_x) min_x = x;
@@ -378,20 +474,37 @@ static int find_marker_roi_slice(const Image *image, int sample_left, int sample
                     int next = next_y * width + next_x;
                     if (!mask[next]) continue;
                     mask[next] = 0;
-                    queue[tail++] = next;
+                    if (narrow_queue) queue16[tail++] = next;
+                    else queue32[tail++] = next;
                 }
             }
             int component_width = max_x - min_x + 1;
             int component_height = max_y - min_y + 1;
             int component_area = tail;
+            int candidate_threshold = threshold;
             if (component_width >= 2 && component_height >= 2 && component_width <= 32 && component_height <= 32) {
+                /* A distant dark background must not set the black threshold
+                 * on an illuminated label. Estimate its surrounding paper. */
+                int center_x = (min_x + max_x + 2 * sample_left) * step / 2;
+                int center_y = (min_y + max_y) * step / 2;
+                int light_sum = 0, light_count = 0;
+                for (int side = 0; side < 4; side++) {
+                    int sample_x = center_x + (side < 2 ? (side ? 1 : -1) * (component_width + 2) * step / 2 : 0);
+                    int sample_y = center_y + (side >= 2 ? (side == 3 ? 1 : -1) * (component_height + 2) * step / 2 : 0);
+                    if (sample_x < 0 || sample_y < 0 || sample_x >= image->width || sample_y >= image->height) continue;
+                    light_sum += marker_filtered_gray(image, sample_x, sample_y);
+                    light_count++;
+                }
+                if (light_count && light_sum * 65 / (light_count * 100) > candidate_threshold)
+                    candidate_threshold = light_sum * 65 / (light_count * 100);
                 int filtered_min_x = width, filtered_max_x = -1;
                 int filtered_min_y = height, filtered_max_y = -1;
                 int filtered_area = 0;
                 for (int sample = 0; sample < tail; sample++) {
-                    int sample_x = queue[sample] % width;
-                    int sample_y = queue[sample] / width;
-                    if (marker_filtered_gray(image, (sample_x + sample_left) * step, sample_y * step) >= threshold) continue;
+                    int point = narrow_queue ? queue16[sample] : queue32[sample];
+                    int sample_x = point % width;
+                    int sample_y = point / width;
+                    if (marker_filtered_gray(image, (sample_x + sample_left) * step, sample_y * step) >= candidate_threshold) continue;
                     if (sample_x < filtered_min_x) filtered_min_x = sample_x;
                     if (sample_x > filtered_max_x) filtered_max_x = sample_x;
                     if (sample_y < filtered_min_y) filtered_min_y = sample_y;
@@ -449,7 +562,8 @@ static int find_marker_roi_slice(const Image *image, int sample_left, int sample
                 continue;
             }
             if (candidate_count < (int)(sizeof(candidates) / sizeof(candidates[0])))
-                candidates[candidate_count++] = (MarkerCandidate){min_x + sample_left, min_y, component_width, component_height, component_area};
+                candidates[candidate_count++] = (MarkerCandidate){min_x + sample_left, min_y, component_width, component_height, component_area,
+                    (dark_sum / 9 + light_sum / light_count) / 2};
         }
     }
     int found = 0;
@@ -516,13 +630,19 @@ static int find_marker_roi_slice(const Image *image, int sample_left, int sample
                                                   vertical_delta_y * vertical_delta_y;
                     int marker_extent_sum = origin->w + origin->h + horizontal->w + horizontal->h + vertical->w + vertical->h;
                     int minimum_leg = marker_extent_sum * 4 / 3;
-                    int maximum_leg = marker_extent_sum * 9 / 3 + 2;
+                    /* Bounding boxes can lose an edge sample on small markers.
+                     * Allow two grid pixels of leg error in doubled coordinates. */
+                    int maximum_leg = marker_extent_sum * 9 / 3 + 4;
                     int envelope = abs(horizontal_delta_x) + abs(horizontal_delta_y);
                     int solid_markers = 1;
                     for (int marker = 0; marker < 3; marker++) {
                         MarkerCandidate *candidate = points[marker];
+                        /* A 2-3 sample marker can gain one blurred edge row
+                         * under illumination. Keep contrast/edge/ECC checks,
+                         * but account for its coarse area quantization. */
+                        int minimum_fill = candidate->w <= 3 && candidate->h <= 3 ? 55 : 70;
                         if ((int64_t)candidate->area * 100 * envelope * envelope <
-                            (int64_t)candidate->w * candidate->h * 70 * horizontal_length_squared)
+                            (int64_t)candidate->w * candidate->h * minimum_fill * horizontal_length_squared)
                             solid_markers = 0;
                     }
                     if (!solid_markers) continue;
@@ -573,9 +693,16 @@ static int find_marker_roi_slice(const Image *image, int sample_left, int sample
 #if XCR_MARKER_DEBUG
                 fprintf(stderr, "triple %d,%d,%d score=%d quality=%d\n", first, second, third, score, geometry_quality);
 #endif
+                int local_threshold = (a->threshold + b->threshold + c->threshold) / 3;
+                if (local_threshold < threshold) local_threshold = threshold;
+                int gap_quality = marker_has_clear_gaps(image, candidate_axes, local_threshold, step);
+                if (!gap_quality) continue;
+                /* Prefer candidates that also pass the ordinary gap check.
+                 * A shadow-tolerant candidate must not displace one that
+                 * already passes the original geometric/photometric gate. */
+                if (gap_quality == 2) score += 100000;
                 if (score <= best_score) continue;
-                if (!marker_has_clear_gaps(image, candidate_axes, threshold)) continue;
-                if (!marker_has_solid_edges(image, candidate_axes, threshold)) continue;
+                if (!marker_has_solid_edges(image, candidate_axes, local_threshold, step)) continue;
                 best_score = score;
                 MarkerCandidate chosen[3] = {*a, *b, *c};
                 trace_marker_boxes("04_selected_markers.csv", chosen, 3, step);
@@ -585,9 +712,17 @@ static int find_marker_roi_slice(const Image *image, int sample_left, int sample
             }
         }
     }
-    xcr_free(queue);
+    xcr_free(workspace);
     if (score_out) *score_out = best_score;
     return found;
+}
+
+static int find_marker_roi_slice(const Image *image, int sample_left, int sample_right,
+                                 int roi[4], int *orientation, float axes[6],
+                                 int *score_out, unsigned *qr_rejected)
+{
+    return find_marker_roi_slice_step(image, sample_left, sample_right, roi,
+        orientation, axes, score_out, qr_rejected, marker_step(image));
 }
 
 static int find_marker_roi(const Image *image, int roi[4], int *orientation, float axes[6])
@@ -1238,23 +1373,86 @@ int xcr_datamatrix_refine(const XcrGrayImage *image, XcrBarcodeResult *result)
     return refined;
 }
 
-int xcr_datamatrix_marked_decode_ex(const Image *image, BarcodeResult *result, const XcrDeadline *deadline, int defer_geometry)
+int xcr_dmtx_prepare(const XcrGrayImage *image, XcrDmtxPrepared *prepared)
+{
+    if (!prepared) return 0;
+    memset(prepared, 0, sizeof(*prepared));
+    if (!image || !image->pixels || image->width <= 0 || image->height <= 0 ||
+        (image->stride && image->stride != image->width)) return 0;
+    prepared->pixels = image->pixels;
+    prepared->sequence = image->sequence;
+    prepared->width = image->width;
+    prepared->height = image->height;
+    Image source = {.pixels = (uint8_t *)image->pixels, .width = image->width, .height = image->height};
+    uint64_t started = xcr_port_time_us();
+    prepared->sample_step = marker_step(&source);
+    if (prepared->sample_step == 6)
+        prepared->sample_step = atomic_load(&preferred_marker_step);
+    prepared->found = find_marker_roi_slice_step(&source, 0,
+        (source.width + prepared->sample_step - 1) / prepared->sample_step, prepared->roi,
+        &prepared->orientation, prepared->axes, NULL, &prepared->qr_rejected, prepared->sample_step);
+    if (!prepared->found && prepared->sample_step > 4 &&
+        (!image->deadline_us || xcr_port_time_us() < image->deadline_us)) {
+        prepared->sample_step = 4;
+        prepared->found = find_marker_roi_slice_step(&source, 0, (source.width + 3) / 4,
+            prepared->roi, &prepared->orientation, prepared->axes, NULL,
+            &prepared->qr_rejected, prepared->sample_step);
+    }
+    if (prepared->found) {
+        /* At this size the marker is >=18px wide (spacing / 7). Hysteresis
+         * keeps small/quantized markers on the dense grid. Every search is
+         * still full-frame, so translations have no stale-position gate. */
+        float horizontal = hypotf(prepared->axes[2], prepared->axes[3]);
+        float vertical = hypotf(prepared->axes[4], prepared->axes[5]);
+        int next_step = prepared->sample_step == 4 && horizontal < 126 && vertical < 126 ? 4 : 6;
+        atomic_store(&preferred_marker_step, next_step);
+    }
+    prepared->search_us = xcr_port_time_us() - started;
+    return 1;
+}
+
+int xcr_datamatrix_marked_decode_prepared(const Image *image, BarcodeResult *result,
+    const XcrDeadline *deadline, int defer_geometry, const XcrDmtxPrepared *prepared)
 {
     uint64_t started = xcr_port_time_us();
     float axes[6] = {0};
     int roi[4];
     int orientation = 0;
     int full_retry = 0;
+    int sample_step = marker_step(image);
     memset(&last_stats, 0, sizeof(last_stats));
     datamatrix_debug_stats_reset();
 search_marker:
     memset(result, 0, sizeof(*result));
     memset(axes, 0, sizeof(axes));
     uint64_t prescreen_started = xcr_port_time_us();
-    int found = full_retry ? find_marker_roi(image, roi, &orientation, axes) :
-                             find_marker_roi_parallel(image, roi, &orientation, axes);
-    last_stats.prescreen_us += xcr_port_time_us() - prescreen_started;
+    int found;
+    if (prepared && !full_retry && prepared->pixels == image->pixels &&
+        prepared->width == image->width && prepared->height == image->height) {
+        found = prepared->found;
+        memcpy(roi, prepared->roi, sizeof(roi));
+        memcpy(axes, prepared->axes, sizeof(axes));
+        orientation = prepared->orientation;
+        sample_step = prepared->sample_step;
+        last_stats.qr_rejected = prepared->qr_rejected;
+        last_stats.prescreen_us = prepared->search_us;
+    } else {
+        sample_step = full_retry == 2 ? 4 : marker_step(image);
+        if (full_retry == 2)
+            found = find_marker_roi_slice_step(image, 0, (image->width + 3) / 4,
+                roi, &orientation, axes, NULL, &last_stats.qr_rejected, sample_step);
+        else
+            found = full_retry ? find_marker_roi(image, roi, &orientation, axes) :
+                                find_marker_roi_parallel(image, roi, &orientation, axes);
+        if (!found && sample_step > 4 && !xcr_deadline_expired(deadline)) {
+            sample_step = 4;
+            found = find_marker_roi_slice_step(image, 0, (image->width + 3) / 4,
+                roi, &orientation, axes, NULL, &last_stats.qr_rejected, sample_step);
+        }
+        last_stats.prescreen_us += xcr_port_time_us() - prescreen_started;
+    }
     last_stats.marker_roi_valid = found;
+    last_stats.marker_sample_step = sample_step;
     if (!found || xcr_deadline_expired(deadline)) {
         /* Use the native finder periodically when the external marker gate
          * misses a symbol; the fast path still owns the ordinary cadence. */
@@ -1276,13 +1474,16 @@ search_marker:
     last_stats.angle_degrees = atan2f(axes[3], axes[2]) * 57.2957795f;
     memcpy(last_stats.marker_roi, roi, sizeof(roi));
     int decoded = 0;
-    for (int attempt = 0; attempt < 2 && !xcr_deadline_expired(deadline); attempt++) {
+    /* Preserve the ordinary Otsu fast path and the original larger retry.
+     * In between, retry the same small ROI with a local shadow threshold. */
+    for (int attempt = 0; attempt < 3 && !xcr_deadline_expired(deadline); attempt++) {
     uint64_t sample_start = xcr_port_time_us();
     last_stats.normalize_attempts++;
-    const int side = attempt ? 192 : XCR_DM_NORMALIZED_SIDE;
-    const float margin = attempt ? side * 0.05f : 0;
-    const float spacing = attempt ? side * 0.9f : side;
-    const float center_offset = attempt ? 0 : -marker_step(image) * 0.5f;
+    const int large_retry = attempt == 2;
+    const int side = large_retry ? 192 : XCR_DM_NORMALIZED_SIDE;
+    const float margin = large_retry ? side * 0.05f : 0;
+    const float spacing = large_retry ? side * 0.9f : side;
+    const float center_offset = large_retry ? 0 : -sample_step * 0.5f;
     XcrMemClass workspace_class = XCR_MEM_LARGE;
 #ifdef ESP_PLATFORM
     if (heap_caps_get_largest_free_block(MALLOC_CAP_INTERNAL | MALLOC_CAP_8BIT) > side * side + side * 8 + 32768)
@@ -1317,8 +1518,8 @@ search_marker:
             source_x_fixed += step_x;
             source_y_fixed += step_y;
             uint8_t value = source_x >= 0 && source_x < image->width && source_y >= 0 && source_y < image->height
-                ? (attempt ? marker_filtered_gray(image, source_x, source_y) : image->pixels[source_y * image->width + source_x]) : 255;
-            if (!attempt && value < 48) value = marker_filtered_gray(image, source_x, source_y);
+                ? (large_retry ? marker_filtered_gray(image, source_x, source_y) : image->pixels[source_y * image->width + source_x]) : 255;
+            if (!large_retry && value < 48) value = marker_filtered_gray(image, source_x, source_y);
             pixels[transpose ? column * side + row : row * side + column] = value;
             histogram[value]++;
             intensity_sum += value;
@@ -1326,7 +1527,7 @@ search_marker:
       }
       }
     }
-    trace_marker_pgm(attempt ? "05_normalized_gray_192.pgm" : "05_normalized_gray_128.pgm",
+    trace_marker_pgm(large_retry ? "05_normalized_gray_192.pgm" : "05_normalized_gray_128.pgm",
                      pixels, side, side, 0);
     unsigned dark_count = 0;
     uint32_t dark_sum = 0;
@@ -1341,8 +1542,12 @@ search_marker:
         float variance = (float)dark_count * light_count * difference * difference;
         if (variance > best_variance) { best_variance = variance; threshold = value; }
     }
-    for (int pixel = 0; pixel < side * side; pixel++) pixels[pixel] = pixels[pixel] <= threshold ? 0 : 255;
-    trace_marker_pgm(attempt ? "06_normalized_binary_192.pgm" : "06_normalized_binary_128.pgm",
+    if (attempt == 1) {
+        if (!normalized_local_binary(pixels, side)) { xcr_free(pixels); continue; }
+    }
+    else for (int pixel = 0; pixel < side * side; pixel++) pixels[pixel] = pixels[pixel] <= threshold ? 0 : 255;
+    trace_marker_pgm(attempt == 1 ? "06_normalized_local_128.pgm" :
+                     (large_retry ? "06_normalized_binary_192.pgm" : "06_normalized_binary_128.pgm"),
                      pixels, side, side, 0);
     last_stats.normalize_pass_us[attempt] = xcr_port_time_us() - sample_start;
     last_stats.setup_us += last_stats.normalize_pass_us[attempt];
@@ -1359,7 +1564,7 @@ search_marker:
             if (result->grid_rows == 10 && result->grid_cols == 10) {
                 horizontal = horizontal < 0.5f ? 2.0f / 14 : 12.0f / 14;
                 vertical = vertical < 0.5f ? 2.0f / 14 : 12.0f / 14;
-                float mapped_offset = -marker_step(image) * 0.5f;
+                float mapped_offset = -sample_step * 0.5f;
                 result->geometry_seed[point * 2] = (int)lroundf(axes[0] + mapped_offset + horizontal * axes[2] + vertical * axes[4]);
                 result->geometry_seed[point * 2 + 1] = (int)lroundf(axes[1] + mapped_offset + horizontal * axes[3] + vertical * axes[5]);
                 result->geometry_seed_valid = 1;
@@ -1378,6 +1583,12 @@ search_marker:
         last_stats.marker_full_fallback = 1;
         goto search_marker;
     }
+    /* A sparse-grid false candidate can pass geometry but fail ECC200.
+     * Retry this frame densely as well, before reporting decode failure. */
+    if (!decoded && full_retry != 2 && sample_step > 4 && !xcr_deadline_expired(deadline)) {
+        full_retry = 2;
+        goto search_marker;
+    }
     if (decoded > 0 && result->geometry_valid) result->geometry_quality = XCR_GEOMETRY_COARSE;
     if (decoded > 0 && result->geometry_valid && !defer_geometry) {
         uint64_t geometry_start = xcr_port_time_us();
@@ -1386,6 +1597,12 @@ search_marker:
     }
     last_stats.total_us = xcr_port_time_us() - started;
     return decoded;
+}
+
+int xcr_datamatrix_marked_decode_ex(const Image *image, BarcodeResult *result,
+    const XcrDeadline *deadline, int defer_geometry)
+{
+    return xcr_datamatrix_marked_decode_prepared(image, result, deadline, defer_geometry, NULL);
 }
 
 int xcr_datamatrix_marked_decode(const Image *image, BarcodeResult *result, const XcrDeadline *deadline)

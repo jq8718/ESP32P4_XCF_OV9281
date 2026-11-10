@@ -1,5 +1,7 @@
 # OV9281 DataMatrix 解码路径与耗时
 
+当前默认固件已使用 Core 0 整图标记搜索、Core 1 后段解码的两级跨帧流水线，最新分工和耗时见 [FRAME_STAGE_PIPELINE.md](../FRAME_STAGE_PIPELINE.md)。本页保留之前的算法图解和历史测量。
+
 ## 实际路径
 
 当前 `sdkconfig` 设置 `CONFIG_XCR_DATAMATRIX_ONLY=y`，没有启用 `CONFIG_XCR_DATAMATRIX_LIBDMTX`。因此运行的是项目内的外部三标记定位 + 自有 ECC200 解码器，不是 libdmtx。OV9281 的 1280×720 Gray8 帧在 Core 0 采集，经只保留最新帧的队列交给 Core 1；当前实时固件由 Core 0/1 并行搜索左右区域的外部标记，Core 1 后续解码并精修角点。帧龄上限是 100 ms。入口见 `port/standalone_idf_test/main/agv_pipeline.c`、`port/components/xcr_decoder/src/xcr_decoder.c`、`port/components/xcr_decoder/src/xcr_dmtx.c` 和 `port/components/xcr_decoder/vendor/symbologies/datamatrix.c`。本页下面的板端耗时属于此前的串行标记搜索与跨核精修版本，当前数据见 `../PARALLEL_MARKER_SEARCH.md`。

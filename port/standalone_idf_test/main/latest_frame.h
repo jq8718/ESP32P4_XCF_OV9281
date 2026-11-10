@@ -2,14 +2,18 @@
 #include <stdint.h>
 
 typedef enum { FRAME_FREE, FRAME_WRITING, FRAME_PENDING, FRAME_DECODING } frame_state_t;
+
+#ifndef LATEST_FRAME_SLOT_COUNT
+#define LATEST_FRAME_SLOT_COUNT 3
+#endif
 typedef struct {
-    frame_state_t states[3];
+    frame_state_t states[LATEST_FRAME_SLOT_COUNT];
     uint32_t replaced;
 } latest_frame_pool_t;
 
 static inline int latest_frame_reserve(latest_frame_pool_t *pool)
 {
-    for (int index = 0; index < 3; index++) {
+    for (int index = 0; index < LATEST_FRAME_SLOT_COUNT; index++) {
         if (pool->states[index] == FRAME_FREE) {
             pool->states[index] = FRAME_WRITING;
             return index;
@@ -20,7 +24,7 @@ static inline int latest_frame_reserve(latest_frame_pool_t *pool)
 
 static inline void latest_frame_publish(latest_frame_pool_t *pool, int slot)
 {
-    for (int index = 0; index < 3; index++) {
+    for (int index = 0; index < LATEST_FRAME_SLOT_COUNT; index++) {
         if (pool->states[index] == FRAME_PENDING) {
             pool->states[index] = FRAME_FREE;
             pool->replaced++;
@@ -31,7 +35,7 @@ static inline void latest_frame_publish(latest_frame_pool_t *pool, int slot)
 
 static inline int latest_frame_take(latest_frame_pool_t *pool)
 {
-    for (int index = 0; index < 3; index++) {
+    for (int index = 0; index < LATEST_FRAME_SLOT_COUNT; index++) {
         if (pool->states[index] == FRAME_PENDING) {
             pool->states[index] = FRAME_DECODING;
             return index;

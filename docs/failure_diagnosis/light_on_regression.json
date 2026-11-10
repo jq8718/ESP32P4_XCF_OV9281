@@ -1,0 +1,7533 @@
+[
+  {
+    "source": "light_on01",
+    "dx": 0,
+    "dy": 0,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2435,
+      "marker_us": 528,
+      "normalize_us": 0,
+      "core_us": 199,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 198,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2319,
+      "marker_us": 363,
+      "normalize_us": 54,
+      "core_us": 29,
+      "refine_us": 29,
+      "marker_roi": [
+        412,
+        160,
+        516,
+        268
+      ],
+      "angle_deg": 93.691,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 15,
+      "core_candidate_us": 12,
+      "core_codeword_us": 1,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        443,
+        188,
+        485,
+        190,
+        483,
+        235,
+        441,
+        232
+      ]
+    }
+  },
+  {
+    "source": "light_on01",
+    "dx": 1,
+    "dy": 0,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2506,
+      "marker_us": 527,
+      "normalize_us": 0,
+      "core_us": 245,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 244,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2450,
+      "marker_us": 374,
+      "normalize_us": 54,
+      "core_us": 27,
+      "refine_us": 29,
+      "marker_roi": [
+        420,
+        164,
+        516,
+        264
+      ],
+      "angle_deg": 91.848,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 13,
+      "core_candidate_us": 13,
+      "core_codeword_us": 0,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        444,
+        188,
+        486,
+        190,
+        484,
+        235,
+        442,
+        232
+      ]
+    }
+  },
+  {
+    "source": "light_on01",
+    "dx": 2,
+    "dy": 0,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2564,
+      "marker_us": 558,
+      "normalize_us": 0,
+      "core_us": 196,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 196,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2312,
+      "marker_us": 384,
+      "normalize_us": 53,
+      "core_us": 32,
+      "refine_us": 29,
+      "marker_roi": [
+        416,
+        160,
+        520,
+        268
+      ],
+      "angle_deg": 93.691,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 18,
+      "core_candidate_us": 11,
+      "core_codeword_us": 2,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        445,
+        188,
+        487,
+        190,
+        485,
+        235,
+        443,
+        232
+      ]
+    }
+  },
+  {
+    "source": "light_on01",
+    "dx": 3,
+    "dy": 0,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2504,
+      "marker_us": 535,
+      "normalize_us": 0,
+      "core_us": 205,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 205,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2307,
+      "marker_us": 366,
+      "normalize_us": 53,
+      "core_us": 29,
+      "refine_us": 28,
+      "marker_roi": [
+        416,
+        160,
+        520,
+        268
+      ],
+      "angle_deg": 93.691,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 15,
+      "core_candidate_us": 12,
+      "core_codeword_us": 1,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        446,
+        188,
+        488,
+        190,
+        486,
+        235,
+        444,
+        232
+      ]
+    }
+  },
+  {
+    "source": "light_on01",
+    "dx": 4,
+    "dy": 0,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2475,
+      "marker_us": 556,
+      "normalize_us": 0,
+      "core_us": 201,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 200,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2324,
+      "marker_us": 372,
+      "normalize_us": 53,
+      "core_us": 29,
+      "refine_us": 29,
+      "marker_roi": [
+        416,
+        160,
+        520,
+        268
+      ],
+      "angle_deg": 93.691,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 15,
+      "core_candidate_us": 11,
+      "core_codeword_us": 1,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        447,
+        188,
+        489,
+        190,
+        487,
+        235,
+        445,
+        232
+      ]
+    }
+  },
+  {
+    "source": "light_on01",
+    "dx": 5,
+    "dy": 0,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2609,
+      "marker_us": 508,
+      "normalize_us": 0,
+      "core_us": 208,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 207,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2360,
+      "marker_us": 368,
+      "normalize_us": 52,
+      "core_us": 28,
+      "refine_us": 28,
+      "marker_roi": [
+        424,
+        164,
+        520,
+        264
+      ],
+      "angle_deg": 91.848,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 14,
+      "core_candidate_us": 12,
+      "core_codeword_us": 1,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        448,
+        188,
+        490,
+        190,
+        488,
+        235,
+        446,
+        232
+      ]
+    }
+  },
+  {
+    "source": "light_on01",
+    "dx": 0,
+    "dy": 1,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2423,
+      "marker_us": 518,
+      "normalize_us": 0,
+      "core_us": 191,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 190,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2332,
+      "marker_us": 362,
+      "normalize_us": 52,
+      "core_us": 28,
+      "refine_us": 28,
+      "marker_roi": [
+        416,
+        164,
+        516,
+        268
+      ],
+      "angle_deg": 93.576,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 14,
+      "core_candidate_us": 13,
+      "core_codeword_us": 0,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        443,
+        189,
+        485,
+        191,
+        483,
+        236,
+        441,
+        233
+      ]
+    }
+  },
+  {
+    "source": "light_on01",
+    "dx": 1,
+    "dy": 1,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2473,
+      "marker_us": 533,
+      "normalize_us": 0,
+      "core_us": 203,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 202,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2286,
+      "marker_us": 371,
+      "normalize_us": 53,
+      "core_us": 29,
+      "refine_us": 27,
+      "marker_roi": [
+        420,
+        164,
+        516,
+        268
+      ],
+      "angle_deg": 91.79,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 15,
+      "core_candidate_us": 13,
+      "core_codeword_us": 0,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        444,
+        189,
+        486,
+        191,
+        484,
+        236,
+        442,
+        233
+      ]
+    }
+  },
+  {
+    "source": "light_on01",
+    "dx": 2,
+    "dy": 1,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2508,
+      "marker_us": 537,
+      "normalize_us": 0,
+      "core_us": 234,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 196,
+      "core_candidate_us": 38,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2341,
+      "marker_us": 415,
+      "normalize_us": 54,
+      "core_us": 38,
+      "refine_us": 28,
+      "marker_roi": [
+        416,
+        160,
+        520,
+        268
+      ],
+      "angle_deg": 93.576,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 22,
+      "core_candidate_us": 12,
+      "core_codeword_us": 1,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        445,
+        189,
+        487,
+        191,
+        485,
+        236,
+        443,
+        233
+      ]
+    }
+  },
+  {
+    "source": "light_on01",
+    "dx": 3,
+    "dy": 1,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2566,
+      "marker_us": 536,
+      "normalize_us": 0,
+      "core_us": 249,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 210,
+      "core_candidate_us": 37,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2345,
+      "marker_us": 370,
+      "normalize_us": 52,
+      "core_us": 29,
+      "refine_us": 28,
+      "marker_roi": [
+        420,
+        164,
+        520,
+        268
+      ],
+      "angle_deg": 93.576,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 16,
+      "core_candidate_us": 11,
+      "core_codeword_us": 1,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        446,
+        189,
+        488,
+        191,
+        486,
+        236,
+        444,
+        233
+      ]
+    }
+  },
+  {
+    "source": "light_on01",
+    "dx": 4,
+    "dy": 1,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2501,
+      "marker_us": 536,
+      "normalize_us": 0,
+      "core_us": 204,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 203,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2394,
+      "marker_us": 378,
+      "normalize_us": 52,
+      "core_us": 30,
+      "refine_us": 28,
+      "marker_roi": [
+        420,
+        164,
+        520,
+        268
+      ],
+      "angle_deg": 93.576,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 17,
+      "core_candidate_us": 12,
+      "core_codeword_us": 0,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        447,
+        189,
+        489,
+        191,
+        487,
+        236,
+        445,
+        233
+      ]
+    }
+  },
+  {
+    "source": "light_on01",
+    "dx": 5,
+    "dy": 1,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2509,
+      "marker_us": 568,
+      "normalize_us": 0,
+      "core_us": 206,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 206,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2347,
+      "marker_us": 371,
+      "normalize_us": 54,
+      "core_us": 30,
+      "refine_us": 28,
+      "marker_roi": [
+        424,
+        164,
+        520,
+        268
+      ],
+      "angle_deg": 91.79,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 16,
+      "core_candidate_us": 13,
+      "core_codeword_us": 0,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        448,
+        189,
+        490,
+        191,
+        488,
+        236,
+        446,
+        233
+      ]
+    }
+  },
+  {
+    "source": "light_on01",
+    "dx": 0,
+    "dy": 2,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2481,
+      "marker_us": 554,
+      "normalize_us": 0,
+      "core_us": 217,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 217,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2317,
+      "marker_us": 363,
+      "normalize_us": 52,
+      "core_us": 31,
+      "refine_us": 28,
+      "marker_roi": [
+        416,
+        164,
+        516,
+        268
+      ],
+      "angle_deg": 93.576,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 16,
+      "core_candidate_us": 13,
+      "core_codeword_us": 0,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        443,
+        190,
+        485,
+        192,
+        483,
+        237,
+        441,
+        234
+      ]
+    }
+  },
+  {
+    "source": "light_on01",
+    "dx": 1,
+    "dy": 2,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2499,
+      "marker_us": 569,
+      "normalize_us": 0,
+      "core_us": 209,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 208,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2450,
+      "marker_us": 385,
+      "normalize_us": 52,
+      "core_us": 44,
+      "refine_us": 28,
+      "marker_roi": [
+        420,
+        168,
+        516,
+        268
+      ],
+      "angle_deg": 91.79,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 28,
+      "core_candidate_us": 13,
+      "core_codeword_us": 1,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        444,
+        190,
+        486,
+        192,
+        484,
+        237,
+        442,
+        234
+      ]
+    }
+  },
+  {
+    "source": "light_on01",
+    "dx": 2,
+    "dy": 2,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2730,
+      "marker_us": 508,
+      "normalize_us": 0,
+      "core_us": 215,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 214,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2377,
+      "marker_us": 372,
+      "normalize_us": 53,
+      "core_us": 43,
+      "refine_us": 28,
+      "marker_roi": [
+        420,
+        164,
+        520,
+        268
+      ],
+      "angle_deg": 93.576,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 18,
+      "core_candidate_us": 23,
+      "core_codeword_us": 0,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        445,
+        190,
+        487,
+        192,
+        485,
+        237,
+        443,
+        234
+      ]
+    }
+  },
+  {
+    "source": "light_on01",
+    "dx": 3,
+    "dy": 2,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2561,
+      "marker_us": 519,
+      "normalize_us": 0,
+      "core_us": 266,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 265,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2644,
+      "marker_us": 371,
+      "normalize_us": 53,
+      "core_us": 31,
+      "refine_us": 40,
+      "marker_roi": [
+        420,
+        164,
+        520,
+        268
+      ],
+      "angle_deg": 93.576,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 17,
+      "core_candidate_us": 12,
+      "core_codeword_us": 1,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        446,
+        190,
+        489,
+        192,
+        486,
+        237,
+        444,
+        234
+      ]
+    }
+  },
+  {
+    "source": "light_on01",
+    "dx": 4,
+    "dy": 2,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2568,
+      "marker_us": 520,
+      "normalize_us": 0,
+      "core_us": 214,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 213,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 3242,
+      "marker_us": 509,
+      "normalize_us": 82,
+      "core_us": 52,
+      "refine_us": 40,
+      "marker_roi": [
+        420,
+        164,
+        520,
+        268
+      ],
+      "angle_deg": 93.576,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 32,
+      "core_candidate_us": 16,
+      "core_codeword_us": 2,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        447,
+        190,
+        489,
+        192,
+        487,
+        237,
+        445,
+        234
+      ]
+    }
+  },
+  {
+    "source": "light_on01",
+    "dx": 5,
+    "dy": 2,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2630,
+      "marker_us": 536,
+      "normalize_us": 0,
+      "core_us": 359,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 357,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2411,
+      "marker_us": 369,
+      "normalize_us": 52,
+      "core_us": 28,
+      "refine_us": 28,
+      "marker_roi": [
+        424,
+        168,
+        520,
+        268
+      ],
+      "angle_deg": 91.79,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 15,
+      "core_candidate_us": 11,
+      "core_codeword_us": 1,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        448,
+        190,
+        490,
+        192,
+        488,
+        237,
+        446,
+        234
+      ]
+    }
+  },
+  {
+    "source": "light_on01",
+    "dx": 0,
+    "dy": 3,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2489,
+      "marker_us": 532,
+      "normalize_us": 0,
+      "core_us": 210,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 209,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2291,
+      "marker_us": 378,
+      "normalize_us": 55,
+      "core_us": 31,
+      "refine_us": 29,
+      "marker_roi": [
+        412,
+        164,
+        516,
+        268
+      ],
+      "angle_deg": 93.814,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 16,
+      "core_candidate_us": 12,
+      "core_codeword_us": 1,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        443,
+        191,
+        485,
+        193,
+        483,
+        238,
+        441,
+        235
+      ]
+    }
+  },
+  {
+    "source": "light_on01",
+    "dx": 1,
+    "dy": 3,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2428,
+      "marker_us": 531,
+      "normalize_us": 0,
+      "core_us": 196,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 196,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2859,
+      "marker_us": 666,
+      "normalize_us": 131,
+      "core_us": 63,
+      "refine_us": 51,
+      "marker_roi": [
+        420,
+        168,
+        516,
+        268
+      ],
+      "angle_deg": 91.909,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 40,
+      "core_candidate_us": 17,
+      "core_codeword_us": 2,
+      "core_ecc_us": 2,
+      "core_payload_us": 0,
+      "corners": [
+        444,
+        191,
+        486,
+        193,
+        484,
+        238,
+        442,
+        235
+      ]
+    }
+  },
+  {
+    "source": "light_on01",
+    "dx": 2,
+    "dy": 3,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2498,
+      "marker_us": 527,
+      "normalize_us": 0,
+      "core_us": 200,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 197,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2375,
+      "marker_us": 410,
+      "normalize_us": 53,
+      "core_us": 34,
+      "refine_us": 29,
+      "marker_roi": [
+        416,
+        164,
+        520,
+        268
+      ],
+      "angle_deg": 93.814,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 18,
+      "core_candidate_us": 13,
+      "core_codeword_us": 0,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        445,
+        191,
+        487,
+        193,
+        485,
+        238,
+        443,
+        235
+      ]
+    }
+  },
+  {
+    "source": "light_on01",
+    "dx": 3,
+    "dy": 3,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2578,
+      "marker_us": 543,
+      "normalize_us": 0,
+      "core_us": 298,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 296,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2337,
+      "marker_us": 376,
+      "normalize_us": 54,
+      "core_us": 30,
+      "refine_us": 28,
+      "marker_roi": [
+        416,
+        164,
+        520,
+        268
+      ],
+      "angle_deg": 93.814,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 16,
+      "core_candidate_us": 12,
+      "core_codeword_us": 1,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        446,
+        191,
+        488,
+        193,
+        486,
+        238,
+        444,
+        235
+      ]
+    }
+  },
+  {
+    "source": "light_on01",
+    "dx": 4,
+    "dy": 3,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 3446,
+      "marker_us": 764,
+      "normalize_us": 0,
+      "core_us": 316,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 315,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2383,
+      "marker_us": 381,
+      "normalize_us": 53,
+      "core_us": 30,
+      "refine_us": 29,
+      "marker_roi": [
+        416,
+        164,
+        520,
+        268
+      ],
+      "angle_deg": 93.814,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 16,
+      "core_candidate_us": 12,
+      "core_codeword_us": 1,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        447,
+        191,
+        489,
+        193,
+        487,
+        238,
+        445,
+        235
+      ]
+    }
+  },
+  {
+    "source": "light_on01",
+    "dx": 5,
+    "dy": 3,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 3090,
+      "marker_us": 682,
+      "normalize_us": 0,
+      "core_us": 227,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 226,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 3020,
+      "marker_us": 465,
+      "normalize_us": 54,
+      "core_us": 56,
+      "refine_us": 42,
+      "marker_roi": [
+        424,
+        168,
+        520,
+        268
+      ],
+      "angle_deg": 91.909,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 34,
+      "core_candidate_us": 19,
+      "core_codeword_us": 1,
+      "core_ecc_us": 2,
+      "core_payload_us": 0,
+      "corners": [
+        448,
+        191,
+        490,
+        193,
+        488,
+        238,
+        446,
+        235
+      ]
+    }
+  },
+  {
+    "source": "light_on01",
+    "dx": 0,
+    "dy": 4,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2512,
+      "marker_us": 531,
+      "normalize_us": 0,
+      "core_us": 212,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 211,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2370,
+      "marker_us": 373,
+      "normalize_us": 52,
+      "core_us": 31,
+      "refine_us": 29,
+      "marker_roi": [
+        412,
+        164,
+        516,
+        272
+      ],
+      "angle_deg": 93.691,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 17,
+      "core_candidate_us": 13,
+      "core_codeword_us": 0,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        443,
+        192,
+        485,
+        194,
+        483,
+        239,
+        441,
+        236
+      ]
+    }
+  },
+  {
+    "source": "light_on01",
+    "dx": 1,
+    "dy": 4,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2490,
+      "marker_us": 565,
+      "normalize_us": 0,
+      "core_us": 202,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 201,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2333,
+      "marker_us": 372,
+      "normalize_us": 52,
+      "core_us": 32,
+      "refine_us": 29,
+      "marker_roi": [
+        420,
+        168,
+        516,
+        268
+      ],
+      "angle_deg": 91.848,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 17,
+      "core_candidate_us": 11,
+      "core_codeword_us": 2,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        444,
+        192,
+        486,
+        194,
+        484,
+        239,
+        442,
+        236
+      ]
+    }
+  },
+  {
+    "source": "light_on01",
+    "dx": 2,
+    "dy": 4,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2531,
+      "marker_us": 533,
+      "normalize_us": 0,
+      "core_us": 243,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 204,
+      "core_candidate_us": 36,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2519,
+      "marker_us": 413,
+      "normalize_us": 54,
+      "core_us": 30,
+      "refine_us": 28,
+      "marker_roi": [
+        416,
+        164,
+        520,
+        272
+      ],
+      "angle_deg": 93.691,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 16,
+      "core_candidate_us": 12,
+      "core_codeword_us": 1,
+      "core_ecc_us": 0,
+      "core_payload_us": 1,
+      "corners": [
+        445,
+        192,
+        487,
+        194,
+        485,
+        239,
+        443,
+        236
+      ]
+    }
+  },
+  {
+    "source": "light_on01",
+    "dx": 3,
+    "dy": 4,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2595,
+      "marker_us": 523,
+      "normalize_us": 0,
+      "core_us": 244,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 206,
+      "core_candidate_us": 36,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2388,
+      "marker_us": 379,
+      "normalize_us": 54,
+      "core_us": 28,
+      "refine_us": 28,
+      "marker_roi": [
+        416,
+        164,
+        520,
+        272
+      ],
+      "angle_deg": 93.691,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 14,
+      "core_candidate_us": 12,
+      "core_codeword_us": 1,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        446,
+        192,
+        488,
+        194,
+        486,
+        239,
+        444,
+        236
+      ]
+    }
+  },
+  {
+    "source": "light_on01",
+    "dx": 4,
+    "dy": 4,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2488,
+      "marker_us": 536,
+      "normalize_us": 0,
+      "core_us": 212,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 211,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2393,
+      "marker_us": 372,
+      "normalize_us": 53,
+      "core_us": 27,
+      "refine_us": 29,
+      "marker_roi": [
+        416,
+        164,
+        520,
+        272
+      ],
+      "angle_deg": 93.691,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 13,
+      "core_candidate_us": 12,
+      "core_codeword_us": 1,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        447,
+        192,
+        489,
+        194,
+        487,
+        239,
+        445,
+        236
+      ]
+    }
+  },
+  {
+    "source": "light_on01",
+    "dx": 5,
+    "dy": 4,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2485,
+      "marker_us": 535,
+      "normalize_us": 0,
+      "core_us": 208,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 207,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2417,
+      "marker_us": 372,
+      "normalize_us": 54,
+      "core_us": 27,
+      "refine_us": 28,
+      "marker_roi": [
+        424,
+        168,
+        520,
+        268
+      ],
+      "angle_deg": 91.848,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 14,
+      "core_candidate_us": 12,
+      "core_codeword_us": 1,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        448,
+        192,
+        490,
+        194,
+        488,
+        239,
+        446,
+        236
+      ]
+    }
+  },
+  {
+    "source": "light_on01",
+    "dx": 0,
+    "dy": 5,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2519,
+      "marker_us": 531,
+      "normalize_us": 0,
+      "core_us": 216,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 214,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2301,
+      "marker_us": 380,
+      "normalize_us": 53,
+      "core_us": 31,
+      "refine_us": 29,
+      "marker_roi": [
+        416,
+        168,
+        516,
+        272
+      ],
+      "angle_deg": 93.576,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 16,
+      "core_candidate_us": 13,
+      "core_codeword_us": 0,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        443,
+        193,
+        485,
+        195,
+        483,
+        240,
+        441,
+        237
+      ]
+    }
+  },
+  {
+    "source": "light_on01",
+    "dx": 1,
+    "dy": 5,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2458,
+      "marker_us": 523,
+      "normalize_us": 0,
+      "core_us": 248,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 248,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2383,
+      "marker_us": 370,
+      "normalize_us": 53,
+      "core_us": 28,
+      "refine_us": 28,
+      "marker_roi": [
+        420,
+        168,
+        516,
+        272
+      ],
+      "angle_deg": 91.79,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 14,
+      "core_candidate_us": 12,
+      "core_codeword_us": 1,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        444,
+        193,
+        486,
+        195,
+        484,
+        240,
+        442,
+        237
+      ]
+    }
+  },
+  {
+    "source": "light_on01",
+    "dx": 2,
+    "dy": 5,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2516,
+      "marker_us": 536,
+      "normalize_us": 0,
+      "core_us": 238,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 201,
+      "core_candidate_us": 36,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2295,
+      "marker_us": 385,
+      "normalize_us": 52,
+      "core_us": 32,
+      "refine_us": 29,
+      "marker_roi": [
+        416,
+        164,
+        520,
+        272
+      ],
+      "angle_deg": 93.576,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 17,
+      "core_candidate_us": 11,
+      "core_codeword_us": 2,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        445,
+        193,
+        487,
+        195,
+        485,
+        240,
+        443,
+        237
+      ]
+    }
+  },
+  {
+    "source": "light_on01",
+    "dx": 3,
+    "dy": 5,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2498,
+      "marker_us": 541,
+      "normalize_us": 0,
+      "core_us": 232,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 195,
+      "core_candidate_us": 36,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2388,
+      "marker_us": 363,
+      "normalize_us": 53,
+      "core_us": 28,
+      "refine_us": 27,
+      "marker_roi": [
+        420,
+        168,
+        520,
+        272
+      ],
+      "angle_deg": 93.576,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 15,
+      "core_candidate_us": 11,
+      "core_codeword_us": 1,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        446,
+        193,
+        488,
+        195,
+        486,
+        240,
+        444,
+        237
+      ]
+    }
+  },
+  {
+    "source": "light_on01",
+    "dx": 4,
+    "dy": 5,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2676,
+      "marker_us": 519,
+      "normalize_us": 0,
+      "core_us": 209,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 207,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2427,
+      "marker_us": 424,
+      "normalize_us": 52,
+      "core_us": 33,
+      "refine_us": 30,
+      "marker_roi": [
+        420,
+        168,
+        520,
+        272
+      ],
+      "angle_deg": 93.576,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 19,
+      "core_candidate_us": 11,
+      "core_codeword_us": 2,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        447,
+        193,
+        489,
+        195,
+        487,
+        240,
+        445,
+        237
+      ]
+    }
+  },
+  {
+    "source": "light_on01",
+    "dx": 5,
+    "dy": 5,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2458,
+      "marker_us": 533,
+      "normalize_us": 0,
+      "core_us": 205,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 204,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2439,
+      "marker_us": 376,
+      "normalize_us": 53,
+      "core_us": 30,
+      "refine_us": 29,
+      "marker_roi": [
+        424,
+        168,
+        520,
+        272
+      ],
+      "angle_deg": 91.79,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 16,
+      "core_candidate_us": 12,
+      "core_codeword_us": 1,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        448,
+        193,
+        490,
+        195,
+        488,
+        240,
+        446,
+        237
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 0,
+    "dy": 0,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2519,
+      "marker_us": 539,
+      "normalize_us": 0,
+      "core_us": 215,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 214,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2611,
+      "marker_us": 389,
+      "normalize_us": 55,
+      "core_us": 33,
+      "refine_us": 28,
+      "marker_roi": [
+        412,
+        160,
+        516,
+        268
+      ],
+      "angle_deg": 93.691,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 19,
+      "core_candidate_us": 13,
+      "core_codeword_us": 0,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        443,
+        188,
+        485,
+        190,
+        483,
+        235,
+        441,
+        232
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 1,
+    "dy": 0,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2855,
+      "marker_us": 529,
+      "normalize_us": 0,
+      "core_us": 216,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 215,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2357,
+      "marker_us": 374,
+      "normalize_us": 53,
+      "core_us": 32,
+      "refine_us": 29,
+      "marker_roi": [
+        420,
+        164,
+        516,
+        264
+      ],
+      "angle_deg": 91.848,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 18,
+      "core_candidate_us": 13,
+      "core_codeword_us": 0,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        444,
+        188,
+        486,
+        190,
+        484,
+        235,
+        442,
+        232
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 2,
+    "dy": 0,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2481,
+      "marker_us": 542,
+      "normalize_us": 0,
+      "core_us": 205,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 204,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2329,
+      "marker_us": 371,
+      "normalize_us": 53,
+      "core_us": 31,
+      "refine_us": 28,
+      "marker_roi": [
+        416,
+        160,
+        520,
+        268
+      ],
+      "angle_deg": 93.691,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 16,
+      "core_candidate_us": 13,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        445,
+        188,
+        487,
+        190,
+        485,
+        235,
+        443,
+        232
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 3,
+    "dy": 0,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2521,
+      "marker_us": 520,
+      "normalize_us": 0,
+      "core_us": 206,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 206,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2357,
+      "marker_us": 371,
+      "normalize_us": 54,
+      "core_us": 28,
+      "refine_us": 28,
+      "marker_roi": [
+        416,
+        160,
+        520,
+        268
+      ],
+      "angle_deg": 93.691,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 14,
+      "core_candidate_us": 12,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 1,
+      "corners": [
+        446,
+        188,
+        488,
+        190,
+        486,
+        235,
+        444,
+        232
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 4,
+    "dy": 0,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2522,
+      "marker_us": 568,
+      "normalize_us": 0,
+      "core_us": 201,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 200,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2406,
+      "marker_us": 369,
+      "normalize_us": 53,
+      "core_us": 27,
+      "refine_us": 29,
+      "marker_roi": [
+        416,
+        160,
+        520,
+        268
+      ],
+      "angle_deg": 93.691,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 14,
+      "core_candidate_us": 11,
+      "core_codeword_us": 1,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        447,
+        188,
+        489,
+        190,
+        487,
+        235,
+        445,
+        232
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 5,
+    "dy": 0,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2492,
+      "marker_us": 530,
+      "normalize_us": 0,
+      "core_us": 210,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 210,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2305,
+      "marker_us": 392,
+      "normalize_us": 51,
+      "core_us": 34,
+      "refine_us": 29,
+      "marker_roi": [
+        424,
+        164,
+        520,
+        264
+      ],
+      "angle_deg": 91.848,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 18,
+      "core_candidate_us": 13,
+      "core_codeword_us": 2,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        448,
+        188,
+        490,
+        190,
+        488,
+        235,
+        446,
+        232
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 0,
+    "dy": 1,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2504,
+      "marker_us": 528,
+      "normalize_us": 0,
+      "core_us": 263,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 261,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2424,
+      "marker_us": 404,
+      "normalize_us": 54,
+      "core_us": 33,
+      "refine_us": 30,
+      "marker_roi": [
+        416,
+        164,
+        516,
+        268
+      ],
+      "angle_deg": 93.576,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 17,
+      "core_candidate_us": 13,
+      "core_codeword_us": 1,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        443,
+        189,
+        485,
+        191,
+        483,
+        236,
+        441,
+        233
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 1,
+    "dy": 1,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2638,
+      "marker_us": 566,
+      "normalize_us": 0,
+      "core_us": 224,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 223,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2348,
+      "marker_us": 382,
+      "normalize_us": 54,
+      "core_us": 34,
+      "refine_us": 30,
+      "marker_roi": [
+        420,
+        164,
+        516,
+        268
+      ],
+      "angle_deg": 91.79,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 20,
+      "core_candidate_us": 12,
+      "core_codeword_us": 2,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        444,
+        189,
+        486,
+        191,
+        484,
+        236,
+        442,
+        233
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 2,
+    "dy": 1,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2463,
+      "marker_us": 535,
+      "normalize_us": 0,
+      "core_us": 198,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 196,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2341,
+      "marker_us": 375,
+      "normalize_us": 53,
+      "core_us": 31,
+      "refine_us": 28,
+      "marker_roi": [
+        416,
+        160,
+        520,
+        268
+      ],
+      "angle_deg": 93.576,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 16,
+      "core_candidate_us": 12,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        445,
+        189,
+        487,
+        191,
+        485,
+        236,
+        443,
+        233
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 3,
+    "dy": 1,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2484,
+      "marker_us": 538,
+      "normalize_us": 0,
+      "core_us": 207,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 206,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2321,
+      "marker_us": 370,
+      "normalize_us": 52,
+      "core_us": 31,
+      "refine_us": 28,
+      "marker_roi": [
+        420,
+        164,
+        520,
+        268
+      ],
+      "angle_deg": 93.576,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 16,
+      "core_candidate_us": 13,
+      "core_codeword_us": 0,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        446,
+        189,
+        488,
+        191,
+        486,
+        236,
+        444,
+        233
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 4,
+    "dy": 1,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2470,
+      "marker_us": 532,
+      "normalize_us": 0,
+      "core_us": 195,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 193,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2322,
+      "marker_us": 372,
+      "normalize_us": 54,
+      "core_us": 30,
+      "refine_us": 29,
+      "marker_roi": [
+        420,
+        164,
+        520,
+        268
+      ],
+      "angle_deg": 93.576,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 15,
+      "core_candidate_us": 13,
+      "core_codeword_us": 1,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        447,
+        189,
+        489,
+        191,
+        487,
+        236,
+        445,
+        233
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 5,
+    "dy": 1,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2464,
+      "marker_us": 531,
+      "normalize_us": 0,
+      "core_us": 202,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 201,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2380,
+      "marker_us": 410,
+      "normalize_us": 54,
+      "core_us": 33,
+      "refine_us": 30,
+      "marker_roi": [
+        424,
+        164,
+        520,
+        268
+      ],
+      "angle_deg": 91.79,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 18,
+      "core_candidate_us": 13,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 1,
+      "corners": [
+        448,
+        189,
+        490,
+        191,
+        488,
+        236,
+        446,
+        233
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 0,
+    "dy": 2,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2472,
+      "marker_us": 586,
+      "normalize_us": 0,
+      "core_us": 195,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 194,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2308,
+      "marker_us": 382,
+      "normalize_us": 53,
+      "core_us": 31,
+      "refine_us": 28,
+      "marker_roi": [
+        416,
+        164,
+        516,
+        268
+      ],
+      "angle_deg": 93.576,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 16,
+      "core_candidate_us": 13,
+      "core_codeword_us": 1,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        443,
+        190,
+        485,
+        192,
+        483,
+        237,
+        441,
+        234
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 1,
+    "dy": 2,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2451,
+      "marker_us": 533,
+      "normalize_us": 0,
+      "core_us": 195,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 194,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2323,
+      "marker_us": 401,
+      "normalize_us": 53,
+      "core_us": 33,
+      "refine_us": 29,
+      "marker_roi": [
+        420,
+        168,
+        516,
+        268
+      ],
+      "angle_deg": 91.79,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 19,
+      "core_candidate_us": 12,
+      "core_codeword_us": 2,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        444,
+        190,
+        486,
+        192,
+        484,
+        237,
+        442,
+        234
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 2,
+    "dy": 2,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2463,
+      "marker_us": 535,
+      "normalize_us": 0,
+      "core_us": 202,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 201,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2398,
+      "marker_us": 370,
+      "normalize_us": 53,
+      "core_us": 39,
+      "refine_us": 28,
+      "marker_roi": [
+        420,
+        164,
+        520,
+        268
+      ],
+      "angle_deg": 93.576,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 16,
+      "core_candidate_us": 21,
+      "core_codeword_us": 1,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        445,
+        190,
+        487,
+        192,
+        485,
+        237,
+        443,
+        234
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 3,
+    "dy": 2,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2476,
+      "marker_us": 537,
+      "normalize_us": 0,
+      "core_us": 191,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 190,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2393,
+      "marker_us": 375,
+      "normalize_us": 52,
+      "core_us": 30,
+      "refine_us": 28,
+      "marker_roi": [
+        420,
+        164,
+        520,
+        268
+      ],
+      "angle_deg": 93.576,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 16,
+      "core_candidate_us": 11,
+      "core_codeword_us": 1,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        446,
+        190,
+        488,
+        192,
+        486,
+        237,
+        444,
+        234
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 4,
+    "dy": 2,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2506,
+      "marker_us": 598,
+      "normalize_us": 0,
+      "core_us": 207,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 206,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2342,
+      "marker_us": 369,
+      "normalize_us": 53,
+      "core_us": 30,
+      "refine_us": 28,
+      "marker_roi": [
+        420,
+        164,
+        520,
+        268
+      ],
+      "angle_deg": 93.576,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 16,
+      "core_candidate_us": 12,
+      "core_codeword_us": 1,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        447,
+        190,
+        489,
+        192,
+        487,
+        237,
+        445,
+        234
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 5,
+    "dy": 2,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2476,
+      "marker_us": 529,
+      "normalize_us": 0,
+      "core_us": 209,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 208,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2353,
+      "marker_us": 371,
+      "normalize_us": 53,
+      "core_us": 30,
+      "refine_us": 28,
+      "marker_roi": [
+        424,
+        168,
+        520,
+        268
+      ],
+      "angle_deg": 91.79,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 15,
+      "core_candidate_us": 12,
+      "core_codeword_us": 1,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        448,
+        190,
+        490,
+        192,
+        488,
+        237,
+        446,
+        234
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 0,
+    "dy": 3,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2502,
+      "marker_us": 534,
+      "normalize_us": 0,
+      "core_us": 218,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 216,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2350,
+      "marker_us": 432,
+      "normalize_us": 51,
+      "core_us": 35,
+      "refine_us": 29,
+      "marker_roi": [
+        412,
+        164,
+        516,
+        268
+      ],
+      "angle_deg": 93.814,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 18,
+      "core_candidate_us": 13,
+      "core_codeword_us": 1,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        443,
+        191,
+        485,
+        193,
+        483,
+        238,
+        441,
+        235
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 1,
+    "dy": 3,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2491,
+      "marker_us": 536,
+      "normalize_us": 0,
+      "core_us": 204,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 202,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2397,
+      "marker_us": 381,
+      "normalize_us": 52,
+      "core_us": 30,
+      "refine_us": 28,
+      "marker_roi": [
+        420,
+        168,
+        516,
+        268
+      ],
+      "angle_deg": 91.909,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 16,
+      "core_candidate_us": 12,
+      "core_codeword_us": 1,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        444,
+        191,
+        486,
+        193,
+        484,
+        238,
+        442,
+        235
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 2,
+    "dy": 3,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2487,
+      "marker_us": 534,
+      "normalize_us": 0,
+      "core_us": 203,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 203,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2318,
+      "marker_us": 393,
+      "normalize_us": 52,
+      "core_us": 33,
+      "refine_us": 29,
+      "marker_roi": [
+        416,
+        164,
+        520,
+        268
+      ],
+      "angle_deg": 93.814,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 18,
+      "core_candidate_us": 13,
+      "core_codeword_us": 1,
+      "core_ecc_us": 0,
+      "core_payload_us": 1,
+      "corners": [
+        445,
+        191,
+        487,
+        193,
+        485,
+        238,
+        443,
+        235
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 3,
+    "dy": 3,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2464,
+      "marker_us": 541,
+      "normalize_us": 0,
+      "core_us": 194,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 194,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2320,
+      "marker_us": 374,
+      "normalize_us": 54,
+      "core_us": 31,
+      "refine_us": 29,
+      "marker_roi": [
+        416,
+        164,
+        520,
+        268
+      ],
+      "angle_deg": 93.814,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 16,
+      "core_candidate_us": 13,
+      "core_codeword_us": 2,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        446,
+        191,
+        488,
+        193,
+        486,
+        238,
+        444,
+        235
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 4,
+    "dy": 3,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2471,
+      "marker_us": 562,
+      "normalize_us": 0,
+      "core_us": 198,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 197,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2319,
+      "marker_us": 375,
+      "normalize_us": 54,
+      "core_us": 31,
+      "refine_us": 29,
+      "marker_roi": [
+        416,
+        164,
+        520,
+        268
+      ],
+      "angle_deg": 93.814,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 16,
+      "core_candidate_us": 13,
+      "core_codeword_us": 0,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        447,
+        191,
+        489,
+        193,
+        487,
+        238,
+        445,
+        235
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 5,
+    "dy": 3,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2451,
+      "marker_us": 521,
+      "normalize_us": 0,
+      "core_us": 195,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 193,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2332,
+      "marker_us": 375,
+      "normalize_us": 54,
+      "core_us": 32,
+      "refine_us": 29,
+      "marker_roi": [
+        424,
+        168,
+        520,
+        268
+      ],
+      "angle_deg": 91.909,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 17,
+      "core_candidate_us": 13,
+      "core_codeword_us": 0,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        448,
+        191,
+        490,
+        193,
+        488,
+        238,
+        446,
+        235
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 0,
+    "dy": 4,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2446,
+      "marker_us": 535,
+      "normalize_us": 0,
+      "core_us": 194,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 193,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2427,
+      "marker_us": 382,
+      "normalize_us": 54,
+      "core_us": 29,
+      "refine_us": 28,
+      "marker_roi": [
+        412,
+        164,
+        516,
+        272
+      ],
+      "angle_deg": 93.691,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 15,
+      "core_candidate_us": 13,
+      "core_codeword_us": 0,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        443,
+        192,
+        485,
+        194,
+        483,
+        239,
+        441,
+        236
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 1,
+    "dy": 4,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2625,
+      "marker_us": 544,
+      "normalize_us": 0,
+      "core_us": 280,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 279,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2364,
+      "marker_us": 375,
+      "normalize_us": 52,
+      "core_us": 32,
+      "refine_us": 28,
+      "marker_roi": [
+        420,
+        168,
+        516,
+        268
+      ],
+      "angle_deg": 91.848,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 16,
+      "core_candidate_us": 13,
+      "core_codeword_us": 1,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        444,
+        192,
+        486,
+        194,
+        484,
+        239,
+        442,
+        236
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 2,
+    "dy": 4,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2744,
+      "marker_us": 516,
+      "normalize_us": 0,
+      "core_us": 243,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 241,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2366,
+      "marker_us": 376,
+      "normalize_us": 54,
+      "core_us": 37,
+      "refine_us": 28,
+      "marker_roi": [
+        416,
+        164,
+        520,
+        272
+      ],
+      "angle_deg": 93.691,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 23,
+      "core_candidate_us": 12,
+      "core_codeword_us": 1,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        445,
+        192,
+        487,
+        194,
+        485,
+        239,
+        443,
+        236
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 3,
+    "dy": 4,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2633,
+      "marker_us": 520,
+      "normalize_us": 0,
+      "core_us": 209,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 208,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2356,
+      "marker_us": 371,
+      "normalize_us": 50,
+      "core_us": 29,
+      "refine_us": 28,
+      "marker_roi": [
+        416,
+        164,
+        520,
+        272
+      ],
+      "angle_deg": 93.691,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 16,
+      "core_candidate_us": 12,
+      "core_codeword_us": 0,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        446,
+        192,
+        488,
+        194,
+        486,
+        239,
+        444,
+        236
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 4,
+    "dy": 4,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2476,
+      "marker_us": 536,
+      "normalize_us": 0,
+      "core_us": 206,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 206,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2407,
+      "marker_us": 370,
+      "normalize_us": 53,
+      "core_us": 28,
+      "refine_us": 28,
+      "marker_roi": [
+        416,
+        164,
+        520,
+        272
+      ],
+      "angle_deg": 93.691,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 14,
+      "core_candidate_us": 12,
+      "core_codeword_us": 1,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        447,
+        192,
+        489,
+        194,
+        487,
+        239,
+        445,
+        236
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 5,
+    "dy": 4,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2646,
+      "marker_us": 581,
+      "normalize_us": 0,
+      "core_us": 231,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 229,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2516,
+      "marker_us": 363,
+      "normalize_us": 52,
+      "core_us": 28,
+      "refine_us": 27,
+      "marker_roi": [
+        424,
+        168,
+        520,
+        268
+      ],
+      "angle_deg": 91.848,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 15,
+      "core_candidate_us": 12,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        448,
+        192,
+        490,
+        194,
+        488,
+        239,
+        446,
+        236
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 0,
+    "dy": 5,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2506,
+      "marker_us": 533,
+      "normalize_us": 0,
+      "core_us": 215,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 213,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2980,
+      "marker_us": 385,
+      "normalize_us": 54,
+      "core_us": 34,
+      "refine_us": 29,
+      "marker_roi": [
+        416,
+        168,
+        516,
+        272
+      ],
+      "angle_deg": 93.576,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 20,
+      "core_candidate_us": 12,
+      "core_codeword_us": 1,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        443,
+        193,
+        485,
+        195,
+        483,
+        240,
+        441,
+        237
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 1,
+    "dy": 5,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2537,
+      "marker_us": 537,
+      "normalize_us": 0,
+      "core_us": 206,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 205,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2420,
+      "marker_us": 430,
+      "normalize_us": 54,
+      "core_us": 37,
+      "refine_us": 30,
+      "marker_roi": [
+        420,
+        168,
+        516,
+        272
+      ],
+      "angle_deg": 91.79,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 22,
+      "core_candidate_us": 13,
+      "core_codeword_us": 2,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        444,
+        193,
+        486,
+        195,
+        484,
+        240,
+        442,
+        237
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 2,
+    "dy": 5,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2514,
+      "marker_us": 546,
+      "normalize_us": 0,
+      "core_us": 217,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 217,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2370,
+      "marker_us": 372,
+      "normalize_us": 53,
+      "core_us": 29,
+      "refine_us": 28,
+      "marker_roi": [
+        416,
+        164,
+        520,
+        272
+      ],
+      "angle_deg": 93.576,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 14,
+      "core_candidate_us": 13,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        445,
+        193,
+        487,
+        195,
+        485,
+        240,
+        443,
+        237
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 3,
+    "dy": 5,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2506,
+      "marker_us": 535,
+      "normalize_us": 0,
+      "core_us": 203,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 202,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2328,
+      "marker_us": 375,
+      "normalize_us": 53,
+      "core_us": 30,
+      "refine_us": 29,
+      "marker_roi": [
+        420,
+        168,
+        520,
+        272
+      ],
+      "angle_deg": 93.576,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 16,
+      "core_candidate_us": 11,
+      "core_codeword_us": 2,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        446,
+        193,
+        488,
+        195,
+        486,
+        240,
+        444,
+        237
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 4,
+    "dy": 5,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2652,
+      "marker_us": 524,
+      "normalize_us": 0,
+      "core_us": 222,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 222,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2306,
+      "marker_us": 388,
+      "normalize_us": 52,
+      "core_us": 32,
+      "refine_us": 28,
+      "marker_roi": [
+        420,
+        168,
+        520,
+        272
+      ],
+      "angle_deg": 93.576,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 17,
+      "core_candidate_us": 12,
+      "core_codeword_us": 1,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        447,
+        193,
+        489,
+        195,
+        487,
+        240,
+        445,
+        237
+      ]
+    }
+  },
+  {
+    "source": "light_on02",
+    "dx": 5,
+    "dy": 5,
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2521,
+      "marker_us": 544,
+      "normalize_us": 0,
+      "core_us": 204,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 203,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2347,
+      "marker_us": 373,
+      "normalize_us": 53,
+      "core_us": 38,
+      "refine_us": 28,
+      "marker_roi": [
+        424,
+        168,
+        520,
+        272
+      ],
+      "angle_deg": 91.79,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 24,
+      "core_candidate_us": 12,
+      "core_codeword_us": 1,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        448,
+        193,
+        490,
+        195,
+        488,
+        240,
+        446,
+        237
+      ]
+    }
+  },
+  {
+    "source": "blank",
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 1961,
+      "marker_us": 394,
+      "normalize_us": 0,
+      "core_us": 198,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 197,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2153,
+      "marker_us": 469,
+      "normalize_us": 0,
+      "core_us": 210,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 210,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "source": "covered",
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2535,
+      "marker_us": 531,
+      "normalize_us": 0,
+      "core_us": 177,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 176,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 2574,
+      "marker_us": 561,
+      "normalize_us": 0,
+      "core_us": 163,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 162,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "source": "large_centre",
+    "before": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 1476,
+      "marker_us": 169,
+      "normalize_us": 71,
+      "core_us": 36,
+      "refine_us": 59,
+      "marker_roi": [
+        390,
+        114,
+        888,
+        588
+      ],
+      "angle_deg": -118.024,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 6,
+      "core_finder_us": 17,
+      "core_candidate_us": 17,
+      "core_codeword_us": 0,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        837,
+        421,
+        577,
+        539,
+        436,
+        273,
+        708,
+        154
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 1542,
+      "marker_us": 185,
+      "normalize_us": 64,
+      "core_us": 38,
+      "refine_us": 60,
+      "marker_roi": [
+        390,
+        108,
+        882,
+        588
+      ],
+      "angle_deg": -118.024,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 6,
+      "core_finder_us": 19,
+      "core_candidate_us": 17,
+      "core_codeword_us": 1,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        837,
+        421,
+        578,
+        538,
+        436,
+        273,
+        708,
+        154
+      ]
+    }
+  },
+  {
+    "source": "shift_000",
+    "before": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 1876,
+      "marker_us": 244,
+      "normalize_us": 70,
+      "core_us": 38,
+      "refine_us": 77,
+      "marker_roi": [
+        234,
+        156,
+        462,
+        372
+      ],
+      "angle_deg": -118.217,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 6,
+      "core_finder_us": 19,
+      "core_candidate_us": 17,
+      "core_codeword_us": 1,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        413,
+        284,
+        327,
+        323,
+        280,
+        235,
+        370,
+        195
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 1688,
+      "marker_us": 245,
+      "normalize_us": 62,
+      "core_us": 38,
+      "refine_us": 30,
+      "marker_roi": [
+        240,
+        156,
+        462,
+        372
+      ],
+      "angle_deg": -116.565,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 6,
+      "core_finder_us": 19,
+      "core_candidate_us": 16,
+      "core_codeword_us": 1,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        413,
+        284,
+        327,
+        323,
+        280,
+        235,
+        370,
+        195
+      ]
+    }
+  },
+  {
+    "source": "shift_100",
+    "before": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 1685,
+      "marker_us": 240,
+      "normalize_us": 71,
+      "core_us": 43,
+      "refine_us": 31,
+      "marker_roi": [
+        336,
+        156,
+        564,
+        372
+      ],
+      "angle_deg": -117.646,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 6,
+      "core_finder_us": 20,
+      "core_candidate_us": 21,
+      "core_codeword_us": 2,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        513,
+        284,
+        427,
+        323,
+        380,
+        235,
+        470,
+        195
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2398,
+      "marker_us": 373,
+      "normalize_us": 109,
+      "core_us": 96,
+      "refine_us": 117,
+      "marker_roi": [
+        336,
+        156,
+        564,
+        372
+      ],
+      "angle_deg": -117.646,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 6,
+      "core_finder_us": 48,
+      "core_candidate_us": 41,
+      "core_codeword_us": 2,
+      "core_ecc_us": 2,
+      "core_payload_us": 1,
+      "corners": [
+        513,
+        284,
+        427,
+        323,
+        380,
+        235,
+        470,
+        195
+      ]
+    }
+  },
+  {
+    "source": "shift_150",
+    "before": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 1778,
+      "marker_us": 230,
+      "normalize_us": 71,
+      "core_us": 36,
+      "refine_us": 63,
+      "marker_roi": [
+        384,
+        156,
+        612,
+        372
+      ],
+      "angle_deg": -118.217,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 6,
+      "core_finder_us": 18,
+      "core_candidate_us": 16,
+      "core_codeword_us": 0,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        563,
+        284,
+        477,
+        323,
+        430,
+        235,
+        520,
+        195
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 1690,
+      "marker_us": 234,
+      "normalize_us": 65,
+      "core_us": 41,
+      "refine_us": 31,
+      "marker_roi": [
+        390,
+        156,
+        612,
+        372
+      ],
+      "angle_deg": -116.565,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 6,
+      "core_finder_us": 22,
+      "core_candidate_us": 17,
+      "core_codeword_us": 0,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        563,
+        284,
+        477,
+        323,
+        430,
+        235,
+        520,
+        195
+      ]
+    }
+  },
+  {
+    "source": "shift_200",
+    "before": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 1838,
+      "marker_us": 285,
+      "normalize_us": 101,
+      "core_us": 58,
+      "refine_us": 45,
+      "marker_roi": [
+        432,
+        156,
+        666,
+        372
+      ],
+      "angle_deg": -118.217,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 6,
+      "core_finder_us": 40,
+      "core_candidate_us": 15,
+      "core_codeword_us": 1,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        613,
+        284,
+        527,
+        323,
+        480,
+        235,
+        570,
+        195
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 1577,
+      "marker_us": 227,
+      "normalize_us": 64,
+      "core_us": 36,
+      "refine_us": 28,
+      "marker_roi": [
+        438,
+        156,
+        660,
+        372
+      ],
+      "angle_deg": -119.291,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 6,
+      "core_finder_us": 18,
+      "core_candidate_us": 16,
+      "core_codeword_us": 1,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        613,
+        284,
+        527,
+        323,
+        480,
+        235,
+        570,
+        195
+      ]
+    }
+  },
+  {
+    "source": "shift_250",
+    "before": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 1863,
+      "marker_us": 226,
+      "normalize_us": 70,
+      "core_us": 61,
+      "refine_us": 32,
+      "marker_roi": [
+        486,
+        156,
+        714,
+        372
+      ],
+      "angle_deg": -117.646,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 6,
+      "core_finder_us": 35,
+      "core_candidate_us": 21,
+      "core_codeword_us": 1,
+      "core_ecc_us": 2,
+      "core_payload_us": 0,
+      "corners": [
+        663,
+        284,
+        577,
+        323,
+        530,
+        235,
+        620,
+        195
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2102,
+      "marker_us": 353,
+      "normalize_us": 86,
+      "core_us": 60,
+      "refine_us": 66,
+      "marker_roi": [
+        486,
+        156,
+        714,
+        372
+      ],
+      "angle_deg": -117.646,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 6,
+      "core_finder_us": 32,
+      "core_candidate_us": 23,
+      "core_codeword_us": 2,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        663,
+        284,
+        577,
+        323,
+        530,
+        235,
+        620,
+        195
+      ]
+    }
+  },
+  {
+    "source": "shift_300",
+    "before": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2044,
+      "marker_us": 216,
+      "normalize_us": 71,
+      "core_us": 39,
+      "refine_us": 64,
+      "marker_roi": [
+        534,
+        156,
+        762,
+        372
+      ],
+      "angle_deg": -118.217,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 6,
+      "core_finder_us": 20,
+      "core_candidate_us": 18,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        713,
+        284,
+        627,
+        323,
+        580,
+        235,
+        670,
+        195
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2026,
+      "marker_us": 354,
+      "normalize_us": 134,
+      "core_us": 71,
+      "refine_us": 50,
+      "marker_roi": [
+        540,
+        156,
+        762,
+        372
+      ],
+      "angle_deg": -116.565,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 6,
+      "core_finder_us": 43,
+      "core_candidate_us": 24,
+      "core_codeword_us": 2,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        713,
+        284,
+        627,
+        323,
+        580,
+        235,
+        670,
+        195
+      ]
+    }
+  },
+  {
+    "source": "shift_350",
+    "before": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 1502,
+      "marker_us": 207,
+      "normalize_us": 70,
+      "core_us": 34,
+      "refine_us": 27,
+      "marker_roi": [
+        582,
+        156,
+        816,
+        372
+      ],
+      "angle_deg": -118.217,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 6,
+      "core_finder_us": 19,
+      "core_candidate_us": 12,
+      "core_codeword_us": 2,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        763,
+        284,
+        677,
+        323,
+        630,
+        235,
+        720,
+        195
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 1539,
+      "marker_us": 212,
+      "normalize_us": 65,
+      "core_us": 37,
+      "refine_us": 28,
+      "marker_roi": [
+        588,
+        156,
+        810,
+        372
+      ],
+      "angle_deg": -119.291,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 6,
+      "core_finder_us": 19,
+      "core_candidate_us": 17,
+      "core_codeword_us": 0,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        763,
+        284,
+        677,
+        323,
+        630,
+        235,
+        720,
+        195
+      ]
+    }
+  },
+  {
+    "source": "shift_400",
+    "before": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 1731,
+      "marker_us": 209,
+      "normalize_us": 69,
+      "core_us": 46,
+      "refine_us": 57,
+      "marker_roi": [
+        636,
+        156,
+        864,
+        372
+      ],
+      "angle_deg": -117.646,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 6,
+      "core_finder_us": 23,
+      "core_candidate_us": 21,
+      "core_codeword_us": 1,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        813,
+        284,
+        727,
+        323,
+        680,
+        235,
+        770,
+        195
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 1780,
+      "marker_us": 212,
+      "normalize_us": 64,
+      "core_us": 50,
+      "refine_us": 65,
+      "marker_roi": [
+        636,
+        156,
+        864,
+        372
+      ],
+      "angle_deg": -117.646,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 6,
+      "core_finder_us": 23,
+      "core_candidate_us": 24,
+      "core_codeword_us": 0,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        813,
+        284,
+        727,
+        323,
+        680,
+        235,
+        770,
+        195
+      ]
+    }
+  },
+  {
+    "source": "shift_450",
+    "before": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 1669,
+      "marker_us": 198,
+      "normalize_us": 71,
+      "core_us": 38,
+      "refine_us": 64,
+      "marker_roi": [
+        684,
+        156,
+        912,
+        372
+      ],
+      "angle_deg": -118.217,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 6,
+      "core_finder_us": 18,
+      "core_candidate_us": 17,
+      "core_codeword_us": 2,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        863,
+        284,
+        777,
+        323,
+        730,
+        235,
+        820,
+        195
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 1641,
+      "marker_us": 212,
+      "normalize_us": 63,
+      "core_us": 40,
+      "refine_us": 30,
+      "marker_roi": [
+        690,
+        156,
+        912,
+        372
+      ],
+      "angle_deg": -116.565,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 6,
+      "core_finder_us": 22,
+      "core_candidate_us": 17,
+      "core_codeword_us": 0,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        863,
+        284,
+        777,
+        323,
+        730,
+        235,
+        820,
+        195
+      ]
+    }
+  },
+  {
+    "source": "shift_500",
+    "before": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 2147,
+      "marker_us": 321,
+      "normalize_us": 72,
+      "core_us": 51,
+      "refine_us": 28,
+      "marker_roi": [
+        732,
+        156,
+        966,
+        372
+      ],
+      "angle_deg": -118.217,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 6,
+      "core_finder_us": 35,
+      "core_candidate_us": 13,
+      "core_codeword_us": 1,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        913,
+        284,
+        827,
+        323,
+        780,
+        235,
+        870,
+        195
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 1507,
+      "marker_us": 212,
+      "normalize_us": 84,
+      "core_us": 48,
+      "refine_us": 28,
+      "marker_roi": [
+        738,
+        156,
+        960,
+        372
+      ],
+      "angle_deg": -119.291,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 6,
+      "core_finder_us": 29,
+      "core_candidate_us": 17,
+      "core_codeword_us": 1,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        913,
+        284,
+        827,
+        323,
+        780,
+        235,
+        870,
+        195
+      ]
+    }
+  },
+  {
+    "source": "shift_600",
+    "before": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 1628,
+      "marker_us": 187,
+      "normalize_us": 71,
+      "core_us": 38,
+      "refine_us": 64,
+      "marker_roi": [
+        834,
+        156,
+        1062,
+        372
+      ],
+      "angle_deg": -118.217,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 6,
+      "core_finder_us": 19,
+      "core_candidate_us": 17,
+      "core_codeword_us": 2,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        1013,
+        284,
+        927,
+        323,
+        880,
+        235,
+        970,
+        195
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 1496,
+      "marker_us": 201,
+      "normalize_us": 66,
+      "core_us": 39,
+      "refine_us": 31,
+      "marker_roi": [
+        840,
+        156,
+        1062,
+        372
+      ],
+      "angle_deg": -116.565,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 6,
+      "core_finder_us": 20,
+      "core_candidate_us": 17,
+      "core_codeword_us": 2,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        1013,
+        284,
+        927,
+        323,
+        880,
+        235,
+        970,
+        195
+      ]
+    }
+  },
+  {
+    "source": "stress_0",
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 11896,
+      "marker_us": 2667,
+      "normalize_us": 0,
+      "core_us": 2248,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 2246,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 12881,
+      "marker_us": 2520,
+      "normalize_us": 0,
+      "core_us": 2193,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 2192,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "source": "stress_1",
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 8633,
+      "marker_us": 1744,
+      "normalize_us": 0,
+      "core_us": 1378,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 1352,
+      "core_candidate_us": 25,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 8093,
+      "marker_us": 1650,
+      "normalize_us": 0,
+      "core_us": 1296,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 1269,
+      "core_candidate_us": 26,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "source": "stress_2",
+    "before": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 6495,
+      "marker_us": 1250,
+      "normalize_us": 0,
+      "core_us": 959,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 547,
+      "core_candidate_us": 404,
+      "core_codeword_us": 4,
+      "core_ecc_us": 2,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "iterations": 4,
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 6146,
+      "marker_us": 1238,
+      "normalize_us": 0,
+      "core_us": 948,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "sample_step": 4,
+      "core_finder_us": 515,
+      "core_candidate_us": 424,
+      "core_codeword_us": 2,
+      "core_ecc_us": 4,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

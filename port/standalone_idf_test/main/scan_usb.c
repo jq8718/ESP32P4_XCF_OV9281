@@ -10,6 +10,7 @@
 #include "esp_heap_caps.h"
 #include "esp_log.h"
 #include "esp_mac.h"
+#include "esp_rom_crc.h"
 #include "esp_timer.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/idf_additions.h"
@@ -42,6 +43,8 @@ typedef struct {
 
 static QueueHandle_t s_packets;
 static QueueHandle_t s_timings;
+static QueueHandle_t s_profiles;
+static atomic_bool s_profile_enabled;
 typedef struct {
     uint32_t sequence;
     uint64_t capture_us;
@@ -88,6 +91,10 @@ static void handle_cdc_command(const uint8_t *bytes, size_t received)
                 atomic_store(&s_raw_request, 1);
             } else if (!overflow && strcmp(command, "@TIMINGON") == 0) {
                 atomic_store(&s_timing_enabled, true);
+            } else if (!overflow && strcmp(command, "@PROFILEON") == 0) {
+                atomic_store(&s_profile_enabled, true);
+            } else if (!overflow && strcmp(command, "@PROFILEOFF") == 0) {
+                atomic_store(&s_profile_enabled, false);
             } else if (!overflow && strcmp(command, "@GEOMETRYON") == 0) {
                 atomic_store(&s_geometry_enabled, true);
             } else if (!overflow && strcmp(command, "@GEOMETRYOFF") == 0) {
@@ -220,18 +227,14 @@ static void send_pending_results(void)
 static void send_raw_snapshot(void)
 {
     int64_t deadline = esp_timer_get_time() + 5000000;
-    uint32_t crc = UINT32_MAX;
-    for (size_t index = 0; index < PREVIEW_SIZE; index++) {
-        crc ^= s_preview[index];
-        for (unsigned bit = 0; bit < 8; bit++) crc = (crc >> 1) ^ (0xedb88320U & (0U - (crc & 1U)));
-    }
+    uint32_t crc = esp_rom_crc32_le(0, s_preview, PREVIEW_SIZE);
     char line[800];
     int count = snprintf(line, sizeof(line), "@RAWFRAME,%lu,%llu,%u,%u,%d,%lu,%u,%08lX\r",
                          (unsigned long)s_preview_metadata.sequence,
                          (unsigned long long)s_preview_metadata.timestamp_us,
                          PREVIEW_WIDTH, PREVIEW_HEIGHT,
                          s_preview_metadata.valid, (unsigned long)s_preview_metadata.decode_us,
-                         PREVIEW_SIZE, (unsigned long)~crc);
+                         PREVIEW_SIZE, (unsigned long)crc);
     bool complete = debug_write(line, count, deadline);
     static const char alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
     for (size_t offset = 0; complete && offset < PREVIEW_SIZE; offset += 384) {
@@ -277,11 +280,7 @@ static void send_snapshot(void)
         debug_write(reply, sizeof(reply) - 1, deadline);
         return;
     }
-    uint32_t crc = UINT32_MAX;
-    for (size_t index = 0; index < length; index++) {
-        crc ^= copy[index];
-        for (unsigned bit = 0; bit < 8; bit++) crc = (crc >> 1) ^ (0xedb88320U & (0U - (crc & 1U)));
-    }
+    uint32_t crc = esp_rom_crc32_le(0, copy, length);
     char payload_hex[XCR_BARCODE_MAX_LEN * 2 + 1];
     static const char hex[] = "0123456789ABCDEF";
     int payload_length = metadata.valid ? metadata.result.length : 0;
@@ -299,7 +298,7 @@ static void send_snapshot(void)
                          PREVIEW_WIDTH, PREVIEW_HEIGHT,
                          metadata.valid, (unsigned long)metadata.decode_us,
                          coordinates,
-                         payload_hex, (unsigned)length, (unsigned long)~crc);
+                         payload_hex, (unsigned)length, (unsigned long)crc);
     if (count > 0 && (size_t)count < sizeof(line) && atomic_load(&s_geometry_enabled) &&
         metadata.result.symbology == XCR_SYM_DATAMATRIX) {
         line[7] = '2';
@@ -385,18 +384,25 @@ bool scan_usb_submit(const XcrBarcodeResult *result)
     return scan_usb_submit_timed(result, 0);
 }
 
+void scan_usb_profile(const scan_profile_t *profile)
+{
+    if (s_profiles && atomic_load(&s_profile_enabled)) xQueueOverwrite(s_profiles, profile);
+}
+
 static void cdc_task(void *argument)
 {
     (void)argument;
     scan_packet_t packet;
     bool was_ready = false;
     uint64_t cpu_sample_us = 0;
+    uint64_t profile_sent_us = 0;
     uint32_t idle0_previous = 0, idle1_previous = 0;
     for (;;) {
         uint8_t command_bytes[64];
         bool ready = tud_cdc_ready();
         if (ready != was_ready) {
             if (!ready) {
+                atomic_store(&s_profile_enabled, false);
                 atomic_store(&s_timing_enabled, false);
                 atomic_store(&s_geometry_enabled, false);
             }
@@ -425,6 +431,23 @@ static void cdc_task(void *argument)
                 tud_cdc_write_flush();
             }
         }
+        if (ready && atomic_load(&s_profile_enabled) &&
+            (uint64_t)esp_timer_get_time() - profile_sent_us >= 1000000) {
+            scan_profile_t profile;
+            if (xQueueReceive(s_profiles, &profile, 0) == pdTRUE) {
+                char line[160];
+                int length = snprintf(line, sizeof(line), "@PROFILE,%lu,%lu,%lu,%lu,%lu,%lu,%u,%u\r",
+                    (unsigned long)profile.sequence, (unsigned long)profile.frontend_us,
+                    (unsigned long)profile.wait_us, (unsigned long)profile.normalize_us,
+                    (unsigned long)profile.core_us, (unsigned long)profile.refine_us,
+                    profile.sample_step, profile.attempts);
+                if (length > 0 && length < sizeof(line) && tud_cdc_write_available() >= length) {
+                    tud_cdc_write(line, length);
+                    tud_cdc_write_flush();
+                    profile_sent_us = esp_timer_get_time();
+                }
+            }
+        }
 #if CONFIG_FREERTOS_GENERATE_RUN_TIME_STATS
         uint64_t cpu_now_us = esp_timer_get_time();
         if (!cpu_sample_us) {
@@ -442,8 +465,10 @@ static void cdc_task(void *argument)
             cpu_sample_us = cpu_now_us;
             idle0_previous = idle0_now;
             idle1_previous = idle1_now;
+#if CONFIG_P4SCAN_PIPELINE_DIAGNOSTICS
             ESP_LOGI("p4scan_cpu", "interval_ms=%u core0_permille=%u core1_permille=%u",
                      (unsigned)(elapsed / 1000), cpu0, cpu1);
+#endif
             if (ready) {
                 char line[48];
                 int length = snprintf(line, sizeof(line), "@CPU,%u,%u,%u\r",
@@ -598,6 +623,8 @@ esp_err_t scan_usb_init(void)
     snprintf(serial, sizeof(serial), "%02X%02X%02X%02X%02X%02X-OV9281", mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
     string_desc_arr[3] = serial;
     s_packets = xQueueCreate(1, sizeof(scan_packet_t));
+    s_profiles = xQueueCreate(1, sizeof(scan_profile_t));
+    if (!s_profiles) return ESP_ERR_NO_MEM;
     s_timings = xQueueCreate(1, sizeof(scan_timing_t));
     if (!s_timings) return ESP_ERR_NO_MEM;
     s_preview_free = xSemaphoreCreateBinary();
@@ -626,8 +653,16 @@ esp_err_t scan_usb_init(void)
     ESP_LOGI("p4scan_usb", "init UVC config ready");
     ESP_ERROR_CHECK(uvc_device_init());
     ESP_LOGI("p4scan_usb", "init UVC device ready");
-    if (xTaskCreatePinnedToCore(cdc_task, "scan_cdc", 8192, NULL, 9, NULL, 0) != pdPASS ||
-        xTaskCreatePinnedToCore(preview_task, "scan_preview", 4096, NULL, 9, NULL, 1) != pdPASS) return ESP_ERR_NO_MEM;
+    /* In the frame pipeline, keep JPEG formatting/CDC on the backend core:
+     * core0's full-frame marker search has much less spare time. TinyUSB's
+     * endpoint task stays on its configured core with higher priority. */
+#if CONFIG_P4SCAN_FRAME_STAGE_PIPELINE
+    const BaseType_t cdc_core = 1;
+#else
+    const BaseType_t cdc_core = 0;
+#endif
+    if (xTaskCreatePinnedToCore(cdc_task, "scan_cdc", 8192, NULL, 7, NULL, cdc_core) != pdPASS ||
+        xTaskCreatePinnedToCore(preview_task, "scan_preview", 4096, NULL, 7, NULL, 1) != pdPASS) return ESP_ERR_NO_MEM;
     ESP_LOGI("p4scan_usb", "init USB worker tasks ready");
     ESP_LOGI("p4scan_usb", "HS UVC+CDC ready serial=%s protocol=CSV/CR", serial);
     return ESP_OK;

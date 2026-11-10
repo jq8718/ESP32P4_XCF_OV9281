@@ -1,0 +1,442 @@
+[
+  {
+    "step": 2,
+    "file": "docs/failure_diagnosis/current06.gray8",
+    "match": true
+  },
+  {
+    "step": 2,
+    "file": "docs/failure_diagnosis/fail01.gray8",
+    "match": true
+  },
+  {
+    "step": 2,
+    "file": "docs/failure_diagnosis/fail03.gray8",
+    "match": true
+  },
+  {
+    "step": 2,
+    "file": "docs/failure_diagnosis/fail04.gray8",
+    "match": true
+  },
+  {
+    "step": 2,
+    "file": "docs/failure_diagnosis/sample02.gray8",
+    "match": true
+  },
+  {
+    "step": 2,
+    "file": "build/parallel_host_cases/blank.gray8",
+    "match": true
+  },
+  {
+    "step": 2,
+    "file": "build/parallel_host_cases/covered.gray8",
+    "match": true
+  },
+  {
+    "step": 2,
+    "file": "build/parallel_host_cases/large_centre.gray8",
+    "match": true
+  },
+  {
+    "step": 2,
+    "file": "build/parallel_host_cases/shift_000.gray8",
+    "match": true
+  },
+  {
+    "step": 2,
+    "file": "build/parallel_host_cases/shift_100.gray8",
+    "match": true
+  },
+  {
+    "step": 2,
+    "file": "build/parallel_host_cases/shift_150.gray8",
+    "match": true
+  },
+  {
+    "step": 2,
+    "file": "build/parallel_host_cases/shift_200.gray8",
+    "match": true
+  },
+  {
+    "step": 2,
+    "file": "build/parallel_host_cases/shift_250.gray8",
+    "match": true
+  },
+  {
+    "step": 2,
+    "file": "build/parallel_host_cases/shift_300.gray8",
+    "match": true
+  },
+  {
+    "step": 2,
+    "file": "build/parallel_host_cases/shift_350.gray8",
+    "match": true
+  },
+  {
+    "step": 2,
+    "file": "build/parallel_host_cases/shift_400.gray8",
+    "match": true
+  },
+  {
+    "step": 2,
+    "file": "build/parallel_host_cases/shift_450.gray8",
+    "match": true
+  },
+  {
+    "step": 2,
+    "file": "build/parallel_host_cases/shift_500.gray8",
+    "match": true
+  },
+  {
+    "step": 2,
+    "file": "build/parallel_host_cases/shift_600.gray8",
+    "match": true
+  },
+  {
+    "step": 2,
+    "file": "build/parallel_host_cases/stress_0.gray8",
+    "match": true
+  },
+  {
+    "step": 2,
+    "file": "build/parallel_host_cases/stress_1.gray8",
+    "match": true
+  },
+  {
+    "step": 2,
+    "file": "build/parallel_host_cases/stress_2.gray8",
+    "match": true
+  },
+  {
+    "step": 3,
+    "file": "docs/failure_diagnosis/current06.gray8",
+    "match": true
+  },
+  {
+    "step": 3,
+    "file": "docs/failure_diagnosis/fail01.gray8",
+    "match": true
+  },
+  {
+    "step": 3,
+    "file": "docs/failure_diagnosis/fail03.gray8",
+    "match": true
+  },
+  {
+    "step": 3,
+    "file": "docs/failure_diagnosis/fail04.gray8",
+    "match": true
+  },
+  {
+    "step": 3,
+    "file": "docs/failure_diagnosis/sample02.gray8",
+    "match": true
+  },
+  {
+    "step": 3,
+    "file": "build/parallel_host_cases/blank.gray8",
+    "match": true
+  },
+  {
+    "step": 3,
+    "file": "build/parallel_host_cases/covered.gray8",
+    "match": true
+  },
+  {
+    "step": 3,
+    "file": "build/parallel_host_cases/large_centre.gray8",
+    "match": true
+  },
+  {
+    "step": 3,
+    "file": "build/parallel_host_cases/shift_000.gray8",
+    "match": true
+  },
+  {
+    "step": 3,
+    "file": "build/parallel_host_cases/shift_100.gray8",
+    "match": true
+  },
+  {
+    "step": 3,
+    "file": "build/parallel_host_cases/shift_150.gray8",
+    "match": true
+  },
+  {
+    "step": 3,
+    "file": "build/parallel_host_cases/shift_200.gray8",
+    "match": true
+  },
+  {
+    "step": 3,
+    "file": "build/parallel_host_cases/shift_250.gray8",
+    "match": true
+  },
+  {
+    "step": 3,
+    "file": "build/parallel_host_cases/shift_300.gray8",
+    "match": true
+  },
+  {
+    "step": 3,
+    "file": "build/parallel_host_cases/shift_350.gray8",
+    "match": true
+  },
+  {
+    "step": 3,
+    "file": "build/parallel_host_cases/shift_400.gray8",
+    "match": true
+  },
+  {
+    "step": 3,
+    "file": "build/parallel_host_cases/shift_450.gray8",
+    "match": true
+  },
+  {
+    "step": 3,
+    "file": "build/parallel_host_cases/shift_500.gray8",
+    "match": true
+  },
+  {
+    "step": 3,
+    "file": "build/parallel_host_cases/shift_600.gray8",
+    "match": true
+  },
+  {
+    "step": 3,
+    "file": "build/parallel_host_cases/stress_0.gray8",
+    "match": true
+  },
+  {
+    "step": 3,
+    "file": "build/parallel_host_cases/stress_1.gray8",
+    "match": true
+  },
+  {
+    "step": 3,
+    "file": "build/parallel_host_cases/stress_2.gray8",
+    "match": true
+  },
+  {
+    "step": 4,
+    "file": "docs/failure_diagnosis/current06.gray8",
+    "match": true
+  },
+  {
+    "step": 4,
+    "file": "docs/failure_diagnosis/fail01.gray8",
+    "match": true
+  },
+  {
+    "step": 4,
+    "file": "docs/failure_diagnosis/fail03.gray8",
+    "match": true
+  },
+  {
+    "step": 4,
+    "file": "docs/failure_diagnosis/fail04.gray8",
+    "match": true
+  },
+  {
+    "step": 4,
+    "file": "docs/failure_diagnosis/sample02.gray8",
+    "match": true
+  },
+  {
+    "step": 4,
+    "file": "build/parallel_host_cases/blank.gray8",
+    "match": true
+  },
+  {
+    "step": 4,
+    "file": "build/parallel_host_cases/covered.gray8",
+    "match": true
+  },
+  {
+    "step": 4,
+    "file": "build/parallel_host_cases/large_centre.gray8",
+    "match": true
+  },
+  {
+    "step": 4,
+    "file": "build/parallel_host_cases/shift_000.gray8",
+    "match": true
+  },
+  {
+    "step": 4,
+    "file": "build/parallel_host_cases/shift_100.gray8",
+    "match": true
+  },
+  {
+    "step": 4,
+    "file": "build/parallel_host_cases/shift_150.gray8",
+    "match": true
+  },
+  {
+    "step": 4,
+    "file": "build/parallel_host_cases/shift_200.gray8",
+    "match": true
+  },
+  {
+    "step": 4,
+    "file": "build/parallel_host_cases/shift_250.gray8",
+    "match": true
+  },
+  {
+    "step": 4,
+    "file": "build/parallel_host_cases/shift_300.gray8",
+    "match": true
+  },
+  {
+    "step": 4,
+    "file": "build/parallel_host_cases/shift_350.gray8",
+    "match": true
+  },
+  {
+    "step": 4,
+    "file": "build/parallel_host_cases/shift_400.gray8",
+    "match": true
+  },
+  {
+    "step": 4,
+    "file": "build/parallel_host_cases/shift_450.gray8",
+    "match": true
+  },
+  {
+    "step": 4,
+    "file": "build/parallel_host_cases/shift_500.gray8",
+    "match": true
+  },
+  {
+    "step": 4,
+    "file": "build/parallel_host_cases/shift_600.gray8",
+    "match": true
+  },
+  {
+    "step": 4,
+    "file": "build/parallel_host_cases/stress_0.gray8",
+    "match": true
+  },
+  {
+    "step": 4,
+    "file": "build/parallel_host_cases/stress_1.gray8",
+    "match": true
+  },
+  {
+    "step": 4,
+    "file": "build/parallel_host_cases/stress_2.gray8",
+    "match": true
+  },
+  {
+    "step": 6,
+    "file": "docs/failure_diagnosis/current06.gray8",
+    "match": true
+  },
+  {
+    "step": 6,
+    "file": "docs/failure_diagnosis/fail01.gray8",
+    "match": true
+  },
+  {
+    "step": 6,
+    "file": "docs/failure_diagnosis/fail03.gray8",
+    "match": true
+  },
+  {
+    "step": 6,
+    "file": "docs/failure_diagnosis/fail04.gray8",
+    "match": true
+  },
+  {
+    "step": 6,
+    "file": "docs/failure_diagnosis/sample02.gray8",
+    "match": true
+  },
+  {
+    "step": 6,
+    "file": "build/parallel_host_cases/blank.gray8",
+    "match": true
+  },
+  {
+    "step": 6,
+    "file": "build/parallel_host_cases/covered.gray8",
+    "match": true
+  },
+  {
+    "step": 6,
+    "file": "build/parallel_host_cases/large_centre.gray8",
+    "match": true
+  },
+  {
+    "step": 6,
+    "file": "build/parallel_host_cases/shift_000.gray8",
+    "match": true
+  },
+  {
+    "step": 6,
+    "file": "build/parallel_host_cases/shift_100.gray8",
+    "match": true
+  },
+  {
+    "step": 6,
+    "file": "build/parallel_host_cases/shift_150.gray8",
+    "match": true
+  },
+  {
+    "step": 6,
+    "file": "build/parallel_host_cases/shift_200.gray8",
+    "match": true
+  },
+  {
+    "step": 6,
+    "file": "build/parallel_host_cases/shift_250.gray8",
+    "match": true
+  },
+  {
+    "step": 6,
+    "file": "build/parallel_host_cases/shift_300.gray8",
+    "match": true
+  },
+  {
+    "step": 6,
+    "file": "build/parallel_host_cases/shift_350.gray8",
+    "match": true
+  },
+  {
+    "step": 6,
+    "file": "build/parallel_host_cases/shift_400.gray8",
+    "match": true
+  },
+  {
+    "step": 6,
+    "file": "build/parallel_host_cases/shift_450.gray8",
+    "match": true
+  },
+  {
+    "step": 6,
+    "file": "build/parallel_host_cases/shift_500.gray8",
+    "match": true
+  },
+  {
+    "step": 6,
+    "file": "build/parallel_host_cases/shift_600.gray8",
+    "match": true
+  },
+  {
+    "step": 6,
+    "file": "build/parallel_host_cases/stress_0.gray8",
+    "match": true
+  },
+  {
+    "step": 6,
+    "file": "build/parallel_host_cases/stress_1.gray8",
+    "match": true
+  },
+  {
+    "step": 6,
+    "file": "build/parallel_host_cases/stress_2.gray8",
+    "match": true
+  }
+]

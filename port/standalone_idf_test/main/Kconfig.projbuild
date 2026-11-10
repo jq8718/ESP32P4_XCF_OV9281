@@ -11,6 +11,18 @@ menu "P4SCAN Application"
         default 100
         depends on P4SCAN_REALTIME_PIPELINE
 
+    config P4SCAN_FRAME_STAGE_PIPELINE
+        bool "Full-frame marker search on core0, decode backend on core1"
+        default y
+        depends on P4SCAN_REALTIME_PIPELINE && XCR_DATAMATRIX_ONLY && !XCR_DATAMATRIX_LIBDMTX
+
+    config P4SCAN_PIPELINE_DIAGNOSTICS
+        bool "Print detailed pipeline timing and CPU samples on the diagnostic serial port"
+        default n
+        help
+            Synchronous diagnostic output can block decoding for multiple frame periods.
+            CDC timing and CPU messages remain available when this is disabled.
+
     config P4SCAN_CONTINUOUS_SCAN
         bool "Continuously capture and search QR codes for AGV operation"
         default n

@@ -5,13 +5,11 @@
 ## 软件设计
 
 ```text
-OV9281 RAW8 → ESP32-P4 CSI/MMAP → Gray8 帧 → Core0 采集
-                                             ↓ 最新帧队列
-                         Core0 右侧标记搜索 ↔ Core1 左侧标记搜索
-                                             ↓ 合并候选
-                                     Core1 XCR 解码/角点精修
+OV9281 RAW8 → CSI/DMA 四缓冲 → Core0 整帧标记搜索（帧 N+1）
+                                             ↓ 同帧标记结果、最新帧队列
+                                  Core1 归一化/解码/角点精修（帧 N）
                                              ↓
-                                  USB CDC 结果 + MJPEG UVC 预览
+                                  Core1 JPEG/CDC 图片与定位结果
 ```
 
 - `port/components/p4scan_camera_capture`：CSI 配置、帧缓冲所有权、缓存同步与曝光接口。尺寸改为 1280×720，OV9281 默认曝光值为 681 行；RAW8 绕过 Bayer ISP，曝光由传感器控制接口管理。
@@ -54,4 +52,12 @@ OV9281 RAW8 → ESP32-P4 CSI/MMAP → Gray8 帧 → Core0 采集
 
 Windows UI 调试器为 `dist/P4ScanOV9281Debugger.exe`，源码和使用说明见 `tools/ov9281_debugger/README.md`。它按参考调试器设计，通过 CDC 上传解码处理后的成功/失败同帧图片，手动开关控制上传，不打开 UVC 实时流。UVC 收帧数包含重复预览 JPEG；CDC 只有解码、角点精定位和 100 ms 帧龄检查均通过才发送定位行，因此 219 帧 UVC 与 77 条 CDC 不能直接按差值计算“丢失”的识码结果。
 
-AGV 实时模式把全图外部标记搜索分成左右重叠区域，Core 0 与 Core 1 同帧并行搜索，找不到时回退整图搜索；不使用上一帧 ROI。实机与跨中线主机样本验证见 `docs/PARALLEL_MARKER_SEARCH.md`。
+AGV 实时模式默认使用跨帧两级流水线：Core 0 整图搜索外部标记，Core 1 完成后段解码、精修和图片发送。四块相机缓冲避免图片复制时暂停连续取帧。开图/关图各两轮、每轮 20 秒的实测均达到约 50 次成功定位/秒；图片仍按调试器约 0.35 秒一次的请求上传。详见 `docs/FRAME_STAGE_PIPELINE.md`。关闭 `P4SCAN_FRAME_STAGE_PIPELINE` 可回到此前左右并行搜索模式，历史测试见 `docs/PARALLEL_MARKER_SEARCH.md`。不使用上一帧 ROI。
+
+当前环境的小码漏检已定位为外部标记在 6 像素采样网格上欠采样。现增加同帧 4 像素补救搜索，并校正小标记距离容差和采样坐标映射。失败原图、180 个平移案例及实机验证见 [故障分析](docs/failure_diagnosis/README.md)。最终现场固定画面开图/关图均约 50 次成功定位/秒；持续触发密集补救时吞吐量会下降。
+
+进一步暗光小码测试发现整图暗像素滤波与两遍搜索造成前段过载。现将滤波保留在候选验证和后段，按标记尺寸选择整图采样间隔，并降低 JPEG 任务优先级。当前约 44 像素码体场景实测开图约 47～48 次定位/秒、关图约 50 次/秒，详见 [速度诊断与优化](docs/failure_diagnosis/SPEED_ANALYSIS.md)。只保留采样间隔，不保留上一帧位置。
+
+补光开启后的失败已进一步定位为全图阈值误裁小标记；现使用局部亮度进行二值化与标记验证，并补偿小标记的面积量化误差。当前补光场景实测开关图片均约 50.3 次定位/秒，暗光样本回归通过，详见 [补光诊断](docs/failure_diagnosis/LIGHT_ANALYSIS.md)。
+
+补光半遮挡时增加同帧局部二值化补救，并修正阴影中的标记间隙检查。五张可恢复图的 180 个平移案例通过，现场开图约 34～39 次、关图约 45～46 次成功定位/秒；极暗丢标记帧仍会失败，尚未达到半遮挡稳定 50 次/秒，详见 [半遮挡诊断与剩余问题](docs/failure_diagnosis/HALF_LIGHT_ANALYSIS.md)。

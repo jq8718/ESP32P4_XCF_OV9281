@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <stdatomic.h>
 
 #ifdef _WIN32
 #include <windows.h>
@@ -18,6 +19,7 @@
 #include "esp_heap_caps.h"
 #include "esp_log.h"
 #include "esp_timer.h"
+#include "freertos/FreeRTOS.h"
 #endif
 
 #define XCR_ALLOC_MAGIC 0x5843524DU
@@ -36,7 +38,15 @@ typedef union {
 } XcrAllocationHeader;
 
 static XcrMemoryStats g_memory_stats;
-static bool g_oom_seen;
+static atomic_bool g_oom_seen;
+#ifdef ESP_PLATFORM
+static portMUX_TYPE g_memory_stats_lock = portMUX_INITIALIZER_UNLOCKED;
+#define MEMORY_STATS_LOCK() portENTER_CRITICAL(&g_memory_stats_lock)
+#define MEMORY_STATS_UNLOCK() portEXIT_CRITICAL(&g_memory_stats_lock)
+#else
+#define MEMORY_STATS_LOCK() ((void)0)
+#define MEMORY_STATS_UNLOCK() ((void)0)
+#endif
 
 uint64_t xcr_port_time_us(void)
 {
@@ -122,11 +132,13 @@ void *xcr_alloc(size_t size, XcrMemClass mem_class)
     }
     header->metadata.size = size;
     header->metadata.magic = XCR_ALLOC_MAGIC;
+    MEMORY_STATS_LOCK();
     g_memory_stats.current_bytes += size;
     if (g_memory_stats.current_bytes > g_memory_stats.peak_bytes) {
         g_memory_stats.peak_bytes = g_memory_stats.current_bytes;
     }
     g_memory_stats.allocation_count++;
+    MEMORY_STATS_UNLOCK();
     return header + 1;
 }
 
@@ -158,28 +170,34 @@ void xcr_free(void *ptr)
         return;
     }
     header->metadata.magic = 0;
+    MEMORY_STATS_LOCK();
     if (g_memory_stats.current_bytes >= header->metadata.size) {
         g_memory_stats.current_bytes -= header->metadata.size;
     } else {
         g_memory_stats.current_bytes = 0;
     }
     g_memory_stats.free_count++;
+    MEMORY_STATS_UNLOCK();
     xcr_raw_free(header);
 }
 
 void xcr_memory_stats_get(XcrMemoryStats *out)
 {
     if (out) {
+        MEMORY_STATS_LOCK();
         *out = g_memory_stats;
+        MEMORY_STATS_UNLOCK();
     }
 }
 
 void xcr_memory_stats_reset(void)
 {
+    MEMORY_STATS_LOCK();
     size_t current_bytes = g_memory_stats.current_bytes;
     memset(&g_memory_stats, 0, sizeof(g_memory_stats));
     g_memory_stats.current_bytes = current_bytes;
     g_memory_stats.peak_bytes = current_bytes;
+    MEMORY_STATS_UNLOCK();
 }
 
 void xcr_memory_oom_clear(void)
