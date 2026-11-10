@@ -245,11 +245,13 @@ static void finish_decoded_slot(int slot_index)
 #else
     if (CONFIG_XCR_DATAMATRIX_ONLY || (result.symbology == XCR_SYM_DATAMATRIX && count > 0)) {
         XcrDmtxStats marker_stats = slot->marker_stats;
-        ESP_LOGI(TAG, "dm_marker found=%d angle=%.1f detect=%llu normalize=%llu core=%llu geometry=%llu refined=%u total=%llu qr_rejected=%u passes=%u norm_first=%llu norm_retry=%llu (us)",
+        ESP_LOGI(TAG, "dm_marker found=%d angle=%.1f detect=%llu normalize=%llu core=%llu geometry=%llu refined=%u total=%llu qr_rejected=%u passes=%u norm_first=%llu norm_retry=%llu parallel=%u core0=%llu core1=%llu fallback=%u (us)",
                  marker_stats.marker_roi_valid, marker_stats.angle_degrees,
                  marker_stats.prescreen_us, marker_stats.setup_us, marker_stats.decode_us,
                  marker_stats.geometry_us, marker_stats.geometry_refined, marker_stats.total_us, marker_stats.qr_rejected,
-                 marker_stats.normalize_attempts, marker_stats.normalize_pass_us[0], marker_stats.normalize_pass_us[1]);
+                 marker_stats.normalize_attempts, marker_stats.normalize_pass_us[0], marker_stats.normalize_pass_us[1],
+                 marker_stats.marker_parallel_used, marker_stats.marker_core0_us,
+                 marker_stats.marker_core1_us, marker_stats.marker_full_fallback);
         DataMatrixDecodeDebugStats dm_stats = slot->dm_stats;
         ESP_LOGI(TAG, "datamatrix finder=%llu candidate=%llu codeword=%llu ecc=%llu payload=%llu total=%llu finders=%lu payload=%s",
                  (unsigned long long)dm_stats.finder_us,
@@ -352,6 +354,7 @@ esp_err_t agv_pipeline_start(p4scan_camera_t *camera)
     config.image_budget_ms = CONFIG_P4SCAN_FRAME_MAX_AGE_MS;
     s_decoder = xcr_decoder_create(&config);
     if (!s_decoder) return ESP_ERR_NO_MEM;
+    if (!xcr_dmtx_parallel_start()) ESP_LOGW(TAG, "parallel marker worker unavailable; using full-frame search");
     esp_log_level_set("p4scan_camera", ESP_LOG_WARN);
     esp_log_level_set("p4scan_power", ESP_LOG_WARN);
     esp_log_level_set("ov9281", ESP_LOG_WARN);

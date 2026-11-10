@@ -41,7 +41,7 @@ idf_component_register(
     SRCS ${XCR_DECODER_SRCS}
     INCLUDE_DIRS "include"
     PRIV_INCLUDE_DIRS "vendor/include" "vendor/quirc" "vendor/libdmtx" "../../p0a_audit/xcr_work/src/include"
-    PRIV_REQUIRES esp_timer
+    PRIV_REQUIRES esp_timer freertos
 )
 
 target_compile_options(${COMPONENT_LIB} PRIVATE

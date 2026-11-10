@@ -5,9 +5,11 @@
 ## 软件设计
 
 ```text
-OV9281 RAW8 → ESP32-P4 CSI/MMAP → Gray8 帧 → Core0 采集/预处理
+OV9281 RAW8 → ESP32-P4 CSI/MMAP → Gray8 帧 → Core0 采集
                                              ↓ 最新帧队列
-                                     Core1 XCR 解码/定位
+                         Core0 右侧标记搜索 ↔ Core1 左侧标记搜索
+                                             ↓ 合并候选
+                                     Core1 XCR 解码/角点精修
                                              ↓
                                   USB CDC 结果 + MJPEG UVC 预览
 ```
@@ -51,3 +53,5 @@ OV9281 RAW8 → ESP32-P4 CSI/MMAP → Gray8 帧 → Core0 采集/预处理
 已编译并烧录，确认 CSI 1280×720 RAW8 持续取帧。现场 DataMatrix `012345` 已由设备解码并通过 CDC 输出，UVC 图像及 CDC 角点坐标一致。`tools/check_datamatrix.py 012345` 可复测 UVC 与 CDC 并行链路；详细记录见 `docs/OV9281_VALIDATION.md`，现场图见 `docs/dm_verified_uvc.png`。
 
 Windows UI 调试器为 `dist/P4ScanOV9281Debugger.exe`，源码和使用说明见 `tools/ov9281_debugger/README.md`。它按参考调试器设计，通过 CDC 上传解码处理后的成功/失败同帧图片，手动开关控制上传，不打开 UVC 实时流。UVC 收帧数包含重复预览 JPEG；CDC 只有解码、角点精定位和 100 ms 帧龄检查均通过才发送定位行，因此 219 帧 UVC 与 77 条 CDC 不能直接按差值计算“丢失”的识码结果。
+
+AGV 实时模式把全图外部标记搜索分成左右重叠区域，Core 0 与 Core 1 同帧并行搜索，找不到时回退整图搜索；不使用上一帧 ROI。实机与跨中线主机样本验证见 `docs/PARALLEL_MARKER_SEARCH.md`。

@@ -1,0 +1,1122 @@
+[
+  {
+    "shift_x": 0,
+    "match": true,
+    "full": {
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 627,
+      "marker_us": 397,
+      "normalize_us": 73,
+      "core_us": 87,
+      "refine_us": 63,
+      "marker_roi": [
+        234,
+        156,
+        462,
+        372
+      ],
+      "angle_deg": -118.217,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "core_finder_us": 60,
+      "core_candidate_us": 22,
+      "core_codeword_us": 3,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        413,
+        284,
+        327,
+        323,
+        280,
+        235,
+        370,
+        195
+      ]
+    },
+    "split": {
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 698,
+      "marker_us": 474,
+      "normalize_us": 76,
+      "core_us": 74,
+      "refine_us": 65,
+      "marker_roi": [
+        234,
+        156,
+        462,
+        372
+      ],
+      "angle_deg": -118.217,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 1,
+      "full_fallback": 0,
+      "core_finder_us": 49,
+      "core_candidate_us": 21,
+      "core_codeword_us": 3,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        413,
+        284,
+        327,
+        323,
+        280,
+        235,
+        370,
+        195
+      ]
+    }
+  },
+  {
+    "shift_x": 100,
+    "match": true,
+    "full": {
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 552,
+      "marker_us": 350,
+      "normalize_us": 73,
+      "core_us": 90,
+      "refine_us": 31,
+      "marker_roi": [
+        336,
+        156,
+        564,
+        372
+      ],
+      "angle_deg": -117.646,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "core_finder_us": 60,
+      "core_candidate_us": 26,
+      "core_codeword_us": 1,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        513,
+        284,
+        427,
+        323,
+        380,
+        235,
+        470,
+        195
+      ]
+    },
+    "split": {
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 620,
+      "marker_us": 430,
+      "normalize_us": 73,
+      "core_us": 80,
+      "refine_us": 31,
+      "marker_roi": [
+        336,
+        156,
+        564,
+        372
+      ],
+      "angle_deg": -117.646,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 1,
+      "full_fallback": 0,
+      "core_finder_us": 51,
+      "core_candidate_us": 25,
+      "core_codeword_us": 2,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        513,
+        284,
+        427,
+        323,
+        380,
+        235,
+        470,
+        195
+      ]
+    }
+  },
+  {
+    "shift_x": 150,
+    "match": true,
+    "full": {
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 557,
+      "marker_us": 335,
+      "normalize_us": 73,
+      "core_us": 78,
+      "refine_us": 65,
+      "marker_roi": [
+        384,
+        156,
+        612,
+        372
+      ],
+      "angle_deg": -118.217,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "core_finder_us": 52,
+      "core_candidate_us": 21,
+      "core_codeword_us": 2,
+      "core_ecc_us": 2,
+      "core_payload_us": 0,
+      "corners": [
+        563,
+        284,
+        477,
+        323,
+        430,
+        235,
+        520,
+        195
+      ]
+    },
+    "split": {
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 721,
+      "marker_us": 441,
+      "normalize_us": 73,
+      "core_us": 89,
+      "refine_us": 111,
+      "marker_roi": [
+        384,
+        156,
+        612,
+        372
+      ],
+      "angle_deg": -118.217,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 1,
+      "full_fallback": 0,
+      "core_finder_us": 62,
+      "core_candidate_us": 21,
+      "core_codeword_us": 2,
+      "core_ecc_us": 2,
+      "core_payload_us": 0,
+      "corners": [
+        563,
+        284,
+        477,
+        323,
+        430,
+        235,
+        520,
+        195
+      ]
+    }
+  },
+  {
+    "shift_x": 200,
+    "match": true,
+    "full": {
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 487,
+      "marker_us": 317,
+      "normalize_us": 73,
+      "core_us": 63,
+      "refine_us": 28,
+      "marker_roi": [
+        432,
+        156,
+        666,
+        372
+      ],
+      "angle_deg": -118.217,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "core_finder_us": 43,
+      "core_candidate_us": 16,
+      "core_codeword_us": 3,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        613,
+        284,
+        527,
+        323,
+        480,
+        235,
+        570,
+        195
+      ]
+    },
+    "split": {
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 636,
+      "marker_us": 459,
+      "normalize_us": 74,
+      "core_us": 68,
+      "refine_us": 28,
+      "marker_roi": [
+        432,
+        156,
+        666,
+        372
+      ],
+      "angle_deg": -118.217,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 1,
+      "full_fallback": 0,
+      "core_finder_us": 47,
+      "core_candidate_us": 17,
+      "core_codeword_us": 2,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        613,
+        284,
+        527,
+        323,
+        480,
+        235,
+        570,
+        195
+      ]
+    }
+  },
+  {
+    "shift_x": 250,
+    "match": true,
+    "full": {
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 553,
+      "marker_us": 336,
+      "normalize_us": 71,
+      "core_us": 104,
+      "refine_us": 34,
+      "marker_roi": [
+        486,
+        156,
+        714,
+        372
+      ],
+      "angle_deg": -117.646,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "core_finder_us": 75,
+      "core_candidate_us": 24,
+      "core_codeword_us": 3,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        663,
+        284,
+        577,
+        323,
+        530,
+        235,
+        620,
+        195
+      ]
+    },
+    "split": {
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 608,
+      "marker_us": 409,
+      "normalize_us": 72,
+      "core_us": 90,
+      "refine_us": 32,
+      "marker_roi": [
+        486,
+        156,
+        714,
+        372
+      ],
+      "angle_deg": -117.646,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 1,
+      "full_fallback": 0,
+      "core_finder_us": 59,
+      "core_candidate_us": 25,
+      "core_codeword_us": 3,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        663,
+        284,
+        577,
+        323,
+        530,
+        235,
+        620,
+        195
+      ]
+    }
+  },
+  {
+    "shift_x": 300,
+    "match": true,
+    "full": {
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 662,
+      "marker_us": 433,
+      "normalize_us": 72,
+      "core_us": 84,
+      "refine_us": 65,
+      "marker_roi": [
+        534,
+        156,
+        762,
+        372
+      ],
+      "angle_deg": -118.217,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "core_finder_us": 57,
+      "core_candidate_us": 21,
+      "core_codeword_us": 2,
+      "core_ecc_us": 2,
+      "core_payload_us": 0,
+      "corners": [
+        713,
+        284,
+        627,
+        323,
+        580,
+        235,
+        670,
+        195
+      ]
+    },
+    "split": {
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 669,
+      "marker_us": 419,
+      "normalize_us": 73,
+      "core_us": 104,
+      "refine_us": 65,
+      "marker_roi": [
+        534,
+        156,
+        762,
+        372
+      ],
+      "angle_deg": -118.217,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 1,
+      "full_fallback": 0,
+      "core_finder_us": 78,
+      "core_candidate_us": 22,
+      "core_codeword_us": 3,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        713,
+        284,
+        627,
+        323,
+        580,
+        235,
+        670,
+        195
+      ]
+    }
+  },
+  {
+    "shift_x": 350,
+    "match": true,
+    "full": {
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 467,
+      "marker_us": 293,
+      "normalize_us": 73,
+      "core_us": 67,
+      "refine_us": 28,
+      "marker_roi": [
+        582,
+        156,
+        816,
+        372
+      ],
+      "angle_deg": -118.217,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "core_finder_us": 45,
+      "core_candidate_us": 17,
+      "core_codeword_us": 1,
+      "core_ecc_us": 2,
+      "core_payload_us": 0,
+      "corners": [
+        763,
+        284,
+        677,
+        323,
+        630,
+        235,
+        720,
+        195
+      ]
+    },
+    "split": {
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 603,
+      "marker_us": 416,
+      "normalize_us": 74,
+      "core_us": 78,
+      "refine_us": 28,
+      "marker_roi": [
+        582,
+        156,
+        816,
+        372
+      ],
+      "angle_deg": -118.217,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 1,
+      "full_fallback": 0,
+      "core_finder_us": 57,
+      "core_candidate_us": 16,
+      "core_codeword_us": 2,
+      "core_ecc_us": 2,
+      "core_payload_us": 1,
+      "corners": [
+        763,
+        284,
+        677,
+        323,
+        630,
+        235,
+        720,
+        195
+      ]
+    }
+  },
+  {
+    "shift_x": 400,
+    "match": true,
+    "full": {
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 523,
+      "marker_us": 336,
+      "normalize_us": 72,
+      "core_us": 76,
+      "refine_us": 31,
+      "marker_roi": [
+        636,
+        156,
+        864,
+        372
+      ],
+      "angle_deg": -117.646,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "core_finder_us": 46,
+      "core_candidate_us": 25,
+      "core_codeword_us": 3,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        813,
+        284,
+        727,
+        323,
+        680,
+        235,
+        770,
+        195
+      ]
+    },
+    "split": {
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 618,
+      "marker_us": 382,
+      "normalize_us": 106,
+      "core_us": 95,
+      "refine_us": 31,
+      "marker_roi": [
+        636,
+        156,
+        864,
+        372
+      ],
+      "angle_deg": -117.646,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 1,
+      "full_fallback": 0,
+      "core_finder_us": 66,
+      "core_candidate_us": 24,
+      "core_codeword_us": 2,
+      "core_ecc_us": 2,
+      "core_payload_us": 0,
+      "corners": [
+        813,
+        284,
+        727,
+        323,
+        680,
+        235,
+        770,
+        195
+      ]
+    }
+  },
+  {
+    "shift_x": 450,
+    "match": true,
+    "full": {
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 528,
+      "marker_us": 313,
+      "normalize_us": 72,
+      "core_us": 72,
+      "refine_us": 65,
+      "marker_roi": [
+        684,
+        156,
+        912,
+        372
+      ],
+      "angle_deg": -118.217,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "core_finder_us": 46,
+      "core_candidate_us": 22,
+      "core_codeword_us": 2,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        863,
+        284,
+        777,
+        323,
+        730,
+        235,
+        820,
+        195
+      ]
+    },
+    "split": {
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 613,
+      "marker_us": 391,
+      "normalize_us": 74,
+      "core_us": 77,
+      "refine_us": 65,
+      "marker_roi": [
+        684,
+        156,
+        912,
+        372
+      ],
+      "angle_deg": -118.217,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 1,
+      "full_fallback": 0,
+      "core_finder_us": 50,
+      "core_candidate_us": 23,
+      "core_codeword_us": 2,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        863,
+        284,
+        777,
+        323,
+        730,
+        235,
+        820,
+        195
+      ]
+    }
+  },
+  {
+    "shift_x": 500,
+    "match": true,
+    "full": {
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 574,
+      "marker_us": 336,
+      "normalize_us": 112,
+      "core_us": 87,
+      "refine_us": 30,
+      "marker_roi": [
+        732,
+        156,
+        966,
+        372
+      ],
+      "angle_deg": -118.217,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "core_finder_us": 59,
+      "core_candidate_us": 22,
+      "core_codeword_us": 3,
+      "core_ecc_us": 2,
+      "core_payload_us": 0,
+      "corners": [
+        913,
+        284,
+        827,
+        323,
+        780,
+        235,
+        870,
+        195
+      ]
+    },
+    "split": {
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 567,
+      "marker_us": 388,
+      "normalize_us": 73,
+      "core_us": 70,
+      "refine_us": 29,
+      "marker_roi": [
+        732,
+        156,
+        966,
+        372
+      ],
+      "angle_deg": -118.217,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 1,
+      "full_fallback": 0,
+      "core_finder_us": 49,
+      "core_candidate_us": 17,
+      "core_codeword_us": 1,
+      "core_ecc_us": 2,
+      "core_payload_us": 1,
+      "corners": [
+        913,
+        284,
+        827,
+        323,
+        780,
+        235,
+        870,
+        195
+      ]
+    }
+  },
+  {
+    "shift_x": 600,
+    "match": true,
+    "full": {
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 481,
+      "marker_us": 268,
+      "normalize_us": 72,
+      "core_us": 68,
+      "refine_us": 65,
+      "marker_roi": [
+        834,
+        156,
+        1062,
+        372
+      ],
+      "angle_deg": -118.217,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "core_finder_us": 43,
+      "core_candidate_us": 22,
+      "core_codeword_us": 2,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        1013,
+        284,
+        927,
+        323,
+        880,
+        235,
+        970,
+        195
+      ]
+    },
+    "split": {
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 593,
+      "marker_us": 369,
+      "normalize_us": 74,
+      "core_us": 80,
+      "refine_us": 65,
+      "marker_roi": [
+        834,
+        156,
+        1062,
+        372
+      ],
+      "angle_deg": -118.217,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 1,
+      "full_fallback": 0,
+      "core_finder_us": 55,
+      "core_candidate_us": 22,
+      "core_codeword_us": 2,
+      "core_ecc_us": 1,
+      "core_payload_us": 0,
+      "corners": [
+        1013,
+        284,
+        927,
+        323,
+        880,
+        235,
+        970,
+        195
+      ]
+    }
+  },
+  {
+    "case": "blank",
+    "match": true,
+    "full": {
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 194,
+      "marker_us": 193,
+      "normalize_us": 0,
+      "core_us": 0,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "core_finder_us": 0,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "split": {
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 414,
+      "marker_us": 414,
+      "normalize_us": 0,
+      "core_us": 0,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 1,
+      "full_fallback": 1,
+      "core_finder_us": 0,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "case": "covered",
+    "match": true,
+    "full": {
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 291,
+      "marker_us": 290,
+      "normalize_us": 0,
+      "core_us": 0,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 0,
+      "full_fallback": 0,
+      "core_finder_us": 0,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "split": {
+      "decoded": 0,
+      "payload": "",
+      "elapsed_us": 574,
+      "marker_us": 574,
+      "normalize_us": 0,
+      "core_us": 0,
+      "refine_us": 0,
+      "marker_roi": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "angle_deg": 0.0,
+      "grid": [
+        0,
+        0
+      ],
+      "geometry_quality": 0,
+      "split": 1,
+      "full_fallback": 1,
+      "core_finder_us": 0,
+      "core_candidate_us": 0,
+      "core_codeword_us": 0,
+      "core_ecc_us": 0,
+      "core_payload_us": 0,
+      "corners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "case": "large_centre",
+    "match": true,
+    "full": {
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 473,
+      "marker_us": 248,
+      "normalize_us": 86,
+      "core_us": 70,
+      "refine_us": 63,
+      "marker_roi": [
+        390,
+        114,
+        888,
+        588
+      ],
+      "angle_deg": -118.024,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 0,
+      "full_fallback": 0,
+      "core_finder_us": 43,
+      "core_candidate_us": 21,
+      "core_codeword_us": 2,
+      "core_ecc_us": 2,
+      "core_payload_us": 0,
+      "corners": [
+        837,
+        421,
+        577,
+        539,
+        436,
+        273,
+        708,
+        154
+      ]
+    },
+    "split": {
+      "decoded": 6,
+      "payload": "012345",
+      "elapsed_us": 753,
+      "marker_us": 517,
+      "normalize_us": 88,
+      "core_us": 79,
+      "refine_us": 63,
+      "marker_roi": [
+        390,
+        114,
+        888,
+        588
+      ],
+      "angle_deg": -118.024,
+      "grid": [
+        10,
+        10
+      ],
+      "geometry_quality": 2,
+      "split": 1,
+      "full_fallback": 1,
+      "core_finder_us": 53,
+      "core_candidate_us": 21,
+      "core_codeword_us": 2,
+      "core_ecc_us": 2,
+      "core_payload_us": 0,
+      "corners": [
+        837,
+        421,
+        577,
+        539,
+        436,
+        273,
+        708,
+        154
+      ]
+    }
+  }
+]

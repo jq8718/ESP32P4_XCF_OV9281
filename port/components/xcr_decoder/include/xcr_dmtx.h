@@ -21,8 +21,13 @@ typedef struct {
     unsigned decoded_messages;
     unsigned geometry_fallbacks;
     unsigned hint_hits;
+    uint64_t marker_core0_us;
+    uint64_t marker_core1_us;
+    unsigned marker_parallel_used;
+    unsigned marker_full_fallback;
     int marker_roi_valid;
     int marker_roi[4];
 } XcrDmtxStats;
 void xcr_dmtx_stats_get(XcrDmtxStats *out);
+int xcr_dmtx_parallel_start(void);
 #endif

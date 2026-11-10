@@ -40,6 +40,7 @@ int main(int argc, char **argv)
            "\"marker_us\":%llu,\"normalize_us\":%llu,\"core_us\":%llu,"
            "\"refine_us\":%llu,\"marker_roi\":[%d,%d,%d,%d],"
            "\"angle_deg\":%.3f,\"grid\":[%d,%d],\"geometry_quality\":%d,"
+           "\"split\":%u,\"full_fallback\":%u,"
            "\"core_finder_us\":%llu,\"core_candidate_us\":%llu,"
            "\"core_codeword_us\":%llu,\"core_ecc_us\":%llu,\"core_payload_us\":%llu,"
            "\"corners\":[%d,%d,%d,%d,%d,%d,%d,%d]}\n",
@@ -48,6 +49,7 @@ int main(int argc, char **argv)
            (unsigned long long)marker.decode_us, (unsigned long long)marker.geometry_us,
            marker.marker_roi[0], marker.marker_roi[1], marker.marker_roi[2], marker.marker_roi[3],
            marker.angle_degrees, result.grid_rows, result.grid_cols, result.geometry_quality,
+           marker.marker_parallel_used, marker.marker_full_fallback,
            (unsigned long long)core.finder_us, (unsigned long long)core.candidate_us,
            (unsigned long long)core.codeword_us, (unsigned long long)core.ecc_us,
            (unsigned long long)core.payload_us,

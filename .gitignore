@@ -14,3 +14,4 @@ __pycache__/
 /tools/ov9281_debugger/build/
 /tools/ov9281_debugger/.venv/
 /tools/ov9281_debugger/*.spec
+/docs/decode_stages/dm_stage_trace*

@@ -10,6 +10,9 @@
 #include <string.h>
 #ifdef ESP_PLATFORM
 #include "esp_heap_caps.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/semphr.h"
+#include "freertos/task.h"
 #endif
 #if XCR_MARKER_DEBUG
 #include <stdio.h>
@@ -293,11 +296,14 @@ static int marker_filtered_gray(const Image *image, int sample_x, int sample_y)
             pixels[stride - 1] + pixels[stride] + pixels[stride + 1] + 4) / 9;
 }
 
-static int find_marker_roi(const Image *image, int roi[4], int *orientation, float axes[6])
+static int find_marker_roi_slice(const Image *image, int sample_left, int sample_right,
+                                 int roi[4], int *orientation, float axes[6],
+                                 int *score_out, unsigned *qr_rejected)
 {
     const int step = marker_step(image);
-    const int width = (image->width + step - 1) / step;
+    const int width = sample_right - sample_left;
     const int height = (image->height + step - 1) / step;
+    if (width <= 0) return 0;
     const size_t count = (size_t)width * (size_t)height;
     XcrMemClass queue_class = XCR_MEM_LARGE;
 #ifdef ESP_PLATFORM
@@ -316,8 +322,9 @@ static int find_marker_roi(const Image *image, int roi[4], int *orientation, flo
     }
     for (int y = 0; y < height; y++) {
         for (int x = 0; x < width; x++) {
-            int value = image->pixels[(size_t)y * step * image->width + (size_t)x * step];
-            if (value < 48) value = marker_filtered_gray(image, x * step, y * step);
+            int source_x = (x + sample_left) * step;
+            int value = image->pixels[(size_t)y * step * image->width + source_x];
+            if (value < 48) value = marker_filtered_gray(image, source_x, y * step);
             mask[y * width + x] = value;
             queue[y * width + x] = value + (x ? queue[y * width + x - 1] : 0) +
                 (y ? queue[(y - 1) * width + x] : 0) -
@@ -384,7 +391,7 @@ static int find_marker_roi(const Image *image, int roi[4], int *orientation, flo
                 for (int sample = 0; sample < tail; sample++) {
                     int sample_x = queue[sample] % width;
                     int sample_y = queue[sample] / width;
-                    if (marker_filtered_gray(image, sample_x * step, sample_y * step) >= threshold) continue;
+                    if (marker_filtered_gray(image, (sample_x + sample_left) * step, sample_y * step) >= threshold) continue;
                     if (sample_x < filtered_min_x) filtered_min_x = sample_x;
                     if (sample_x > filtered_max_x) filtered_max_x = sample_x;
                     if (sample_y < filtered_min_y) filtered_min_y = sample_y;
@@ -406,7 +413,7 @@ static int find_marker_roi(const Image *image, int roi[4], int *orientation, flo
                 continue;
             if (component_width * 10 < component_height * 6 || component_height * 10 < component_width * 6)
                 continue;
-            int center_x = (min_x + max_x) * step / 2;
+            int center_x = (min_x + max_x + 2 * sample_left) * step / 2;
             int center_y = (min_y + max_y) * step / 2;
             int dark_sum = 0;
             int dark_max = 0;
@@ -438,11 +445,11 @@ static int find_marker_roi(const Image *image, int roi[4], int *orientation, flo
             if (dark_max * light_count * 100 >= light_sum * 75) continue;
             if (marker_has_qr_rings(image, center_x, center_y, component_width * step,
                                     component_height * step, (dark_sum / 9 + light_sum / light_count) / 2)) {
-                last_stats.qr_rejected++;
+                if (qr_rejected) (*qr_rejected)++;
                 continue;
             }
             if (candidate_count < (int)(sizeof(candidates) / sizeof(candidates[0])))
-                candidates[candidate_count++] = (MarkerCandidate){min_x, min_y, component_width, component_height, component_area};
+                candidates[candidate_count++] = (MarkerCandidate){min_x + sample_left, min_y, component_width, component_height, component_area};
         }
     }
     int found = 0;
@@ -579,8 +586,140 @@ static int find_marker_roi(const Image *image, int roi[4], int *orientation, flo
         }
     }
     xcr_free(queue);
+    if (score_out) *score_out = best_score;
     return found;
 }
+
+static int find_marker_roi(const Image *image, int roi[4], int *orientation, float axes[6])
+{
+    return find_marker_roi_slice(image, 0, (image->width + marker_step(image) - 1) / marker_step(image),
+                                 roi, orientation, axes, NULL, &last_stats.qr_rejected);
+}
+
+#ifdef ESP_PLATFORM
+typedef struct {
+    Image image;
+    int sample_left;
+    int sample_right;
+    int roi[4];
+    int orientation;
+    float axes[6];
+    int score;
+    unsigned qr_rejected;
+    int found;
+    uint64_t runtime_us;
+} MarkerSliceJob;
+
+static MarkerSliceJob s_right_job;
+static TaskHandle_t s_marker_worker;
+static SemaphoreHandle_t s_marker_done;
+
+static void marker_slice_worker(void *argument)
+{
+    (void)argument;
+    for (;;) {
+        ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+        uint64_t started = xcr_port_time_us();
+        s_right_job.found = find_marker_roi_slice(&s_right_job.image,
+            s_right_job.sample_left, s_right_job.sample_right, s_right_job.roi,
+            &s_right_job.orientation, s_right_job.axes, &s_right_job.score,
+            &s_right_job.qr_rejected);
+        s_right_job.runtime_us = xcr_port_time_us() - started;
+        xSemaphoreGive(s_marker_done);
+    }
+}
+
+int xcr_dmtx_parallel_start(void)
+{
+    if (s_marker_worker) return 1;
+    s_marker_done = xSemaphoreCreateBinary();
+    if (!s_marker_done) return 0;
+    if (xTaskCreatePinnedToCore(marker_slice_worker, "dm_marker_right", 8192,
+                                NULL, 7, &s_marker_worker, 0) != pdPASS) {
+        vSemaphoreDelete(s_marker_done);
+        s_marker_done = NULL;
+        return 0;
+    }
+    return 1;
+}
+
+static int find_marker_roi_parallel(const Image *image, int roi[4], int *orientation, float axes[6])
+{
+    int sampled_width = (image->width + marker_step(image) - 1) / marker_step(image);
+    if (!s_marker_worker || sampled_width < 100) return find_marker_roi(image, roi, orientation, axes);
+    /* Forty sampled columns (240 sensor pixels) cover the usual marker
+     * spread across the centre. A full-frame search handles wider symbols. */
+    int centre = sampled_width / 2;
+    int overlap = 40;
+    MarkerSliceJob left = {.image = *image, .sample_left = 0,
+                           .sample_right = centre + overlap};
+    memset(&s_right_job, 0, sizeof(s_right_job));
+    s_right_job.image = *image;
+    s_right_job.sample_left = centre - overlap;
+    s_right_job.sample_right = sampled_width;
+    xSemaphoreTake(s_marker_done, 0);
+    xTaskNotifyGive(s_marker_worker);
+    uint64_t started = xcr_port_time_us();
+    left.found = find_marker_roi_slice(&left.image, left.sample_left, left.sample_right,
+        left.roi, &left.orientation, left.axes, &left.score, &left.qr_rejected);
+    left.runtime_us = xcr_port_time_us() - started;
+    /* The capture buffer must stay owned by the decoder until Core 0 stops
+     * reading it, even if this frame has passed its validity deadline. */
+    xSemaphoreTake(s_marker_done, portMAX_DELAY);
+    last_stats.marker_parallel_used = 1;
+    last_stats.marker_core0_us = s_right_job.runtime_us;
+    last_stats.marker_core1_us = left.runtime_us;
+    last_stats.qr_rejected += left.qr_rejected + s_right_job.qr_rejected;
+    MarkerSliceJob *winner = NULL;
+    if (left.found) winner = &left;
+    if (s_right_job.found && (!winner || s_right_job.score > winner->score))
+        winner = &s_right_job;
+    if (winner) {
+        memcpy(roi, winner->roi, sizeof(winner->roi));
+        if (orientation) *orientation = winner->orientation;
+        if (axes) memcpy(axes, winner->axes, sizeof(winner->axes));
+        return 1;
+    }
+    last_stats.marker_full_fallback = 1;
+    return find_marker_roi(image, roi, orientation, axes);
+}
+#elif defined(XCR_DM_SPLIT_TEST)
+int xcr_dmtx_parallel_start(void) { return 1; }
+static int find_marker_roi_parallel(const Image *image, int roi[4], int *orientation, float axes[6])
+{
+    const int width = (image->width + marker_step(image) - 1) / marker_step(image);
+    const int centre = width / 2;
+    const int overlap = 40;
+    int left_roi[4] = {0}, right_roi[4] = {0};
+    int left_orientation = 0, right_orientation = 0;
+    int left_score = 0, right_score = 0;
+    float left_axes[6] = {0}, right_axes[6] = {0};
+    unsigned left_rejected = 0, right_rejected = 0;
+    int left = find_marker_roi_slice(image, 0, centre + overlap, left_roi,
+        &left_orientation, left_axes, &left_score, &left_rejected);
+    int right = find_marker_roi_slice(image, centre - overlap, width, right_roi,
+        &right_orientation, right_axes, &right_score, &right_rejected);
+    last_stats.marker_parallel_used = 1;
+    last_stats.qr_rejected += left_rejected + right_rejected;
+    if (left && (!right || left_score >= right_score)) {
+        memcpy(roi, left_roi, sizeof(left_roi));
+        *orientation = left_orientation;
+        memcpy(axes, left_axes, sizeof(left_axes));
+        return 1;
+    }
+    if (right) {
+        memcpy(roi, right_roi, sizeof(right_roi));
+        *orientation = right_orientation;
+        memcpy(axes, right_axes, sizeof(right_axes));
+        return 1;
+    }
+    last_stats.marker_full_fallback = 1;
+    return find_marker_roi(image, roi, orientation, axes);
+}
+#else
+int xcr_dmtx_parallel_start(void) { return 0; }
+#define find_marker_roi_parallel find_marker_roi
+#endif
 
 static void normalize_marker_roi(const Image *image, const int roi[4], int orientation,
                                  uint8_t *normalized)
@@ -1105,11 +1244,16 @@ int xcr_datamatrix_marked_decode_ex(const Image *image, BarcodeResult *result, c
     float axes[6] = {0};
     int roi[4];
     int orientation = 0;
+    int full_retry = 0;
     memset(&last_stats, 0, sizeof(last_stats));
-    memset(result, 0, sizeof(*result));
     datamatrix_debug_stats_reset();
-    int found = find_marker_roi(image, roi, &orientation, axes);
-    last_stats.prescreen_us = xcr_port_time_us() - started;
+search_marker:
+    memset(result, 0, sizeof(*result));
+    memset(axes, 0, sizeof(axes));
+    uint64_t prescreen_started = xcr_port_time_us();
+    int found = full_retry ? find_marker_roi(image, roi, &orientation, axes) :
+                             find_marker_roi_parallel(image, roi, &orientation, axes);
+    last_stats.prescreen_us += xcr_port_time_us() - prescreen_started;
     last_stats.marker_roi_valid = found;
     if (!found || xcr_deadline_expired(deadline)) {
         /* Use the native finder periodically when the external marker gate
@@ -1224,6 +1368,15 @@ int xcr_datamatrix_marked_decode_ex(const Image *image, BarcodeResult *result, c
     }
     xcr_free(pixels);
     if (decoded > 0) break;
+    }
+    /* A partial candidate in one half can pass the marker geometry checks
+     * yet fail ECC200. Retry the original full-frame search before declaring
+     * this frame unreadable, preserving the serial decoder's coverage. */
+    if (!decoded && !full_retry && last_stats.marker_parallel_used &&
+        !last_stats.marker_full_fallback && !xcr_deadline_expired(deadline)) {
+        full_retry = 1;
+        last_stats.marker_full_fallback = 1;
+        goto search_marker;
     }
     if (decoded > 0 && result->geometry_valid) result->geometry_quality = XCR_GEOMETRY_COARSE;
     if (decoded > 0 && result->geometry_valid && !defer_geometry) {
