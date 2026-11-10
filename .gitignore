@@ -1,0 +1,16 @@
+/build/
+/build_idf60/
+/managed_components/
+/dist/
+/.vscode/
+/sdkconfig
+/sdkconfig.old
+*.log
+*.avi
+*.exe
+*.py[cod]
+__pycache__/
+**/build_host*/
+/tools/ov9281_debugger/build/
+/tools/ov9281_debugger/.venv/
+/tools/ov9281_debugger/*.spec

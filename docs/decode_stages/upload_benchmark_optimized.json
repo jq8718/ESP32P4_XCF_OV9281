@@ -1,0 +1,54 @@
+[
+  {
+    "stage": 1,
+    "upload": true,
+    "seconds": 6.0,
+    "results": 262,
+    "result_per_second": 43.67,
+    "scan_messages": 262,
+    "scan_success": 262,
+    "images": 16,
+    "image_success": 16,
+    "median_decode_ms": 19.83,
+    "median_age_ms": 28.58
+  },
+  {
+    "stage": 2,
+    "upload": false,
+    "seconds": 6.0,
+    "results": 279,
+    "result_per_second": 46.5,
+    "scan_messages": 279,
+    "scan_success": 279,
+    "images": 0,
+    "image_success": 0,
+    "median_decode_ms": 19.77,
+    "median_age_ms": 29.62
+  },
+  {
+    "stage": 3,
+    "upload": true,
+    "seconds": 6.0,
+    "results": 262,
+    "result_per_second": 43.67,
+    "scan_messages": 262,
+    "scan_success": 262,
+    "images": 16,
+    "image_success": 16,
+    "median_decode_ms": 19.88,
+    "median_age_ms": 31.28
+  },
+  {
+    "stage": 4,
+    "upload": false,
+    "seconds": 6.0,
+    "results": 281,
+    "result_per_second": 46.83,
+    "scan_messages": 281,
+    "scan_success": 281,
+    "images": 0,
+    "image_success": 0,
+    "median_decode_ms": 19.79,
+    "median_age_ms": 29.18
+  }
+]

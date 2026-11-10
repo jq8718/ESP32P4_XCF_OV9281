@@ -1,0 +1,1 @@
+{"decoded":6,"payload":"012345","elapsed_us":30529,"marker_us":12165,"normalize_us":7096,"core_us":11177,"refine_us":74,"marker_roi":[234,156,462,372],"angle_deg":-118.217,"grid":[10,10],"geometry_quality":2,"core_finder_us":60,"core_candidate_us":3508,"core_codeword_us":2,"core_ecc_us":3,"core_payload_us":0,"corners":[413,284,327,323,280,235,370,195]}

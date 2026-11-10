@@ -1,0 +1,68 @@
+{
+  "frames": 39,
+  "rate": [
+    52,
+    446.73539518548864,
+    52,
+    6.984000000054948
+  ],
+  "uvc_frames": 95,
+  "uvc_distinct": 29,
+  "uvc_seconds": 3.530999999959022,
+  "timing_total": 76,
+  "uvc_black": false,
+  "timing_success": 54,
+  "decode_ms": "33.608",
+  "coordinates_only": false,
+  "has_image": true,
+  "pose": {
+    "available": true,
+    "front_angle_deg": 7.646407914547827,
+    "horizontal_tilt_deg": 4.033114676338914,
+    "vertical_tilt_deg": 6.517651185175934,
+    "reprojection_px": 0.3185922718888867,
+    "ambiguous": true,
+    "optical_distance_mm": null,
+    "calibration_source": "assumed",
+    "assumed_horizontal_fov_deg": 23.0,
+    "camera_matrix": [
+      [
+        3145.7004998855714,
+        0.0,
+        639.5
+      ],
+      [
+        0.0,
+        3145.7004998855714,
+        359.5
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "dist_coeffs": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "opposite_edges": {
+      "p0_p3_px": 107.29160323622722,
+      "p1_p2_px": 105.80158426980195,
+      "left_right_ratio": 1.0140831441864386
+    },
+    "agv_wall_yaw_deg": 4.033114676338914,
+    "agv_wall_yaw_abs_deg": 4.033114676338914,
+    "display_angles": {
+      "front_angle_deg": 7.61763213367193,
+      "horizontal_tilt_deg": 3.959360663156239,
+      "vertical_tilt_deg": 6.528214593229991,
+      "image_rotation_deg": 177.90529023795983
+    },
+    "display_average_seconds": 0.5,
+    "agv_assumptions": "\u76f8\u673a\u6c34\u5e73\u4e14\u753b\u9762\u671d\u4e0a\u3001\u5149\u8f74\u5782\u76f4\u8f66\u8eab\u524d\u8fdb\u65b9\u5411\u3001DataMatrix \u6240\u5728\u5899\u9762\u7ad6\u76f4"
+  }
+}

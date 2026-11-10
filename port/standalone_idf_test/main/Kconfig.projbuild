@@ -1,0 +1,66 @@
+menu "P4SCAN Application"
+
+    config P4SCAN_REALTIME_PIPELINE
+        bool "Capture on core0 while core1 decodes only the latest pending frame"
+        default y
+        depends on P4SCAN_CONTINUOUS_SCAN
+
+    config P4SCAN_FRAME_MAX_AGE_MS
+        int "Maximum localization frame age from driver completion (ms)"
+        range 20 30000
+        default 100
+        depends on P4SCAN_REALTIME_PIPELINE
+
+    config P4SCAN_CONTINUOUS_SCAN
+        bool "Continuously capture and search QR codes for AGV operation"
+        default n
+        depends on P4SCAN_CAMERA_APP
+
+    config P4SCAN_QR_FAST_SEARCH
+        bool "Reject frames without QR candidates at 8x and 4x sampling"
+        default n
+        depends on P4SCAN_CAMERA_APP
+
+    config P4SCAN_CAMERA_APP
+        bool "Run OV9281 live capture and XCF decoder"
+        default y
+        help
+            Capture RAW8 frames from the OV9281 camera and pass owned
+            Gray8 frames to the XCF decoder. Disable this option to build the
+            fixed-sample regression application instead.
+
+    config P4SCAN_TRIGGER_GPIO
+        int "Scan trigger button GPIO"
+        range 0 54
+        default 35
+        depends on P4SCAN_CAMERA_APP
+        help
+            Active-low scan trigger button GPIO. The target hardware uses GPIO35
+            with an external pull-up and the button connected to ground.
+
+    config P4SCAN_LIGHT_DIAGNOSTIC
+        bool "Run startup aiming and illumination light diagnostic"
+        default y
+        depends on P4SCAN_CAMERA_APP
+        help
+            Cycle PCA9538A P3 and P4 independently at startup so the physical
+            light mapping and polarity can be checked on the target board.
+
+    config P4SCAN_SOFTWARE_TRIGGER_ON_BOOT
+        bool "Trigger one software scan after boot"
+        default n
+        depends on P4SCAN_CAMERA_APP
+        help
+            Issue one scan request after the camera and button tasks start.
+            This is intended for hardware diagnostics without pressing GPIO35.
+
+    config P4SCAN_DUMP_FRAME_TO_FLASH
+        bool "Dump captured frame and first ROI to samples partition"
+        default n
+        depends on P4SCAN_CAMERA_APP
+        help
+            Store one captured 1280x720 Gray8 frame and the first selected
+            1280x128 ROI in the samples partition for offline diagnosis.
+            Diagnostic use only.
+
+endmenu

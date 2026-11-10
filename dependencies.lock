@@ -1,0 +1,109 @@
+dependencies:
+  esp_cam_sensor:
+    dependencies: []
+    source:
+      path: D:\XC\2026\P4SCAN\ESP32P4_XCF_OV9281\port\components\esp_cam_sensor
+      type: local
+    version: 2.3.0
+  esp_ipa:
+    dependencies: []
+    source:
+      path: D:\XC\2026\P4SCAN\ESP32P4_XCF_OV9281\port\components\esp_ipa
+      type: local
+    version: 2.2.0~1
+  esp_sccb_intf:
+    dependencies: []
+    source:
+      path: D:\XC\2026\P4SCAN\ESP32P4_XCF_OV9281\port\components\esp_sccb_intf
+      type: local
+    version: 0.0.8
+  esp_video:
+    dependencies: []
+    source:
+      path: D:\XC\2026\P4SCAN\ESP32P4_XCF_OV9281\port\components\esp_video
+      type: local
+    version: 2.3.0
+  espressif/cmake_utilities:
+    component_hash: 351350613ceafba240b761b4ea991e0f231ac7a9f59a9ee901f751bddc0bb18f
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=4.1'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 0.5.3
+  espressif/esp_h264:
+    component_hash: 40cb64e697a8cfd787453165f6ce54e1fb8601844448eb073d677b9f9fde071e
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=4.4'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    targets:
+    - esp32s3
+    - esp32p4
+    version: 1.3.0
+  espressif/led_strip:
+    dependencies: []
+    source:
+      path: D:\XC\2026\P4SCAN\ESP32P4_XCF_OV9281\port\components\espressif__led_strip
+      type: local
+    version: 2.5.5
+  espressif/tinyusb:
+    dependencies: []
+    source:
+      path: D:\XC\2026\P4SCAN\ESP32P4_XCF_OV9281\port\components\espressif__tinyusb
+      type: local
+    version: 0.21.0~1
+  espressif/usb_host_uvc:
+    component_hash: ecb2604b71cb5a65d64e5f441be54793b1838096043ad8cf1fa0d3012de18a9a
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=5.0'
+    - name: espressif/usb
+      registry_url: https://components.espressif.com
+      require: public
+      rules:
+      - if: idf_version >=6.0
+      - if: target not in ["linux"]
+      version: ^1.0.0
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    targets:
+    - esp32s2
+    - esp32s3
+    - esp32p4
+    - esp32h4
+    - esp32s31
+    - linux
+    version: 2.5.2
+  idf:
+    source:
+      type: idf
+    version: 5.4.0
+  usb_device_uvc:
+    dependencies: []
+    source:
+      path: D:\XC\2026\P4SCAN\ESP32P4_XCF_OV9281\port\components\usb_device_uvc
+      type: local
+    version: 1.2.0~1
+direct_dependencies:
+- espressif/cmake_utilities
+- espressif/esp_cam_sensor
+- espressif/esp_h264
+- espressif/esp_ipa
+- espressif/esp_sccb_intf
+- espressif/esp_video
+- espressif/led_strip
+- espressif/tinyusb
+- espressif/usb_host_uvc
+- idf
+- usb_device_uvc
+manifest_hash: 981633bae73f2399128d6c0f7e5bff2ef912a0c12ad1e339cb303220433a89e8
+target: esp32p4
+version: 2.0.0

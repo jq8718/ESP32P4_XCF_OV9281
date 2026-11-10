@@ -1,0 +1,90 @@
+{
+  "sequence": 9252,
+  "timestamp_us": 191809051,
+  "width": 1280,
+  "height": 720,
+  "success": true,
+  "decode_us": 20640,
+  "corners": [
+    [
+      291.367,
+      368.793
+    ],
+    [
+      194.811,
+      390.373
+    ],
+    [
+      186.884,
+      300.04
+    ],
+    [
+      281.88,
+      280.187
+    ]
+  ],
+  "coordinates_only": true,
+  "geometry_quality": 2,
+  "geometry_edge_mask": 15,
+  "geometry_support": 111,
+  "geometry_residual": 0.268,
+  "payload": "012345",
+  "payload_hex": "303132333435",
+  "image_encoding": null,
+  "image_file": null,
+  "pose": {
+    "available": true,
+    "front_angle_deg": 25.766224693041714,
+    "horizontal_tilt_deg": 11.88771607014485,
+    "vertical_tilt_deg": 23.47868146316056,
+    "reprojection_px": 0.44930663062540815,
+    "ambiguous": false,
+    "optical_distance_mm": null,
+    "calibration_source": "assumed",
+    "assumed_horizontal_fov_deg": 23.0,
+    "camera_matrix": [
+      [
+        3145.7004998855714,
+        0.0,
+        639.5
+      ],
+      [
+        0.0,
+        3145.7004998855714,
+        359.5
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "dist_coeffs": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "opposite_edges": {
+      "p0_p3_px": 89.11243687050646,
+      "p1_p2_px": 90.68014235762973,
+      "left_right_ratio": 0.9827117001984793
+    },
+    "agv_wall_yaw_deg": 11.88771607014485,
+    "agv_wall_yaw_abs_deg": 11.88771607014485,
+    "display_angles": {
+      "front_angle_deg": 25.74980438868043,
+      "horizontal_tilt_deg": 11.835647455081782,
+      "vertical_tilt_deg": 23.481862233632143,
+      "image_rotation_deg": 167.4227019675547
+    },
+    "display_average_seconds": 0.5
+  },
+  "saved_at": "2026-11-10T15:14:29.954005",
+  "rate": [
+    435,
+    2672.8110599040106,
+    435
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "frames": 21,
+  "rate": [
+    310,
+    2390.4382470245414,
+    310,
+    7.780999999959022
+  ],
+  "timing_total": 324,
+  "snapshot_success": 20,
+  "snapshot_failure": 1,
+  "timing_success": 308,
+  "decode_ms": "29.794",
+  "coordinates_only": false,
+  "has_image": true,
+  "pose": {
+    "available": false,
+    "reason": "\u672c\u5e27\u65e0\u6709\u6548 DataMatrix \u89d2\u70b9",
+    "calibration_source": "assumed",
+    "assumed_horizontal_fov_deg": 23.0,
+    "camera_matrix": [
+      [
+        3145.7004998855714,
+        0.0,
+        639.5
+      ],
+      [
+        0.0,
+        3145.7004998855714,
+        359.5
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "dist_coeffs": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  }
+}

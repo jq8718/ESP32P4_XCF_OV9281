@@ -1,0 +1,4 @@
+type	path	expected
+code128	crop_0.bmp	ABC-abc-1234
+code128	crop_1.bmp	CAB-cab-3124
+isbt128	crop_2.bmp	Z0203000

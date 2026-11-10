@@ -1,0 +1,14 @@
+{
+  "device": "\\\\?\\usb#vid_303a&pid_8001&mi_00#8&b4d39b&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\\global",
+  "serial_port": "COM57",
+  "width": 1280,
+  "height": 720,
+  "requested_fps": 30,
+  "frames": 90,
+  "seconds": 2.985,
+  "received_fps": 30.15,
+  "distinct_frames": 44,
+  "distinct_fps": 14.74,
+  "mean": 5.85,
+  "stddev": 17.88
+}

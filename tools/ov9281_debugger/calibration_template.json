@@ -1,0 +1,6 @@
+{
+  "camera_matrix": [[null, 0, null], [0, null, null], [0, 0, 1]],
+  "dist_coeffs": [null, null, null, null, null],
+  "image_size": [1280, 720],
+  "qr_size_mm": null
+}

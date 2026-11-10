@@ -1,0 +1,77 @@
+CC ?= cc
+BUILD ?= build_host
+CFLAGS ?= -O2 -Wall -Wextra -std=c11 -fno-strict-aliasing
+CPPFLAGS += -Iinclude -Ivendor/include -Ivendor/quirc
+LDFLAGS += -lm
+
+COMPONENT_SRCS = \
+	src/xcr_decoder.c \
+	src/xcr_port.c \
+	vendor/core/envelope.c \
+	vendor/core/postprocess.c \
+	vendor/core/scan_dispatcher.c \
+	vendor/core/scan_engine.c \
+	vendor/core/scan_primitives.c \
+	vendor/core/signal.c \
+    vendor/symbologies/codablock_f.c \
+    vendor/symbologies/code128.c \
+    vendor/symbologies/upc_ean.c \
+    vendor/symbologies/qrcode.c \
+    vendor/qr_quirc.c \
+    vendor/quirc/decode.c \
+    vendor/quirc/identify.c \
+    vendor/quirc/quirc.c \
+    vendor/quirc/version_db.c
+
+BMP_SRC = ../../p0a_audit/xcr_work/src/core/bmp.c
+
+.PHONY: all clean test roi-test image-test fast-test qr-test
+
+ROI_X ?= 0
+ROI_Y ?= 0
+ROI_W ?= 0
+ROI_H ?= 0
+
+all: $(BUILD)/xcr_host_test $(BUILD)/xcr_timeout_stress
+
+image-test: $(BUILD)/xcr_image_batch_test
+	./$(BUILD)/xcr_image_batch_test $(MANIFEST) $(IMAGE_ROOT)
+
+fast-test: $(BUILD)/xcr_fast_rows_test
+	./$(BUILD)/xcr_fast_rows_test $(MANIFEST) $(IMAGE_ROOT)
+
+$(BUILD):
+	mkdir -p $(BUILD)
+
+$(BUILD)/xcr_host_test: $(COMPONENT_SRCS) $(BMP_SRC) tests/host_manifest_test.c | $(BUILD)
+	$(CC) $(CPPFLAGS) $(CFLAGS) $^ $(LDFLAGS) -o $@
+
+$(BUILD)/xcr_roi_test: $(COMPONENT_SRCS) $(BMP_SRC) tests/host_roi_test.c | $(BUILD)
+	$(CC) $(CPPFLAGS) $(CFLAGS) $^ $(LDFLAGS) -o $@
+
+$(BUILD)/xcr_timeout_stress: $(COMPONENT_SRCS) tests/timeout_stress.c | $(BUILD)
+	$(CC) $(CPPFLAGS) $(CFLAGS) $^ $(LDFLAGS) -o $@
+
+$(BUILD)/xcr_image_batch_test: $(COMPONENT_SRCS) $(BMP_SRC) tests/host_image_batch_test.c | $(BUILD)
+	$(CC) $(CPPFLAGS) $(CFLAGS) $^ $(LDFLAGS) -o $@
+
+$(BUILD)/xcr_fast_rows_test: $(COMPONENT_SRCS) $(BMP_SRC) tests/host_fast_rows_test.c | $(BUILD)
+	$(CC) $(CPPFLAGS) $(CFLAGS) $^ $(LDFLAGS) -o $@
+
+$(BUILD)/xcr_qr_test: $(COMPONENT_SRCS) $(BMP_SRC) tests/host_qr_test.c | $(BUILD)
+	$(CC) $(CPPFLAGS) $(CFLAGS) $^ $(LDFLAGS) -o $@
+
+qr-test: $(BUILD)/xcr_qr_test
+	@test -n "$(QR_ROOT)" || (echo "usage: make -f Makefile.host qr-test QR_ROOT=<qr test directory>"; exit 2)
+	./$(BUILD)/xcr_qr_test "$(QR_ROOT)"
+
+test: all
+	./$(BUILD)/xcr_host_test ../../p0a_audit/artifacts/first_release_coverage.manifest.tsv ../../p0a_audit/xcr_work
+	./$(BUILD)/xcr_timeout_stress 10000
+
+roi-test: $(BUILD)/xcr_roi_test
+	@test -n "$(BMP)" || (echo "usage: make -f Makefile.host roi-test BMP=<bmp> [ROI_X=0 ROI_Y=0 ROI_W=0 ROI_H=0]"; exit 2)
+	./$(BUILD)/xcr_roi_test "$(BMP)" "$(ROI_X)" "$(ROI_Y)" "$(ROI_W)" "$(ROI_H)"
+
+clean:
+	rm -rf $(BUILD)

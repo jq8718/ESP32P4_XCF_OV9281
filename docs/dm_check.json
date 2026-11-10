@@ -1,0 +1,27 @@
+{
+  "payload": "012345",
+  "camera": "\\\\?\\usb#vid_303a&pid_8001&mi_00#8&b4d39b&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\\global",
+  "cdc_port": "COM60",
+  "uvc_frames": 219,
+  "seconds": 8.0,
+  "uvc_fps": 27.38,
+  "uvc_decoded_samples": 21,
+  "cdc_results": 77,
+  "uvc_bounds": [
+    558,
+    339,
+    662,
+    442
+  ],
+  "cdc_example": {
+    "bounds": [
+      558,
+      338,
+      661,
+      441
+    ],
+    "sequence": 490,
+    "capture_us": 15349370,
+    "age_us": 41559
+  }
+}

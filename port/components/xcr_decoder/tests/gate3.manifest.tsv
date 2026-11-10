@@ -1,0 +1,4 @@
+type	path	expected
+code128	test/001-覆盖率测试/code128.bmp	ABC-abc-1234
+code128	test/001-覆盖率测试/code128_inv.bmp	CAB-cab-3124
+isbt128	test/001-覆盖率测试/isbt128.bmp	Z0203000

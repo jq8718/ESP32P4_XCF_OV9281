@@ -1,0 +1,59 @@
+menu "XCR decoder"
+
+config XCR_ENABLE_CODE128
+    bool "Enable Code128"
+    default y
+
+config XCR_ENABLE_UPC_EAN
+    bool "Enable UPC/EAN"
+    default y
+
+config XCR_ENABLE_QR
+    bool "Enable QR and Micro QR"
+    default y
+
+config XCR_ENABLE_DATAMATRIX
+    bool "Enable DataMatrix"
+    default y
+
+config XCR_DATAMATRIX_ONLY
+    bool "Use DataMatrix-only decoder mode"
+    default y
+    help
+        Selects DataMatrix as the active decoder mode in the P4 camera
+        application. QR and other decoder sources remain compiled and can
+        be re-enabled by selecting a different mode in the application.
+
+config XCR_DATAMATRIX_LIBDMTX
+    bool "Use libdmtx DataMatrix backend"
+    depends on XCR_ENABLE_DATAMATRIX
+    default n
+
+config XCR_POLARITY_RETRY
+    bool "Retry dark-background images after inversion"
+    default y
+
+config XCR_CROSS_SYMBOLOGY_VETO
+    bool "Reject structurally valid Codablock F before Code128 output"
+    default y
+
+config XCR_REJECT_AMBIGUOUS_RETAIL_NUMERIC
+    bool "Reject invalid retail-length numeric Code128 candidates"
+    default y
+
+config XCR_DECODER_TIMEOUT_MS
+    int "Per Code128 direction timeout (ms)"
+    range 1 10000
+    default 2000
+
+config XCR_IMAGE_BUDGET_MS
+    int "Whole image deadline (ms)"
+    range 1 30000
+    default 10000
+
+config XCR_CODE128_DIRECTION_ATTEMPTS
+    int "Ranked Code128 direction attempts"
+    range 1 16
+    default 2
+
+endmenu

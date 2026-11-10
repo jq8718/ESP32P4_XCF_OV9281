@@ -1,0 +1,91 @@
+{
+  "sequence": 113141,
+  "timestamp_us": 4772376324,
+  "width": 1280,
+  "height": 720,
+  "success": true,
+  "decode_us": 45092,
+  "corners": [
+    [
+      670.93,
+      402.223
+    ],
+    [
+      564.152,
+      405.452
+    ],
+    [
+      561.344,
+      299.674
+    ],
+    [
+      666.714,
+      296.372
+    ]
+  ],
+  "coordinates_only": false,
+  "geometry_quality": 2,
+  "geometry_edge_mask": 15,
+  "geometry_support": 114,
+  "geometry_residual": 0.049,
+  "payload": "012345",
+  "payload_hex": "303132333435",
+  "image_encoding": "JPEG",
+  "image_file": "frame_113141_4772376324.jpg",
+  "pose": {
+    "available": true,
+    "front_angle_deg": 5.59147476992322,
+    "horizontal_tilt_deg": -1.7572447952398882,
+    "vertical_tilt_deg": 5.311487637387844,
+    "reprojection_px": 0.2837701613648723,
+    "ambiguous": true,
+    "optical_distance_mm": null,
+    "calibration_source": "assumed",
+    "assumed_horizontal_fov_deg": 23.0,
+    "camera_matrix": [
+      [
+        3145.7004998855714,
+        0.0,
+        639.5
+      ],
+      [
+        0.0,
+        3145.7004998855714,
+        359.5
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "dist_coeffs": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "opposite_edges": {
+      "p0_p3_px": 105.93492746493008,
+      "p1_p2_px": 105.81526424859508,
+      "left_right_ratio": 1.0011308691348526
+    },
+    "agv_wall_yaw_deg": -1.7572447952398882,
+    "agv_wall_yaw_abs_deg": 1.7572447952398882,
+    "display_angles": {
+      "front_angle_deg": 5.650226595804469,
+      "horizontal_tilt_deg": -1.7440262498301058,
+      "vertical_tilt_deg": 5.376002284217206,
+      "image_rotation_deg": 178.27577848261564
+    },
+    "display_average_seconds": 0.5,
+    "agv_assumptions": "相机水平且画面朝上、光轴垂直车身前进方向、DataMatrix 所在墙面竖直"
+  },
+  "saved_at": "2026-11-10T10:44:00.519872",
+  "rate": [
+    53,
+    454.2857142857143,
+    53
+  ]
+}

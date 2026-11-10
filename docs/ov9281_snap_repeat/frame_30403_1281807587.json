@@ -1,0 +1,71 @@
+{
+  "sequence": 30403,
+  "timestamp_us": 1281807587,
+  "width": 1280,
+  "height": 720,
+  "success": false,
+  "decode_us": 26084,
+  "corners": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ]
+  ],
+  "coordinates_only": false,
+  "geometry_quality": null,
+  "geometry_edge_mask": 0,
+  "geometry_support": 0,
+  "geometry_residual": 0.0,
+  "payload": "",
+  "payload_hex": "",
+  "image_encoding": "JPEG",
+  "image_file": "frame_30403_1281807587.jpg",
+  "pose": {
+    "available": false,
+    "reason": "本帧无有效 DataMatrix 角点",
+    "calibration_source": "assumed",
+    "assumed_horizontal_fov_deg": 23.0,
+    "camera_matrix": [
+      [
+        3145.7004998855714,
+        0.0,
+        639.5
+      ],
+      [
+        0.0,
+        3145.7004998855714,
+        359.5
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "dist_coeffs": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "saved_at": "2026-11-10T09:45:49.908014",
+  "rate": [
+    0,
+    0.0,
+    0
+  ]
+}
