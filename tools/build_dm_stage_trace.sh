@@ -22,3 +22,5 @@ gcc "${common[@]}" -DXCR_DATAMATRIX_P4=1 -DXCR_PORT_REMAP_ALLOC=1 \
     -c port/components/xcr_decoder/vendor/symbologies/datamatrix.c -o "$objdir/trace_core.o"
 gcc "$objdir/trace_main.o" "$objdir/trace_marker.o" "$objdir/trace_port.o" "$objdir/trace_core.o" \
     -lm -o "$binary"
+gcc "${common[@]}" tools/dm_grid10_probe.c "$objdir/trace_core.o" "$objdir/trace_port.o" \
+    -lm -o build/dm_grid10_probe

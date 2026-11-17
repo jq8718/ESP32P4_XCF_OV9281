@@ -1,0 +1,8 @@
+{
+  "image": "build\\p4scan_ov9281.bin",
+  "size": 850672,
+  "sha256": "18cc578d6dc898117af245648b65465596cbf2d0b772497aae213c3b91012eee",
+  "idf": "5.4",
+  "flash_port": "COM57",
+  "cdc_port": "COM60"
+}

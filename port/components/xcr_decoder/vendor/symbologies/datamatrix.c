@@ -2180,6 +2180,58 @@ done:
 
 /* ── Public entry point ──────────────────────────────────────────────── */
 
+int datamatrix_decode_grid10(const uint8_t modules[100], BarcodeResult *result)
+{
+    uint64_t started = dm_now_us();
+    if (!modules || !result) return -1;
+    memset(result, 0, sizeof(*result));
+    datamatrix_debug_stats_reset();
+    g_dm_stats.decode_attempts++;
+    for (int index = 0; index < 100; index++) if (modules[index] > 1) return 0;
+    int solid_row = 0, solid_column = 0, clock_row = 0, clock_column = 0;
+    for (int index = 0; index < 10; index++) {
+        solid_row += modules[index];
+        solid_column += modules[index * 10];
+        clock_row += modules[90 + index] == !(index & 1);
+        clock_column += modules[index * 10 + 9] == !(index & 1);
+    }
+    if (solid_row < 9 || solid_column < 9 || clock_row < 8 || clock_column < 8) return 0;
+    uint8_t mapping[64], codewords[8];
+    for (int mirror = 0; mirror < 2; mirror++) {
+        for (int row = 0; row < 8; row++)
+            for (int column = 0; column < 8; column++)
+                mapping[row * 8 + column] = modules[mirror
+                    ? (column + 1) * 10 + row + 1 : (row + 1) * 10 + column + 1];
+        g_dm_stats.grid_decode_hits++;
+        uint64_t stage = dm_now_us();
+        int count = dm_extract_codewords_from_mapping(mapping, 8, 8, codewords, sizeof(codewords));
+        g_dm_stats.codeword_us += dm_now_us() - stage;
+        if (count != 8) continue;
+        int confidence = 0;
+        stage = dm_now_us();
+        int corrected = dm_rs_correct(codewords, 3, 5, 1, &confidence);
+        g_dm_stats.ecc_us += dm_now_us() - stage;
+        if (!corrected) continue;
+        g_dm_stats.ec_decode_hits++;
+        stage = dm_now_us();
+        int length = dm_decode_payload(codewords, 3, result->data, sizeof(result->data) - 1);
+        g_dm_stats.payload_us += dm_now_us() - stage;
+        if (length <= 0) continue;
+        g_dm_stats.payload_decode_hits++;
+        result->length = length;
+        result->confidence = confidence;
+        result->symbology = BARCODE_SYM_DATAMATRIX;
+        result->grid_rows = result->grid_cols = 10;
+        g_dm_stats.total_us = dm_now_us() - started;
+        dm_trace_pgm("07_module_grid.pgm", modules, 10, 10);
+        dm_trace_pgm("08_data_mapping.pgm", mapping, 8, 8);
+        dm_trace_bytes("10_codewords_after_ecc.csv", codewords, 8);
+        return length;
+    }
+    g_dm_stats.total_us = dm_now_us() - started;
+    return 0;
+}
+
 static int dm_decode_core(const Image *img, BarcodeResult *result)
 {
     uint64_t total_start = dm_now_us();

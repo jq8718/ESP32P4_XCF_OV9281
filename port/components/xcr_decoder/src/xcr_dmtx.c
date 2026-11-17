@@ -45,6 +45,8 @@ static XcrDmtxStats last_stats;
 /* Grid scale only, never a previous-frame position/ROI. Atomic because a
  * caller may run preparations on another core; no image data is retained. */
 static atomic_int preferred_marker_step = ATOMIC_VAR_INIT(6);
+/* Sampling choice only; every frame is searched over its entire extent. */
+static atomic_int dense_decode_frames = ATOMIC_VAR_INIT(0);
 
 #ifndef XCR_DM_NORMALIZED_SIDE
 #define XCR_DM_NORMALIZED_SIDE 128
@@ -246,7 +248,7 @@ static int marker_has_qr_rings(const Image *image, int center_x, int center_y,
 
 static int marker_filtered_gray(const Image *image, int sample_x, int sample_y);
 
-static int marker_has_clear_gaps(const Image *image, const float axes[6], int threshold, int step)
+static int marker_has_clear_gaps(const Image *image, const float axes[8], int threshold, int step)
 {
     int ordinary_gaps = 1;
     for (int edge = 0; edge < 2; edge++) {
@@ -283,8 +285,41 @@ static int marker_has_clear_gaps(const Image *image, const float axes[6], int th
     return ordinary_gaps ? 2 : 1;
 }
 
-static int marker_has_solid_edges(const Image *image, const float axes[6], int threshold, int step)
+/* Marker areas scale with the inverse cube of a planar homography's
+ * denominator. The two extra values retain this estimate with each frame. */
+static void marker_projective_point(const float axes[8], int step,
+                                    float u, float v, float *x, float *y)
 {
+    float denominator = 1 + axes[6] * u + axes[7] * v;
+    *x = axes[0] - step * 0.5f +
+        (u * (1 + axes[6]) * axes[2] + v * (1 + axes[7]) * axes[4]) / denominator;
+    *y = axes[1] - step * 0.5f +
+        (u * (1 + axes[6]) * axes[3] + v * (1 + axes[7]) * axes[5]) / denominator;
+}
+
+static int marker_has_solid_edges(const Image *image, const float axes[8], int threshold, int step)
+{
+    if (axes[6] != 0 || axes[7] != 0) {
+        for (int edge = 0; edge < 2; edge++) {
+            int best = 0;
+            for (int band = -3; band <= 3 && best < 14; band++) {
+                int dark = 0;
+                for (int sample = 0; sample < 16; sample++) {
+                    float along = (3.0f + sample * (8.0f / 15)) / 14;
+                    float fixed = 11.5f / 14 + band * 0.025f;
+                    float x, y;
+                    marker_projective_point(axes, step, edge ? along : fixed,
+                                            edge ? fixed : along, &x, &y);
+                    int column = (int)lroundf(x), row = (int)lroundf(y);
+                    if (column >= 0 && row >= 0 && column < image->width && row < image->height)
+                        dark += image->pixels[row * image->width + column] < threshold;
+                }
+                if (dark > best) best = dark;
+            }
+            if (best < 14) return 0;
+        }
+        return 1;
+    }
     for (int edge = 0; edge < 2; edge++) {
         int best = 0;
         for (int band = -3; band <= 3; band++) {
@@ -302,7 +337,32 @@ static int marker_has_solid_edges(const Image *image, const float axes[6], int t
             if (dark > best) best = dark;
             if (best >= 14) break;
         }
-        if (best < 14) return 0;
+        if (best < 14) {
+            /* Three marker centres define an affine estimate. Perspective
+             * can tilt a finder edge relative to that estimate; search a
+             * straight line with independently displaced endpoints. Keep
+             * the 14/16 support gate and use this only after the fast test. */
+            for (int start_band = -6; start_band <= 6 && best < 14; start_band++) {
+                for (int end_band = -6; end_band <= 6 && best < 14; end_band++) {
+                    int dark = 0;
+                    for (int sample = 0; sample < 16; sample++) {
+                        float fraction = sample / 15.0f;
+                        float fixed = 11.5f / 14 +
+                            (start_band + fraction * (end_band - start_band)) * 0.025f;
+                        /* Keep endpoint uncertainty outside the test span. */
+                        float along = (3.0f + sample * (8.0f / 15)) / 14;
+                        float horizontal = edge ? along : fixed;
+                        float vertical = edge ? fixed : along;
+                        int column = (int)lroundf(axes[0] - step * 0.5f + horizontal * axes[2] + vertical * axes[4]);
+                        int row = (int)lroundf(axes[1] - step * 0.5f + horizontal * axes[3] + vertical * axes[5]);
+                        if (column >= 0 && row >= 0 && column < image->width && row < image->height)
+                            dark += image->pixels[row * image->width + column] < threshold;
+                    }
+                    if (dark > best) best = dark;
+                }
+            }
+            if (best < 14) return 0;
+        }
     }
     return 1;
 }
@@ -353,7 +413,7 @@ static int normalized_local_binary(uint8_t *pixels, int side)
 }
 
 static int find_marker_roi_slice_step(const Image *image, int sample_left, int sample_right,
-                                 int roi[4], int *orientation, float axes[6],
+                                 int roi[4], int *orientation, float axes[8],
                                  int *score_out, unsigned *qr_rejected, int step)
 {
     const int width = sample_right - sample_left;
@@ -600,14 +660,18 @@ static int find_marker_roi_slice_step(const Image *image, int sample_left, int s
                 if (c->h < minimum_height) minimum_height = c->h;
                 int maximum_height = a->h > b->h ? a->h : b->h;
                 if (c->h > maximum_height) maximum_height = c->h;
-                if (maximum_width > minimum_width * 2 || maximum_height > minimum_height * 2)
+                /* Large markers are measured well enough to tolerate the
+                 * scale change across a tilted label. Small candidates keep
+                 * the stricter ratio to avoid noisy background combinations. */
+                int size_ratio = minimum_width >= 6 && minimum_height >= 6 ? 3 : 2;
+                if (maximum_width > minimum_width * size_ratio || maximum_height > minimum_height * size_ratio)
                     continue;
                 MarkerCandidate *points[3] = {a, b, c};
                 int right_angle = 0;
                 int geometry_quality = 0;
                 int fill_quality = 0;
                 int direction_roi[4] = {0};
-                float candidate_axes[6] = {0};
+                float candidate_axes[8] = {0};
                 for (int corner = 0; corner < 3; corner++) {
                     MarkerCandidate *origin = points[corner];
                     MarkerCandidate *horizontal = points[(corner + 1) % 3];
@@ -677,6 +741,20 @@ static int find_marker_roi_slice_step(const Image *image, int sample_left, int s
                             candidate_axes[3] = (cross > 0 ? horizontal_delta_y : vertical_delta_y) * step * 0.5f;
                             candidate_axes[4] = (cross > 0 ? vertical_delta_x : horizontal_delta_x) * step * 0.5f;
                             candidate_axes[5] = (cross > 0 ? vertical_delta_y : horizontal_delta_y) * step * 0.5f;
+                            /* Only large, strongly unequal markers justify an area
+                             * based projective estimate; coarse small boxes do not. */
+                            candidate_axes[6] = candidate_axes[7] = 0;
+                            if (minimum_width >= 6 && minimum_height >= 6 &&
+                                (maximum_width > minimum_width * 3 / 2 ||
+                                 maximum_height > minimum_height * 3 / 2)) {
+                                MarkerCandidate *hmarker = cross > 0 ? horizontal : vertical;
+                                MarkerCandidate *vmarker = cross > 0 ? vertical : horizontal;
+                                candidate_axes[6] = cbrtf((float)origin->area / hmarker->area) - 1;
+                                candidate_axes[7] = cbrtf((float)origin->area / vmarker->area) - 1;
+                                /* Reject estimates whose horizon crosses the label. */
+                                if (1 + candidate_axes[6] + candidate_axes[7] < 0.25f)
+                                    candidate_axes[6] = candidate_axes[7] = 0;
+                            }
                             if (orientation) *orientation = candidate_orientation;
                         }
                     }
@@ -702,7 +780,14 @@ static int find_marker_roi_slice_step(const Image *image, int sample_left, int s
                  * already passes the original geometric/photometric gate. */
                 if (gap_quality == 2) score += 100000;
                 if (score <= best_score) continue;
-                if (!marker_has_solid_edges(image, candidate_axes, local_threshold, step)) continue;
+                /* When marker scale already predicts strong perspective, test
+                 * that short path first instead of sweeping affine edge slopes. */
+                int solid = (candidate_axes[6] || candidate_axes[7]) &&
+                    marker_has_solid_edges(image, candidate_axes, local_threshold, step);
+                if (!solid) {
+                    candidate_axes[6] = candidate_axes[7] = 0;
+                    if (!marker_has_solid_edges(image, candidate_axes, local_threshold, step)) continue;
+                }
                 best_score = score;
                 MarkerCandidate chosen[3] = {*a, *b, *c};
                 trace_marker_boxes("04_selected_markers.csv", chosen, 3, step);
@@ -718,14 +803,14 @@ static int find_marker_roi_slice_step(const Image *image, int sample_left, int s
 }
 
 static int find_marker_roi_slice(const Image *image, int sample_left, int sample_right,
-                                 int roi[4], int *orientation, float axes[6],
+                                 int roi[4], int *orientation, float axes[8],
                                  int *score_out, unsigned *qr_rejected)
 {
     return find_marker_roi_slice_step(image, sample_left, sample_right, roi,
         orientation, axes, score_out, qr_rejected, marker_step(image));
 }
 
-static int find_marker_roi(const Image *image, int roi[4], int *orientation, float axes[6])
+static int find_marker_roi(const Image *image, int roi[4], int *orientation, float axes[8])
 {
     return find_marker_roi_slice(image, 0, (image->width + marker_step(image) - 1) / marker_step(image),
                                  roi, orientation, axes, NULL, &last_stats.qr_rejected);
@@ -738,7 +823,7 @@ typedef struct {
     int sample_right;
     int roi[4];
     int orientation;
-    float axes[6];
+    float axes[8];
     int score;
     unsigned qr_rejected;
     int found;
@@ -778,7 +863,7 @@ int xcr_dmtx_parallel_start(void)
     return 1;
 }
 
-static int find_marker_roi_parallel(const Image *image, int roi[4], int *orientation, float axes[6])
+static int find_marker_roi_parallel(const Image *image, int roi[4], int *orientation, float axes[8])
 {
     int sampled_width = (image->width + marker_step(image) - 1) / marker_step(image);
     if (!s_marker_worker || sampled_width < 100) return find_marker_roi(image, roi, orientation, axes);
@@ -820,7 +905,7 @@ static int find_marker_roi_parallel(const Image *image, int roi[4], int *orienta
 }
 #elif defined(XCR_DM_SPLIT_TEST)
 int xcr_dmtx_parallel_start(void) { return 1; }
-static int find_marker_roi_parallel(const Image *image, int roi[4], int *orientation, float axes[6])
+static int find_marker_roi_parallel(const Image *image, int roi[4], int *orientation, float axes[8])
 {
     const int width = (image->width + marker_step(image) - 1) / marker_step(image);
     const int centre = width / 2;
@@ -828,7 +913,7 @@ static int find_marker_roi_parallel(const Image *image, int roi[4], int *orienta
     int left_roi[4] = {0}, right_roi[4] = {0};
     int left_orientation = 0, right_orientation = 0;
     int left_score = 0, right_score = 0;
-    float left_axes[6] = {0}, right_axes[6] = {0};
+    float left_axes[8] = {0}, right_axes[8] = {0};
     unsigned left_rejected = 0, right_rejected = 0;
     int left = find_marker_roi_slice(image, 0, centre + overlap, left_roi,
         &left_orientation, left_axes, &left_score, &left_rejected);
@@ -1204,7 +1289,7 @@ static int dm_fit_edge(const DmEdgeSample *samples, int count, float *intercept,
     return 1;
 }
 
-static int dm_refine_original(const Image *image, BarcodeResult *result, const XcrDeadline *deadline, float search_fraction)
+static int dm_refine_original_mode(const Image *image, BarcodeResult *result, const XcrDeadline *deadline, float search_fraction, int solid_corner_only)
 {
     int *corners = result->corners;
     result->geometry_quality = XCR_GEOMETRY_COARSE;
@@ -1219,6 +1304,10 @@ static int dm_refine_original(const Image *image, BarcodeResult *result, const X
         center_y += corners[point * 2 + 1] * 0.25f;
     }
     for (int side = 0; side < 4; side++) {
+        /* Before perspective decoding, the three marker-adjacent corners
+         * are already close. Only recover the missing corner from the two
+         * solid finder edges; timing edges need decoded module alignment. */
+        if (solid_corner_only && side < 2) continue;
         int next = (side + 1) % 4;
         float delta_x = corners[next * 2] - corners[side * 2];
         float delta_y = corners[next * 2 + 1] - corners[side * 2 + 1];
@@ -1232,7 +1321,8 @@ static int dm_refine_original(const Image *image, BarcodeResult *result, const X
             normal_x = -normal_x;
             normal_y = -normal_y;
         }
-        int radius = (int)fminf(24, fmaxf(4, length * search_fraction));
+        int radius = (int)fminf(solid_corner_only ? 64 : search_fraction > 0.1f ? 40 : 24,
+                               fmaxf(4, length * search_fraction));
         DmEdgeSample samples[32];
         int count = 0;
         int modules = side == 0 ? result->grid_cols : result->grid_rows;
@@ -1251,7 +1341,7 @@ static int dm_refine_original(const Image *image, BarcodeResult *result, const X
             float extent_y = (radius + 2.5f) * fabsf(normal_y) + fabsf(tangent_y);
             int interior = base_x - extent_x >= 1 && base_y - extent_y >= 1 &&
                            base_x + extent_x < image->width - 2 && base_y + extent_y < image->height - 2;
-            float profile[54];
+            float profile[134];
             for (int index = 0; index < radius * 2 + 6; index++) {
                 float offset = index - radius - 2.5f;
                 float horizontal = base_x + offset * normal_x;
@@ -1266,7 +1356,7 @@ static int dm_refine_original(const Image *image, BarcodeResult *result, const X
                     profile[index] = before < 0 || after < 0 ? -1 : (before + after) * 0.5f;
                 }
             }
-            float scores[49];
+            float scores[129];
             float best_score = 0;
             int best = -1;
             for (int offset = -radius; offset <= radius; offset++) {
@@ -1305,7 +1395,15 @@ static int dm_refine_original(const Image *image, BarcodeResult *result, const X
         lines[side][2] = lines[side][0] * midpoint_x + lines[side][1] * midpoint_y + intercept;
     }
     int refined[8];
+    const float maximum_correction = solid_corner_only ? 80 : search_fraction > 0.1f ? 48 : 32;
     for (int point = 0; point < 4; point++) {
+        if (solid_corner_only && point != 3) {
+            refined[point * 2] = corners[point * 2];
+            refined[point * 2 + 1] = corners[point * 2 + 1];
+            result->subpixel_corners[point * 2] = corners[point * 2];
+            result->subpixel_corners[point * 2 + 1] = corners[point * 2 + 1];
+            continue;
+        }
         float *previous = lines[(point + 3) % 4], *current = lines[point];
         float determinant = previous[0] * current[1] - previous[1] * current[0];
         if (fabsf(determinant) < 0.2f) return 0;
@@ -1313,7 +1411,8 @@ static int dm_refine_original(const Image *image, BarcodeResult *result, const X
         float vertical = (previous[0] * current[2] - previous[2] * current[0]) / determinant;
         if (!isfinite(horizontal) || !isfinite(vertical) || horizontal < 0 || vertical < 0 ||
             horizontal >= image->width || vertical >= image->height ||
-            fabsf(horizontal - corners[point * 2]) > 32 || fabsf(vertical - corners[point * 2 + 1]) > 32) return 0;
+            fabsf(horizontal - corners[point * 2]) > maximum_correction ||
+            fabsf(vertical - corners[point * 2 + 1]) > maximum_correction) return 0;
         refined[point * 2] = (int)lroundf(horizontal);
         refined[point * 2 + 1] = (int)lroundf(vertical);
         result->subpixel_corners[point * 2] = horizontal;
@@ -1329,9 +1428,15 @@ static int dm_refine_original(const Image *image, BarcodeResult *result, const X
     }
     if (xcr_deadline_expired(deadline)) return 0;
     memcpy(corners, refined, sizeof(refined));
-    result->geometry_quality = XCR_GEOMETRY_REFINED;
+    result->geometry_quality = solid_corner_only ? XCR_GEOMETRY_COARSE : XCR_GEOMETRY_REFINED;
     result->subpixel_valid = 1;
     return 1;
+}
+
+static int dm_refine_original(const Image *image, BarcodeResult *result,
+    const XcrDeadline *deadline, float search_fraction)
+{
+    return dm_refine_original_mode(image, result, deadline, search_fraction, 0);
 }
 
 static int dm_refine_seeded(const Image *image, BarcodeResult *result, const XcrDeadline *deadline)
@@ -1342,9 +1447,211 @@ static int dm_refine_seeded(const Image *image, BarcodeResult *result, const Xcr
         memcpy(result->corners, result->geometry_seed, sizeof(result->corners));
         if (dm_refine_original(image, result, deadline, 0.05f)) return 1;
         if (dm_refine_original(image, result, deadline, 0.08f)) return 1;
+        if (dm_refine_original(image, result, deadline, 0.14f)) return 1;
+        if (dm_refine_original_mode(image, result, deadline, 0.2f, 1) &&
+            dm_refine_original(image, result, deadline, 0.08f)) return 1;
         memcpy(result->corners, coarse, sizeof(coarse));
     }
     return dm_refine_original(image, result, deadline, 0.08f);
+}
+
+static int dm_decode_projective_modules(const Image *image, BarcodeResult *result,
+    const XcrDeadline *deadline, const BarcodeResult *seed, const float map[8])
+{
+    const float phases[9][2] = {
+        {0,0}, {-0.02f,0}, {0.02f,0}, {0,-0.02f}, {0,0.02f},
+        {-0.02f,-0.02f}, {-0.02f,0.02f}, {0.02f,-0.02f}, {0.02f,0.02f}};
+    for (int phase = 0; phase < 9 && !xcr_deadline_expired(deadline); phase++) {
+        uint64_t started = xcr_port_time_us();
+        uint8_t gray[100], modules[100];
+        unsigned histogram[256] = {0}, sum = 0;
+        for (int row = 0; row < 10; row++) {
+            for (int column = 0; column < 10; column++) {
+                float u = 1 - (column + 0.5f) * 0.1f + phases[phase][0];
+                float v = 1 - (row + 0.5f) * 0.1f + phases[phase][1];
+                float intensity = 0;
+                for (int sample = 0; sample < 5; sample++) {
+                    float du = sample == 1 ? -0.015f : sample == 2 ? 0.015f : 0;
+                    float dv = sample == 3 ? -0.015f : sample == 4 ? 0.015f : 0;
+                    float denominator = map[6] * (u + du) + map[7] * (v + dv) + 1;
+                    if (!isfinite(denominator) || denominator < 0.2f) return 0;
+                    float x = (map[0] * (u + du) + map[1] * (v + dv) + map[2]) / denominator;
+                    float y = (map[3] * (u + du) + map[4] * (v + dv) + map[5]) / denominator;
+                    float value = dm_gray_at(image, x, y);
+                    if (value < 0) return 0;
+                    intensity += value;
+                }
+                int value = (int)lroundf(intensity * 0.2f);
+                gray[row * 10 + column] = value;
+                histogram[value]++;
+                sum += value;
+            }
+        }
+        unsigned dark_count = 0, dark_sum = 0;
+        float best_variance = -1;
+        int threshold = 128;
+        for (int value = 0; value < 255; value++) {
+            dark_count += histogram[value]; dark_sum += value * histogram[value];
+            if (!dark_count || dark_count == 100) continue;
+            float difference = (float)dark_sum / dark_count - (float)(sum - dark_sum) / (100 - dark_count);
+            float variance = (float)dark_count * (100 - dark_count) * difference * difference;
+            if (variance > best_variance) { best_variance = variance; threshold = value; }
+        }
+        last_stats.setup_us += xcr_port_time_us() - started;
+        for (int local = 0; local < 2 && !xcr_deadline_expired(deadline); local++) {
+            started = xcr_port_time_us();
+            last_stats.normalize_attempts++;
+            for (int row = 0; row < 10; row++) {
+                for (int column = 0; column < 10; column++) {
+                    int cutoff = threshold;
+                    if (local) {
+                        int minimum = 255, maximum = 0;
+                        for (int y = row > 1 ? row - 2 : 0; y <= row + 2 && y < 10; y++)
+                            for (int x = column > 1 ? column - 2 : 0; x <= column + 2 && x < 10; x++) {
+                                int value = gray[y * 10 + x];
+                                if (value < minimum) minimum = value;
+                                if (value > maximum) maximum = value;
+                            }
+                        cutoff = (minimum + maximum) / 2;
+                    }
+                    modules[row * 10 + column] = gray[row * 10 + column] <= cutoff;
+                }
+            }
+            last_stats.setup_us += xcr_port_time_us() - started;
+            started = xcr_port_time_us();
+            int decoded = datamatrix_decode_grid10(modules, result);
+            last_stats.decode_us += xcr_port_time_us() - started;
+            if (decoded > 0) {
+                memcpy(result->corners, seed->corners, sizeof(result->corners));
+                memcpy(result->geometry_seed, seed->corners, sizeof(result->geometry_seed));
+                result->geometry_seed_valid = result->geometry_valid = 1;
+                trace_marker_pgm("05_projective_module_gray.pgm", gray, 10, 10, 0);
+                return decoded;
+            }
+        }
+    }
+    return 0;
+}
+
+/* Recover a projective mapping for skewed large labels or an affine failure.
+ * The label format already constrains the marker seed to a 10x10 symbol. */
+static int dm_decode_perspective(const Image *image, BarcodeResult *result,
+    const XcrDeadline *deadline, const float axes[8], int sample_step)
+{
+    if (hypotf(axes[2], axes[3]) < 168 || hypotf(axes[4], axes[5]) < 168 ||
+        xcr_deadline_expired(deadline)) return 0;
+    BarcodeResult seed = {.grid_cols = 10, .grid_rows = 10};
+    const float horizontal[4] = {2.0f/14, 2.0f/14, 12.0f/14, 12.0f/14};
+    const float vertical[4] = {12.0f/14, 2.0f/14, 2.0f/14, 12.0f/14};
+    for (int point = 0; point < 4; point++) {
+        float x, y;
+        marker_projective_point(axes, sample_step, horizontal[point], vertical[point], &x, &y);
+        seed.corners[point * 2] = (int)lroundf(x);
+        seed.corners[point * 2 + 1] = (int)lroundf(y);
+    }
+    uint64_t started = xcr_port_time_us();
+    if (!dm_refine_original_mode(image, &seed, deadline, 0.2f, 1)) {
+        last_stats.setup_us += xcr_port_time_us() - started;
+        return 0;
+    }
+    /* Unit square corners: top-left, top-right, bottom-right, bottom-left. */
+    float x[4], y[4];
+    for (int point = 0; point < 4; point++) {
+        int source = (point + 1) % 4;
+        x[point] = seed.subpixel_corners[source * 2];
+        y[point] = seed.subpixel_corners[source * 2 + 1];
+    }
+    float dx1 = x[1] - x[2], dx2 = x[3] - x[2];
+    float dy1 = y[1] - y[2], dy2 = y[3] - y[2];
+    float dx3 = x[0] - x[1] + x[2] - x[3];
+    float dy3 = y[0] - y[1] + y[2] - y[3];
+    float determinant = dx1 * dy2 - dx2 * dy1;
+    if (fabsf(determinant) < 1) return 0;
+    float g = (dx3 * dy2 - dx2 * dy3) / determinant;
+    float h = (dx1 * dy3 - dx3 * dy1) / determinant;
+    float a = x[1] - x[0] + g * x[1], b = x[3] - x[0] + h * x[3];
+    float d = y[1] - y[0] + g * y[1], e = y[3] - y[0] + h * y[3];
+    last_stats.setup_us += xcr_port_time_us() - started;
+    const float map[8] = {a, b, x[0], d, e, y[0], g, h};
+    int sampled = dm_decode_projective_modules(image, result, deadline, &seed, map);
+    if (sampled > 0) return sampled;
+    started = xcr_port_time_us();
+    const int side = 128, margin = 22, spacing = 84;
+    uint8_t *gray = xcr_alloc(side * side * 2, XCR_MEM_LARGE);
+    if (!gray) return 0;
+    uint8_t *binary = gray + side * side;
+    unsigned sum = 0;
+    unsigned measured = 0;
+    unsigned histogram[256] = {0};
+    int valid = 1;
+    for (int row = 0; row < side && valid; row++) {
+        if ((row & 7) == 0 && xcr_deadline_expired(deadline)) { valid = 0; break; }
+        float v = (row - margin) / (float)spacing;
+        for (int column = 0; column < side; column++) {
+            float u = (column - margin) / (float)spacing;
+            float denominator = g * u + h * v + 1;
+            if (denominator < 0.2f || !isfinite(denominator)) { valid = 0; break; }
+            float sx = (a * u + b * v + x[0]) / denominator;
+            float sy = (d * u + e * v + y[0]) / denominator;
+            float value = dm_gray_at(image, sx, sy);
+            uint8_t pixel = value < 0 ? 255 : (uint8_t)lroundf(value);
+            if (u < -0.04f || v < -0.04f || u > 1.04f || v > 1.04f) pixel = 255;
+            gray[row * side + column] = pixel;
+            if (u >= 0 && v >= 0 && u <= 1 && v <= 1) {
+                histogram[pixel]++;
+                sum += pixel;
+                measured++;
+            }
+        }
+    }
+    if (!valid) { xcr_free(gray); return 0; }
+    unsigned dark_count = 0, dark_sum = 0;
+    float best_variance = -1;
+    int threshold = 128;
+    for (int value = 0; value < 255; value++) {
+        dark_count += histogram[value]; dark_sum += value * histogram[value];
+        unsigned light_count = measured - dark_count;
+        if (!dark_count || !light_count) continue;
+        float difference = (float)dark_sum / dark_count - (float)(sum - dark_sum) / light_count;
+        float variance = (float)dark_count * light_count * difference * difference;
+        if (variance > best_variance) { best_variance = variance; threshold = value; }
+    }
+    trace_marker_pgm("05_perspective_gray_128.pgm", gray, side, side, 0);
+    last_stats.setup_us += xcr_port_time_us() - started;
+    int decoded = 0;
+    for (int attempt = 0; attempt < 2 && !xcr_deadline_expired(deadline); attempt++) {
+        started = xcr_port_time_us();
+        last_stats.normalize_attempts++;
+        if (!attempt) {
+            for (int pixel = 0; pixel < side * side; pixel++) binary[pixel] = gray[pixel] <= threshold ? 0 : 255;
+        } else {
+            memcpy(binary, gray, side * side);
+            if (!normalized_local_binary(binary, side)) break;
+        }
+        last_stats.setup_us += xcr_port_time_us() - started;
+        trace_marker_pgm(attempt ? "06_perspective_local_128.pgm" : "06_perspective_binary_128.pgm",
+                         binary, side, side, 0);
+        Image normalized = {.width = side, .height = side, .pixels = binary};
+        started = xcr_port_time_us();
+        decoded = datamatrix_decode_aligned(&normalized, result);
+        last_stats.decode_us += xcr_port_time_us() - started;
+        if (decoded > 0 && result->geometry_valid) {
+            for (int point = 0; point < 4; point++) {
+                float u = (result->corners[point * 2] - margin) / (float)spacing;
+                float v = (result->corners[point * 2 + 1] - margin) / (float)spacing;
+                float denominator = g * u + h * v + 1;
+                result->corners[point * 2] = (int)lroundf((a * u + b * v + x[0]) / denominator);
+                result->corners[point * 2 + 1] = (int)lroundf((d * u + e * v + y[0]) / denominator);
+                int corner = v < 0.5f ? (u < 0.5f ? 1 : 2) : (u < 0.5f ? 0 : 3);
+                result->geometry_seed[point * 2] = seed.corners[corner * 2];
+                result->geometry_seed[point * 2 + 1] = seed.corners[corner * 2 + 1];
+            }
+            result->geometry_seed_valid = 1;
+            break;
+        }
+    }
+    xcr_free(gray);
+    return decoded;
 }
 
 int xcr_datamatrix_refine(const XcrGrayImage *image, XcrBarcodeResult *result)
@@ -1388,6 +1695,11 @@ int xcr_dmtx_prepare(const XcrGrayImage *image, XcrDmtxPrepared *prepared)
     prepared->sample_step = marker_step(&source);
     if (prepared->sample_step == 6)
         prepared->sample_step = atomic_load(&preferred_marker_step);
+    int dense_remaining = atomic_load(&dense_decode_frames);
+    if (dense_remaining > 0) {
+        prepared->sample_step = 4;
+        atomic_compare_exchange_strong(&dense_decode_frames, &dense_remaining, dense_remaining - 1);
+    }
     prepared->found = find_marker_roi_slice_step(&source, 0,
         (source.width + prepared->sample_step - 1) / prepared->sample_step, prepared->roi,
         &prepared->orientation, prepared->axes, NULL, &prepared->qr_rejected, prepared->sample_step);
@@ -1415,7 +1727,7 @@ int xcr_datamatrix_marked_decode_prepared(const Image *image, BarcodeResult *res
     const XcrDeadline *deadline, int defer_geometry, const XcrDmtxPrepared *prepared)
 {
     uint64_t started = xcr_port_time_us();
-    float axes[6] = {0};
+    float axes[8] = {0};
     int roi[4];
     int orientation = 0;
     int full_retry = 0;
@@ -1474,9 +1786,16 @@ search_marker:
     last_stats.angle_degrees = atan2f(axes[3], axes[2]) * 57.2957795f;
     memcpy(last_stats.marker_roi, roi, sizeof(roi));
     int decoded = 0;
+    float horizontal_length = hypotf(axes[2], axes[3]);
+    float vertical_length = hypotf(axes[4], axes[5]);
+    float axis_dot = fabsf(axes[2] * axes[4] + axes[3] * axes[5]);
+    int perspective_tried = horizontal_length >= 168 && vertical_length >= 168 &&
+        axis_dot > horizontal_length * vertical_length * 0.06f;
+    if (perspective_tried)
+        decoded = dm_decode_perspective(image, result, deadline, axes, sample_step);
     /* Preserve the ordinary Otsu fast path and the original larger retry.
      * In between, retry the same small ROI with a local shadow threshold. */
-    for (int attempt = 0; attempt < 3 && !xcr_deadline_expired(deadline); attempt++) {
+    for (int attempt = 0; attempt < 3 && !decoded && !xcr_deadline_expired(deadline); attempt++) {
     uint64_t sample_start = xcr_port_time_us();
     last_stats.normalize_attempts++;
     const int large_retry = attempt == 2;
@@ -1574,6 +1893,8 @@ search_marker:
     xcr_free(pixels);
     if (decoded > 0) break;
     }
+    if (!decoded && !perspective_tried && !xcr_deadline_expired(deadline))
+        decoded = dm_decode_perspective(image, result, deadline, axes, sample_step);
     /* A partial candidate in one half can pass the marker geometry checks
      * yet fail ECC200. Retry the original full-frame search before declaring
      * this frame unreadable, preserving the serial decoder's coverage. */
@@ -1589,6 +1910,12 @@ search_marker:
         full_retry = 2;
         goto search_marker;
     }
+    /* If the sparse ROI needed all retries before the dense search decoded,
+     * let the frontend own dense sampling for a short interval. This avoids
+     * repeating that whole search and normalization sequence on the backend.
+     * Periodically try the ordinary grid again when the interval expires. */
+    if (decoded > 0 && full_retry == 2 && prepared)
+        atomic_store(&dense_decode_frames, 32);
     if (decoded > 0 && result->geometry_valid) result->geometry_quality = XCR_GEOMETRY_COARSE;
     if (decoded > 0 && result->geometry_valid && !defer_geometry) {
         uint64_t geometry_start = xcr_port_time_us();

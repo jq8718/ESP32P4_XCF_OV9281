@@ -1,0 +1,7 @@
+{
+  "received": 0,
+  "history_rows": 0,
+  "last_content": "",
+  "pose": null,
+  "status": "P4 GPIO41 TX → USB-UART RX；共地。软件仅监听串口，不发送命令。"
+}

@@ -2,6 +2,7 @@
 #define LATEST_FRAME_SLOT_COUNT P4SCAN_CAMERA_BUFFER_COUNT
 #include "latest_frame.h"
 #include "scan_usb.h"
+#include "scan_uart.h"
 #include "datamatrix.h"
 #include "xcr_dmtx.h"
 #include "p4scan_feedback.h"
@@ -238,6 +239,7 @@ static void finish_decoded_slot(int slot_index)
     bool fresh = frame_is_fresh(image.timestamp_us, done_us, deadline_us);
     if (!fresh) { count = 0; stale++; status = XCR_TIMEOUT_NO_RESULT; }
     bool submitted = count > 0 && scan_usb_submit_measured(&result, deadline_us, done_us - start_us);
+    if (count > 0) scan_uart_submit(&result, deadline_us);
     frames++;
     if (count > 0) successes++;
     scan_usb_preview(&slot->frame, count > 0 ? &result : NULL, done_us - start_us);
@@ -361,6 +363,9 @@ static void decode_task(void *argument)
         }
         slot->core_done_us = esp_timer_get_time();
         finish_decoded_slot(slot_index);
+        /* A difficult frame can leave the next notification already pending.
+         * Give the lower-priority CDC/JPEG workers time even at full load. */
+        vTaskDelay(1);
     }
 }
 

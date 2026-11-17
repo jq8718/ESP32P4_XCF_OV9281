@@ -4,6 +4,7 @@
 #include "xcr_decoder.h"
 #include "scan_log_buffer.h"
 #include "scan_usb.h"
+#include "scan_uart.h"
 #include "agv_pipeline.h"
 
 #include "driver/gpio.h"
@@ -1462,6 +1463,7 @@ static void camera_decode_task(void *arg)
             (result.symbology == XCR_SYM_QR || result.symbology == XCR_SYM_DATAMATRIX)) {
             int64_t usb_started = esp_timer_get_time();
             bool queued = scan_usb_submit(&result);
+            scan_uart_submit(&result, 0);
             ESP_LOGI(TAG, "usb_result queued=%d capture_us=%llu corners=%d,%d %d,%d %d,%d %d,%d enqueue_us=%lld",
                      queued, (unsigned long long)result.timestamp_us,
                      result.corners[0], result.corners[1], result.corners[2], result.corners[3],
@@ -1578,6 +1580,7 @@ void app_main(void)
     ESP_ERROR_CHECK(p4scan_feedback_init());
     ESP_LOGI(TAG, "init step: feedback ready");
     ESP_ERROR_CHECK(scan_usb_init());
+    ESP_ERROR_CHECK(scan_uart_init());
     ESP_LOGI(TAG, "init step: USB ready");
     ESP_LOGI(TAG, "init step: camera init begin");
     ESP_ERROR_CHECK(p4scan_camera_init(&s_camera, &config));

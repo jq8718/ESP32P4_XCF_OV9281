@@ -9,7 +9,7 @@ OV9281 RAW8 → CSI/DMA 四缓冲 → Core0 整帧标记搜索（帧 N+1）
                                              ↓ 同帧标记结果、最新帧队列
                                   Core1 归一化/解码/角点精修（帧 N）
                                              ↓
-                                  Core1 JPEG/CDC 图片与定位结果
+                                  JPEG 两核可调度 / Core0 CDC 图片与定位结果
 ```
 
 - `port/components/p4scan_camera_capture`：CSI 配置、帧缓冲所有权、缓存同步与曝光接口。尺寸改为 1280×720，OV9281 默认曝光值为 681 行；RAW8 绕过 Bayer ISP，曝光由传感器控制接口管理。
@@ -36,6 +36,8 @@ OV9281 RAW8 → CSI/DMA 四缓冲 → Core0 整帧标记搜索（帧 N+1）
 
 在 PowerShell 执行 `./build_p4.ps1`，产物为 `build/p4scan_ov9281.bin`。工程使用 ESP-IDF 5.4、16 MB Flash，分区表和 CDC 输出格式沿用参考工程。`USB_PROTOCOL.md` 说明主机协议。根目录 `uvc_example.c` 仅作原始示例参考，不参与构建。
 
+STM32 USB Host 对接说明见 [CDC 通信协议](docs/STM32_CDC_PROTOCOL.md)，包括初始化命令、定位字段、有效性检查和接收流程。
+
 上板后依次确认：日志中的 OV9281 ID 为 `9281`；CSI 格式为 1280×720 RAW8 且收到首帧；按键和 WS2812 正常；CDC 扫描结果及 UVC 预览与参考工程协议一致。DataMatrix 已用现场码样验证；QR 模式仍需单独切换配置并上板验证。
 
 新电路无 PCA9538A；瞄准灯和补光灯接口不操作硬件。两条 MIPI 数据通道已由用户确认。
@@ -52,7 +54,7 @@ OV9281 RAW8 → CSI/DMA 四缓冲 → Core0 整帧标记搜索（帧 N+1）
 
 Windows UI 调试器为 `dist/P4ScanOV9281Debugger.exe`，源码和使用说明见 `tools/ov9281_debugger/README.md`。它按参考调试器设计，通过 CDC 上传解码处理后的成功/失败同帧图片，手动开关控制上传，不打开 UVC 实时流。UVC 收帧数包含重复预览 JPEG；CDC 只有解码、角点精定位和 100 ms 帧龄检查均通过才发送定位行，因此 219 帧 UVC 与 77 条 CDC 不能直接按差值计算“丢失”的识码结果。
 
-AGV 实时模式默认使用跨帧两级流水线：Core 0 整图搜索外部标记，Core 1 完成后段解码、精修和图片发送。四块相机缓冲避免图片复制时暂停连续取帧。开图/关图各两轮、每轮 20 秒的实测均达到约 50 次成功定位/秒；图片仍按调试器约 0.35 秒一次的请求上传。详见 `docs/FRAME_STAGE_PIPELINE.md`。关闭 `P4SCAN_FRAME_STAGE_PIPELINE` 可回到此前左右并行搜索模式，历史测试见 `docs/PARALLEL_MARKER_SEARCH.md`。不使用上一帧 ROI。
+AGV 实时模式默认使用跨帧两级流水线：Core 0 整图搜索外部标记，Core 1 完成后段解码和精修；JPEG 任务可调度到任一核，CDC 在 Core 0 优先服务。四块相机缓冲避免图片复制时暂停连续取帧。开图/关图各两轮、每轮 20 秒的历史测试均达到约 50 次成功定位/秒；图片仍按调试器约 0.35 秒一次的请求上传。详见 `docs/FRAME_STAGE_PIPELINE.md`。关闭 `P4SCAN_FRAME_STAGE_PIPELINE` 可回到此前左右并行搜索模式，历史测试见 `docs/PARALLEL_MARKER_SEARCH.md`。不使用上一帧 ROI。
 
 当前环境的小码漏检已定位为外部标记在 6 像素采样网格上欠采样。现增加同帧 4 像素补救搜索，并校正小标记距离容差和采样坐标映射。失败原图、180 个平移案例及实机验证见 [故障分析](docs/failure_diagnosis/README.md)。最终现场固定画面开图/关图均约 50 次成功定位/秒；持续触发密集补救时吞吐量会下降。
 
@@ -61,3 +63,7 @@ AGV 实时模式默认使用跨帧两级流水线：Core 0 整图搜索外部标
 补光开启后的失败已进一步定位为全图阈值误裁小标记；现使用局部亮度进行二值化与标记验证，并补偿小标记的面积量化误差。当前补光场景实测开关图片均约 50.3 次定位/秒，暗光样本回归通过，详见 [补光诊断](docs/failure_diagnosis/LIGHT_ANALYSIS.md)。
 
 补光半遮挡时增加同帧局部二值化补救，并修正阴影中的标记间隙检查。五张可恢复图的 180 个平移案例通过，现场开图约 34～39 次、关图约 45～46 次成功定位/秒；极暗丢标记帧仍会失败，尚未达到半遮挡稳定 50 次/秒，详见 [半遮挡诊断与剩余问题](docs/failure_diagnosis/HALF_LIGHT_ANALYSIS.md)。
+
+较大透视角下的误拒进一步定位为实线边验证、仿射归一化与精修范围限制；已增加可倾斜的边验证及同帧透视校正，当前三张原图的 108 个平移案例全部解码并完成精修。详见 [当前环境与透视诊断](docs/failure_diagnosis/PERSPECTIVE_ANALYSIS.md)。
+
+当前强透视标签的漏检与图片卡顿已继续修复：使用同帧标记面积估计透视初值，直接采样 10×10 模块并复用 ECC200，调整 CDC/JPEG 调度。当前固定场景开图约 47.5 次定位/秒、关图约 50.3 次/秒，图片恢复约 2.7 张/秒，详见 [透视与图片卡顿修复](docs/failure_diagnosis/STUTTER_ANALYSIS.md)。

@@ -1,0 +1,330 @@
+[
+  {
+    "source": "docs/failure_diagnosis/slow_current01.gray8",
+    "iterations": 4,
+    "decoded": 6,
+    "payload": "012345",
+    "elapsed_us": 2585,
+    "marker_us": 361,
+    "normalize_us": 89,
+    "core_us": 28,
+    "refine_us": 29,
+    "marker_roi": [
+      424,
+      164,
+      520,
+      264
+    ],
+    "angle_deg": 90.0,
+    "grid": [
+      10,
+      10
+    ],
+    "geometry_quality": 2,
+    "split": 0,
+    "full_fallback": 0,
+    "sample_step": 4,
+    "core_finder_us": 14,
+    "core_candidate_us": 12,
+    "core_codeword_us": 0,
+    "core_ecc_us": 1,
+    "core_payload_us": 0,
+    "corners": [
+      447,
+      189,
+      489,
+      188,
+      489,
+      233,
+      447,
+      233
+    ]
+  },
+  {
+    "source": "docs/failure_diagnosis/slow_current02.gray8",
+    "iterations": 4,
+    "decoded": 6,
+    "payload": "012345",
+    "elapsed_us": 2092,
+    "marker_us": 366,
+    "normalize_us": 90,
+    "core_us": 19,
+    "refine_us": 29,
+    "marker_roi": [
+      424,
+      164,
+      520,
+      264
+    ],
+    "angle_deg": 90.0,
+    "grid": [
+      10,
+      10
+    ],
+    "geometry_quality": 2,
+    "split": 0,
+    "full_fallback": 0,
+    "sample_step": 4,
+    "core_finder_us": 5,
+    "core_candidate_us": 13,
+    "core_codeword_us": 0,
+    "core_ecc_us": 1,
+    "core_payload_us": 0,
+    "corners": [
+      447,
+      189,
+      489,
+      188,
+      489,
+      233,
+      447,
+      233
+    ]
+  },
+  {
+    "source": "docs/decode_stages/source.gray8",
+    "iterations": 4,
+    "decoded": 6,
+    "payload": "012345",
+    "elapsed_us": 2039,
+    "marker_us": 255,
+    "normalize_us": 68,
+    "core_us": 26,
+    "refine_us": 31,
+    "marker_roi": [
+      240,
+      156,
+      462,
+      372
+    ],
+    "angle_deg": -116.565,
+    "grid": [
+      10,
+      10
+    ],
+    "geometry_quality": 2,
+    "split": 0,
+    "full_fallback": 0,
+    "sample_step": 6,
+    "core_finder_us": 6,
+    "core_candidate_us": 18,
+    "core_codeword_us": 0,
+    "core_ecc_us": 1,
+    "core_payload_us": 0,
+    "corners": [
+      413,
+      284,
+      327,
+      323,
+      280,
+      235,
+      370,
+      195
+    ]
+  },
+  {
+    "source": "build/parallel_host_cases/large_centre.gray8",
+    "iterations": 4,
+    "decoded": 6,
+    "payload": "012345",
+    "elapsed_us": 1486,
+    "marker_us": 184,
+    "normalize_us": 68,
+    "core_us": 24,
+    "refine_us": 59,
+    "marker_roi": [
+      390,
+      108,
+      882,
+      588
+    ],
+    "angle_deg": -118.024,
+    "grid": [
+      10,
+      10
+    ],
+    "geometry_quality": 2,
+    "split": 0,
+    "full_fallback": 0,
+    "sample_step": 6,
+    "core_finder_us": 6,
+    "core_candidate_us": 16,
+    "core_codeword_us": 1,
+    "core_ecc_us": 0,
+    "core_payload_us": 0,
+    "corners": [
+      837,
+      421,
+      578,
+      538,
+      436,
+      273,
+      708,
+      154
+    ]
+  },
+  {
+    "source": "build/parallel_host_cases/blank.gray8",
+    "iterations": 4,
+    "decoded": 0,
+    "payload": "",
+    "elapsed_us": 2007,
+    "marker_us": 453,
+    "normalize_us": 0,
+    "core_us": 139,
+    "refine_us": 0,
+    "marker_roi": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "angle_deg": 0.0,
+    "grid": [
+      0,
+      0
+    ],
+    "geometry_quality": 0,
+    "split": 0,
+    "full_fallback": 0,
+    "sample_step": 4,
+    "core_finder_us": 138,
+    "core_candidate_us": 0,
+    "core_codeword_us": 0,
+    "core_ecc_us": 0,
+    "core_payload_us": 0,
+    "corners": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "source": "docs/failure_diagnosis/slow_current01.gray8",
+    "iterations": 4,
+    "decoded": 6,
+    "payload": "012345",
+    "elapsed_us": 2310,
+    "marker_us": 347,
+    "normalize_us": 89,
+    "core_us": 19,
+    "refine_us": 29,
+    "marker_roi": [
+      424,
+      164,
+      520,
+      264
+    ],
+    "angle_deg": 90.0,
+    "grid": [
+      10,
+      10
+    ],
+    "geometry_quality": 2,
+    "split": 0,
+    "full_fallback": 0,
+    "sample_step": 4,
+    "core_finder_us": 5,
+    "core_candidate_us": 12,
+    "core_codeword_us": 1,
+    "core_ecc_us": 0,
+    "core_payload_us": 0,
+    "corners": [
+      447,
+      189,
+      489,
+      188,
+      489,
+      233,
+      447,
+      233
+    ]
+  },
+  {
+    "source": "docs/failure_diagnosis/fail01.gray8",
+    "iterations": 4,
+    "decoded": 6,
+    "payload": "012345",
+    "elapsed_us": 2102,
+    "marker_us": 324,
+    "normalize_us": 65,
+    "core_us": 20,
+    "refine_us": 55,
+    "marker_roi": [
+      372,
+      260,
+      484,
+      376
+    ],
+    "angle_deg": 85.815,
+    "grid": [
+      10,
+      10
+    ],
+    "geometry_quality": 2,
+    "split": 0,
+    "full_fallback": 0,
+    "sample_step": 4,
+    "core_finder_us": 6,
+    "core_candidate_us": 12,
+    "core_codeword_us": 2,
+    "core_ecc_us": 0,
+    "core_payload_us": 0,
+    "corners": [
+      396,
+      286,
+      451,
+      282,
+      454,
+      340,
+      399,
+      343
+    ]
+  },
+  {
+    "source": "docs/decode_stages/source.gray8",
+    "iterations": 4,
+    "decoded": 6,
+    "payload": "012345",
+    "elapsed_us": 1851,
+    "marker_us": 243,
+    "normalize_us": 67,
+    "core_us": 37,
+    "refine_us": 31,
+    "marker_roi": [
+      240,
+      156,
+      462,
+      372
+    ],
+    "angle_deg": -116.565,
+    "grid": [
+      10,
+      10
+    ],
+    "geometry_quality": 2,
+    "split": 0,
+    "full_fallback": 0,
+    "sample_step": 6,
+    "core_finder_us": 6,
+    "core_candidate_us": 29,
+    "core_codeword_us": 2,
+    "core_ecc_us": 0,
+    "core_payload_us": 0,
+    "corners": [
+      413,
+      284,
+      327,
+      323,
+      280,
+      235,
+      370,
+      195
+    ]
+  }
+]

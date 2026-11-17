@@ -1,0 +1,9 @@
+{
+  "idf": "5.4.0",
+  "application_bytes": 843760,
+  "application_sha256": "98d86c625dd3c02e2fe6f7e4d39f7589dc909148e2c9bb470c0cabe66786c123",
+  "flash_port": "COM57",
+  "cdc_port": "COM60",
+  "previous_application_backup": "build/before_perspective1111.bin",
+  "input": "live CSI, 1280x720 Gray8, two lanes, nominal 50 fps"
+}

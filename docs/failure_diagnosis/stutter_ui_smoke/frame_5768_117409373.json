@@ -1,0 +1,71 @@
+{
+  "sequence": 5768,
+  "timestamp_us": 117409373,
+  "width": 1280,
+  "height": 720,
+  "success": true,
+  "decode_us": 26577,
+  "corners": [
+    [
+      1092.886,
+      531.836
+    ],
+    [
+      758.999,
+      575.743
+    ],
+    [
+      702.462,
+      304.755
+    ],
+    [
+      979.148,
+      185.799
+    ]
+  ],
+  "coordinates_only": false,
+  "geometry_quality": 2,
+  "geometry_edge_mask": 15,
+  "geometry_support": 99,
+  "geometry_residual": 0.683,
+  "payload": "012345",
+  "payload_hex": "303132333435",
+  "image_encoding": "JPEG",
+  "image_file": "frame_5768_117409373.jpg",
+  "pose": {
+    "available": false,
+    "reason": "姿态拟合误差过大，请核对标定与角点",
+    "calibration_source": "assumed",
+    "assumed_horizontal_fov_deg": 23.0,
+    "camera_matrix": [
+      [
+        3145.7004998855714,
+        0.0,
+        639.5
+      ],
+      [
+        0.0,
+        3145.7004998855714,
+        359.5
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "dist_coeffs": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "saved_at": "2026-11-11T10:05:59.283762",
+  "rate": [
+    459,
+    2771.4601992781663,
+    459
+  ]
+}

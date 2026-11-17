@@ -40,7 +40,7 @@ typedef struct {
     int roi[4];
     int orientation;
     int sample_step; /* Axes and normalization must use the same half-step offset. */
-    float axes[6];
+    float axes[8]; /* Origin, two marker vectors, projective denominator g/h. */
     unsigned qr_rejected;
     uint64_t search_us;
 } XcrDmtxPrepared;

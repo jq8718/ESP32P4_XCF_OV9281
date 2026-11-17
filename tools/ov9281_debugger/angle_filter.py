@@ -22,10 +22,7 @@ class AngleAverage:
         result = {}
         for name in values:
             angles = [sample[name] for _, sample in self.samples]
-            if name == 'front_angle_deg':
-                result[name] = sum(angles) / len(angles)
-            else:
-                sine = sum(math.sin(math.radians(angle)) for angle in angles)
-                cosine = sum(math.cos(math.radians(angle)) for angle in angles)
-                result[name] = math.degrees(math.atan2(sine, cosine)) if math.hypot(sine, cosine) > 1e-8 else values[name]
+            sine = sum(math.sin(math.radians(angle)) for angle in angles)
+            cosine = sum(math.cos(math.radians(angle)) for angle in angles)
+            result[name] = math.degrees(math.atan2(sine, cosine)) if math.hypot(sine, cosine) > 1e-8 else values[name]
         return result

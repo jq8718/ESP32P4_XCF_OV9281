@@ -1,0 +1,430 @@
+[
+  {
+    "text": "012345",
+    "mirror": false,
+    "corruption": "none",
+    "decoded": "012345"
+  },
+  {
+    "text": "012345",
+    "mirror": false,
+    "corruption": "one_bit",
+    "decoded": "012345"
+  },
+  {
+    "text": "012345",
+    "mirror": false,
+    "corruption": "two_bits",
+    "decoded": "012345"
+  },
+  {
+    "text": "012345",
+    "mirror": false,
+    "corruption": "bad_border",
+    "decoded": null
+  },
+  {
+    "text": "012345",
+    "mirror": false,
+    "corruption": "non_binary",
+    "decoded": null
+  },
+  {
+    "text": "012345",
+    "mirror": true,
+    "corruption": "none",
+    "decoded": "012345"
+  },
+  {
+    "text": "012345",
+    "mirror": true,
+    "corruption": "one_bit",
+    "decoded": "012345"
+  },
+  {
+    "text": "012345",
+    "mirror": true,
+    "corruption": "two_bits",
+    "decoded": "012345"
+  },
+  {
+    "text": "012345",
+    "mirror": true,
+    "corruption": "bad_border",
+    "decoded": null
+  },
+  {
+    "text": "012345",
+    "mirror": true,
+    "corruption": "non_binary",
+    "decoded": null
+  },
+  {
+    "text": "000000",
+    "mirror": false,
+    "corruption": "none",
+    "decoded": "000000"
+  },
+  {
+    "text": "000000",
+    "mirror": false,
+    "corruption": "one_bit",
+    "decoded": "000000"
+  },
+  {
+    "text": "000000",
+    "mirror": false,
+    "corruption": "two_bits",
+    "decoded": "000000"
+  },
+  {
+    "text": "000000",
+    "mirror": false,
+    "corruption": "bad_border",
+    "decoded": null
+  },
+  {
+    "text": "000000",
+    "mirror": false,
+    "corruption": "non_binary",
+    "decoded": null
+  },
+  {
+    "text": "000000",
+    "mirror": true,
+    "corruption": "none",
+    "decoded": "000000"
+  },
+  {
+    "text": "000000",
+    "mirror": true,
+    "corruption": "one_bit",
+    "decoded": "000000"
+  },
+  {
+    "text": "000000",
+    "mirror": true,
+    "corruption": "two_bits",
+    "decoded": "000000"
+  },
+  {
+    "text": "000000",
+    "mirror": true,
+    "corruption": "bad_border",
+    "decoded": null
+  },
+  {
+    "text": "000000",
+    "mirror": true,
+    "corruption": "non_binary",
+    "decoded": null
+  },
+  {
+    "text": "999999",
+    "mirror": false,
+    "corruption": "none",
+    "decoded": "999999"
+  },
+  {
+    "text": "999999",
+    "mirror": false,
+    "corruption": "one_bit",
+    "decoded": "999999"
+  },
+  {
+    "text": "999999",
+    "mirror": false,
+    "corruption": "two_bits",
+    "decoded": "999999"
+  },
+  {
+    "text": "999999",
+    "mirror": false,
+    "corruption": "bad_border",
+    "decoded": null
+  },
+  {
+    "text": "999999",
+    "mirror": false,
+    "corruption": "non_binary",
+    "decoded": null
+  },
+  {
+    "text": "999999",
+    "mirror": true,
+    "corruption": "none",
+    "decoded": "999999"
+  },
+  {
+    "text": "999999",
+    "mirror": true,
+    "corruption": "one_bit",
+    "decoded": "999999"
+  },
+  {
+    "text": "999999",
+    "mirror": true,
+    "corruption": "two_bits",
+    "decoded": "999999"
+  },
+  {
+    "text": "999999",
+    "mirror": true,
+    "corruption": "bad_border",
+    "decoded": null
+  },
+  {
+    "text": "999999",
+    "mirror": true,
+    "corruption": "non_binary",
+    "decoded": null
+  },
+  {
+    "text": "123456",
+    "mirror": false,
+    "corruption": "none",
+    "decoded": "123456"
+  },
+  {
+    "text": "123456",
+    "mirror": false,
+    "corruption": "one_bit",
+    "decoded": "123456"
+  },
+  {
+    "text": "123456",
+    "mirror": false,
+    "corruption": "two_bits",
+    "decoded": "123456"
+  },
+  {
+    "text": "123456",
+    "mirror": false,
+    "corruption": "bad_border",
+    "decoded": null
+  },
+  {
+    "text": "123456",
+    "mirror": false,
+    "corruption": "non_binary",
+    "decoded": null
+  },
+  {
+    "text": "123456",
+    "mirror": true,
+    "corruption": "none",
+    "decoded": "123456"
+  },
+  {
+    "text": "123456",
+    "mirror": true,
+    "corruption": "one_bit",
+    "decoded": "123456"
+  },
+  {
+    "text": "123456",
+    "mirror": true,
+    "corruption": "two_bits",
+    "decoded": "123456"
+  },
+  {
+    "text": "123456",
+    "mirror": true,
+    "corruption": "bad_border",
+    "decoded": null
+  },
+  {
+    "text": "123456",
+    "mirror": true,
+    "corruption": "non_binary",
+    "decoded": null
+  },
+  {
+    "text": "ABC",
+    "mirror": false,
+    "corruption": "none",
+    "decoded": "ABC"
+  },
+  {
+    "text": "ABC",
+    "mirror": false,
+    "corruption": "one_bit",
+    "decoded": "ABC"
+  },
+  {
+    "text": "ABC",
+    "mirror": false,
+    "corruption": "two_bits",
+    "decoded": "ABC"
+  },
+  {
+    "text": "ABC",
+    "mirror": false,
+    "corruption": "bad_border",
+    "decoded": null
+  },
+  {
+    "text": "ABC",
+    "mirror": false,
+    "corruption": "non_binary",
+    "decoded": null
+  },
+  {
+    "text": "ABC",
+    "mirror": true,
+    "corruption": "none",
+    "decoded": "ABC"
+  },
+  {
+    "text": "ABC",
+    "mirror": true,
+    "corruption": "one_bit",
+    "decoded": "ABC"
+  },
+  {
+    "text": "ABC",
+    "mirror": true,
+    "corruption": "two_bits",
+    "decoded": "ABC"
+  },
+  {
+    "text": "ABC",
+    "mirror": true,
+    "corruption": "bad_border",
+    "decoded": null
+  },
+  {
+    "text": "ABC",
+    "mirror": true,
+    "corruption": "non_binary",
+    "decoded": null
+  },
+  {
+    "text": "AGV",
+    "mirror": false,
+    "corruption": "none",
+    "decoded": "AGV"
+  },
+  {
+    "text": "AGV",
+    "mirror": false,
+    "corruption": "one_bit",
+    "decoded": "AGV"
+  },
+  {
+    "text": "AGV",
+    "mirror": false,
+    "corruption": "two_bits",
+    "decoded": "AGV"
+  },
+  {
+    "text": "AGV",
+    "mirror": false,
+    "corruption": "bad_border",
+    "decoded": null
+  },
+  {
+    "text": "AGV",
+    "mirror": false,
+    "corruption": "non_binary",
+    "decoded": null
+  },
+  {
+    "text": "AGV",
+    "mirror": true,
+    "corruption": "none",
+    "decoded": "AGV"
+  },
+  {
+    "text": "AGV",
+    "mirror": true,
+    "corruption": "one_bit",
+    "decoded": "AGV"
+  },
+  {
+    "text": "AGV",
+    "mirror": true,
+    "corruption": "two_bits",
+    "decoded": "AGV"
+  },
+  {
+    "text": "AGV",
+    "mirror": true,
+    "corruption": "bad_border",
+    "decoded": null
+  },
+  {
+    "text": "AGV",
+    "mirror": true,
+    "corruption": "non_binary",
+    "decoded": null
+  },
+  {
+    "text": "Z9",
+    "mirror": false,
+    "corruption": "none",
+    "decoded": "Z9"
+  },
+  {
+    "text": "Z9",
+    "mirror": false,
+    "corruption": "one_bit",
+    "decoded": "Z9"
+  },
+  {
+    "text": "Z9",
+    "mirror": false,
+    "corruption": "two_bits",
+    "decoded": "Z9"
+  },
+  {
+    "text": "Z9",
+    "mirror": false,
+    "corruption": "bad_border",
+    "decoded": null
+  },
+  {
+    "text": "Z9",
+    "mirror": false,
+    "corruption": "non_binary",
+    "decoded": null
+  },
+  {
+    "text": "Z9",
+    "mirror": true,
+    "corruption": "none",
+    "decoded": "Z9"
+  },
+  {
+    "text": "Z9",
+    "mirror": true,
+    "corruption": "one_bit",
+    "decoded": "Z9"
+  },
+  {
+    "text": "Z9",
+    "mirror": true,
+    "corruption": "two_bits",
+    "decoded": "Z9"
+  },
+  {
+    "text": "Z9",
+    "mirror": true,
+    "corruption": "bad_border",
+    "decoded": null
+  },
+  {
+    "text": "Z9",
+    "mirror": true,
+    "corruption": "non_binary",
+    "decoded": null
+  },
+  {
+    "uniform": 0,
+    "decoded": null
+  },
+  {
+    "uniform": 1,
+    "decoded": null
+  }
+]

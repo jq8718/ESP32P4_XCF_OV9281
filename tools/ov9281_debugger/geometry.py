@@ -19,7 +19,19 @@ def assumed_calibration(width, height, horizontal_fov=23):
     focal = width / (2 * math.tan(math.radians(horizontal_fov) / 2))
     return {'camera_matrix': np.array([[focal, 0, (width - 1) / 2],
                                       [0, focal, (height - 1) / 2], [0, 0, 1]], dtype=np.float64),
-            'dist_coeffs': np.zeros(5), 'image_size': [width, height], 'qr_size_mm': None}
+            'dist_coeffs': np.zeros(5), 'image_size': [width, height], 'qr_size_mm': 30.0}
+
+
+def default_ov9281_calibration():
+    """Factory calibration documented for the raw 1280x720 OV9281 stream."""
+    return {
+        'camera_matrix': np.array([[733.242515, 0.0, 589.273600],
+                                   [0.0, 732.511533, 359.376026],
+                                   [0.0, 0.0, 1.0]], dtype=np.float64),
+        'dist_coeffs': np.array([0.119448, -0.223125, 0.000163, -0.000596, 0.083362], dtype=np.float64),
+        'image_size': [1280, 720],
+        'qr_size_mm': 30.0,
+    }
 
 
 def opposite_edge_lengths(corners):
@@ -56,10 +68,15 @@ def estimate_pose(corners, width, height, calibration, max_reprojection_px=5):
     image_points = np.asarray(corners, dtype=np.float64)
     if not cv2.isContourConvex(image_points.astype(np.float32)) or abs(cv2.contourArea(image_points.astype(np.float32))) < 16:
         return {'available': False, 'reason': '角点退化，无法估计姿态'}
-    image_points = np.roll(image_points, -int(np.argmin(image_points.sum(axis=1))), axis=0)
-    side = calibration['qr_size_mm'] or 1.0
+    # Keep the decoder's canonical P0..P3 identities. Reordering by screen
+    # position destroys the physical orientation encoded by the corner order.
+    side = calibration['qr_size_mm']
+    if side is None:
+        return {'available': False, 'reason': '缺少二维码有效码体边长，无法得到米制距离'}
     half = side / 2
-    object_points = np.array([[-half, -half, 0], [half, -half, 0], [half, half, 0], [-half, half, 0]], dtype=np.float64)
+    # STM32 reference coordinates: +Y points up on the printed code face.
+    object_points = np.array([[-half, half, 0], [half, half, 0],
+                              [half, -half, 0], [-half, -half, 0]], dtype=np.float64)
     try:
         solutions = cv2.solvePnPGeneric(object_points, image_points, calibration['camera_matrix'],
                                        calibration['dist_coeffs'], flags=cv2.SOLVEPNP_IPPE)
@@ -80,18 +97,57 @@ def estimate_pose(corners, width, height, calibration, max_reprojection_px=5):
             candidates.append((error, matrix, translation.reshape(3)))
         candidates.sort(key=lambda item: item[0])
         if not candidates or candidates[0][0] > max_reprojection_px:
-            return {'available': False, 'reason': '姿态拟合误差过大，请核对标定与角点'}
+            # IPPE can return poor initial candidates for otherwise valid
+            # quads on one side of the principal point with lens distortion.
+            # Fall back to OpenCV's planar iterative initializer in that case.
+            ok, rotation, translation = cv2.solvePnP(
+                object_points, image_points, calibration['camera_matrix'],
+                calibration['dist_coeffs'], flags=cv2.SOLVEPNP_ITERATIVE)
+            if ok:
+                rotation, translation = cv2.solvePnPRefineLM(
+                    object_points, image_points, calibration['camera_matrix'],
+                    calibration['dist_coeffs'], rotation, translation)
+                matrix, _ = cv2.Rodrigues(rotation)
+                translation = translation.reshape(3)
+                depths = (matrix @ object_points.T + translation.reshape(3, 1))[2]
+                projected, _ = cv2.projectPoints(object_points, rotation, translation,
+                                                 calibration['camera_matrix'], calibration['dist_coeffs'])
+                error = float(np.sqrt(np.mean(np.sum(
+                    (projected.reshape(-1, 2) - image_points) ** 2, axis=1))))
+                if (np.all(depths > 0) and math.isfinite(error) and
+                        error <= max_reprojection_px and np.isfinite(matrix).all() and
+                        np.isfinite(translation).all()):
+                    candidates = [(error, matrix, translation)]
+            if not candidates or candidates[0][0] > max_reprojection_px:
+                return {'available': False, 'reason': '姿态拟合误差过大，请核对标定与角点'}
         error, matrix, translation = candidates[0]
+        # Relative angles use A = R_CQ * diag(1,-1,-1), so a correctly
+        # front-facing, upright code has zero yaw/pitch/roll.
+        pitch_x = math.asin(float(np.clip(matrix[1, 2], -1, 1)))
+        yaw_y = math.atan2(float(-matrix[0, 2]), float(-matrix[2, 2]))
+        roll_z = math.atan2(float(matrix[1, 0]), float(-matrix[1, 1]))
         normal = matrix[:, 2]
-        if normal[2] < 0:
-            normal = -normal
-        angle = math.degrees(math.acos(float(np.clip(normal[2], -1, 1))))
+        range_m = float(np.linalg.norm(translation)) / 1000.0
+        optical_depth_m = float(translation[2]) / 1000.0
+        optical_axis_offset_m = float(np.linalg.norm(translation[:2])) / 1000.0
+        lateral_offset_x_m = float(translation[0]) / 1000.0
+        vertical_offset_y_m = float(translation[1]) / 1000.0
+        distance_to_plane_m = float(-np.dot(normal, translation)) / 1000.0
         distinct = [candidate for candidate in candidates[1:] if
                     np.linalg.norm(candidate[1][:, 2] - matrix[:, 2]) > 1e-3]
-        return {'available': True, 'front_angle_deg': angle,
-                'horizontal_tilt_deg': math.degrees(math.atan2(float(normal[0]), float(normal[2]))),
-                'vertical_tilt_deg': math.degrees(math.atan2(float(normal[1]), float(normal[2]))),
+        return {'available': True,
+                'yaw_y_deg': math.degrees(yaw_y),
+                'pitch_x_deg': math.degrees(pitch_x),
+                'roll_z_deg': math.degrees(roll_z),
+                'range_m': range_m,
+                'optical_depth_m': optical_depth_m,
+                'optical_axis_offset_m': optical_axis_offset_m,
+                'lateral_offset_x_m': lateral_offset_x_m,
+                'vertical_offset_y_m': vertical_offset_y_m,
+                'distance_to_plane_m': distance_to_plane_m,
                 'reprojection_px': error, 'ambiguous': bool(distinct) and distinct[0][0] - error < 0.2,
-                'optical_distance_mm': float(translation[2]) if calibration['qr_size_mm'] else None}
+                'translation_mm': translation.tolist(),
+                'rotation_matrix': matrix.tolist(),
+                'qr_size_mm': side}
     except cv2.error:
         return {'available': False, 'reason': '姿态计算失败，请检查标定数据'}

@@ -14,11 +14,17 @@ from PySide6.QtGui import QColor, QFont, QImage, QPainter, QPen, QPixmap, QPolyg
 from PySide6.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
                                QLabel, QPushButton, QComboBox, QSplitter, QPlainTextEdit,
                                QTableWidget, QTableWidgetItem, QHeaderView, QFileDialog,
-                               QMessageBox, QGraphicsView, QGraphicsScene, QFrame, QCheckBox, QDoubleSpinBox)
+                               QMessageBox, QGraphicsView, QGraphicsScene, QFrame, QCheckBox, QDoubleSpinBox,
+                               QTabWidget)
 
-from geometry import load_calibration, estimate_pose, image_rotation, assumed_calibration, opposite_edge_lengths
+from geometry import (load_calibration, estimate_pose, image_rotation, assumed_calibration,
+                      default_ov9281_calibration, opposite_edge_lengths)
 from angle_filter import AngleAverage
-from protocol import StreamParser, ScanRate, Snapshot
+from protocol import StreamParser, ScanRate, Snapshot, parse_uart_pose
+try:
+    from build_version import BUILD_VERSION
+except ImportError:
+    BUILD_VERSION = 'development'
 
 
 class SerialWorker(QThread):
@@ -29,10 +35,11 @@ class SerialWorker(QThread):
     state = Signal(str)
     connected = Signal(bool)
 
-    def __init__(self, port, upload_images=True):
+    def __init__(self, port, upload_images=True, mode='cdc'):
         super().__init__()
         self.port = port
         self.upload_images = upload_images
+        self.mode = mode
 
     def run(self):
         parser = StreamParser()
@@ -44,6 +51,29 @@ class SerialWorker(QThread):
         try:
             with serial.Serial(self.port, 921600, timeout=0.03, write_timeout=0.3) as connection:
                 connection.reset_input_buffer()
+                if self.mode == 'uart':
+                    self.connected.emit(True)
+                    self.state.emit(f'已连接 {self.port} GPIO41/42 UART，等待姿态结果')
+                    buffer = bytearray()
+                    while not self.isInterruptionRequested():
+                        data = connection.read(min(max(connection.in_waiting, 1), 4096))
+                        buffer.extend(data)
+                        while b'\n' in buffer:
+                            end = buffer.index(10)
+                            line = bytes(buffer[:end]).rstrip(b'\r')
+                            del buffer[:end + 1]
+                            if not line:
+                                continue
+                            if line.startswith(b'@CAL,'):
+                                self.state.emit(line.decode('ascii', errors='replace'))
+                                continue
+                            try:
+                                self.result.emit(parse_uart_pose(line))
+                            except (ValueError, UnicodeError) as error:
+                                logging.debug('Ignoring UART line %r: %s', line, error)
+                        if len(buffer) > 4096:
+                            buffer.clear()
+                    return
                 connection.write(b'@TIMINGON\r@GEOMETRYON\r@SUBPIXELON\r')
                 last_timing_request = time.monotonic()
                 self.connected.emit(True)
@@ -165,6 +195,75 @@ class ImageView(QGraphicsView):
             self.scale(factor, factor)
 
 
+class AgvPoseView(QWidget):
+    """Top-down sketch: fixed code on a wall, side camera facing it."""
+    def __init__(self):
+        super().__init__()
+        self.pose = None
+        self.setMinimumSize(420, 330)
+
+    def set_pose(self, pose):
+        self.pose = pose
+        self.update()
+
+    def paintEvent(self, event):
+        painter = QPainter(self)
+        painter.setRenderHint(QPainter.RenderHint.Antialiasing)
+        painter.fillRect(self.rect(), QColor('#f7f9fc'))
+        width, height = self.width(), self.height()
+        wall_x = width - 78
+        cy = height * 0.52
+        painter.setPen(QPen(QColor('#52677e'), 10))
+        painter.drawLine(int(wall_x), 40, int(wall_x), height - 35)
+        painter.setPen(QPen(QColor('#71849a'), 1))
+        painter.drawText(int(wall_x + 12), 54, '固定垂直墙面')
+        painter.setPen(QPen(QColor('#374b62'), 2))
+        painter.setBrush(QColor('#fff'))
+        painter.drawRect(int(wall_x - 23), int(cy - 23), 46, 46)
+        painter.setPen(QPen(QColor('#20334a'), 1))
+        painter.drawText(int(wall_x - 19), int(cy + 4), '码')
+        painter.drawText(24, 24, '俯视示意 · 相机装在 AGV 侧边，光轴指向墙上二维码')
+        pose = self.pose or {}
+        depth = pose.get('optical_depth_m')
+        tx = pose.get('tx_m')
+        yaw = pose.get('yaw_y_deg')
+        if depth is None or tx is None or yaw is None:
+            painter.setPen(QColor('#71849a'))
+            painter.drawText(24, int(height * .55), '等待有效 UART 姿态数据…')
+            painter.end()
+            return
+        # Keep the drawing legible while mapping measured depth and lateral offset.
+        depth_px = max(70, min(width * .52, depth * 135))
+        car_x = wall_x - depth_px
+        car_y = cy + max(-height * .28, min(height * .28, -tx * 150))
+        angle = math.radians(max(-55.0, min(55.0, yaw)))
+        # Local forward is toward the wall (+screen X); yaw rotates the AGV heading.
+        forward = QPointF(math.cos(angle), math.sin(angle))
+        side = QPointF(-forward.y(), forward.x())
+        center = QPointF(car_x, car_y)
+        half_l, half_w = 40.0, 23.0
+        corners = [QPointF(center.x() + forward.x()*a*half_l + side.x()*b*half_w,
+                           center.y() + forward.y()*a*half_l + side.y()*b*half_w)
+                   for a, b in ((1,1), (1,-1), (-1,-1), (-1,1))]
+        polygon = QPolygonF(corners)
+        painter.setPen(QPen(QColor('#136eb7'), 2))
+        painter.setBrush(QColor('#cfe8fb'))
+        painter.drawPolygon(polygon)
+        camera = QPointF(center.x() + side.x()*half_w, center.y() + side.y()*half_w)
+        painter.setPen(QPen(QColor('#ef8a17'), 3))
+        painter.setBrush(QColor('#ffd28a'))
+        painter.drawEllipse(camera, 7, 7)
+        ray_end = QPointF(wall_x - 24, cy)
+        painter.setPen(QPen(QColor('#ef8a17'), 2, Qt.PenStyle.DashLine))
+        painter.drawLine(camera, ray_end)
+        painter.setPen(QColor('#20334a'))
+        painter.drawText(int(car_x - 38), int(car_y + 56), f'AGV · yaw {yaw:+.2f}°')
+        painter.drawText(int(camera.x() - depth_px*.55), int(camera.y() - 12),
+                         f'光轴深度 {depth:.3f} m · tx {tx:+.3f} m')
+        painter.drawText(24, height - 18, '示意图按测量距离比例缩放，yaw_y 以相机坐标符号显示；不代表车体尺寸。')
+        painter.end()
+
+
 class DebugWindow(QMainWindow):
     def __init__(self, args):
         super().__init__()
@@ -182,7 +281,7 @@ class DebugWindow(QMainWindow):
         self.latest = None
         self.latest_result = None
         self.rendered = None
-        self.calibration = None
+        self.calibration = default_ov9281_calibration()
         self.pose = {}
         self.angle_average = AngleAverage()
         self.last_angle_render = 0
@@ -191,7 +290,7 @@ class DebugWindow(QMainWindow):
         self.last_key = None
         self.capture_folder = (Path(sys.executable).parent if getattr(sys, 'frozen', False) else Path(__file__).resolve().parents[2] / 'dist') / 'captures'
         self.saved_frames = 0
-        self.setWindowTitle('P4SCAN OV9281 扫码调试工具')
+        self.setWindowTitle(f'P4SCAN OV9281 扫码调试工具 · v{BUILD_VERSION}')
         self.resize(1460, 900)
         self.setMinimumSize(1160, 740)
         root = QWidget()
@@ -204,13 +303,17 @@ class DebugWindow(QMainWindow):
         layout = QVBoxLayout(left)
         layout.setContentsMargins(0, 0, 10, 0)
         layout.setSpacing(6)
-        title = QLabel('P4SCAN  /  OV9281 扫码调试')
+        title = QLabel(f'P4SCAN  /  OV9281 扫码调试  ·  v{BUILD_VERSION}')
         title.setObjectName('title')
         layout.addWidget(title)
         connection = QHBoxLayout()
         self.ports = QComboBox()
         self.ports.setMinimumWidth(230)
-        connection.addWidget(QLabel('HS-USB 串口'))
+        self.connection_mode = QComboBox()
+        self.connection_mode.addItem('USB CDC 调试器', 'cdc')
+        self.connection_mode.addItem('GPIO41/42 UART 姿态', 'uart')
+        self.connection_mode.currentIndexChanged.connect(self.refresh_ports)
+        connection.addWidget(self.connection_mode)
         connection.addWidget(self.ports)
         refresh = QPushButton('刷新')
         refresh.clicked.connect(self.refresh_ports)
@@ -222,6 +325,7 @@ class DebugWindow(QMainWindow):
         self.image_button = QPushButton('关闭解码图片上传')
         self.image_button.clicked.connect(lambda: self.upload_images.toggle())
         connection.addWidget(self.image_button)
+        self.connection_mode.currentIndexChanged.connect(self.update_connection_mode)
         self.status = QLabel('选择 HS-USB 串口，连接后显示 DataMatrix 结果和同帧快照')
         self.status.setWordWrap(True)
         layout.addLayout(connection)
@@ -287,8 +391,12 @@ class DebugWindow(QMainWindow):
         self.capture_note.setWordWrap(True)
         capture_bar.addWidget(self.capture_note, 1)
         layout.addLayout(capture_bar)
+        self.preview_tabs = QTabWidget()
         self.view = ImageView()
-        layout.addWidget(self.view, 1)
+        self.preview_tabs.addTab(self.view, '解码图像')
+        self.agv_simulation = AgvPoseView()
+        self.preview_tabs.addTab(self.agv_simulation, 'AGV 姿态模拟')
+        layout.addWidget(self.preview_tabs, 1)
         self.frame_info = QLabel('等待真实取图。图片与坐标来自同一个保留帧，CRC校验通过后才显示。')
         self.frame_info.setWordWrap(True)
         layout.addWidget(self.frame_info)
@@ -324,17 +432,32 @@ class DebugWindow(QMainWindow):
         for row, name in enumerate(['P0', 'P1', 'P2', 'P3']):
             self.corners.setItem(row, 0, QTableWidgetItem(name))
         panel.addWidget(self.corners)
+        self.tx_offset = QLabel('横向偏移 tx：—')
         self.rotation = QLabel('画面内旋转角：—')
-        self.front_angle = QLabel('正对偏角（3D）：未标定')
-        self.agv_angle = QLabel('AGV与墙面偏航（有符号）：未标定')
+        self.rotation.setToolTip('由码体 P0 到 P1 的图像像素连线方向 atan2(Δy, Δx) 计算，顺时针为正；它不是 yaw_y。')
+        self.front_angle = QLabel('相对偏转角：未标定')
+        self.front_angle.setWordWrap(True)
+        self.agv_angle = QLabel('三个距离：未标定')
         self.agv_angle.setWordWrap(True)
-        self.agv_angle.setToolTip('相机水平且画面朝上，侧装90°。角度符号按相机坐标定义，转换为AGV车体偏航需校核左右安装外参。')
-        self.pose_details = QLabel('正对为0°，偏斜时增大；此角度是光轴与码平面法线的夹角。')
+        self.agv_angle.setToolTip('码中心直线距离、沿相机光轴深度、相机到码平面的垂直距离。')
+        self.plane_distance = QLabel('码平面垂直距离 distance_to_plane_m：—')
+        self.pose_details = QLabel('相对角按二维码坐标系到相机坐标系计算；正对码面时 yaw、pitch、roll 均为0°。')
         self.pose_details.setWordWrap(True)
-        panel.addWidget(self.rotation)
+        panel.addWidget(self.tx_offset)
         panel.addWidget(self.front_angle)
         panel.addWidget(self.agv_angle)
+        panel.addWidget(self.rotation)
+        panel.addWidget(self.plane_distance)
         panel.addWidget(self.pose_details)
+        panel.addWidget(QLabel('ESP32-P4 UART 姿态参数（设备端计算）'))
+        self.device_pose_values = QLabel('yaw_y：—    pitch_x：—    roll_z：—\nrange_m：—    optical_depth_m：—\ndistance_to_plane_m：—    tx：—')
+        self.device_pose_values.setObjectName('device_pose')
+        self.device_pose_values.setWordWrap(True)
+        panel.addWidget(self.device_pose_values)
+        self.uart_model_note = QLabel('墙面固定二维码 · AGV 侧装相机光轴朝向二维码 · 平面图仅作位置与偏航角示意')
+        self.uart_model_note.setWordWrap(True)
+        self.uart_model_note.setObjectName('muted')
+        panel.addWidget(self.uart_model_note)
         angle_options = QHBoxLayout()
         self.smooth_angles = QCheckBox('角度平滑')
         self.smooth_angles.setChecked(True)
@@ -357,8 +480,8 @@ class DebugWindow(QMainWindow):
         clear_calibration.clicked.connect(self.clear_calibration)
         calibration_buttons.addWidget(clear_calibration)
         panel.addLayout(calibration_buttons)
-        self.rough_pose = QCheckBox('未导入标定时，使用假定内参粗估')
-        self.rough_pose.setChecked(True)
+        self.rough_pose = QCheckBox('清除标定后使用假定内参粗估')
+        self.rough_pose.setChecked(False)
         panel.addWidget(self.rough_pose)
         fov_row = QHBoxLayout()
         fov_row.addWidget(QLabel('假定水平视场角'))
@@ -370,7 +493,7 @@ class DebugWindow(QMainWindow):
         panel.addLayout(fov_row)
         self.rough_pose.toggled.connect(self.refresh_pose)
         self.assumed_fov.valueChanged.connect(self.refresh_pose)
-        self.calibration_note = QLabel('默认粗估：假定水平视场角23°、主点居中、零畸变。导入真实标定后优先使用。')
+        self.calibration_note = QLabel('默认使用 OV9281 1280×720 标定参数，二维码有效码体边长 30 mm。导入 JSON 可覆盖默认值。')
         self.calibration_note.setWordWrap(True)
         self.calibration_note.setObjectName('muted')
         panel.addWidget(self.calibration_note)
@@ -419,8 +542,10 @@ class DebugWindow(QMainWindow):
     def refresh_ports(self):
         selected = self.ports.currentData()
         self.ports.clear()
+        mode = self.connection_mode.currentData() if hasattr(self, 'connection_mode') else 'cdc'
         ports = sorted((port for port in list_ports.comports()
-                        if port.vid == 0x303a and port.pid == 0x8001), key=lambda port: port.device)
+                        if ((port.vid == 0x303a and port.pid == 0x8001) if mode == 'cdc' else True)),
+                       key=lambda port: port.device)
         for port in ports:
             serial_number = port.serial_number or ''
             self.ports.addItem(f'{port.device}  {port.description}  {serial_number}', port.device)
@@ -441,8 +566,9 @@ class DebugWindow(QMainWindow):
         self.angle_average.reset()
         self.last_angle_render = 0
         self.rate_end = None
-        self.worker = SerialWorker(port, self.upload_images.isChecked())
-        self.worker.result.connect(self.receive_result)
+        mode = self.connection_mode.currentData()
+        self.worker = SerialWorker(port, self.upload_images.isChecked(), mode)
+        self.worker.result.connect(self.receive_uart_pose if mode == 'uart' else self.receive_result)
         self.worker.timing.connect(self.receive_timing)
         self.worker.cpu.connect(self.receive_cpu)
         self.worker.frame.connect(self.receive_frame)
@@ -451,6 +577,7 @@ class DebugWindow(QMainWindow):
         self.worker.start()
         self.connect_button.setText('断开')
         self.ports.setEnabled(False)
+        self.connection_mode.setEnabled(False)
 
     def connection_state(self, connected):
         if self.sender() is not self.worker:
@@ -462,6 +589,7 @@ class DebugWindow(QMainWindow):
             self.rate_end = time.monotonic()
             self.connect_button.setText('连接')
             self.ports.setEnabled(True)
+            self.connection_mode.setEnabled(True)
             if self.worker:
                 self.worker.wait(1000)
                 self.worker = None
@@ -478,6 +606,47 @@ class DebugWindow(QMainWindow):
         self.last_cpu_at = 0
         self.connect_button.setText('连接')
         self.ports.setEnabled(True)
+        self.connection_mode.setEnabled(True)
+
+    def update_connection_mode(self, *_):
+        uart = self.connection_mode.currentData() == 'uart'
+        self.image_button.setVisible(not uart)
+        self.upload_images.setEnabled(not uart)
+        self.pause.setEnabled(not uart)
+        self.preview_tabs.setCurrentIndex(1 if uart else 0)
+        self.status.setText('GPIO41=TX、GPIO42=RX，921600 baud；选择对应 USB-UART 转接器端口' if uart else
+                            '选择扫码头 HS-USB CDC 端口；可显示解码结果和同帧快照')
+        self.refresh_ports()
+
+    def receive_uart_pose(self, result):
+        if self.sender() is not None and self.sender() is not self.worker:
+            return
+        self.rate.record()
+        self.latest_result = result
+        self.agv_simulation.set_pose(result if result.get('pose_valid') else None)
+        payload = result['payload'].decode('utf-8', errors='replace')
+        self.payload.setPlainText(payload)
+        for row, point in enumerate(result['corners']):
+            self.corners.setItem(row, 1, QTableWidgetItem(f'{point[0]:.1f}'))
+            self.corners.setItem(row, 2, QTableWidgetItem(f'{point[1]:.1f}'))
+        sequence = result['sequence']
+        if result['pose_valid']:
+            self.device_pose_values.setText(
+                f"yaw_y：{result['yaw_y_deg']:+.2f}°    pitch_x：{result['pitch_x_deg']:+.2f}°    roll_z：{result['roll_z_deg']:+.2f}°\n"
+                f"range_m：{result['range_m']:.3f} m    optical_depth_m：{result['optical_depth_m']:.3f} m\n"
+                f"distance_to_plane_m：{result['distance_to_plane_m']:.3f} m    tx：{result['tx_m']:+.3f} m")
+            self.tx_offset.setText(f"横向偏移 tx：{result['tx_m']:+.3f} m（设备计算）")
+            self.front_angle.setText(f"yaw_y：{result['yaw_y_deg']:+.2f}°\npitch_x：{result['pitch_x_deg']:+.2f}°\nroll_z：{result['roll_z_deg']:+.2f}°")
+            self.agv_angle.setText(f"range_m：{result['range_m']:.3f} m\noptical_depth_m：{result['optical_depth_m']:.3f} m")
+            self.plane_distance.setText(f"distance_to_plane_m：{result['distance_to_plane_m']:.3f} m")
+            self.pose_details.setText('姿态及距离来自 P4 UART；绘图假设二维码固定在垂直墙面，AGV 侧装相机光轴指向二维码。')
+            self.status.setText(f"收到 P4 姿态结果 · 帧 #{sequence} · {payload}")
+        else:
+            self.device_pose_values.setText('该码首字符不是 0/1，或姿态拟合无效；仅收到扫码内容、角点和帧号。')
+            self.agv_simulation.set_pose(None)
+            self.status.setText(f'收到扫码结果但没有有效姿态 · 帧 #{sequence} · {payload}')
+        self.decode.setText('设备 UART')
+        logging.info('UART pose %s', result)
 
     def reset_rate(self):
         self.rate.reset()
@@ -634,9 +803,7 @@ class DebugWindow(QMainWindow):
         display_rotation = angle
         if self.pose['available']:
             self.pose['opposite_edges'] = opposite_edge_lengths(frame.corners)
-            self.pose['agv_wall_yaw_deg'] = self.pose['horizontal_tilt_deg']
-            self.pose['agv_wall_yaw_abs_deg'] = abs(self.pose['horizontal_tilt_deg'])
-            values = {name: self.pose[name] for name in ('front_angle_deg', 'horizontal_tilt_deg', 'vertical_tilt_deg')}
+            values = {name: self.pose[name] for name in ('yaw_y_deg', 'pitch_x_deg', 'roll_z_deg')}
             if angle is not None:
                 values['image_rotation_deg'] = angle
             if self.smooth_angles.isChecked():
@@ -651,26 +818,37 @@ class DebugWindow(QMainWindow):
             self.last_angle_render = now
             self.rotation.setText(f'画面内旋转角：{display_rotation:+.2f}°（顺时针为正）' if display_rotation is not None else '画面内旋转角：—')
         if self.pose['available'] and show_angles:
-            self.pose['agv_assumptions'] = '相机水平且画面朝上、光轴垂直车身前进方向、DataMatrix 所在墙面竖直'
-            self.agv_angle.setText(f'AGV与墙面偏航：{display_angles["horizontal_tilt_deg"]:+.2f}°（0°平行）\n法线向画面右偏为正、左偏为负；车体方向需校核。')
-            self.front_angle.setText(f'正对偏角（3D大小）：{display_angles["front_angle_deg"]:.2f}°')
+            lateral = self.pose['lateral_offset_x_m']
+            lateral_side = '图像右侧' if lateral > 0 else '图像左侧' if lateral < 0 else '光轴正中'
+            self.tx_offset.setText(f'横向偏移 tx：{lateral:+.3f} m（{lateral_side}）')
+            self.agv_angle.setText(
+                f'码中心直线距离 range_m：{self.pose["range_m"]:.3f} m\n'
+                f'光轴深度 optical_depth_m：{self.pose["optical_depth_m"]:.3f} m\n'
+                f'码中心到光轴垂距：{self.pose["optical_axis_offset_m"]:.3f} m')
+            self.plane_distance.setText(
+                f'码平面垂直距离 distance_to_plane_m：{self.pose["distance_to_plane_m"]:.3f} m')
+            self.front_angle.setText(
+                f'yaw_y：{display_angles["yaw_y_deg"]:+.2f}°\n'
+                f'pitch_x：{display_angles["pitch_x_deg"]:+.2f}°\n'
+                f'roll_z：{display_angles["roll_z_deg"]:+.2f}°')
             if approximate:
                 self.agv_angle.setText(self.agv_angle.text() + '\n【假定内参粗估，非标定测量】')
                 self.front_angle.setText(self.front_angle.text() + '（粗估）')
-            description = f'水平倾斜 {display_angles["horizontal_tilt_deg"]:+.2f}° / 垂直倾斜 {display_angles["vertical_tilt_deg"]:+.2f}°\n重投影误差 {self.pose["reprojection_px"]:.2f}px'
+            description = (f'角点 P0→P1→P2→P3 按码体身份顺序计算；有效边长 {self.pose["qr_size_mm"]:.1f} mm\n'
+                           f'重投影误差 {self.pose["reprojection_px"]:.2f}px')
             edges = self.pose['opposite_edges']
             description += (f'\nP0–P3 {edges["p0_p3_px"]:.2f}px / P1–P2 {edges["p1_p2_px"]:.2f}px'
                             f'\n边长比 {edges["left_right_ratio"]:.5f}（原始值，非角度）')
             if approximate and self.pose['reprojection_px'] > 5:
                 description += '\n低可信：假定内参与角点拟合偏差较大'
-            if self.pose['optical_distance_mm'] is not None:
-                description += f' / 沿光轴距离 {self.pose["optical_distance_mm"]:.1f}mm'
             if self.pose['ambiguous']:
                 description += '\n平面双解接近：当前估计存在歧义，仅供调试'
             self.pose_details.setText(description)
         elif not self.pose['available']:
-            self.agv_angle.setText('AGV与墙面偏航：不可计算（需要有效角点及匹配标定）')
-            self.front_angle.setText('正对偏角（3D）：不可计算')
+            self.tx_offset.setText('横向偏移 tx：不可计算')
+            self.agv_angle.setText('三种距离：不可计算（需要有效角点、标定和30 mm码体尺寸）')
+            self.plane_distance.setText('码平面垂直距离 distance_to_plane_m：不可计算')
+            self.front_angle.setText('相对偏转角：不可计算')
             self.pose_details.setText(self.pose['reason'])
 
     def upload_changed(self, enabled):
@@ -704,7 +882,7 @@ class DebugWindow(QMainWindow):
             self.calibration = load_calibration(path)
             self.angle_average.reset()
             self.last_angle_render = 0
-            self.calibration_note.setText(f'已加载：{Path(path).name}\n3D角度0°表示正对码面；角点和安装外参需实测校核。')
+            self.calibration_note.setText(f'已加载：{Path(path).name}\n角点必须按码体定义的 P0、P1、P2、P3 顺序；JSON 中 qr_size_mm 应填写有效码体边长。')
             if self.current:
                 self.display_frame(self.current)
         except (ValueError, KeyError, OSError) as error:
@@ -720,7 +898,7 @@ class DebugWindow(QMainWindow):
         self.calibration = None
         self.angle_average.reset()
         self.last_angle_render = 0
-        self.calibration_note.setText('未导入标定：勾选粗估可使用假定视场角、主点居中及零畸变；非实际相机标定。')
+        self.calibration_note.setText('已清除标定：可勾选粗估；此时距离与角度精度取决于假定内参。')
         if self.current:
             self.display_frame(self.current)
 

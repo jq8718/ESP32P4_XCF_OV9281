@@ -81,6 +81,24 @@ def parse_result(line):
     return result
 
 
+def parse_uart_pose(line):
+    fields = next(csv.reader(io.StringIO(line.decode('latin1')), strict=True))
+    if len(fields) != 17:
+        raise ValueError('Not a UART pose result')
+    coordinates = [parse_coordinate(value) / 10.0 for value in fields[1:9]]
+    result = {'payload': fields[0].encode('latin1'),
+              'corners': [coordinates[index:index + 2] for index in range(0, 8, 2)],
+              'sequence': int(fields[9])}
+    names = ('yaw_y_deg', 'pitch_x_deg', 'roll_z_deg', 'range_m',
+             'optical_depth_m', 'distance_to_plane_m', 'tx_m')
+    for name, value in zip(names, fields[10:]):
+        result[name] = float(value) if value else None
+        if result[name] is not None and not math.isfinite(result[name]):
+            raise ValueError('Invalid UART pose value')
+    result['pose_valid'] = all(result[name] is not None for name in names)
+    return result
+
+
 def parse_geometry(fields):
     quality, mask, support, residual = map(int, fields)
     if quality not in (0, 1, 2) or not 0 <= mask <= 15 or not 0 <= support <= 128 or not 0 <= residual <= 1500:

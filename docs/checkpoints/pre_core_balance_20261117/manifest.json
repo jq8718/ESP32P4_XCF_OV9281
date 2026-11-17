@@ -1,0 +1,28 @@
+{
+  "description": "Current project before dual-core balancing; generated binaries stay local. Source, calibration, UI and regression inputs are saved in Git.",
+  "idf": "5.4",
+  "chip": "ESP32-P4 v1.x",
+  "agv_ui_version": "BUILD_VERSION = '1.0.0013'",
+  "artifacts": {
+    "build/p4scan_ov9281.bin": {
+      "size": 911008,
+      "sha256": "9f1698d572f07af4866d5dd5d0b66ad658dc704f2ebd9d60e7d9cb860b52e93f"
+    },
+    "dist/P4ScanOV9281Debugger.exe": {
+      "size": 93448488,
+      "sha256": "3e872b985a23fe62d7654321593f665fcb4ad5ad1fe7f76b66de155e5434dd0e"
+    },
+    "tools/stm32_uart_debugger/release/AGV_3D_Test.exe": {
+      "size": 37599617,
+      "sha256": "1e348a40c40b979012ddbc2400ee782075a84e04d8288edb065309ce7fc5b277"
+    },
+    "tools/ov9281_debugger/app.py": {
+      "size": 54899,
+      "sha256": "890a52558cb056b99bb3d819d6cfbe069f846a8fc12b0d465b0fd28ff4b54402"
+    },
+    "tools/ov9281_debugger/geometry.py": {
+      "size": 8884,
+      "sha256": "e99e9a6bc2a48cad71ae4a06330525c1c84657198c37b01658b44027ef65814f"
+    }
+  }
+}

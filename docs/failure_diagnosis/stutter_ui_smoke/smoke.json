@@ -1,0 +1,46 @@
+{
+  "frames": 27,
+  "rate": [
+    459,
+    2771.4601992781663,
+    459,
+    9.936999999918044
+  ],
+  "timing_total": 459,
+  "snapshot_success": 27,
+  "snapshot_failure": 0,
+  "timing_success": 459,
+  "decode_ms": "26.577",
+  "coordinates_only": false,
+  "has_image": true,
+  "pose": {
+    "available": false,
+    "reason": "\u59ff\u6001\u62df\u5408\u8bef\u5dee\u8fc7\u5927\uff0c\u8bf7\u6838\u5bf9\u6807\u5b9a\u4e0e\u89d2\u70b9",
+    "calibration_source": "assumed",
+    "assumed_horizontal_fov_deg": 23.0,
+    "camera_matrix": [
+      [
+        3145.7004998855714,
+        0.0,
+        639.5
+      ],
+      [
+        0.0,
+        3145.7004998855714,
+        359.5
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "dist_coeffs": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  }
+}

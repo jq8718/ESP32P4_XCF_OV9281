@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "checks": [
+    "seven-field EMA",
+    "frame-rate independence",
+    "angle wrap",
+    "raw data unchanged",
+    "invalid pose reset",
+    "rigid side camera mount",
+    "25 cm optical height",
+    "neutral scan-head wall alignment",
+    "wheel ground contact",
+    "UI filtered pose wiring"
+  ],
+  "mean_scene_paint_ms": 21.349608330638148
+}

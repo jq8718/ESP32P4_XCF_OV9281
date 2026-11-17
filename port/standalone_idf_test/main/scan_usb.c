@@ -653,16 +653,11 @@ esp_err_t scan_usb_init(void)
     ESP_LOGI("p4scan_usb", "init UVC config ready");
     ESP_ERROR_CHECK(uvc_device_init());
     ESP_LOGI("p4scan_usb", "init UVC device ready");
-    /* In the frame pipeline, keep JPEG formatting/CDC on the backend core:
-     * core0's full-frame marker search has much less spare time. TinyUSB's
-     * endpoint task stays on its configured core with higher priority. */
-#if CONFIG_P4SCAN_FRAME_STAGE_PIPELINE
-    const BaseType_t cdc_core = 1;
-#else
-    const BaseType_t cdc_core = 0;
-#endif
-    if (xTaskCreatePinnedToCore(cdc_task, "scan_cdc", 8192, NULL, 7, NULL, cdc_core) != pdPASS ||
-        xTaskCreatePinnedToCore(preview_task, "scan_preview", 4096, NULL, 7, NULL, 1) != pdPASS) return ESP_ERR_NO_MEM;
+    /* Keep USB service responsive even when perspective retries saturate the
+     * backend. JPEG can use either core's spare time, with time slicing at
+     * the decoder priority rather than waiting behind an endless backlog. */
+    if (xTaskCreatePinnedToCore(cdc_task, "scan_cdc", 8192, NULL, 9, NULL, 0) != pdPASS ||
+        xTaskCreatePinnedToCore(preview_task, "scan_preview", 4096, NULL, 8, NULL, tskNO_AFFINITY) != pdPASS) return ESP_ERR_NO_MEM;
     ESP_LOGI("p4scan_usb", "init USB worker tasks ready");
     ESP_LOGI("p4scan_usb", "HS UVC+CDC ready serial=%s protocol=CSV/CR", serial);
     return ESP_OK;

@@ -1,5 +1,6 @@
 /build/
 /build_idf60/
+/build_rev3/
 /managed_components/
 /dist/
 /.vscode/
@@ -12,6 +13,9 @@
 __pycache__/
 **/build_host*/
 /tools/ov9281_debugger/build/
+/tools/ov9281_debugger/build_v*/
+/tools/stm32_uart_debugger/build/
+/tools/stm32_uart_debugger/*.spec
 /tools/ov9281_debugger/.venv/
 /tools/ov9281_debugger/*.spec
 /docs/decode_stages/dm_stage_trace*
