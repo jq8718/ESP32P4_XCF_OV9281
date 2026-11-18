@@ -47,11 +47,13 @@ def scene_geometry(pose):
     yaw, pitch, roll = (values.get(key) or 0.0 for key in ('yaw_y_deg', 'pitch_x_deg', 'roll_z_deg'))
     rotate = body_rotation(yaw, pitch, roll)
     gap = values.get('distance_to_plane_m', .55)
-    tx = values.get('tx_m', 0.0)
-    # Keep the already verified TX display direction and 2.4x travel gain.
+    tx = values.get('tx_m') or 0.0
+    along_track = values.get('along_track_m')
+    # Scene X has the old tx sign; the measured aisle-forward axis is -scene X.
+    # Retain the old 17-field display until the upgraded P4 field is present.
     # Rotate around the fixed-height optical centre, so label and lens stay
     # at 25 cm even when the illustrative body tilts.
-    anchor = (tx*2.4, gap, .25)
+    anchor = ((-along_track if along_track is not None else tx)*2.4, gap, .25)
     camera_local = (0.0, -.315, .25)
     world_points = {}
 
@@ -333,12 +335,14 @@ class AgvView(QWidget):
         painter.setPen(QColor('#28485f'))
         if self.pose:
             p = self.pose
+            track = p.get('along_track_m')
+            track_text = f'{track:+.3f} m' if track is not None else '—'
             painter.drawText(22,self.height()-58,
                              f"平滑姿态：yaw {p['yaw_y_deg']:+.2f}°  ·  pitch {p['pitch_x_deg']:+.2f}°  ·  roll {p['roll_z_deg']:+.2f}°")
             painter.drawText(22,self.height()-39,
-                             f"平滑距离：离墙 {p['distance_to_plane_m']:.3f} m  ·  tx {p['tx_m']:+.3f} m  ·  range {p['range_m']:.3f} m")
+                             f"平滑距离：离墙 {p['distance_to_plane_m']:.3f} m  ·  沿过道 {track_text}  ·  tx {p['tx_m']:+.3f} m")
             painter.setPen(QColor('#688094'))
-            painter.drawText(22,self.height()-21,'七项姿态/距离均平滑后显示；TX 场景位移 ×2.4。')
+            painter.drawText(22,self.height()-21,'姿态和距离均平滑后显示；沿过道位移在场景中放大 2.4 倍。')
         else:
             painter.drawText(22,self.height()-48,'等待串口姿态数据 · 当前为安装位置示意')
         painter.end()

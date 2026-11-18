@@ -3,6 +3,7 @@ import math
 
 POSE_FIELDS = ('yaw_y_deg', 'pitch_x_deg', 'roll_z_deg', 'range_m',
                'optical_depth_m', 'distance_to_plane_m', 'tx_m')
+OPTIONAL_FIELDS = ('along_track_m',)
 ANGLE_FIELDS = frozenset(POSE_FIELDS[:3])
 
 
@@ -40,6 +41,9 @@ class PoseSmoother:
                 delta = (delta+180) % 360-180
             value = previous+alpha*delta
             filtered[key] = (value+180) % 360-180 if key in ANGLE_FIELDS else value
+        for key in OPTIONAL_FIELDS:
+            previous, target = self.current.get(key), self.target.get(key)
+            filtered[key] = None if previous is None or target is None else previous+alpha*(target-previous)
         self.timestamp = timestamp
         self.current = filtered
         return dict(filtered)

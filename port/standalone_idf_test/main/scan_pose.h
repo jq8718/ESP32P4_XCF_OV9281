@@ -20,6 +20,7 @@ typedef struct {
     float optical_depth_m;
     float distance_to_plane_m;
     float tx_m;
+    float along_track_m; /* Code relative to camera along the fixed aisle axis. */
     float compute_us;
     float reprojection_px; /* Internal diagnostic; UART CSV format is unchanged. */
 } scan_pose_result_t;

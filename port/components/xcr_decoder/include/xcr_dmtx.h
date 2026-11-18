@@ -33,6 +33,10 @@ void xcr_dmtx_stats_get(XcrDmtxStats *out);
 int xcr_dmtx_parallel_start(void);
 /* Per-frame state owned by the camera slot. No previous-frame position hint. */
 typedef struct {
+    void *workspace;
+    int width, height, sample_left, step, threshold, narrow_queue;
+} XcrDmtxSearchState;
+typedef struct {
     const uint8_t *pixels;
     uint32_t sequence;
     int width, height;
@@ -43,8 +47,14 @@ typedef struct {
     float axes[8]; /* Origin, two marker vectors, projective denominator g/h. */
     unsigned qr_rejected;
     uint64_t search_us;
+    uint64_t phases_us[4]; /* Sampling, binary, components, candidate geometry. */
+    uint64_t front_us;
+    XcrDmtxSearchState search_state;
 } XcrDmtxPrepared;
 int xcr_dmtx_prepare(const XcrGrayImage *image, XcrDmtxPrepared *prepared);
+int xcr_dmtx_prepare_front(const XcrGrayImage *image, XcrDmtxPrepared *prepared);
+int xcr_dmtx_prepare_finish(const XcrGrayImage *image, XcrDmtxPrepared *prepared);
+void xcr_dmtx_prepare_discard(XcrDmtxPrepared *prepared);
 XcrStatus xcr_decoder_decode_prepared(XcrDecoder *decoder, const XcrGrayImage *image,
     const XcrDmtxPrepared *prepared, XcrBarcodeResult *results, int max_results,
     int *out_result_count);

@@ -166,6 +166,7 @@ USB 断开立即清除定位有效标志和接收半行。设备时间或帧号�
 
 ```text
 @PROFILE,sequence,frontend_us,wait_us,normalize_us,core_us,refine_us,sample_step,attempts<CR>
+@FRONT,sequence,sample_us,binary_us,components_us,geometry_us<CR>
 ```
 
 约每秒最多一条，分别表示前段搜索、两核交接等待、归一化准备、内容解码、四角精修、搜索间隔和归一化尝试次数。正常 STM32 控制流程保持关闭。

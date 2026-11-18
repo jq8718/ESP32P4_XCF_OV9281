@@ -1,0 +1,65 @@
+esptool.py v4.11.0
+Serial port COM4
+Connecting...
+Chip is ESP32-P4 (revision v1.3)
+Features: High-Performance MCU
+Crystal is 40MHz
+USB mode: USB-Serial/JTAG
+MAC: 30:ed:a0:e3:0f:33
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00002000 to 0x00007fff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+Flash will be erased from 0x00010000 to 0x000e9fff...
+SHA digest in image updated
+Compressed 22256 bytes to 13696...
+Writing at 0x00002000... (100 %)
+Wrote 22256 bytes (13696 compressed) at 0x00002000 in 0.4 seconds (effective 423.3 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 121...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (121 compressed) at 0x00008000 in 0.0 seconds (effective 685.9 kbit/s)...
+Hash of data verified.
+Compressed 891888 bytes to 526186...
+Writing at 0x00010000... (3 %)
+Writing at 0x0001e7d8... (6 %)
+Writing at 0x0002b41b... (9 %)
+Writing at 0x00035378... (12 %)
+Writing at 0x0003adff... (15 %)
+Writing at 0x00041412... (18 %)
+Writing at 0x0004764a... (21 %)
+Writing at 0x0004dcc8... (24 %)
+Writing at 0x00053f21... (27 %)
+Writing at 0x000598d4... (30 %)
+Writing at 0x0005ff4b... (33 %)
+Writing at 0x00067409... (36 %)
+Writing at 0x0006f088... (39 %)
+Writing at 0x00075577... (42 %)
+Writing at 0x0007c483... (45 %)
+Writing at 0x00081870... (48 %)
+Writing at 0x00086759... (51 %)
+Writing at 0x0008c1e0... (54 %)
+Writing at 0x00091807... (57 %)
+Writing at 0x000967bb... (60 %)
+Writing at 0x0009c07c... (63 %)
+Writing at 0x000a28da... (66 %)
+Writing at 0x000a8647... (69 %)
+Writing at 0x000ae170... (72 %)
+Writing at 0x000b3fdf... (75 %)
+Writing at 0x000b9963... (78 %)
+Writing at 0x000bff5a... (81 %)
+Writing at 0x000c66aa... (84 %)
+Writing at 0x000cc2a8... (87 %)
+Writing at 0x000d1ae5... (90 %)
+Writing at 0x000daedd... (93 %)
+Writing at 0x000e142b... (96 %)
+Writing at 0x000e8905... (100 %)
+Wrote 891888 bytes (526186 compressed) at 0x00010000 in 5.7 seconds (effective 1244.3 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...

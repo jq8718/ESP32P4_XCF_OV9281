@@ -27,8 +27,8 @@ from scene import AgvView
 
 def parse_pose_line(line: bytes) -> dict:
     fields = next(csv.reader(io.StringIO(line.decode('latin1')), strict=True))
-    if len(fields) != 17:
-        raise ValueError(f'字段数应为17，实际为{len(fields)}')
+    if len(fields) not in (17, 18):
+        raise ValueError(f'字段数应为17或18，实际为{len(fields)}')
     coordinates = [int(value) / 10.0 for value in fields[1:9]]
     if any(not math.isfinite(v) or v < 0 or v > 1280 for v in coordinates[::2]):
         raise ValueError('X坐标超出图像范围')
@@ -45,6 +45,9 @@ def parse_pose_line(line: bytes) -> dict:
         if value is not None and not math.isfinite(value):
             raise ValueError(f'{name}不是有限数值')
         values[name] = value
+    values['along_track_m'] = float(fields[17]) if len(fields) == 18 and fields[17] else None
+    if values['along_track_m'] is not None and not math.isfinite(values['along_track_m']):
+        raise ValueError('along_track_m不是有限数值')
     return {'payload': fields[0], 'corners': [coordinates[i:i + 2] for i in range(0, 8, 2)],
             'sequence': sequence, **values,
             'pose_valid': all(values[name] is not None for name in names)}
@@ -173,7 +176,8 @@ class MainWindow(QMainWindow):
               ('range_m', '码中心直线距离 range_m\n相机光心到码中心的直线距离', 'm'),
               ('optical_depth_m', '光轴深度 optical_depth_m\n码中心沿相机光轴方向的深度', 'm'),
               ('distance_to_plane_m', '码平面垂直距离 distance_to_plane_m\n相机光心到码平面的垂直距离', 'm'),
-              ('tx_m', '横向偏移 tx\n码中心相对光轴的左右偏移', 'm'))
+              ('tx_m', '横向偏移 tx\n码中心相对光轴的左右偏移', 'm'),
+              ('along_track_m', '沿过道偏移\n二维码相对相机，车前方为正', 'm'))
 
     def __init__(self, args):
         super().__init__()
@@ -236,9 +240,11 @@ class MainWindow(QMainWindow):
         left_layout.addWidget(self.content)
         self.frame_info = QLabel('帧号：—    角点：—')
         left_layout.addWidget(self.frame_info)
-        self.history = QTableWidget(0, 5)
-        self.history.setHorizontalHeaderLabels(['帧号', '解码内容', '偏航 yaw_y (°)', '横向偏移 tx (m)', '接收时间'])
+        self.history = QTableWidget(0, 6)
+        self.history.setHorizontalHeaderLabels(['帧号', '内容', 'yaw (°)', 'tx (m)', '沿过道 (m)', '时间'])
         self.history.horizontalHeader().setSectionResizeMode(1, QHeaderView.ResizeMode.Stretch)
+        for column, width in ((0, 52), (2, 68), (3, 68), (4, 83), (5, 70)):
+            self.history.setColumnWidth(column, width)
         self.history.setEditTriggers(QTableWidget.EditTrigger.NoEditTriggers)
         self.history.setMaximumHeight(260)
         left_layout.addWidget(QLabel('最近接收的解码结果'))
@@ -256,7 +262,7 @@ class MainWindow(QMainWindow):
         right_layout.addWidget(self.simulation, 1)
         self.yaw_waveform = YawWaveform()
         right_layout.addWidget(self.yaw_waveform)
-        note = QLabel('左侧为串口原始值；3D 使用七项参数的平滑值（时间常数 0.45 s），按右侧相机安装方向转换车体姿态。角度跨越 ±180° 时沿最短方向平滑。')
+        note = QLabel('左侧为串口原始值；3D 使用平滑姿态与沿过道偏移（时间常数 0.45 s）。沿过道偏移以固定墙面方向计算，原地绕相机光心旋转不会造成假位移。')
         note.setWordWrap(True)
         note.setStyleSheet('color:#52677e;padding:8px')
         right_layout.addWidget(note)
@@ -336,12 +342,14 @@ class MainWindow(QMainWindow):
         for key, label, unit in self.PARAMS:
             value, suffix = self.values[key]
             number = result[key]
-            value.setText('—' if number is None else f'{number:+.3f} {suffix}' if key == 'tx_m' else f'{number:.3f} {suffix}' if suffix == 'm' else f'{number:+.2f} {suffix}')
+            value.setText('—' if number is None else f'{number:+.3f} {suffix}' if key in ('tx_m', 'along_track_m') else f'{number:.3f} {suffix}' if suffix == 'm' else f'{number:+.2f} {suffix}')
         row = self.history.rowCount()
         self.history.insertRow(row)
         cells = (str(result['sequence']), result['payload'],
                  '—' if result['yaw_y_deg'] is None else f"{result['yaw_y_deg']:+.2f}",
-                 '—' if result['tx_m'] is None else f"{result['tx_m']:+.3f}", time.strftime('%H:%M:%S'))
+                 '—' if result['tx_m'] is None else f"{result['tx_m']:+.3f}",
+                 '—' if result['along_track_m'] is None else f"{result['along_track_m']:+.3f}",
+                 time.strftime('%H:%M:%S'))
         for column, text in enumerate(cells):
             self.history.setItem(row, column, QTableWidgetItem(text))
         while self.history.rowCount() > 500:

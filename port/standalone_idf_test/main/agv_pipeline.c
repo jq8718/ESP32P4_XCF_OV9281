@@ -10,6 +10,7 @@
 #include "driver/gpio.h"
 #include "esp_heap_caps.h"
 #include "esp_log.h"
+#include "esp_system.h"
 #include "esp_timer.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
@@ -132,8 +133,21 @@ static void capture_task(void *argument)
             if (frame.pixels) p4scan_camera_release(camera, &frame);
             if (error == ESP_ERR_TIMEOUT) {
                 if (acquired_us - capture_cycle_us >= 1000000 && acquired_us - last_frame_warning_us >= 1000000) {
-                    ESP_LOGW(TAG, "no camera frame for %llu ms", (unsigned long long)((acquired_us - capture_cycle_us) / 1000));
+                    portENTER_CRITICAL(&s_lock);
+                    unsigned states = 0;
+                    for (int i = 0; i < P4SCAN_CAMERA_BUFFER_COUNT; i++)
+                        states |= (unsigned)s_pool.states[i] << (i * 2);
+                    portEXIT_CRITICAL(&s_lock);
+                    ESP_LOGW(TAG, "no camera frame for %llu ms: seq=%lu held=0x%lx states=0x%x free_psram=%u",
+                             (unsigned long long)((acquired_us - capture_cycle_us) / 1000),
+                             (unsigned long)camera->frame_sequence,
+                             (unsigned long)camera->held_buffer_mask, states,
+                             (unsigned)heap_caps_get_free_size(MALLOC_CAP_SPIRAM));
                     last_frame_warning_us = acquired_us;
+                }
+                if (acquired_us - capture_cycle_us >= 5000000) {
+                    ESP_LOGE(TAG, "CSI capture stalled for 5 s; restarting to restore the camera stream");
+                    esp_restart();
                 }
                 continue;
             }
@@ -185,12 +199,14 @@ static void capture_task(void *argument)
             .deadline_us = frame.timestamp_us + CONFIG_P4SCAN_FRAME_MAX_AGE_MS * 1000ULL,
         };
 #if CONFIG_P4SCAN_FRAME_STAGE_PIPELINE
-        xcr_dmtx_prepare(&preprocess_image, &slot->prepared);
+        xcr_dmtx_prepare_front(&preprocess_image, &slot->prepared);
 #endif
         slot->preprocess_done_us = esp_timer_get_time();
         capture_cycle_us = 0;
         prepare_total_us = acquire_total_us = dequeue_total_us = 0;
         returned_total_us = return_wait_max_us = 0;
+        /* A displaced pending frame still owns its search workspace until
+         * the capture task reuses the free slot and discards that workspace. */
         portENTER_CRITICAL(&s_lock);
         latest_frame_publish(&s_pool, slot_index);
         portEXIT_CRITICAL(&s_lock);
@@ -234,6 +250,8 @@ static void finish_decoded_slot(int slot_index)
         .refine_us = slot->marker_stats.geometry_us,
         .sample_step = slot->marker_stats.marker_sample_step,
         .attempts = slot->marker_stats.normalize_attempts,
+        .marker_phases_us = {slot->prepared.phases_us[0], slot->prepared.phases_us[1],
+                             slot->prepared.phases_us[2], slot->prepared.phases_us[3]},
     };
     scan_usb_profile(&profile);
     bool fresh = frame_is_fresh(image.timestamp_us, done_us, deadline_us);
@@ -351,6 +369,7 @@ static void decode_task(void *argument)
         slot->status = XCR_TIMEOUT_NO_RESULT;
         if (frame_is_fresh(image.timestamp_us, slot->backend_start_us, deadline_us)) {
 #if CONFIG_P4SCAN_FRAME_STAGE_PIPELINE
+            xcr_dmtx_prepare_finish(&image, &slot->prepared);
             slot->status = xcr_decoder_decode_prepared(s_decoder, &image, &slot->prepared,
                                                      &slot->result, 1, &slot->result_count);
 #else
@@ -361,6 +380,7 @@ static void decode_task(void *argument)
             slot->marker_stats.total_us += slot->prepared.search_us;
             datamatrix_debug_stats_get(&slot->dm_stats);
         }
+        xcr_dmtx_prepare_discard(&slot->prepared);
         slot->core_done_us = esp_timer_get_time();
         finish_decoded_slot(slot_index);
         /* A difficult frame can leave the next notification already pending.

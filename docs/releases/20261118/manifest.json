@@ -1,0 +1,178 @@
+{
+  "release_tag": "release/20261118-core-balance-along-track",
+  "baseline_commit": "5b2a06b7a31248948b25309f6ba993924c194195",
+  "idf": "5.4",
+  "chip": "ESP32-P4 v1.x (flashed chip v1.3)",
+  "ui_versions": {
+    "P4ScanOV9281Debugger.exe": "1.0.0003",
+    "AGV_3D_Test.exe": "1.0.0015"
+  },
+  "original_camera_ui_matches_baseline": true,
+  "files": {
+    "dist/P4ScanOV9281Debugger.exe": {
+      "size": 93448488,
+      "sha256": "3e872b985a23fe62d7654321593f665fcb4ad5ad1fe7f76b66de155e5434dd0e"
+    },
+    "docs/releases/20261118/README.md": {
+      "size": 8882,
+      "sha256": "0cbb5c7b3d4597521c4e8595a7ce733244d336ecc4d59241fd525ff7537042b1"
+    },
+    "docs/releases/20261118/camera_failure_final_uart_20261118.txt": {
+      "size": 3388,
+      "sha256": "c2654a42abf23f784474bd86b4fd489032f9f3b14bbdc6db228398e3d3b5722e"
+    },
+    "docs/releases/20261118/camera_failure_snap_uart_20261118.txt": {
+      "size": 6642,
+      "sha256": "40508aed2cffb9a933206ff9d0aff6dde2bcff8eda9f6be1e5b5a5556f427423"
+    },
+    "docs/releases/20261118/core_balance_replay.json": {
+      "size": 15426,
+      "sha256": "c2a17445141bc1103ece7bb4ca380df8980a597640f99f7ff985b22b72369016"
+    },
+    "docs/releases/20261118/core_balance_replay_dense.json": {
+      "size": 15295,
+      "sha256": "3c61c4b527f8cbeb8725cb7fb5163ded01452658d1ac83607ceb0b083f92dfcf"
+    },
+    "docs/releases/20261118/firmware_flash.txt": {
+      "size": 2101,
+      "sha256": "b3266d376833f66190de9fa3557e1c741716ed7d2c76fe657d36e8d4b7c326a4"
+    },
+    "docs/releases/20261118/pose_validation.json": {
+      "size": 1634,
+      "sha256": "406597886ec9a9cc329b69920728b7bb8f7bbdea03e03215f0a275c1b42e168f"
+    },
+    "releases/20261118/firmware/bootloader/bootloader.bin": {
+      "size": 22256,
+      "sha256": "e6fbfead068574d7ffc61122b0b2fa6f4f846408b78aad5b1daf3b2770714d53"
+    },
+    "releases/20261118/firmware/flash_args": {
+      "size": 158,
+      "sha256": "5e98eb24ab1ca33126dfa1a588a5e46c38a8db2ed0bf902fe3d756178e60a92e"
+    },
+    "releases/20261118/firmware/flasher_args.json": {
+      "size": 949,
+      "sha256": "0fcc3018f92ce4c2eef6bfb57f3598405f5bbb7265f0cdb89743e064882f59b6"
+    },
+    "releases/20261118/firmware/p4scan_ov9281.bin": {
+      "size": 891888,
+      "sha256": "46bf7b2e437d5548fcf28f4ea3e4cfeb0acb593aa92b2977cc975b942aaf18db"
+    },
+    "releases/20261118/firmware/partition_table/partition-table.bin": {
+      "size": 3072,
+      "sha256": "f69ab3a7a27256a9b02a121906b4d09488f62af845d539a445145a0fe1f1d3ce"
+    },
+    "releases/20261118/firmware/sdkconfig": {
+      "size": 78114,
+      "sha256": "4a6c406cfaa109dd3c73736ba26a7635a4f85343d815b3d53433421150c97183"
+    },
+    "tools/ov9281_debugger/README.md": {
+      "size": 4475,
+      "sha256": "a320b9dceb69888983b4dd998611ec0724945774322405796aab016eb98436fd"
+    },
+    "tools/ov9281_debugger/THIRD_PARTY.md": {
+      "size": 1205,
+      "sha256": "2e952eba365e7e181974c489e59d60e8139bf850a4d61ef18850f403535d0cbb"
+    },
+    "tools/ov9281_debugger/angle_filter.py": {
+      "size": 1109,
+      "sha256": "f36c36515f9751d83373161c66355cdfd07f4f8aa145c5097184d6bad4d90bbd"
+    },
+    "tools/ov9281_debugger/app.py": {
+      "size": 54899,
+      "sha256": "890a52558cb056b99bb3d819d6cfbe069f846a8fc12b0d465b0fd28ff4b54402"
+    },
+    "tools/ov9281_debugger/bench_upload.py": {
+      "size": 4862,
+      "sha256": "ea7a9429510b25207fbd804be2b7c240e4ff8a96080b9888968492d531f741f2"
+    },
+    "tools/ov9281_debugger/build.ps1": {
+      "size": 1322,
+      "sha256": "4081ac9075e95ee6113485a3ed6439925d660e5fdc62eec93e4f5fdd4b907626"
+    },
+    "tools/ov9281_debugger/build_number.txt": {
+      "size": 2,
+      "sha256": "1121cfccd5913f0a63fec40a6ffd44ea64f9dc135c66634ba001d10bcf4302a2"
+    },
+    "tools/ov9281_debugger/build_version.py": {
+      "size": 28,
+      "sha256": "24c1c4c3e4234b06270833551970c13c93ffcb8ec9780e5718a2f4ba8d890670"
+    },
+    "tools/ov9281_debugger/calibration_template.json": {
+      "size": 213,
+      "sha256": "515cf75342936be01bfd93edfc572231f75ef92fa616c6be6f8f62e82bf2458d"
+    },
+    "tools/ov9281_debugger/geometry.py": {
+      "size": 8884,
+      "sha256": "e99e9a6bc2a48cad71ae4a06330525c1c84657198c37b01658b44027ef65814f"
+    },
+    "tools/ov9281_debugger/protocol.py": {
+      "size": 10517,
+      "sha256": "1f365e51cb28fd1d9170e659d9a59cf520577f888d69ebee5595aacec347670f"
+    },
+    "tools/ov9281_debugger/requirements.txt": {
+      "size": 94,
+      "sha256": "ab3eb84fc1d98a2e465a4fa05c5d3d6e0d0c658cb5f2364d4d5ddb32791cff01"
+    },
+    "tools/ov9281_debugger/smoke_upload_toggle.py": {
+      "size": 1600,
+      "sha256": "8c4af59c145d2e4ade99e53ac96b928424934087f761c2eea8e0d53e1da5c8fd"
+    },
+    "tools/ov9281_debugger/validation/P4ScanOV9281Debugger_v1.0.0003.spec": {
+      "size": 798,
+      "sha256": "7916dbc7fa8f6342ed565ffc161453dd2fe7d7d9eaab6e8f359e648f9614abe6"
+    },
+    "tools/stm32_uart_debugger/README.md": {
+      "size": 4073,
+      "sha256": "c5f8b689c238e6abbfb5e13f13d6fb498d4cad8850f90c1a250511c8e6878d54"
+    },
+    "tools/stm32_uart_debugger/app.py": {
+      "size": 19493,
+      "sha256": "c87abdaf7d2118a6e1e7f064a7709c3fd81c564160d0ca22a104af8996587d4f"
+    },
+    "tools/stm32_uart_debugger/build.ps1": {
+      "size": 900,
+      "sha256": "df828072ae6496b34b13e97169df40f7343d67fb4daea08eedaf9896fa118d13"
+    },
+    "tools/stm32_uart_debugger/build_number.txt": {
+      "size": 3,
+      "sha256": "238903180cc104ec2c5d8b3f20c5bc61b389ec0a967df8cc208cdc7cd454174f"
+    },
+    "tools/stm32_uart_debugger/build_version.py": {
+      "size": 28,
+      "sha256": "0226be01b399dd95aaa3fcaea4e9dc52c4db8af691daab53b49bdfc78d248e2e"
+    },
+    "tools/stm32_uart_debugger/pose_filter.py": {
+      "size": 1845,
+      "sha256": "009bd0266dd0d3f036d1577ea7c28164e6cac60d45720973a519d57b040900c5"
+    },
+    "tools/stm32_uart_debugger/release/AGV_3D_Test.exe": {
+      "size": 37600975,
+      "sha256": "41b1a9427b09ad687bd203c52fc638054926d0d7700369ac593424f82e476a57"
+    },
+    "tools/stm32_uart_debugger/requirements.txt": {
+      "size": 60,
+      "sha256": "7a94fc3a97680ee128c74c34a47a3b67c31c23d2ca40b4921b156dbfd5a44a10"
+    },
+    "tools/stm32_uart_debugger/scene.py": {
+      "size": 16969,
+      "sha256": "50c2da65bcc0dc8a51c4494a6de74a1b38fa0ba30231a4c9276187b6f76d2303"
+    },
+    "tools/stm32_uart_debugger/smoke_tx/smoke.json": {
+      "size": 176,
+      "sha256": "f7b22685f8b2a56773907d4fe6b04b80d79ab88320bd820afe0162852e8302bc"
+    },
+    "tools/stm32_uart_debugger/validate_ui.py": {
+      "size": 5312,
+      "sha256": "85ff65cbc7ee4b211657f1e82a0619600897be4ba7530d10c6585b4bde9fce01"
+    },
+    "tools/stm32_uart_debugger/validation/packaged_v13/smoke.json": {
+      "size": 176,
+      "sha256": "f7b22685f8b2a56773907d4fe6b04b80d79ab88320bd820afe0162852e8302bc"
+    },
+    "tools/stm32_uart_debugger/validation/scene_revision/validation.json": {
+      "size": 440,
+      "sha256": "a0855cd3f6db70ff053041f18d4cdb6e74a8a55c6362f0a823614451e48fa1bc"
+    }
+  },
+  "hash_basis": "SHA-256 and byte size of Git index blob contents; text may be normalized to LF. EXE and firmware snapshot bytes are preserved exactly."
+}

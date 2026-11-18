@@ -68,7 +68,7 @@ __declspec(dllexport) int probe(const float *points, int prefix, float *values) 
     values[0]=result.yaw_y_deg; values[1]=result.pitch_x_deg; values[2]=result.roll_z_deg;
     values[3]=result.range_m; values[4]=result.optical_depth_m;
     values[5]=result.distance_to_plane_m; values[6]=result.tx_m;
-    values[7]=result.reprojection_px;
+    values[7]=result.along_track_m; values[8]=result.reprojection_px;
     return 1;
 }
 '''.replace('SOURCE', source.as_posix()), encoding='utf-8')
@@ -94,10 +94,10 @@ def main():
     library = compile_probe(folder)
     calibration = default_ov9281_calibration()
     names = ['yaw_y_deg', 'pitch_x_deg', 'roll_z_deg', 'range_m', 'optical_depth_m',
-             'distance_to_plane_m', 'lateral_offset_x_m']
+             'distance_to_plane_m', 'lateral_offset_x_m', 'along_track_m']
 
     def p4(points, prefix):
-        values = np.zeros(8, dtype=np.float32)
+        values = np.zeros(9, dtype=np.float32)
         points = np.ascontiguousarray(points, dtype=np.float32)
         ok = library.probe(points.ctypes.data_as(ctypes.POINTER(ctypes.c_float)), prefix,
                            values.ctypes.data_as(ctypes.POINTER(ctypes.c_float)))
@@ -106,6 +106,17 @@ def main():
     screenshot = np.array([[521.288, 287.283], [574.915, 294.349],
                            [569.467, 346.858], [515.192, 340.729]])
     cases = [('screenshot', screenshot, 30., None)]
+    spin_object = np.array([[-15., 15., 0.], [15., 15., 0.],
+                            [15., -15., 0.], [-15., -15., 0.]])
+    for degrees in (-20, -10, 0, 10, 20):
+        yaw = math.radians(degrees)
+        c, s = math.cos(yaw), math.sin(yaw)
+        rotation_matrix = np.array([[c, 0., s], [0., 1., 0.], [-s, 0., c]]) @ np.diag([1., -1., -1.])
+        translation = -rotation_matrix @ np.array([0., 0., 500.])
+        rotation, _ = cv2.Rodrigues(rotation_matrix)
+        points, _ = cv2.projectPoints(spin_object, rotation, translation,
+                                     calibration['camera_matrix'], calibration['dist_coeffs'])
+        cases.append((f'spin_{degrees}', points.reshape(4, 2), 30., rotation_matrix))
     rng = np.random.default_rng(20261117)
     for index in range(800):
         side = 30. if index % 2 == 0 else 50.
@@ -138,13 +149,18 @@ def main():
         if not reference['available'] or actual is None:
             failures.append({'case': label, 'reason': 'solver rejected', 'pc': reference, 'p4': None if actual is None else actual.tolist()})
             continue
+        reference['along_track_m'] = -float(np.dot(
+            np.array(reference['rotation_matrix'])[:, 0], reference['translation_mm'])) / 1000.0
         expected = np.array([reference[key] for key in names])
-        difference = np.abs(actual[:7]-expected)
+        difference = np.abs(actual[:8]-expected)
         difference[:3] = np.abs((actual[:3]-expected[:3]+180) % 360-180)
-        rows.append({'case': label, 'p4': actual[:7].tolist(), 'opencv': expected.tolist(), 'difference': difference.tolist(),
-                     'p4_error_px': float(actual[7]), 'pc_error_px': reference['reprojection_px'], 'points': points.tolist()})
-        if max(difference[:3]) > .1 or max(difference[3:]) > .0002:
+        rows.append({'case': label, 'p4': actual[:8].tolist(), 'opencv': expected.tolist(), 'difference': difference.tolist(),
+                     'p4_error_px': float(actual[8]), 'pc_error_px': reference['reprojection_px'], 'points': points.tolist()})
+        if max(difference[:3]) > .1 or max(difference[3:7]) > .0002 or difference[7] > .0003:
             failures.append(rows[-1])
+        if label.startswith('spin_') and abs(actual[7]) > .002:
+            failures.append({'case': label, 'reason': 'rotation changed fixed aisle position',
+                             'along_track_m': float(actual[7])})
 
     bad_inputs = [screenshot*np.nan, np.zeros((4, 2)), screenshot-2000]
     for index, bad in enumerate(bad_inputs):

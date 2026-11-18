@@ -5,9 +5,9 @@
 ## 软件设计
 
 ```text
-OV9281 RAW8 → CSI/DMA 四缓冲 → Core0 整帧标记搜索（帧 N+1）
-                                             ↓ 同帧标记结果、最新帧队列
-                                  Core1 归一化/解码/角点精修（帧 N）
+OV9281 RAW8 → CSI/DMA 四缓冲 → Core0 全图采样、局部二值化（帧 N+1）
+                                             ↓ 同帧搜索工作区、最新帧队列
+                                  Core1 连通域/标记几何/归一化/解码/精修（帧 N）
                                              ↓
                                   JPEG 两核可调度 / Core0 CDC 图片与定位结果
 ```
@@ -55,6 +55,10 @@ STM32 USB Host 对接说明见 [CDC 通信协议](docs/STM32_CDC_PROTOCOL.md)，
 Windows UI 调试器为 `dist/P4ScanOV9281Debugger.exe`，源码和使用说明见 `tools/ov9281_debugger/README.md`。它按参考调试器设计，通过 CDC 上传解码处理后的成功/失败同帧图片，手动开关控制上传，不打开 UVC 实时流。UVC 收帧数包含重复预览 JPEG；CDC 只有解码、角点精定位和 100 ms 帧龄检查均通过才发送定位行，因此 219 帧 UVC 与 77 条 CDC 不能直接按差值计算“丢失”的识码结果。
 
 AGV 实时模式默认使用跨帧两级流水线：Core 0 整图搜索外部标记，Core 1 完成后段解码和精修；JPEG 任务可调度到任一核，CDC 在 Core 0 优先服务。四块相机缓冲避免图片复制时暂停连续取帧。开图/关图各两轮、每轮 20 秒的历史测试均达到约 50 次成功定位/秒；图片仍按调试器约 0.35 秒一次的请求上传。详见 `docs/FRAME_STAGE_PIPELINE.md`。关闭 `P4SCAN_FRAME_STAGE_PIPELINE` 可回到此前左右并行搜索模式，历史测试见 `docs/PARALLEL_MARKER_SEARCH.md`。不使用上一帧 ROI。
+
+2026-11-18 版本进一步将连通域和候选几何移至 Core 1，保留同帧密采样补救。增加停帧诊断及连续 5 秒无帧的整机重启保护；UART 追加 `along_track_m`，用于绕相机光心旋转时稳定的固定过道方向位置。详见 [完整改进、实测与回退说明](docs/releases/20261118/README.md)。
+
+两个独立 UI 的源码和 EXE 均在本仓库：摄像头调试器 [P4ScanOV9281Debugger.exe](dist/P4ScanOV9281Debugger.exe)（v1.0.0003，源码 `tools/ov9281_debugger`）；UART 3D 接收器 [AGV_3D_Test.exe](tools/stm32_uart_debugger/release/AGV_3D_Test.exe)（v1.0.0015，源码 `tools/stm32_uart_debugger`）。已烧录固件及构建配置保存在 `releases/20261118/firmware`，校验清单见 `docs/releases/20261118/manifest.json`。
 
 当前环境的小码漏检已定位为外部标记在 6 像素采样网格上欠采样。现增加同帧 4 像素补救搜索，并校正小标记距离容差和采样坐标映射。失败原图、180 个平移案例及实机验证见 [故障分析](docs/failure_diagnosis/README.md)。最终现场固定画面开图/关图均约 50 次成功定位/秒；持续触发密集补救时吞吐量会下降。
 

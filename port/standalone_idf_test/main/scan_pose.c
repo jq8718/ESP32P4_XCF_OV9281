@@ -369,10 +369,15 @@ bool scan_pose_estimate(const XcrBarcodeResult *result, scan_pose_result_t *pose
     pose->optical_depth_m = t[2] / 1000.0f;
     pose->distance_to_plane_m = -(r3[0]*t[0] + r3[1]*t[1] + r3[2]*t[2]) / 1000.0f;
     pose->tx_m = t[0] / 1000.0f;
+    /* An upright code on the right wall has vehicle travel along -Qx.
+     * Project the code-to-camera translation onto that fixed wall axis.
+     * Unlike camera-frame tx, this stays fixed during rotation about the lens. */
+    pose->along_track_m = -dot3(r1, t) / 1000.0f;
     pose->compute_us = (float)(esp_timer_get_time() - started);
     pose->reprojection_px = sqrtf(squared_error*.25f);
     return isfinite(pose->yaw_y_deg) && isfinite(pose->pitch_x_deg) &&
            isfinite(pose->roll_z_deg) && isfinite(pose->range_m) &&
            isfinite(pose->optical_depth_m) && isfinite(pose->distance_to_plane_m) &&
-           isfinite(pose->tx_m) && pose->range_m > 0 && pose->distance_to_plane_m > 0;
+           isfinite(pose->tx_m) && isfinite(pose->along_track_m) &&
+           pose->range_m > 0 && pose->distance_to_plane_m > 0;
 }

@@ -220,12 +220,13 @@ bool scan_uart_submit(const XcrBarcodeResult *result, uint64_t deadline_us)
     scan_pose_result_t pose;
     if (scan_pose_estimate(result, &pose)) {
         written = snprintf(packet.line + packet.length, sizeof(packet.line) - packet.length,
-            ",%.2f,%.2f,%.2f,%.3f,%.3f,%.3f,%.3f\r\n",
+            ",%.2f,%.2f,%.2f,%.3f,%.3f,%.3f,%.3f,%.3f\r\n",
             pose.yaw_y_deg, pose.pitch_x_deg, pose.roll_z_deg, pose.range_m,
-            pose.optical_depth_m, pose.distance_to_plane_m, pose.tx_m);
+            pose.optical_depth_m, pose.distance_to_plane_m, pose.tx_m,
+            pose.along_track_m);
     } else {
         written = snprintf(packet.line + packet.length, sizeof(packet.line) - packet.length,
-                           ",,,,,,,\r\n");
+                           ",,,,,,,,\r\n");
     }
     if (written < 0 || (size_t)written >= sizeof(packet.line) - packet.length) return false;
     packet.length += written;

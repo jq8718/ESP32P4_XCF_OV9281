@@ -32,12 +32,17 @@ static int trace_file(const char *path)
     int repeats = getenv("XCR_DM_TRACE_REPEATS") ? atoi(getenv("XCR_DM_TRACE_REPEATS")) : 1;
     if (repeats < 1 || repeats > 64) return 2;
     for (int iteration = 0; iteration < repeats; iteration++) {
-    if (getenv("XCR_DM_PREPARED")) {
+    if (getenv("XCR_DM_PREPARED") || getenv("XCR_DM_TWO_STAGE")) {
         XcrGrayImage source = {.pixels = pixels, .width = width, .height = height,
                                .stride = width, .sequence = 1};
         XcrDmtxPrepared prepared;
-        if (!xcr_dmtx_prepare(&source, &prepared)) return 2;
+        if (getenv("XCR_DM_TWO_STAGE")) {
+            memset(&prepared, 0, sizeof(prepared));
+            if (!xcr_dmtx_prepare_front(&source, &prepared)) return 2;
+            if (!xcr_dmtx_prepare_finish(&source, &prepared)) return 2;
+        } else if (!xcr_dmtx_prepare(&source, &prepared)) return 2;
         decoded = xcr_datamatrix_marked_decode_prepared(&image, &result, NULL, 0, &prepared);
+        xcr_dmtx_prepare_discard(&prepared);
     } else {
         decoded = xcr_datamatrix_marked_decode_ex(&image, &result, NULL, 0);
     }

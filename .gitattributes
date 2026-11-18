@@ -5,3 +5,5 @@
 *.jpg binary
 *.jpeg binary
 *.bin binary
+# Preserve the exact bytes of the flash-ready release snapshot.
+releases/20261118/firmware/** -text whitespace=cr-at-eol

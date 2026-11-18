@@ -1,0 +1,155 @@
+I (80518) p4scan_usb: CDC command=@TIMINGON
+I (80518) p4scan_usb: CDC command=@SNAP
+I (80888) p4scan_usb: CDC command=@SNAP
+I (81262) p4scan_usb: CDC command=@SNAP
+I (81620) p4scan_usb: CDC command=@SNAP
+I (81992) p4scan_usb: CDC command=@SNAP
+I (82370) p4scan_usb: CDC command=@SNAP
+I (82743) p4scan_usb: CDC command=@SNAP
+I (83105) p4scan_usb: CDC command=@SNAP
+I (83479) p4scan_usb: CDC command=@SNAP
+I (83852) p4scan_usb: CDC command=@SNAP
+I (84213) p4scan_usb: CDC command=@SNAP
+I (84591) p4scan_usb: CDC command=@SNAP
+I (84962) p4scan_usb: CDC command=@SNAP
+I (85325) p4scan_usb: CDC command=@SNAP
+I (85700) p4scan_usb: CDC command=@SNAP
+I (86073) p4scan_usb: CDC command=@SNAP
+I (86434) p4scan_usb: CDC command=@SNAP
+I (86805) p4scan_usb: CDC command=@SNAP
+I (87182) p4scan_usb: CDC command=@SNAP
+I (87544) p4scan_usb: CDC command=@SNAP
+I (87915) p4scan_usb: CDC command=@SNAP
+I (88291) p4scan_usb: CDC command=@SNAP
+I (88650) p4scan_usb: CDC command=@SNAP
+I (89024) p4scan_usb: CDC command=@SNAP
+I (89404) p4scan_usb: CDC command=@SNAP
+I (89758) p4scan_usb: CDC command=@SNAP
+I (90134) p4scan_usb: CDC command=@SNAP
+I (90511) p4scan_usb: CDC command=@SNAP
+I (90868) p4scan_usb: CDC command=@SNAP
+I (91243) p4scan_usb: CDC command=@SNAP
+I (91622) p4scan_usb: CDC command=@SNAP
+I (91995) p4scan_usb: CDC command=@SNAP
+I (92355) p4scan_usb: CDC command=@SNAP
+I (92731) p4scan_usb: CDC command=@SNAP
+I (93103) p4scan_usb: CDC command=@SNAP
+I (93463) p4scan_usb: CDC command=@SNAP
+I (93839) p4scan_usb: CDC command=@SNAP
+W (94096) p4scan_agv: no camera frame for 1000 ms
+I (94212) p4scan_usb: CDC command=@SNAP
+I (94573) p4scan_usb: CDC command=@SNAP
+I (94948) p4scan_usb: CDC command=@SNAP
+W (95096) p4scan_agv: no camera frame for 2000 ms
+I (95325) p4scan_usb: CDC command=@SNAP
+I (95683) p4scan_usb: CDC command=@SNAP
+I (96058) p4scan_usb: CDC command=@SNAP
+W (96096) p4scan_agv: no camera frame for 3000 ms
+I (96434) p4scan_usb: CDC command=@SNAP
+I (96791) p4scan_usb: CDC command=@SNAP
+W (97096) p4scan_agv: no camera frame for 4000 ms
+I (97167) p4scan_usb: CDC command=@SNAP
+I (97543) p4scan_usb: CDC command=@SNAP
+I (97902) p4scan_usb: CDC command=@SNAP
+W (98096) p4scan_agv: no camera frame for 5000 ms
+I (98274) p4scan_usb: CDC command=@SNAP
+I (98652) p4scan_usb: CDC command=@SNAP
+I (99012) p4scan_usb: CDC command=@SNAP
+W (99096) p4scan_agv: no camera frame for 6000 ms
+I (99384) p4scan_usb: CDC command=@SNAP
+I (99762) p4scan_usb: CDC command=@SNAP
+W (100096) p4scan_agv: no camera frame for 7000 ms
+I (100120) p4scan_usb: CDC command=@SNAP
+I (100495) p4scan_usb: CDC command=@SNAP
+I (100872) p4scan_usb: CDC command=@SNAP
+W (101096) p4scan_agv: no camera frame for 8000 ms
+I (101243) p4scan_usb: CDC command=@SNAP
+I (101607) p4scan_usb: CDC command=@SNAP
+I (101977) p4scan_usb: CDC command=@SNAP
+W (102096) p4scan_agv: no camera frame for 9000 ms
+I (102352) p4scan_usb: CDC command=@SNAP
+I (102713) p4scan_usb: CDC command=@SNAP
+I (103087) p4scan_usb: CDC command=@SNAP
+W (103096) p4scan_agv: no camera frame for 10000 ms
+I (103466) p4scan_usb: CDC command=@SNAP
+I (103825) p4scan_usb: CDC command=@SNAP
+W (104096) p4scan_agv: no camera frame for 11000 ms
+I (104200) p4scan_usb: CDC command=@SNAP
+I (104575) p4scan_usb: CDC command=@SNAP
+I (104935) p4scan_usb: CDC command=@SNAP
+W (105096) p4scan_agv: no camera frame for 12000 ms
+I (105306) p4scan_usb: CDC command=@SNAP
+I (105681) p4scan_usb: CDC command=@SNAP
+I (106041) p4scan_usb: CDC command=@SNAP
+W (106096) p4scan_agv: no camera frame for 13000 ms
+I (106420) p4scan_usb: CDC command=@SNAP
+I (106795) p4scan_usb: CDC command=@SNAP
+W (107096) p4scan_agv: no camera frame for 14000 ms
+I (107151) p4scan_usb: CDC command=@SNAP
+I (107526) p4scan_usb: CDC command=@SNAP
+I (107903) p4scan_usb: CDC command=@SNAP
+W (108096) p4scan_agv: no camera frame for 15000 ms
+I (108260) p4scan_usb: CDC command=@SNAP
+I (108638) p4scan_usb: CDC command=@SNAP
+I (109013) p4scan_usb: CDC command=@SNAP
+W (109096) p4scan_agv: no camera frame for 16000 ms
+I (109368) p4scan_usb: CDC command=@SNAP
+I (109748) p4scan_usb: CDC command=@SNAP
+W (110096) p4scan_agv: no camera frame for 17000 ms
+I (110122) p4scan_usb: CDC command=@SNAP
+I (110496) p4scan_usb: CDC command=@SNAP
+I (110853) p4scan_usb: CDC command=@SNAP
+W (111096) p4scan_agv: no camera frame for 18000 ms
+I (111228) p4scan_usb: CDC command=@SNAP
+I (111608) p4scan_usb: CDC command=@SNAP
+I (111965) p4scan_usb: CDC command=@SNAP
+W (112096) p4scan_agv: no camera frame for 19000 ms
+I (112339) p4scan_usb: CDC command=@SNAP
+I (112714) p4scan_usb: CDC command=@SNAP
+I (113076) p4scan_usb: CDC command=@SNAP
+W (113096) p4scan_agv: no camera frame for 20000 ms
+I (113447) p4scan_usb: CDC command=@SNAP
+I (113826) p4scan_usb: CDC command=@SNAP
+W (114096) p4scan_agv: no camera frame for 21000 ms
+I (114180) p4scan_usb: CDC command=@SNAP
+I (114560) p4scan_usb: CDC command=@SNAP
+I (114931) p4scan_usb: CDC command=@SNAP
+W (115096) p4scan_agv: no camera frame for 22000 ms
+I (115292) p4scan_usb: CDC command=@SNAP
+I (115665) p4scan_usb: CDC command=@SNAP
+I (116043) p4scan_usb: CDC command=@SNAP
+W (116096) p4scan_agv: no camera frame for 23000 ms
+I (116403) p4scan_usb: CDC command=@SNAP
+I (116775) p4scan_usb: CDC command=@SNAP
+W (117096) p4scan_agv: no camera frame for 24000 ms
+I (117153) p4scan_usb: CDC command=@SNAP
+I (117508) p4scan_usb: CDC command=@SNAP
+I (117886) p4scan_usb: CDC command=@SNAP
+W (118096) p4scan_agv: no camera frame for 25000 ms
+I (118259) p4scan_usb: CDC command=@SNAP
+I (118623) p4scan_usb: CDC command=@SNAP
+I (118997) p4scan_usb: CDC command=@SNAP
+W (119096) p4scan_agv: no camera frame for 26000 ms
+I (119368) p4scan_usb: CDC command=@SNAP
+I (119743) p4scan_usb: CDC command=@SNAP
+W (120096) p4scan_agv: no camera frame for 27000 ms
+I (120104) p4scan_usb: CDC command=@SNAP
+I (120478) p4scan_usb: CDC command=@SNAP
+I (120856) p4scan_usb: CDC command=@SNAP
+W (121096) p4scan_agv: no camera frame for 28000 ms
+I (121212) p4scan_usb: CDC command=@SNAP
+I (121588) p4scan_usb: CDC command=@SNAP
+I (121965) p4scan_usb: CDC command=@SNAP
+W (122096) p4scan_agv: no camera frame for 29000 ms
+I (122324) p4scan_usb: CDC command=@SNAP
+I (122701) p4scan_usb: CDC command=@SNAP
+I (123075) p4scan_usb: CDC command=@SNAP
+W (123096) p4scan_agv: no camera frame for 30000 ms
+I (123433) p4scan_usb: CDC command=@SNAP
+I (123808) p4scan_usb: CDC command=@SNAP
+W (124096) p4scan_agv: no camera frame for 31000 ms
+I (124181) p4scan_usb: CDC command=@SNAP
+I (124542) p4scan_usb: CDC command=@SNAP
+I (124916) p4scan_usb: CDC command=@SNAP
+W (125096) p4scan_agv: no camera frame for 32000 ms
+I (125292) p4scan_usb: CDC command=@SNAP

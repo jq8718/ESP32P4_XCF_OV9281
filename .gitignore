@@ -2,7 +2,7 @@
 /build_idf60/
 /build_rev3/
 /managed_components/
-/dist/
+/dist/*
 /.vscode/
 /sdkconfig
 /sdkconfig.old
@@ -19,3 +19,7 @@ __pycache__/
 /tools/ov9281_debugger/.venv/
 /tools/ov9281_debugger/*.spec
 /docs/decode_stages/dm_stage_trace*
+
+# Explicitly version the two released UI executables.
+!/dist/P4ScanOV9281Debugger.exe
+!/tools/stm32_uart_debugger/release/AGV_3D_Test.exe

@@ -11,6 +11,7 @@ void scan_usb_preview(const p4scan_camera_frame_t *frame, const XcrBarcodeResult
 typedef struct {
     uint32_t sequence, frontend_us, wait_us, normalize_us, core_us, refine_us;
     unsigned sample_step, attempts;
+    uint32_t marker_phases_us[4];
 } scan_profile_t;
 void scan_usb_profile(const scan_profile_t *profile);
 

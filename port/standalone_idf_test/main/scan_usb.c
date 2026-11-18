@@ -445,6 +445,14 @@ static void cdc_task(void *argument)
                     tud_cdc_write(line, length);
                     tud_cdc_write_flush();
                     profile_sent_us = esp_timer_get_time();
+                    length = snprintf(line, sizeof(line), "@FRONT,%lu,%lu,%lu,%lu,%lu\r",
+                        (unsigned long)profile.sequence, (unsigned long)profile.marker_phases_us[0],
+                        (unsigned long)profile.marker_phases_us[1], (unsigned long)profile.marker_phases_us[2],
+                        (unsigned long)profile.marker_phases_us[3]);
+                    if (length > 0 && length < sizeof(line) && tud_cdc_write_available() >= length) {
+                        tud_cdc_write(line, length);
+                        tud_cdc_write_flush();
+                    }
                 }
             }
         }
