@@ -34,7 +34,7 @@ int xcr_dmtx_parallel_start(void);
 /* Per-frame state owned by the camera slot. No previous-frame position hint. */
 typedef struct {
     void *workspace;
-    int width, height, sample_left, step, threshold, narrow_queue;
+    int width, height, sample_left, step, threshold, narrow_queue, window_radius;
 } XcrDmtxSearchState;
 typedef struct {
     const uint8_t *pixels;
@@ -44,6 +44,7 @@ typedef struct {
     int roi[4];
     int orientation;
     int sample_step; /* Axes and normalization must use the same half-step offset. */
+    int window_radius; /* Threshold window used by the selected marker search. */
     float axes[8]; /* Origin, two marker vectors, projective denominator g/h. */
     unsigned qr_rejected;
     uint64_t search_us;

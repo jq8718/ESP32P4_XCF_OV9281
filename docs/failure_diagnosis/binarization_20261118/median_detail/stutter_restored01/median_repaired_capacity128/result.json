@@ -1,0 +1,40 @@
+{
+  "iterations": 1,
+  "decoded": 0,
+  "payload": "",
+  "elapsed_us": 242763,
+  "marker_us": 105170,
+  "normalize_us": 125110,
+  "core_us": 726,
+  "refine_us": 0,
+  "marker_roi": [
+    656,
+    216,
+    1032,
+    652
+  ],
+  "angle_deg": -99.563,
+  "grid": [
+    0,
+    0
+  ],
+  "geometry_quality": 0,
+  "split": 0,
+  "full_fallback": 0,
+  "sample_step": 4,
+  "core_finder_us": 63,
+  "core_candidate_us": 21,
+  "core_codeword_us": 0,
+  "core_ecc_us": 0,
+  "core_payload_us": 0,
+  "corners": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

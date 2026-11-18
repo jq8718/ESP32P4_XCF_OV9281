@@ -60,6 +60,23 @@ def load_calibration(path):
     return {'camera_matrix': matrix, 'dist_coeffs': distortion, 'image_size': list(size), 'qr_size_mm': side}
 
 
+def code_side_mm(payload):
+    """Physical module-body side from the leftmost decoded character."""
+    if isinstance(payload, bytes):
+        payload = payload.decode('ascii', errors='replace')
+    if not isinstance(payload, str):
+        return None
+    return {'0': 30.0, '1': 50.0, '2': 70.0}.get(payload[:1])
+
+
+def estimate_decoded_pose(corners, width, height, calibration, payload, max_reprojection_px=5):
+    side = code_side_mm(payload)
+    if side is None:
+        return {'available': False, 'reason': '码内容首位需为0、1或2，对应30、50、70 mm有效码体边长'}
+    effective = dict(calibration, qr_size_mm=side) if calibration is not None else None
+    return estimate_pose(corners, width, height, effective, max_reprojection_px)
+
+
 def estimate_pose(corners, width, height, calibration, max_reprojection_px=5):
     if calibration is None:
         return {'available': False, 'reason': '未标定：只能显示画面内旋转角'}

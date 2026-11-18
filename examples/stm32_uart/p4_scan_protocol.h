@@ -26,4 +26,10 @@ typedef struct {
  */
 int p4_scan_parse_line(const char *line, size_t length, p4_scan_packet_t *output);
 uint16_t p4_scan_crc16(const char *bytes, size_t length);
+/* First payload character '0'/'1'/'2' selects 30/50/70 mm.
+ * Returns 0 for empty/null payload or an unknown prefix.
+ * Payload is a digit string; preserve leading zero. Distances are already
+ * calculated by P4, so do not multiply received distances by this side.
+ */
+uint16_t p4_scan_code_side_mm(const uint8_t *payload, size_t payload_length);
 #endif

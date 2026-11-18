@@ -1,0 +1,7304 @@
+{
+  "upload": true,
+  "elapsed_s": 4.0,
+  "attempts": 171,
+  "successes": 143,
+  "success_pct": 83.62573099415205,
+  "attempts_per_s": 42.75,
+  "successes_per_s": 35.75,
+  "decode_us": {
+    "n": 171,
+    "min": 23237,
+    "mean": 35156.57,
+    "median": 30792,
+    "p95": 52679,
+    "max": 90877
+  },
+  "success_decode_us": {
+    "n": 143,
+    "min": 23237,
+    "mean": 32908.6,
+    "median": 28022,
+    "p95": 49809,
+    "max": 61898
+  },
+  "core0_pct": {
+    "n": 4,
+    "min": 77.5,
+    "mean": 79.67,
+    "median": 79.85,
+    "p95": 81.5,
+    "max": 81.5
+  },
+  "core1_pct": {
+    "n": 4,
+    "min": 81.2,
+    "mean": 83.65,
+    "median": 83.0,
+    "p95": 87.4,
+    "max": 87.4
+  },
+  "profiles": [
+    [
+      2842,
+      14798,
+      22,
+      4184,
+      3323,
+      1279,
+      4,
+      1
+    ],
+    [
+      2886,
+      15188,
+      22,
+      10981,
+      4165,
+      1246,
+      4,
+      2
+    ],
+    [
+      2931,
+      14293,
+      22,
+      4555,
+      2427,
+      1295,
+      4,
+      1
+    ],
+    [
+      2974,
+      14409,
+      22,
+      0,
+      0,
+      0,
+      4,
+      0
+    ]
+  ],
+  "fronts": [
+    [
+      2842,
+      5834,
+      8854,
+      2568,
+      444
+    ],
+    [
+      2886,
+      5461,
+      9554,
+      3402,
+      325
+    ],
+    [
+      2931,
+      5115,
+      9045,
+      3380,
+      325
+    ],
+    [
+      2974,
+      10639,
+      17278,
+      5337,
+      149
+    ]
+  ],
+  "frames_received": 20,
+  "events": [
+    {
+      "type": "result",
+      "received_s": 0.0,
+      "data": {
+        "payload": "12345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2842,
+        "capture_us": 58842570,
+        "age_us": 27607,
+        "decode_us": 27077,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 108,
+        "geometry_residual": 0.147
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.0,
+      "data": {
+        "sequence": 2842,
+        "capture_us": 58842570,
+        "decode_us": 27077,
+        "success": true
+      }
+    },
+    {
+      "type": "frame",
+      "received_s": 0.03200000000651926,
+      "sequence": 2842,
+      "timestamp_us": 58842570,
+      "width": 1280,
+      "height": 720,
+      "success": true,
+      "decode_us": 27077,
+      "corners": [
+        [
+          569,
+          245
+        ],
+        [
+          607,
+          256
+        ],
+        [
+          596,
+          295
+        ],
+        [
+          558,
+          284
+        ]
+      ],
+      "coordinates_only": false,
+      "geometry_quality": 2,
+      "geometry_edge_mask": 15,
+      "geometry_support": 108,
+      "geometry_residual": 0.147,
+      "payload": "012345",
+      "payload_hex": "303132333435",
+      "image_encoding": "JPEG"
+    },
+    {
+      "type": "result",
+      "received_s": 0.0470000000204891,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2843,
+        "capture_us": 58862441,
+        "age_us": 58939,
+        "decode_us": 58465,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 108,
+        "geometry_residual": 0.199
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.0470000000204891,
+      "data": {
+        "sequence": 2843,
+        "capture_us": 58862441,
+        "decode_us": 58465,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 0.06300000002374873,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2844,
+        "capture_us": 58882348,
+        "age_us": 53135,
+        "decode_us": 49809,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 107,
+        "geometry_residual": 0.175
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.06300000002374873,
+      "data": {
+        "sequence": 2844,
+        "capture_us": 58882348,
+        "decode_us": 49809,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 0.07900000002700835,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2845,
+        "capture_us": 58922086,
+        "age_us": 29081,
+        "decode_us": 28384,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 111,
+        "geometry_residual": 0.211
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.07900000002700835,
+      "data": {
+        "sequence": 2845,
+        "capture_us": 58922086,
+        "decode_us": 28384,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 0.0940000000409782,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2846,
+        "capture_us": 58942021,
+        "age_us": 27165,
+        "decode_us": 26627,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 110,
+        "geometry_residual": 0.197
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.0940000000409782,
+      "data": {
+        "sequence": 2846,
+        "capture_us": 58942021,
+        "decode_us": 26627,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 0.125,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2847,
+        "capture_us": 58961804,
+        "age_us": 27524,
+        "decode_us": 27002,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 108,
+        "geometry_residual": 0.218
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.125,
+      "data": {
+        "sequence": 2847,
+        "capture_us": 58961804,
+        "decode_us": 27002,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 0.14100000000325963,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2848,
+        "capture_us": 58981668,
+        "age_us": 27773,
+        "decode_us": 27186,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 111,
+        "geometry_residual": 0.22
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.14100000000325963,
+      "data": {
+        "sequence": 2848,
+        "capture_us": 58981668,
+        "decode_us": 27186,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 0.15700000000651926,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2849,
+        "capture_us": 59001539,
+        "age_us": 27186,
+        "decode_us": 26637,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 105,
+        "geometry_residual": 0.197
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.15700000000651926,
+      "data": {
+        "sequence": 2849,
+        "capture_us": 59001539,
+        "decode_us": 26637,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 0.1720000000204891,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2850,
+        "capture_us": 59021420,
+        "age_us": 27866,
+        "decode_us": 27352,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 107,
+        "geometry_residual": 0.22
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.18800000002374873,
+      "data": {
+        "sequence": 2850,
+        "capture_us": 59021420,
+        "decode_us": 27352,
+        "success": true
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.20400000002700835,
+      "data": {
+        "sequence": 2851,
+        "capture_us": 59041287,
+        "decode_us": 34621,
+        "success": false
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 0.2190000000409782,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2852,
+        "capture_us": 59061160,
+        "age_us": 30187,
+        "decode_us": 29632,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 107,
+        "geometry_residual": 0.181
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.2190000000409782,
+      "data": {
+        "sequence": 2852,
+        "capture_us": 59061160,
+        "decode_us": 29632,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 0.25,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2853,
+        "capture_us": 59081038,
+        "age_us": 46761,
+        "decode_us": 46130,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 106,
+        "geometry_residual": 0.212
+      }
+    },
+    {
+      "type": "frame",
+      "received_s": 0.26600000000325963,
+      "sequence": 2852,
+      "timestamp_us": 59061160,
+      "width": 1280,
+      "height": 720,
+      "success": true,
+      "decode_us": 29632,
+      "corners": [
+        [
+          569,
+          245
+        ],
+        [
+          608,
+          255
+        ],
+        [
+          596,
+          295
+        ],
+        [
+          558,
+          284
+        ]
+      ],
+      "coordinates_only": false,
+      "geometry_quality": 2,
+      "geometry_edge_mask": 15,
+      "geometry_support": 107,
+      "geometry_residual": 0.181,
+      "payload": "012345",
+      "payload_hex": "303132333435",
+      "image_encoding": "JPEG"
+    },
+    {
+      "type": "timing",
+      "received_s": 0.26600000000325963,
+      "data": {
+        "sequence": 2853,
+        "capture_us": 59081038,
+        "decode_us": 46130,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 0.26600000000325963,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2854,
+        "capture_us": 59100933,
+        "age_us": 40347,
+        "decode_us": 39586,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 111,
+        "geometry_residual": 0.165
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.26600000000325963,
+      "data": {
+        "sequence": 2854,
+        "capture_us": 59100933,
+        "decode_us": 39586,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 0.2970000000204891,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2855,
+        "capture_us": 59140667,
+        "age_us": 26518,
+        "decode_us": 25717,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 106,
+        "geometry_residual": 0.249
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.2970000000204891,
+      "data": {
+        "sequence": 2855,
+        "capture_us": 59140667,
+        "decode_us": 25717,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 0.3130000000237487,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            597,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2856,
+        "capture_us": 59160517,
+        "age_us": 27753,
+        "decode_us": 27204,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 107,
+        "geometry_residual": 0.167
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.3130000000237487,
+      "data": {
+        "sequence": 2856,
+        "capture_us": 59160517,
+        "decode_us": 27204,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 0.3440000000409782,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2857,
+        "capture_us": 59180385,
+        "age_us": 27311,
+        "decode_us": 26758,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 105,
+        "geometry_residual": 0.236
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.3440000000409782,
+      "data": {
+        "sequence": 2857,
+        "capture_us": 59180385,
+        "decode_us": 26758,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 0.3600000000442378,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2858,
+        "capture_us": 59200265,
+        "age_us": 28100,
+        "decode_us": 27581,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 105,
+        "geometry_residual": 0.26
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.3600000000442378,
+      "data": {
+        "sequence": 2858,
+        "capture_us": 59200265,
+        "decode_us": 27581,
+        "success": true
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.39100000000325963,
+      "data": {
+        "sequence": 2859,
+        "capture_us": 59220133,
+        "decode_us": 47035,
+        "success": false
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 0.40700000000651926,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2860,
+        "capture_us": 59240009,
+        "age_us": 40753,
+        "decode_us": 40097,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 105,
+        "geometry_residual": 0.262
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.40700000000651926,
+      "data": {
+        "sequence": 2860,
+        "capture_us": 59240009,
+        "decode_us": 40097,
+        "success": true
+      }
+    },
+    {
+      "type": "frame",
+      "received_s": 0.45400000002700835,
+      "sequence": 2860,
+      "timestamp_us": 59240009,
+      "width": 1280,
+      "height": 720,
+      "success": true,
+      "decode_us": 40097,
+      "corners": [
+        [
+          569,
+          245
+        ],
+        [
+          608,
+          255
+        ],
+        [
+          596,
+          295
+        ],
+        [
+          558,
+          284
+        ]
+      ],
+      "coordinates_only": false,
+      "geometry_quality": 2,
+      "geometry_edge_mask": 15,
+      "geometry_support": 105,
+      "geometry_residual": 0.262,
+      "payload": "012345",
+      "payload_hex": "303132333435",
+      "image_encoding": "JPEG"
+    },
+    {
+      "type": "timing",
+      "received_s": 0.45400000002700835,
+      "data": {
+        "sequence": 2861,
+        "capture_us": 59259887,
+        "decode_us": 63849,
+        "success": false
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 0.4690000000409782,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2862,
+        "capture_us": 59299648,
+        "age_us": 37132,
+        "decode_us": 36322,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 108,
+        "geometry_residual": 0.234
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.4690000000409782,
+      "data": {
+        "sequence": 2862,
+        "capture_us": 59299648,
+        "decode_us": 36322,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 0.5,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2863,
+        "capture_us": 59339362,
+        "age_us": 24715,
+        "decode_us": 24168,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 100,
+        "geometry_residual": 0.286
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.5,
+      "data": {
+        "sequence": 2863,
+        "capture_us": 59339362,
+        "decode_us": 24168,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 0.5160000000032596,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2864,
+        "capture_us": 59359266,
+        "age_us": 27731,
+        "decode_us": 27147,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 105,
+        "geometry_residual": 0.259
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.5160000000032596,
+      "data": {
+        "sequence": 2864,
+        "capture_us": 59359266,
+        "decode_us": 27147,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 0.5320000000065193,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2865,
+        "capture_us": 59379106,
+        "age_us": 27577,
+        "decode_us": 27014,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 107,
+        "geometry_residual": 0.169
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.5320000000065193,
+      "data": {
+        "sequence": 2865,
+        "capture_us": 59379106,
+        "decode_us": 27014,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 0.5630000000237487,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2866,
+        "capture_us": 59398978,
+        "age_us": 27366,
+        "decode_us": 26845,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 103,
+        "geometry_residual": 0.229
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.5630000000237487,
+      "data": {
+        "sequence": 2866,
+        "capture_us": 59398978,
+        "decode_us": 26845,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 0.5790000000270084,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2867,
+        "capture_us": 59418846,
+        "age_us": 27872,
+        "decode_us": 27335,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 101,
+        "geometry_residual": 0.204
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.5790000000270084,
+      "data": {
+        "sequence": 2867,
+        "capture_us": 59418846,
+        "decode_us": 27335,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 0.5940000000409782,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2868,
+        "capture_us": 59438718,
+        "age_us": 27170,
+        "decode_us": 26611,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 103,
+        "geometry_residual": 0.164
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.5940000000409782,
+      "data": {
+        "sequence": 2868,
+        "capture_us": 59438718,
+        "decode_us": 26611,
+        "success": true
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.625,
+      "data": {
+        "sequence": 2869,
+        "capture_us": 59458593,
+        "decode_us": 34285,
+        "success": false
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 0.6410000000032596,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2870,
+        "capture_us": 59478479,
+        "age_us": 29099,
+        "decode_us": 28541,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 104,
+        "geometry_residual": 0.336
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.6410000000032596,
+      "data": {
+        "sequence": 2870,
+        "capture_us": 59478479,
+        "decode_us": 28541,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 0.6720000000204891,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2871,
+        "capture_us": 59498338,
+        "age_us": 45498,
+        "decode_us": 44885,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 97,
+        "geometry_residual": 0.223
+      }
+    },
+    {
+      "type": "frame",
+      "received_s": 0.6720000000204891,
+      "sequence": 2870,
+      "timestamp_us": 59478479,
+      "width": 1280,
+      "height": 720,
+      "success": true,
+      "decode_us": 28541,
+      "corners": [
+        [
+          569,
+          245
+        ],
+        [
+          608,
+          255
+        ],
+        [
+          596,
+          295
+        ],
+        [
+          558,
+          284
+        ]
+      ],
+      "coordinates_only": false,
+      "geometry_quality": 2,
+      "geometry_edge_mask": 15,
+      "geometry_support": 104,
+      "geometry_residual": 0.336,
+      "payload": "012345",
+      "payload_hex": "303132333435",
+      "image_encoding": "JPEG"
+    },
+    {
+      "type": "timing",
+      "received_s": 0.6720000000204891,
+      "data": {
+        "sequence": 2871,
+        "capture_us": 59498338,
+        "decode_us": 44885,
+        "success": true
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.7040000000270084,
+      "data": {
+        "sequence": 2872,
+        "capture_us": 59518227,
+        "decode_us": 46899,
+        "success": false
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 0.7190000000409782,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2873,
+        "capture_us": 59557956,
+        "age_us": 36153,
+        "decode_us": 35526,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 104,
+        "geometry_residual": 0.219
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.7190000000409782,
+      "data": {
+        "sequence": 2873,
+        "capture_us": 59557956,
+        "decode_us": 35526,
+        "success": true
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.75,
+      "data": {
+        "sequence": 2874,
+        "capture_us": 59577828,
+        "decode_us": 49902,
+        "success": false
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 0.7820000000065193,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2875,
+        "capture_us": 59597699,
+        "age_us": 51472,
+        "decode_us": 50921,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 99,
+        "geometry_residual": 0.298
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.7820000000065193,
+      "data": {
+        "sequence": 2875,
+        "capture_us": 59597699,
+        "decode_us": 50921,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 0.7970000000204891,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            256
+          ],
+          [
+            597,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2876,
+        "capture_us": 59617566,
+        "age_us": 45827,
+        "decode_us": 45117,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 100,
+        "geometry_residual": 0.206
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.7970000000204891,
+      "data": {
+        "sequence": 2876,
+        "capture_us": 59617566,
+        "decode_us": 45117,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 0.8130000000237487,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2877,
+        "capture_us": 59657302,
+        "age_us": 27649,
+        "decode_us": 27114,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 99,
+        "geometry_residual": 0.246
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.8130000000237487,
+      "data": {
+        "sequence": 2877,
+        "capture_us": 59657302,
+        "decode_us": 27114,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 0.8290000000270084,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            597,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2878,
+        "capture_us": 59677186,
+        "age_us": 27167,
+        "decode_us": 26645,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 96,
+        "geometry_residual": 0.148
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.8290000000270084,
+      "data": {
+        "sequence": 2878,
+        "capture_us": 59677186,
+        "decode_us": 26645,
+        "success": true
+      }
+    },
+    {
+      "type": "cpu",
+      "received_s": 0.8600000000442378,
+      "data": {
+        "interval_ms": 1000,
+        "core0": 79.3,
+        "core1": 83.0
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 0.875,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2879,
+        "capture_us": 59697053,
+        "age_us": 43700,
+        "decode_us": 42619,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 94,
+        "geometry_residual": 0.166
+      }
+    },
+    {
+      "type": "frame",
+      "received_s": 0.875,
+      "sequence": 2878,
+      "timestamp_us": 59677186,
+      "width": 1280,
+      "height": 720,
+      "success": true,
+      "decode_us": 26645,
+      "corners": [
+        [
+          569,
+          245
+        ],
+        [
+          608,
+          256
+        ],
+        [
+          597,
+          295
+        ],
+        [
+          558,
+          284
+        ]
+      ],
+      "coordinates_only": false,
+      "geometry_quality": 2,
+      "geometry_edge_mask": 15,
+      "geometry_support": 96,
+      "geometry_residual": 0.148,
+      "payload": "012345",
+      "payload_hex": "303132333435",
+      "image_encoding": "JPEG"
+    },
+    {
+      "type": "timing",
+      "received_s": 0.875,
+      "data": {
+        "sequence": 2879,
+        "capture_us": 59697053,
+        "decode_us": 42619,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 0.8910000000032596,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2880,
+        "capture_us": 59716951,
+        "age_us": 50170,
+        "decode_us": 44535,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 101,
+        "geometry_residual": 0.162
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.8910000000032596,
+      "data": {
+        "sequence": 2880,
+        "capture_us": 59716951,
+        "decode_us": 44535,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 0.9070000000065193,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            256
+          ],
+          [
+            597,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2881,
+        "capture_us": 59756665,
+        "age_us": 27145,
+        "decode_us": 26553,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 100,
+        "geometry_residual": 0.352
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.9070000000065193,
+      "data": {
+        "sequence": 2881,
+        "capture_us": 59756665,
+        "decode_us": 26553,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 0.9380000000237487,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2882,
+        "capture_us": 59776545,
+        "age_us": 27628,
+        "decode_us": 27075,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 101,
+        "geometry_residual": 0.154
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.9380000000237487,
+      "data": {
+        "sequence": 2882,
+        "capture_us": 59776545,
+        "decode_us": 27075,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 0.9540000000270084,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2883,
+        "capture_us": 59796415,
+        "age_us": 27227,
+        "decode_us": 26703,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 97,
+        "geometry_residual": 0.15
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.9540000000270084,
+      "data": {
+        "sequence": 2883,
+        "capture_us": 59796415,
+        "decode_us": 26703,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 0.9850000000442378,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2884,
+        "capture_us": 59816280,
+        "age_us": 35911,
+        "decode_us": 35314,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 99,
+        "geometry_residual": 0.173
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.9850000000442378,
+      "data": {
+        "sequence": 2884,
+        "capture_us": 59816280,
+        "decode_us": 35314,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 1.0,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2885,
+        "capture_us": 59836151,
+        "age_us": 30726,
+        "decode_us": 30201,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 100,
+        "geometry_residual": 0.193
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.0,
+      "data": {
+        "sequence": 2885,
+        "capture_us": 59836151,
+        "decode_us": 30201,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 1.0160000000032596,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            256
+          ],
+          [
+            597,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2886,
+        "capture_us": 59856030,
+        "age_us": 36460,
+        "decode_us": 35926,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 100,
+        "geometry_residual": 0.317
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.0320000000065193,
+      "data": {
+        "sequence": 2886,
+        "capture_us": 59856030,
+        "decode_us": 35926,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 1.0320000000065193,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2887,
+        "capture_us": 59875900,
+        "age_us": 34047,
+        "decode_us": 33606,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 98,
+        "geometry_residual": 0.284
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.047000000020489,
+      "data": {
+        "sequence": 2887,
+        "capture_us": 59875900,
+        "decode_us": 33606,
+        "success": true
+      }
+    },
+    {
+      "type": "frame",
+      "received_s": 1.0790000000270084,
+      "sequence": 2887,
+      "timestamp_us": 59875900,
+      "width": 1280,
+      "height": 720,
+      "success": true,
+      "decode_us": 33606,
+      "corners": [
+        [
+          569,
+          245
+        ],
+        [
+          608,
+          256
+        ],
+        [
+          596,
+          295
+        ],
+        [
+          558,
+          285
+        ]
+      ],
+      "coordinates_only": false,
+      "geometry_quality": 2,
+      "geometry_edge_mask": 15,
+      "geometry_support": 98,
+      "geometry_residual": 0.284,
+      "payload": "012345",
+      "payload_hex": "303132333435",
+      "image_encoding": "JPEG"
+    },
+    {
+      "type": "result",
+      "received_s": 1.0790000000270084,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2888,
+        "capture_us": 59895772,
+        "age_us": 49369,
+        "decode_us": 49058,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 98,
+        "geometry_residual": 0.172
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.0790000000270084,
+      "data": {
+        "sequence": 2888,
+        "capture_us": 59895772,
+        "decode_us": 49058,
+        "success": true
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.1410000000032596,
+      "data": {
+        "sequence": 2889,
+        "capture_us": 59915675,
+        "decode_us": 90877,
+        "success": false
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 1.1570000000065193,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2891,
+        "capture_us": 59975282,
+        "age_us": 44891,
+        "decode_us": 44324,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 102,
+        "geometry_residual": 0.176
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.1570000000065193,
+      "data": {
+        "sequence": 2891,
+        "capture_us": 59975282,
+        "decode_us": 44324,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 1.1570000000065193,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2892,
+        "capture_us": 59995127,
+        "age_us": 39606,
+        "decode_us": 39096,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 101,
+        "geometry_residual": 0.183
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.172000000020489,
+      "data": {
+        "sequence": 2892,
+        "capture_us": 59995127,
+        "decode_us": 39096,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 1.172000000020489,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2893,
+        "capture_us": 60014999,
+        "age_us": 34127,
+        "decode_us": 33613,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 101,
+        "geometry_residual": 0.262
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.1880000000237487,
+      "data": {
+        "sequence": 2893,
+        "capture_us": 60014999,
+        "decode_us": 33613,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 1.1880000000237487,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2894,
+        "capture_us": 60034975,
+        "age_us": 29070,
+        "decode_us": 28028,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 101,
+        "geometry_residual": 0.214
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.1880000000237487,
+      "data": {
+        "sequence": 2894,
+        "capture_us": 60034975,
+        "decode_us": 28028,
+        "success": true
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.2190000000409782,
+      "data": {
+        "sequence": 2895,
+        "capture_us": 60054849,
+        "decode_us": 33874,
+        "success": false
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 1.2350000000442378,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2896,
+        "capture_us": 60074627,
+        "age_us": 28092,
+        "decode_us": 27415,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 105,
+        "geometry_residual": 0.196
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.2350000000442378,
+      "data": {
+        "sequence": 2896,
+        "capture_us": 60074627,
+        "decode_us": 27415,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 1.2660000000032596,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2897,
+        "capture_us": 60094491,
+        "age_us": 43234,
+        "decode_us": 42469,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 102,
+        "geometry_residual": 0.191
+      }
+    },
+    {
+      "type": "frame",
+      "received_s": 1.2660000000032596,
+      "sequence": 2896,
+      "timestamp_us": 60074627,
+      "width": 1280,
+      "height": 720,
+      "success": true,
+      "decode_us": 27415,
+      "corners": [
+        [
+          569,
+          245
+        ],
+        [
+          608,
+          255
+        ],
+        [
+          596,
+          295
+        ],
+        [
+          558,
+          284
+        ]
+      ],
+      "coordinates_only": false,
+      "geometry_quality": 2,
+      "geometry_edge_mask": 15,
+      "geometry_support": 105,
+      "geometry_residual": 0.196,
+      "payload": "012345",
+      "payload_hex": "303132333435",
+      "image_encoding": "JPEG"
+    },
+    {
+      "type": "timing",
+      "received_s": 1.2660000000032596,
+      "data": {
+        "sequence": 2897,
+        "capture_us": 60094491,
+        "decode_us": 42469,
+        "success": true
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.297000000020489,
+      "data": {
+        "sequence": 2898,
+        "capture_us": 60114390,
+        "decode_us": 42398,
+        "success": false
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 1.3290000000270084,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2899,
+        "capture_us": 60154103,
+        "age_us": 42822,
+        "decode_us": 42246,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 105,
+        "geometry_residual": 0.279
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.3290000000270084,
+      "data": {
+        "sequence": 2899,
+        "capture_us": 60154103,
+        "decode_us": 42246,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 1.3440000000409782,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2900,
+        "capture_us": 60173985,
+        "age_us": 36594,
+        "decode_us": 35955,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 105,
+        "geometry_residual": 0.21
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.3440000000409782,
+      "data": {
+        "sequence": 2900,
+        "capture_us": 60173985,
+        "decode_us": 35955,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 1.3600000000442378,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2901,
+        "capture_us": 60193868,
+        "age_us": 32167,
+        "decode_us": 31551,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 103,
+        "geometry_residual": 0.164
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.3600000000442378,
+      "data": {
+        "sequence": 2901,
+        "capture_us": 60193868,
+        "decode_us": 31551,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 1.375,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            597,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2902,
+        "capture_us": 60213721,
+        "age_us": 27774,
+        "decode_us": 27233,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 104,
+        "geometry_residual": 0.219
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.375,
+      "data": {
+        "sequence": 2902,
+        "capture_us": 60213721,
+        "decode_us": 27233,
+        "success": true
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.4070000000065193,
+      "data": {
+        "sequence": 2903,
+        "capture_us": 60233594,
+        "decode_us": 46981,
+        "success": false
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 1.422000000020489,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2904,
+        "capture_us": 60253468,
+        "age_us": 40866,
+        "decode_us": 40274,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 103,
+        "geometry_residual": 0.218
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.422000000020489,
+      "data": {
+        "sequence": 2904,
+        "capture_us": 60253468,
+        "decode_us": 40274,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 1.4380000000237487,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2905,
+        "capture_us": 60273348,
+        "age_us": 36017,
+        "decode_us": 35338,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 104,
+        "geometry_residual": 0.123
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.4380000000237487,
+      "data": {
+        "sequence": 2905,
+        "capture_us": 60273348,
+        "decode_us": 35338,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 1.4690000000409782,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2906,
+        "capture_us": 60293200,
+        "age_us": 51520,
+        "decode_us": 50757,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 104,
+        "geometry_residual": 0.223
+      }
+    },
+    {
+      "type": "frame",
+      "received_s": 1.4690000000409782,
+      "sequence": 2905,
+      "timestamp_us": 60273348,
+      "width": 1280,
+      "height": 720,
+      "success": true,
+      "decode_us": 35338,
+      "corners": [
+        [
+          569,
+          245
+        ],
+        [
+          608,
+          255
+        ],
+        [
+          596,
+          295
+        ],
+        [
+          558,
+          285
+        ]
+      ],
+      "coordinates_only": false,
+      "geometry_quality": 2,
+      "geometry_edge_mask": 15,
+      "geometry_support": 104,
+      "geometry_residual": 0.123,
+      "payload": "012345",
+      "payload_hex": "303132333435",
+      "image_encoding": "JPEG"
+    },
+    {
+      "type": "timing",
+      "received_s": 1.4690000000409782,
+      "data": {
+        "sequence": 2906,
+        "capture_us": 60293200,
+        "decode_us": 50757,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 1.5,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2907,
+        "capture_us": 60313105,
+        "age_us": 62502,
+        "decode_us": 61898,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 105,
+        "geometry_residual": 0.291
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.5,
+      "data": {
+        "sequence": 2907,
+        "capture_us": 60313105,
+        "decode_us": 61898,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 1.5160000000032596,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2908,
+        "capture_us": 60352830,
+        "age_us": 37141,
+        "decode_us": 36522,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 108,
+        "geometry_residual": 0.17
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.5160000000032596,
+      "data": {
+        "sequence": 2908,
+        "capture_us": 60352830,
+        "decode_us": 36522,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 1.5320000000065193,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2909,
+        "capture_us": 60372696,
+        "age_us": 32427,
+        "decode_us": 31814,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 109,
+        "geometry_residual": 0.272
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.5320000000065193,
+      "data": {
+        "sequence": 2909,
+        "capture_us": 60372696,
+        "decode_us": 31814,
+        "success": true
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.5630000000237487,
+      "data": {
+        "sequence": 2910,
+        "capture_us": 60392563,
+        "decode_us": 35928,
+        "success": false
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 1.5790000000270084,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            255
+          ],
+          [
+            597,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2911,
+        "capture_us": 60412445,
+        "age_us": 31180,
+        "decode_us": 30608,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 108,
+        "geometry_residual": 0.254
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.5790000000270084,
+      "data": {
+        "sequence": 2911,
+        "capture_us": 60412445,
+        "decode_us": 30608,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 1.5940000000409782,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2912,
+        "capture_us": 60432314,
+        "age_us": 28138,
+        "decode_us": 27601,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 106,
+        "geometry_residual": 0.129
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.5940000000409782,
+      "data": {
+        "sequence": 2912,
+        "capture_us": 60432314,
+        "decode_us": 27601,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 1.6100000000442378,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            597,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2913,
+        "capture_us": 60452179,
+        "age_us": 27422,
+        "decode_us": 26897,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 109,
+        "geometry_residual": 0.183
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.6100000000442378,
+      "data": {
+        "sequence": 2913,
+        "capture_us": 60452179,
+        "decode_us": 26897,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 1.625,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2914,
+        "capture_us": 60472047,
+        "age_us": 27899,
+        "decode_us": 27372,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 105,
+        "geometry_residual": 0.236
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.625,
+      "data": {
+        "sequence": 2914,
+        "capture_us": 60472047,
+        "decode_us": 27372,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 1.6410000000032596,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2915,
+        "capture_us": 60491926,
+        "age_us": 27351,
+        "decode_us": 26834,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 108,
+        "geometry_residual": 0.185
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.6570000000065193,
+      "data": {
+        "sequence": 2915,
+        "capture_us": 60491926,
+        "decode_us": 26834,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 1.6880000000237487,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2916,
+        "capture_us": 60511790,
+        "age_us": 44979,
+        "decode_us": 44344,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 107,
+        "geometry_residual": 0.184
+      }
+    },
+    {
+      "type": "frame",
+      "received_s": 1.6880000000237487,
+      "sequence": 2915,
+      "timestamp_us": 60491926,
+      "width": 1280,
+      "height": 720,
+      "success": true,
+      "decode_us": 26834,
+      "corners": [
+        [
+          569,
+          245
+        ],
+        [
+          608,
+          256
+        ],
+        [
+          596,
+          295
+        ],
+        [
+          558,
+          285
+        ]
+      ],
+      "coordinates_only": false,
+      "geometry_quality": 2,
+      "geometry_edge_mask": 15,
+      "geometry_support": 108,
+      "geometry_residual": 0.185,
+      "payload": "012345",
+      "payload_hex": "303132333435",
+      "image_encoding": "JPEG"
+    },
+    {
+      "type": "timing",
+      "received_s": 1.6880000000237487,
+      "data": {
+        "sequence": 2916,
+        "capture_us": 60511790,
+        "decode_us": 44344,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 1.7040000000270084,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2917,
+        "capture_us": 60531703,
+        "age_us": 40248,
+        "decode_us": 35240,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 113,
+        "geometry_residual": 0.232
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.7040000000270084,
+      "data": {
+        "sequence": 2917,
+        "capture_us": 60531703,
+        "decode_us": 35240,
+        "success": true
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.7350000000442378,
+      "data": {
+        "sequence": 2918,
+        "capture_us": 60571470,
+        "decode_us": 33187,
+        "success": false
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 1.75,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2919,
+        "capture_us": 60591292,
+        "age_us": 28202,
+        "decode_us": 27629,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 109,
+        "geometry_residual": 0.2
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.75,
+      "data": {
+        "sequence": 2919,
+        "capture_us": 60591292,
+        "decode_us": 27629,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 1.7660000000032596,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2920,
+        "capture_us": 60611156,
+        "age_us": 27624,
+        "decode_us": 27088,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 108,
+        "geometry_residual": 0.211
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.7660000000032596,
+      "data": {
+        "sequence": 2920,
+        "capture_us": 60611156,
+        "decode_us": 27088,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 1.7820000000065193,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2921,
+        "capture_us": 60631020,
+        "age_us": 27763,
+        "decode_us": 27180,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 106,
+        "geometry_residual": 0.317
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.797000000020489,
+      "data": {
+        "sequence": 2921,
+        "capture_us": 60631020,
+        "decode_us": 27180,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 1.8130000000237487,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2922,
+        "capture_us": 60650895,
+        "age_us": 27917,
+        "decode_us": 27377,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 106,
+        "geometry_residual": 0.197
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.8130000000237487,
+      "data": {
+        "sequence": 2922,
+        "capture_us": 60650895,
+        "decode_us": 27377,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 1.8290000000270084,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2923,
+        "capture_us": 60670772,
+        "age_us": 27597,
+        "decode_us": 27057,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 111,
+        "geometry_residual": 0.204
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.8290000000270084,
+      "data": {
+        "sequence": 2923,
+        "capture_us": 60670772,
+        "decode_us": 27057,
+        "success": true
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.8600000000442378,
+      "data": {
+        "sequence": 2924,
+        "capture_us": 60690635,
+        "decode_us": 34477,
+        "success": false
+      }
+    },
+    {
+      "type": "cpu",
+      "received_s": 1.8600000000442378,
+      "data": {
+        "interval_ms": 1000,
+        "core0": 81.5,
+        "core1": 87.4
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 1.875,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2925,
+        "capture_us": 60710518,
+        "age_us": 29499,
+        "decode_us": 28841,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 108,
+        "geometry_residual": 0.171
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.875,
+      "data": {
+        "sequence": 2925,
+        "capture_us": 60710518,
+        "decode_us": 28841,
+        "success": true
+      }
+    },
+    {
+      "type": "frame",
+      "received_s": 1.9070000000065193,
+      "sequence": 2925,
+      "timestamp_us": 60710518,
+      "width": 1280,
+      "height": 720,
+      "success": true,
+      "decode_us": 28841,
+      "corners": [
+        [
+          569,
+          245
+        ],
+        [
+          608,
+          255
+        ],
+        [
+          596,
+          295
+        ],
+        [
+          558,
+          284
+        ]
+      ],
+      "coordinates_only": false,
+      "geometry_quality": 2,
+      "geometry_edge_mask": 15,
+      "geometry_support": 108,
+      "geometry_residual": 0.171,
+      "payload": "012345",
+      "payload_hex": "303132333435",
+      "image_encoding": "JPEG"
+    },
+    {
+      "type": "timing",
+      "received_s": 1.922000000020489,
+      "data": {
+        "sequence": 2926,
+        "capture_us": 60730392,
+        "decode_us": 64584,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.9540000000270084,
+      "data": {
+        "sequence": 2927,
+        "capture_us": 60750288,
+        "decode_us": 64695,
+        "success": false
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 1.9540000000270084,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2928,
+        "capture_us": 60790007,
+        "age_us": 39219,
+        "decode_us": 38682,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 105,
+        "geometry_residual": 0.167
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.9540000000270084,
+      "data": {
+        "sequence": 2928,
+        "capture_us": 60790007,
+        "decode_us": 38682,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 1.9850000000442378,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2929,
+        "capture_us": 60829795,
+        "age_us": 33041,
+        "decode_us": 32404,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 104,
+        "geometry_residual": 0.148
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.0,
+      "data": {
+        "sequence": 2929,
+        "capture_us": 60829795,
+        "decode_us": 32404,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 2.0,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2930,
+        "capture_us": 60849609,
+        "age_us": 28421,
+        "decode_us": 27838,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 103,
+        "geometry_residual": 0.206
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.0,
+      "data": {
+        "sequence": 2930,
+        "capture_us": 60849609,
+        "decode_us": 27838,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 2.0320000000065193,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2931,
+        "capture_us": 60869486,
+        "age_us": 27360,
+        "decode_us": 26824,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 105,
+        "geometry_residual": 0.25
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.0320000000065193,
+      "data": {
+        "sequence": 2931,
+        "capture_us": 60869486,
+        "decode_us": 26824,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 2.047000000020489,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2932,
+        "capture_us": 60889356,
+        "age_us": 27951,
+        "decode_us": 27418,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 104,
+        "geometry_residual": 0.18
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.047000000020489,
+      "data": {
+        "sequence": 2932,
+        "capture_us": 60889356,
+        "decode_us": 27418,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 2.0630000000237487,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2933,
+        "capture_us": 60909225,
+        "age_us": 27068,
+        "decode_us": 26537,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 103,
+        "geometry_residual": 0.279
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.0630000000237487,
+      "data": {
+        "sequence": 2933,
+        "capture_us": 60909225,
+        "decode_us": 26537,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 2.094000000040978,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2934,
+        "capture_us": 60929103,
+        "age_us": 42659,
+        "decode_us": 42122,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 105,
+        "geometry_residual": 0.156
+      }
+    },
+    {
+      "type": "frame",
+      "received_s": 2.110000000044238,
+      "sequence": 2933,
+      "timestamp_us": 60909225,
+      "width": 1280,
+      "height": 720,
+      "success": true,
+      "decode_us": 26537,
+      "corners": [
+        [
+          569,
+          245
+        ],
+        [
+          608,
+          256
+        ],
+        [
+          596,
+          295
+        ],
+        [
+          558,
+          285
+        ]
+      ],
+      "coordinates_only": false,
+      "geometry_quality": 2,
+      "geometry_edge_mask": 15,
+      "geometry_support": 103,
+      "geometry_residual": 0.279,
+      "payload": "012345",
+      "payload_hex": "303132333435",
+      "image_encoding": "JPEG"
+    },
+    {
+      "type": "timing",
+      "received_s": 2.110000000044238,
+      "data": {
+        "sequence": 2934,
+        "capture_us": 60929103,
+        "decode_us": 42122,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 2.125,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2935,
+        "capture_us": 60949004,
+        "age_us": 39925,
+        "decode_us": 34032,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 102,
+        "geometry_residual": 0.213
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.125,
+      "data": {
+        "sequence": 2935,
+        "capture_us": 60949004,
+        "decode_us": 34032,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 2.1410000000032596,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2936,
+        "capture_us": 60988814,
+        "age_us": 25980,
+        "decode_us": 24655,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 101,
+        "geometry_residual": 0.255
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.1410000000032596,
+      "data": {
+        "sequence": 2936,
+        "capture_us": 60988814,
+        "decode_us": 24655,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 2.172000000020489,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2937,
+        "capture_us": 61008583,
+        "age_us": 27841,
+        "decode_us": 27270,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 101,
+        "geometry_residual": 0.319
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.172000000020489,
+      "data": {
+        "sequence": 2937,
+        "capture_us": 61008583,
+        "decode_us": 27270,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 2.1880000000237487,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2938,
+        "capture_us": 61028460,
+        "age_us": 27004,
+        "decode_us": 26483,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 106,
+        "geometry_residual": 0.179
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.1880000000237487,
+      "data": {
+        "sequence": 2938,
+        "capture_us": 61028460,
+        "decode_us": 26483,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 2.2040000000270084,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2939,
+        "capture_us": 61048330,
+        "age_us": 27719,
+        "decode_us": 27183,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 101,
+        "geometry_residual": 0.281
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.2040000000270084,
+      "data": {
+        "sequence": 2939,
+        "capture_us": 61048330,
+        "decode_us": 27183,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 2.219000000040978,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2940,
+        "capture_us": 61068202,
+        "age_us": 27554,
+        "decode_us": 27021,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 103,
+        "geometry_residual": 0.19
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.219000000040978,
+      "data": {
+        "sequence": 2940,
+        "capture_us": 61068202,
+        "decode_us": 27021,
+        "success": true
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.25,
+      "data": {
+        "sequence": 2941,
+        "capture_us": 61088069,
+        "decode_us": 34083,
+        "success": false
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 2.2660000000032596,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2942,
+        "capture_us": 61107952,
+        "age_us": 28783,
+        "decode_us": 28196,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 100,
+        "geometry_residual": 0.252
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.2660000000032596,
+      "data": {
+        "sequence": 2942,
+        "capture_us": 61107952,
+        "decode_us": 28196,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 2.297000000020489,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2943,
+        "capture_us": 61127817,
+        "age_us": 44981,
+        "decode_us": 44620,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 101,
+        "geometry_residual": 0.141
+      }
+    },
+    {
+      "type": "frame",
+      "received_s": 2.297000000020489,
+      "sequence": 2942,
+      "timestamp_us": 61107952,
+      "width": 1280,
+      "height": 720,
+      "success": true,
+      "decode_us": 28196,
+      "corners": [
+        [
+          569,
+          245
+        ],
+        [
+          607,
+          255
+        ],
+        [
+          596,
+          295
+        ],
+        [
+          558,
+          284
+        ]
+      ],
+      "coordinates_only": false,
+      "geometry_quality": 2,
+      "geometry_edge_mask": 15,
+      "geometry_support": 100,
+      "geometry_residual": 0.252,
+      "payload": "012345",
+      "payload_hex": "303132333435",
+      "image_encoding": "JPEG"
+    },
+    {
+      "type": "timing",
+      "received_s": 2.297000000020489,
+      "data": {
+        "sequence": 2943,
+        "capture_us": 61127817,
+        "decode_us": 44620,
+        "success": true
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.3290000000270084,
+      "data": {
+        "sequence": 2944,
+        "capture_us": 61147719,
+        "decode_us": 45224,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.4070000000065193,
+      "data": {
+        "sequence": 2945,
+        "capture_us": 61187433,
+        "decode_us": 87683,
+        "success": false
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 2.422000000020489,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2948,
+        "capture_us": 61247050,
+        "age_us": 49708,
+        "decode_us": 49139,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 99,
+        "geometry_residual": 0.193
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.422000000020489,
+      "data": {
+        "sequence": 2948,
+        "capture_us": 61247050,
+        "decode_us": 49139,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 2.4380000000237487,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2949,
+        "capture_us": 61266949,
+        "age_us": 43991,
+        "decode_us": 43318,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 99,
+        "geometry_residual": 0.172
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.4380000000237487,
+      "data": {
+        "sequence": 2949,
+        "capture_us": 61266949,
+        "decode_us": 43318,
+        "success": true
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.469000000040978,
+      "data": {
+        "sequence": 2950,
+        "capture_us": 61306688,
+        "decode_us": 34494,
+        "success": false
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 2.485000000044238,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            255
+          ],
+          [
+            597,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2951,
+        "capture_us": 61326537,
+        "age_us": 28940,
+        "decode_us": 28309,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 97,
+        "geometry_residual": 0.154
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.485000000044238,
+      "data": {
+        "sequence": 2951,
+        "capture_us": 61326537,
+        "decode_us": 28309,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 2.5160000000032596,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2952,
+        "capture_us": 61346406,
+        "age_us": 45103,
+        "decode_us": 44728,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 98,
+        "geometry_residual": 0.235
+      }
+    },
+    {
+      "type": "frame",
+      "received_s": 2.5160000000032596,
+      "sequence": 2951,
+      "timestamp_us": 61326537,
+      "width": 1280,
+      "height": 720,
+      "success": true,
+      "decode_us": 28309,
+      "corners": [
+        [
+          569,
+          245
+        ],
+        [
+          607,
+          255
+        ],
+        [
+          597,
+          295
+        ],
+        [
+          558,
+          285
+        ]
+      ],
+      "coordinates_only": false,
+      "geometry_quality": 2,
+      "geometry_edge_mask": 15,
+      "geometry_support": 97,
+      "geometry_residual": 0.154,
+      "payload": "012345",
+      "payload_hex": "303132333435",
+      "image_encoding": "JPEG"
+    },
+    {
+      "type": "timing",
+      "received_s": 2.5160000000032596,
+      "data": {
+        "sequence": 2952,
+        "capture_us": 61346406,
+        "decode_us": 44728,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 2.5320000000065193,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            256
+          ],
+          [
+            597,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2953,
+        "capture_us": 61366306,
+        "age_us": 38021,
+        "decode_us": 37540,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 101,
+        "geometry_residual": 0.187
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.5320000000065193,
+      "data": {
+        "sequence": 2953,
+        "capture_us": 61366306,
+        "decode_us": 37540,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 2.5630000000237487,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            256
+          ],
+          [
+            597,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2954,
+        "capture_us": 61406025,
+        "age_us": 23791,
+        "decode_us": 23237,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 100,
+        "geometry_residual": 0.201
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.5630000000237487,
+      "data": {
+        "sequence": 2954,
+        "capture_us": 61406025,
+        "decode_us": 23237,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 2.5790000000270084,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2955,
+        "capture_us": 61425937,
+        "age_us": 26687,
+        "decode_us": 26100,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 98,
+        "geometry_residual": 0.144
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.5790000000270084,
+      "data": {
+        "sequence": 2955,
+        "capture_us": 61425937,
+        "decode_us": 26100,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 2.594000000040978,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2956,
+        "capture_us": 61445760,
+        "age_us": 26941,
+        "decode_us": 26359,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 97,
+        "geometry_residual": 0.217
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.610000000044238,
+      "data": {
+        "sequence": 2956,
+        "capture_us": 61445760,
+        "decode_us": 26359,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 2.625,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2957,
+        "capture_us": 61465632,
+        "age_us": 26805,
+        "decode_us": 26251,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 98,
+        "geometry_residual": 0.26
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.625,
+      "data": {
+        "sequence": 2957,
+        "capture_us": 61465632,
+        "decode_us": 26251,
+        "success": true
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.6570000000065193,
+      "data": {
+        "sequence": 2958,
+        "capture_us": 61485508,
+        "decode_us": 34414,
+        "success": false
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 2.6570000000065193,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2959,
+        "capture_us": 61505386,
+        "age_us": 28183,
+        "decode_us": 27618,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 100,
+        "geometry_residual": 0.21
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.6570000000065193,
+      "data": {
+        "sequence": 2959,
+        "capture_us": 61505386,
+        "decode_us": 27618,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 2.6880000000237487,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2960,
+        "capture_us": 61525255,
+        "age_us": 26917,
+        "decode_us": 26392,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 102,
+        "geometry_residual": 0.184
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.6880000000237487,
+      "data": {
+        "sequence": 2960,
+        "capture_us": 61525255,
+        "decode_us": 26392,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 2.719000000040978,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2961,
+        "capture_us": 61545119,
+        "age_us": 42682,
+        "decode_us": 42343,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 102,
+        "geometry_residual": 0.231
+      }
+    },
+    {
+      "type": "frame",
+      "received_s": 2.719000000040978,
+      "sequence": 2960,
+      "timestamp_us": 61525255,
+      "width": 1280,
+      "height": 720,
+      "success": true,
+      "decode_us": 26392,
+      "corners": [
+        [
+          569,
+          245
+        ],
+        [
+          608,
+          256
+        ],
+        [
+          596,
+          295
+        ],
+        [
+          558,
+          285
+        ]
+      ],
+      "coordinates_only": false,
+      "geometry_quality": 2,
+      "geometry_edge_mask": 15,
+      "geometry_support": 102,
+      "geometry_residual": 0.184,
+      "payload": "012345",
+      "payload_hex": "303132333435",
+      "image_encoding": "JPEG"
+    },
+    {
+      "type": "timing",
+      "received_s": 2.719000000040978,
+      "data": {
+        "sequence": 2961,
+        "capture_us": 61545119,
+        "decode_us": 42343,
+        "success": true
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.735000000044238,
+      "data": {
+        "sequence": 2962,
+        "capture_us": 61565029,
+        "decode_us": 42334,
+        "success": false
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 2.7660000000032596,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2963,
+        "capture_us": 61604739,
+        "age_us": 26704,
+        "decode_us": 26139,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 98,
+        "geometry_residual": 0.188
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.7660000000032596,
+      "data": {
+        "sequence": 2963,
+        "capture_us": 61604739,
+        "decode_us": 26139,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 2.7820000000065193,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2964,
+        "capture_us": 61624614,
+        "age_us": 27109,
+        "decode_us": 26533,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 101,
+        "geometry_residual": 0.229
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.7820000000065193,
+      "data": {
+        "sequence": 2964,
+        "capture_us": 61624614,
+        "decode_us": 26533,
+        "success": true
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.8290000000270084,
+      "data": {
+        "sequence": 2965,
+        "capture_us": 61644485,
+        "decode_us": 47118,
+        "success": false
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 2.844000000040978,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2966,
+        "capture_us": 61664354,
+        "age_us": 56068,
+        "decode_us": 55489,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 103,
+        "geometry_residual": 0.201
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.844000000040978,
+      "data": {
+        "sequence": 2966,
+        "capture_us": 61664354,
+        "decode_us": 55489,
+        "success": true
+      }
+    },
+    {
+      "type": "cpu",
+      "received_s": 2.860000000044238,
+      "data": {
+        "interval_ms": 1001,
+        "core0": 77.5,
+        "core1": 83.0
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 2.860000000044238,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2967,
+        "capture_us": 61684244,
+        "age_us": 51606,
+        "decode_us": 50997,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 102,
+        "geometry_residual": 0.159
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.860000000044238,
+      "data": {
+        "sequence": 2967,
+        "capture_us": 61684244,
+        "decode_us": 50997,
+        "success": true
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.8910000000032596,
+      "data": {
+        "sequence": 2968,
+        "capture_us": 61723966,
+        "decode_us": 36246,
+        "success": false
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 2.922000000020489,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2969,
+        "capture_us": 61743855,
+        "age_us": 47662,
+        "decode_us": 47085,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 102,
+        "geometry_residual": 0.243
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.922000000020489,
+      "data": {
+        "sequence": 2969,
+        "capture_us": 61743855,
+        "decode_us": 47085,
+        "success": true
+      }
+    },
+    {
+      "type": "frame",
+      "received_s": 2.9540000000270084,
+      "sequence": 2969,
+      "timestamp_us": 61743855,
+      "width": 1280,
+      "height": 720,
+      "success": true,
+      "decode_us": 47085,
+      "corners": [
+        [
+          569,
+          245
+        ],
+        [
+          608,
+          255
+        ],
+        [
+          596,
+          295
+        ],
+        [
+          558,
+          285
+        ]
+      ],
+      "coordinates_only": false,
+      "geometry_quality": 2,
+      "geometry_edge_mask": 15,
+      "geometry_support": 102,
+      "geometry_residual": 0.243,
+      "payload": "012345",
+      "payload_hex": "303132333435",
+      "image_encoding": "JPEG"
+    },
+    {
+      "type": "timing",
+      "received_s": 2.969000000040978,
+      "data": {
+        "sequence": 2971,
+        "capture_us": 61783583,
+        "decode_us": 52540,
+        "success": false
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 2.985000000044238,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2972,
+        "capture_us": 61823345,
+        "age_us": 31083,
+        "decode_us": 28709,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 106,
+        "geometry_residual": 0.252
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.985000000044238,
+      "data": {
+        "sequence": 2972,
+        "capture_us": 61823345,
+        "decode_us": 28709,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.0,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            256
+          ],
+          [
+            597,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2973,
+        "capture_us": 61843207,
+        "age_us": 28032,
+        "decode_us": 27491,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 106,
+        "geometry_residual": 0.287
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.0,
+      "data": {
+        "sequence": 2973,
+        "capture_us": 61843207,
+        "decode_us": 27491,
+        "success": true
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.0320000000065193,
+      "data": {
+        "sequence": 2974,
+        "capture_us": 61863066,
+        "decode_us": 34094,
+        "success": false
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.047000000020489,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2975,
+        "capture_us": 61882954,
+        "age_us": 36966,
+        "decode_us": 36397,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 105,
+        "geometry_residual": 0.257
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.047000000020489,
+      "data": {
+        "sequence": 2975,
+        "capture_us": 61882954,
+        "decode_us": 36397,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.0630000000237487,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2976,
+        "capture_us": 61902816,
+        "age_us": 32639,
+        "decode_us": 32109,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 103,
+        "geometry_residual": 0.247
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.0630000000237487,
+      "data": {
+        "sequence": 2976,
+        "capture_us": 61902816,
+        "decode_us": 32109,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.0790000000270084,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            255
+          ],
+          [
+            597,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2977,
+        "capture_us": 61922686,
+        "age_us": 28857,
+        "decode_us": 28303,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 109,
+        "geometry_residual": 0.175
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.0790000000270084,
+      "data": {
+        "sequence": 2977,
+        "capture_us": 61922686,
+        "decode_us": 28303,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.094000000040978,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2978,
+        "capture_us": 61942671,
+        "age_us": 27284,
+        "decode_us": 26627,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 102,
+        "geometry_residual": 0.248
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.094000000040978,
+      "data": {
+        "sequence": 2978,
+        "capture_us": 61942671,
+        "decode_us": 26627,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.1410000000032596,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            597,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2979,
+        "capture_us": 61962428,
+        "age_us": 43401,
+        "decode_us": 42799,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 109,
+        "geometry_residual": 0.199
+      }
+    },
+    {
+      "type": "frame",
+      "received_s": 3.1410000000032596,
+      "sequence": 2978,
+      "timestamp_us": 61942671,
+      "width": 1280,
+      "height": 720,
+      "success": true,
+      "decode_us": 26627,
+      "corners": [
+        [
+          569,
+          245
+        ],
+        [
+          608,
+          255
+        ],
+        [
+          596,
+          295
+        ],
+        [
+          558,
+          284
+        ]
+      ],
+      "coordinates_only": false,
+      "geometry_quality": 2,
+      "geometry_edge_mask": 15,
+      "geometry_support": 102,
+      "geometry_residual": 0.248,
+      "payload": "012345",
+      "payload_hex": "303132333435",
+      "image_encoding": "JPEG"
+    },
+    {
+      "type": "timing",
+      "received_s": 3.1410000000032596,
+      "data": {
+        "sequence": 2979,
+        "capture_us": 61962428,
+        "decode_us": 42799,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.1570000000065193,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2980,
+        "capture_us": 61982339,
+        "age_us": 39926,
+        "decode_us": 34470,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 108,
+        "geometry_residual": 0.288
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.1570000000065193,
+      "data": {
+        "sequence": 2980,
+        "capture_us": 61982339,
+        "decode_us": 34470,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.172000000020489,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            256
+          ],
+          [
+            597,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2981,
+        "capture_us": 62022111,
+        "age_us": 26719,
+        "decode_us": 25335,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 105,
+        "geometry_residual": 0.193
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.172000000020489,
+      "data": {
+        "sequence": 2981,
+        "capture_us": 62022111,
+        "decode_us": 25335,
+        "success": true
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.219000000040978,
+      "data": {
+        "sequence": 2982,
+        "capture_us": 62041920,
+        "decode_us": 47489,
+        "success": false
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.235000000044238,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2983,
+        "capture_us": 62061800,
+        "age_us": 41332,
+        "decode_us": 40685,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 108,
+        "geometry_residual": 0.207
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.235000000044238,
+      "data": {
+        "sequence": 2983,
+        "capture_us": 62061800,
+        "decode_us": 40685,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.25,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2984,
+        "capture_us": 62081679,
+        "age_us": 34250,
+        "decode_us": 33638,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 105,
+        "geometry_residual": 0.19
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.25,
+      "data": {
+        "sequence": 2984,
+        "capture_us": 62081679,
+        "decode_us": 33638,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.2820000000065193,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            597,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2985,
+        "capture_us": 62121380,
+        "age_us": 24804,
+        "decode_us": 24281,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 107,
+        "geometry_residual": 0.169
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.2820000000065193,
+      "data": {
+        "sequence": 2985,
+        "capture_us": 62121380,
+        "decode_us": 24281,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.297000000020489,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            256
+          ],
+          [
+            597,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2986,
+        "capture_us": 62141274,
+        "age_us": 28208,
+        "decode_us": 27668,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 112,
+        "geometry_residual": 0.257
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.297000000020489,
+      "data": {
+        "sequence": 2986,
+        "capture_us": 62141274,
+        "decode_us": 27668,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.3290000000270084,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2987,
+        "capture_us": 62161142,
+        "age_us": 45581,
+        "decode_us": 44838,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 107,
+        "geometry_residual": 0.142
+      }
+    },
+    {
+      "type": "frame",
+      "received_s": 3.344000000040978,
+      "sequence": 2986,
+      "timestamp_us": 62141274,
+      "width": 1280,
+      "height": 720,
+      "success": true,
+      "decode_us": 27668,
+      "corners": [
+        [
+          569,
+          245
+        ],
+        [
+          607,
+          256
+        ],
+        [
+          597,
+          295
+        ],
+        [
+          558,
+          285
+        ]
+      ],
+      "coordinates_only": false,
+      "geometry_quality": 2,
+      "geometry_edge_mask": 15,
+      "geometry_support": 112,
+      "geometry_residual": 0.257,
+      "payload": "012345",
+      "payload_hex": "303132333435",
+      "image_encoding": "JPEG"
+    },
+    {
+      "type": "timing",
+      "received_s": 3.344000000040978,
+      "data": {
+        "sequence": 2987,
+        "capture_us": 62161142,
+        "decode_us": 44838,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.344000000040978,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2988,
+        "capture_us": 62181050,
+        "age_us": 39847,
+        "decode_us": 36057,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 107,
+        "geometry_residual": 0.172
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.344000000040978,
+      "data": {
+        "sequence": 2988,
+        "capture_us": 62181050,
+        "decode_us": 36057,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.375,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2989,
+        "capture_us": 62220830,
+        "age_us": 26170,
+        "decode_us": 24868,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 104,
+        "geometry_residual": 0.172
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.375,
+      "data": {
+        "sequence": 2989,
+        "capture_us": 62220830,
+        "decode_us": 24868,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.3910000000032596,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            256
+          ],
+          [
+            597,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2990,
+        "capture_us": 62240637,
+        "age_us": 28059,
+        "decode_us": 27450,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 105,
+        "geometry_residual": 0.212
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.4070000000065193,
+      "data": {
+        "sequence": 2990,
+        "capture_us": 62240637,
+        "decode_us": 27450,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.422000000020489,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2991,
+        "capture_us": 62260508,
+        "age_us": 27305,
+        "decode_us": 26775,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 107,
+        "geometry_residual": 0.182
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.422000000020489,
+      "data": {
+        "sequence": 2991,
+        "capture_us": 62260508,
+        "decode_us": 26775,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.4380000000237487,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2992,
+        "capture_us": 62280372,
+        "age_us": 27513,
+        "decode_us": 26975,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 107,
+        "geometry_residual": 0.266
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.4380000000237487,
+      "data": {
+        "sequence": 2992,
+        "capture_us": 62280372,
+        "decode_us": 26975,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.4540000000270084,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2993,
+        "capture_us": 62300244,
+        "age_us": 27558,
+        "decode_us": 27039,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 104,
+        "geometry_residual": 0.212
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.4540000000270084,
+      "data": {
+        "sequence": 2993,
+        "capture_us": 62300244,
+        "decode_us": 27039,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.469000000040978,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2994,
+        "capture_us": 62320116,
+        "age_us": 27499,
+        "decode_us": 26974,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 108,
+        "geometry_residual": 0.233
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.485000000044238,
+      "data": {
+        "sequence": 2994,
+        "capture_us": 62320116,
+        "decode_us": 26974,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.5,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2995,
+        "capture_us": 62339995,
+        "age_us": 28111,
+        "decode_us": 27582,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 107,
+        "geometry_residual": 0.248
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.5,
+      "data": {
+        "sequence": 2995,
+        "capture_us": 62339995,
+        "decode_us": 27582,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.5160000000032596,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2996,
+        "capture_us": 62359863,
+        "age_us": 28223,
+        "decode_us": 27679,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 108,
+        "geometry_residual": 0.219
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.5160000000032596,
+      "data": {
+        "sequence": 2996,
+        "capture_us": 62359863,
+        "decode_us": 27679,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.547000000020489,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2997,
+        "capture_us": 62379739,
+        "age_us": 44237,
+        "decode_us": 43926,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 112,
+        "geometry_residual": 0.192
+      }
+    },
+    {
+      "type": "frame",
+      "received_s": 3.5630000000237487,
+      "sequence": 2996,
+      "timestamp_us": 62359863,
+      "width": 1280,
+      "height": 720,
+      "success": true,
+      "decode_us": 27679,
+      "corners": [
+        [
+          569,
+          245
+        ],
+        [
+          608,
+          256
+        ],
+        [
+          596,
+          295
+        ],
+        [
+          558,
+          284
+        ]
+      ],
+      "coordinates_only": false,
+      "geometry_quality": 2,
+      "geometry_edge_mask": 15,
+      "geometry_support": 108,
+      "geometry_residual": 0.219,
+      "payload": "012345",
+      "payload_hex": "303132333435",
+      "image_encoding": "JPEG"
+    },
+    {
+      "type": "timing",
+      "received_s": 3.5630000000237487,
+      "data": {
+        "sequence": 2997,
+        "capture_us": 62379739,
+        "decode_us": 43926,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.5630000000237487,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 2998,
+        "capture_us": 62399638,
+        "age_us": 38521,
+        "decode_us": 36575,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 106,
+        "geometry_residual": 0.255
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.5630000000237487,
+      "data": {
+        "sequence": 2998,
+        "capture_us": 62399638,
+        "decode_us": 36575,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.594000000040978,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 2999,
+        "capture_us": 62439374,
+        "age_us": 25310,
+        "decode_us": 24693,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 111,
+        "geometry_residual": 0.192
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.594000000040978,
+      "data": {
+        "sequence": 2999,
+        "capture_us": 62439374,
+        "decode_us": 24693,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.610000000044238,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 3000,
+        "capture_us": 62459218,
+        "age_us": 28095,
+        "decode_us": 27569,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 105,
+        "geometry_residual": 0.181
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.625,
+      "data": {
+        "sequence": 3000,
+        "capture_us": 62459218,
+        "decode_us": 27569,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.6410000000032596,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 3001,
+        "capture_us": 62479090,
+        "age_us": 36072,
+        "decode_us": 35441,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 106,
+        "geometry_residual": 0.126
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.6410000000032596,
+      "data": {
+        "sequence": 3001,
+        "capture_us": 62479090,
+        "decode_us": 35441,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.6570000000065193,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 3002,
+        "capture_us": 62498965,
+        "age_us": 31318,
+        "decode_us": 30792,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 104,
+        "geometry_residual": 0.182
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.6570000000065193,
+      "data": {
+        "sequence": 3002,
+        "capture_us": 62498965,
+        "decode_us": 30792,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.672000000020489,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 3003,
+        "capture_us": 62518852,
+        "age_us": 28736,
+        "decode_us": 28195,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 104,
+        "geometry_residual": 0.23
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.672000000020489,
+      "data": {
+        "sequence": 3003,
+        "capture_us": 62518852,
+        "decode_us": 28195,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.7040000000270084,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 3004,
+        "capture_us": 62538725,
+        "age_us": 27077,
+        "decode_us": 26456,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 105,
+        "geometry_residual": 0.172
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.7040000000270084,
+      "data": {
+        "sequence": 3004,
+        "capture_us": 62538725,
+        "decode_us": 26456,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.719000000040978,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 3005,
+        "capture_us": 62558580,
+        "age_us": 28575,
+        "decode_us": 28022,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 104,
+        "geometry_residual": 0.271
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.719000000040978,
+      "data": {
+        "sequence": 3005,
+        "capture_us": 62558580,
+        "decode_us": 28022,
+        "success": true
+      }
+    },
+    {
+      "type": "frame",
+      "received_s": 3.75,
+      "sequence": 3005,
+      "timestamp_us": 62558580,
+      "width": 1280,
+      "height": 720,
+      "success": true,
+      "decode_us": 28022,
+      "corners": [
+        [
+          569,
+          245
+        ],
+        [
+          608,
+          256
+        ],
+        [
+          596,
+          295
+        ],
+        [
+          558,
+          284
+        ]
+      ],
+      "coordinates_only": false,
+      "geometry_quality": 2,
+      "geometry_edge_mask": 15,
+      "geometry_support": 104,
+      "geometry_residual": 0.271,
+      "payload": "012345",
+      "payload_hex": "303132333435",
+      "image_encoding": "JPEG"
+    },
+    {
+      "type": "result",
+      "received_s": 3.7660000000032596,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 3006,
+        "capture_us": 62578448,
+        "age_us": 53082,
+        "decode_us": 52679,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 104,
+        "geometry_residual": 0.244
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.7660000000032596,
+      "data": {
+        "sequence": 3006,
+        "capture_us": 62578448,
+        "decode_us": 52679,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.7820000000065193,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            597,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 3007,
+        "capture_us": 62598455,
+        "age_us": 49286,
+        "decode_us": 48187,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 100,
+        "geometry_residual": 0.199
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.7820000000065193,
+      "data": {
+        "sequence": 3007,
+        "capture_us": 62598455,
+        "decode_us": 48187,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.797000000020489,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 3008,
+        "capture_us": 62638106,
+        "age_us": 27027,
+        "decode_us": 26386,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 101,
+        "geometry_residual": 0.188
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.797000000020489,
+      "data": {
+        "sequence": 3008,
+        "capture_us": 62638106,
+        "decode_us": 26386,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.8130000000237487,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 3009,
+        "capture_us": 62657939,
+        "age_us": 27244,
+        "decode_us": 26741,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 101,
+        "geometry_residual": 0.205
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.8130000000237487,
+      "data": {
+        "sequence": 3009,
+        "capture_us": 62657939,
+        "decode_us": 26741,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.8290000000270084,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 3010,
+        "capture_us": 62677807,
+        "age_us": 27560,
+        "decode_us": 27034,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 102,
+        "geometry_residual": 0.139
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.8290000000270084,
+      "data": {
+        "sequence": 3010,
+        "capture_us": 62677807,
+        "decode_us": 27034,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.860000000044238,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 3011,
+        "capture_us": 62697683,
+        "age_us": 27449,
+        "decode_us": 26873,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 102,
+        "geometry_residual": 0.224
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.860000000044238,
+      "data": {
+        "sequence": 3011,
+        "capture_us": 62697683,
+        "decode_us": 26873,
+        "success": true
+      }
+    },
+    {
+      "type": "cpu",
+      "received_s": 3.860000000044238,
+      "data": {
+        "interval_ms": 1001,
+        "core0": 80.4,
+        "core1": 81.2
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.875,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            607,
+            255
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 3012,
+        "capture_us": 62717550,
+        "age_us": 27871,
+        "decode_us": 27288,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 108,
+        "geometry_residual": 0.167
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.875,
+      "data": {
+        "sequence": 3012,
+        "capture_us": 62717550,
+        "decode_us": 27288,
+        "success": true
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.8910000000032596,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            255
+          ],
+          [
+            597,
+            295
+          ],
+          [
+            558,
+            284
+          ]
+        ],
+        "sequence": 3013,
+        "capture_us": 62737430,
+        "age_us": 27339,
+        "decode_us": 26800,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 106,
+        "geometry_residual": 0.277
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.8910000000032596,
+      "data": {
+        "sequence": 3013,
+        "capture_us": 62737430,
+        "decode_us": 26800,
+        "success": true
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.922000000020489,
+      "data": {
+        "sequence": 3014,
+        "capture_us": 62757294,
+        "decode_us": 34694,
+        "success": false
+      }
+    },
+    {
+      "type": "result",
+      "received_s": 3.9380000000237487,
+      "data": {
+        "payload": "012345",
+        "corners": [
+          [
+            569,
+            245
+          ],
+          [
+            608,
+            256
+          ],
+          [
+            596,
+            295
+          ],
+          [
+            558,
+            285
+          ]
+        ],
+        "sequence": 3015,
+        "capture_us": 62777181,
+        "age_us": 29595,
+        "decode_us": 29036,
+        "geometry_quality": 2,
+        "geometry_edge_mask": 15,
+        "geometry_support": 101,
+        "geometry_residual": 0.288
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.9380000000237487,
+      "data": {
+        "sequence": 3015,
+        "capture_us": 62777181,
+        "decode_us": 29036,
+        "success": true
+      }
+    },
+    {
+      "type": "frame",
+      "received_s": 3.969000000040978,
+      "sequence": 3015,
+      "timestamp_us": 62777181,
+      "width": 1280,
+      "height": 720,
+      "success": true,
+      "decode_us": 29036,
+      "corners": [
+        [
+          569,
+          245
+        ],
+        [
+          608,
+          256
+        ],
+        [
+          596,
+          295
+        ],
+        [
+          558,
+          285
+        ]
+      ],
+      "coordinates_only": false,
+      "geometry_quality": 2,
+      "geometry_edge_mask": 15,
+      "geometry_support": 101,
+      "geometry_residual": 0.288,
+      "payload": "012345",
+      "payload_hex": "303132333435",
+      "image_encoding": "JPEG"
+    },
+    {
+      "type": "timing",
+      "received_s": 3.985000000044238,
+      "data": {
+        "sequence": 3016,
+        "capture_us": 62797086,
+        "decode_us": 51839,
+        "success": false
+      }
+    }
+  ],
+  "result_packets": 143,
+  "result_packets_per_s": 35.75,
+  "timing_sequence_gaps": 4
+}

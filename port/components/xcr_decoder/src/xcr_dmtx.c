@@ -45,6 +45,8 @@ static XcrDmtxStats last_stats;
 /* Grid scale only, never a previous-frame position/ROI. Atomic because a
  * caller may run preparations on another core; no image data is retained. */
 static atomic_int preferred_marker_step = ATOMIC_VAR_INIT(6);
+/* A threshold-window choice only; no image or previous-frame position. */
+static atomic_int preferred_dense_radius = ATOMIC_VAR_INIT(6);
 /* Sampling choice only; every frame is searched over its entire extent. */
 static atomic_int dense_decode_frames = ATOMIC_VAR_INIT(0);
 
@@ -413,7 +415,7 @@ static int normalized_local_binary(uint8_t *pixels, int side)
 }
 
 static int begin_marker_roi_slice_step(const Image *image, int sample_left, int sample_right,
-                                 int step, XcrDmtxSearchState *state, uint64_t phases_us[4])
+                                 int step, int radius, XcrDmtxSearchState *state, uint64_t phases_us[4])
 {
     memset(state, 0, sizeof(*state));
     const int width = sample_right - sample_left;
@@ -422,11 +424,16 @@ static int begin_marker_roi_slice_step(const Image *image, int sample_left, int 
     const size_t count = (size_t)width * (size_t)height;
     /* Keep the established fast-grid work/memory schedule for image upload.
      * Dense retries use rolling box sums and a narrower queue to reduce
-     * their workspace (288000 -> 175680 bytes at 1280x720 / step 4). */
+     * their workspace (288000 -> at most 175680 bytes at step 4). */
     const int integral_grid = step == 6;
+    /* The compact retry uses 5 dense samples (20px). Bright background
+     * above dark paper can join its top markers with the normal 52px box.
+     * Keep the established window first for ordinary scenes: shrinking it
+     * there increases code-module candidates and geometry matching work. */
+    const int history_rows = radius + 1;
     const int narrow_queue = !integral_grid && count <= UINT16_MAX;
     const size_t queue_bytes = count * (narrow_queue ? sizeof(uint16_t) : sizeof(int));
-    const size_t column_offset = (queue_bytes + count + (size_t)width * 7 + 1) & ~(size_t)1;
+    const size_t column_offset = (queue_bytes + count + (size_t)width * history_rows + 1) & ~(size_t)1;
     const size_t workspace_bytes = integral_grid ? queue_bytes + count :
         column_offset + (size_t)width * sizeof(uint16_t);
     XcrMemClass queue_class = XCR_MEM_LARGE;
@@ -484,26 +491,26 @@ static int begin_marker_roi_slice_step(const Image *image, int sample_left, int 
         }
     } else {
     memset(columns, 0, (size_t)width * sizeof(*columns));
-    for (int y = 0; y < height && y <= 6; y++)
+    for (int y = 0; y < height && y <= radius; y++)
         for (int x = 0; x < width; x++) columns[x] += mask[y * width + x];
     for (int y = 0; y < height; y++) {
-        memcpy(history + (y % 7) * width, mask + y * width, width);
+        memcpy(history + (y % history_rows) * width, mask + y * width, width);
         int sum = 0;
-        for (int x = 0; x < width && x <= 6; x++) sum += columns[x];
-        int top = y > 6 ? y - 6 : 0;
-        int bottom = y + 6 < height ? y + 6 : height - 1;
+        for (int x = 0; x < width && x <= radius; x++) sum += columns[x];
+        int top = y > radius ? y - radius : 0;
+        int bottom = y + radius < height ? y + radius : height - 1;
         for (int x = 0; x < width; x++) {
-            int left = x > 6 ? x - 6 : 0;
-            int right = x + 6 < width ? x + 6 : width - 1;
+            int left = x > radius ? x - radius : 0;
+            int right = x + radius < width ? x + radius : width - 1;
             int area = (right - left + 1) * (bottom - top + 1);
             int value = mask[y * width + x];
             mask[y * width + x] = value * area * 100 < sum * 75;
-            if (x >= 6) sum -= columns[x - 6];
-            if (x + 7 < width) sum += columns[x + 7];
+            if (x >= radius) sum -= columns[x - radius];
+            if (x + radius + 1 < width) sum += columns[x + radius + 1];
         }
         for (int x = 0; x < width; x++) {
-            if (y >= 6) columns[x] -= history[((y - 6) % 7) * width + x];
-            if (y + 7 < height) columns[x] += mask[(y + 7) * width + x];
+            if (y >= radius) columns[x] -= history[((y - radius) % history_rows) * width + x];
+            if (y + radius + 1 < height) columns[x] += mask[(y + radius + 1) * width + x];
         }
     }
     }
@@ -517,8 +524,92 @@ static int begin_marker_roi_slice_step(const Image *image, int sample_left, int 
     state->step = step;
     state->threshold = threshold;
     state->narrow_queue = narrow_queue;
+    state->window_radius = radius;
     return 1;
 }
+typedef struct {
+    unsigned attempts;
+    unsigned points;
+    uint64_t elapsed_us;
+} MarkerSplitBudget;
+
+/* Only a rejected elongated component is reconsidered. The flood queue
+ * already contains its points, so no image-sized buffer or second full-frame
+ * component pass is needed. Normal square markers retain their original mask.
+ * Values of 2 mark repaired children and prevent recursive rethresholding. */
+static int split_elongated_marker(const Image *image, uint8_t *mask,
+    const uint16_t *queue16, const int *queue32, int narrow_queue,
+    int grid_width, int sample_left, int step, int points,
+    int component_width, int component_height, MarkerSplitBudget *budget)
+{
+    if (points < 8 || component_width < 2 || component_height < 2 ||
+        component_width > 64 || component_height > 64 ||
+        (component_width * 6 <= component_height * 10 &&
+         component_height * 6 <= component_width * 10) ||
+        budget->attempts >= 8 || budget->points + (unsigned)points > 4096 ||
+        budget->elapsed_us >= 1000) return 0;
+
+    uint64_t started = xcr_port_time_us();
+    budget->attempts++;
+    budget->points += points;
+    uint16_t histogram[256] = {0};
+    uint32_t total_sum = 0;
+    int minimum = 255, maximum = 0;
+    for (int index = 0; index < points; index++) {
+        int point = narrow_queue ? queue16[index] : queue32[index];
+        int x = point % grid_width, y = point / grid_width;
+        int value = image->pixels[(size_t)y * step * image->width + (x + sample_left) * step];
+        histogram[value]++;
+        total_sum += value;
+        if (value < minimum) minimum = value;
+        if (value > maximum) maximum = value;
+    }
+
+    if (maximum - minimum < 12) {
+        budget->elapsed_us += xcr_port_time_us() - started;
+        return 0;
+    }
+
+    uint32_t dark_count = 0, dark_sum = 0, best_count = 0, best_sum = 0;
+    uint64_t best_score = 0;
+    int threshold = minimum;
+    for (int value = minimum; value < maximum; value++) {
+        /* Empty bins leave both class sums unchanged. Their score would
+         * repeat the previous one, including its first/lowest cutoff. */
+        if (!histogram[value]) continue;
+        dark_count += histogram[value];
+        dark_sum += (uint32_t)value * histogram[value];
+        if (!dark_count || dark_count == (unsigned)points) continue;
+        /* With at most 4096 points, the squared Otsu numerator fits uint64.
+         * Integer arithmetic avoids double-precision work in the P4 search. */
+        int64_t delta = (int64_t)dark_sum * points - (int64_t)total_sum * dark_count;
+        uint64_t magnitude = delta < 0 ? (uint64_t)-delta : (uint64_t)delta;
+        uint64_t score = magnitude * magnitude /
+            ((uint64_t)dark_count * ((unsigned)points - dark_count));
+        if (score > best_score) {
+            best_score = score;
+            threshold = value;
+            best_count = dark_count;
+            best_sum = dark_sum;
+        }
+    }
+    uint32_t light_count = (unsigned)points - best_count;
+    uint32_t light_sum = total_sum - best_sum;
+    int separated = best_count >= 4 && light_count >= 4 &&
+        (uint64_t)light_sum * best_count >= (uint64_t)best_sum * light_count +
+            (uint64_t)12 * best_count * light_count;
+    if (separated) {
+        for (int index = 0; index < points; index++) {
+            int point = narrow_queue ? queue16[index] : queue32[index];
+            int x = point % grid_width, y = point / grid_width;
+            int value = image->pixels[(size_t)y * step * image->width + (x + sample_left) * step];
+            if (value <= threshold) mask[point] = 2;
+        }
+    }
+    budget->elapsed_us += xcr_port_time_us() - started;
+    return separated;
+}
+
 static int finish_marker_roi_slice_step(const Image *image, XcrDmtxSearchState *state,
                                  int roi[4], int *orientation, float axes[8],
                                  int *score_out, unsigned *qr_rejected, uint64_t phases_us[4])
@@ -535,11 +626,13 @@ static int finish_marker_roi_slice_step(const Image *image, XcrDmtxSearchState *
     int *queue32 = (int *)workspace;
     MarkerCandidate candidates[32];
     int candidate_count = 0;
+    MarkerSplitBudget split_budget = {0};
     uint64_t phase_started = xcr_port_time_us();
     for (int start_y = 0; start_y < height; start_y++) {
         for (int start_x = 0; start_x < width; start_x++) {
             size_t start = (size_t)start_y * width + start_x;
             if (!mask[start]) continue;
+            int repaired_component = mask[start] == 2;
             int head = 0;
             int tail = 0;
             int min_x = start_x, max_x = start_x, min_y = start_y, max_y = start_y;
@@ -570,6 +663,18 @@ static int finish_marker_roi_slice_step(const Image *image, XcrDmtxSearchState *
             int component_width = max_x - min_x + 1;
             int component_height = max_y - min_y + 1;
             int component_area = tail;
+            /* Rescue the coarse pass before paying for a full dense scan.
+             * Dense grids already have the established small-window fallback;
+             * rethresholding their background adds work to ordinary frames. */
+            if (step == 6 && !repaired_component && split_elongated_marker(image, mask,
+                    queue16, queue32, narrow_queue, width, sample_left, step, tail,
+                    component_width, component_height, &split_budget)) {
+                /* A split only removes points, so no child can precede this
+                 * component's first raster position. Revisit it and let the
+                 * existing flood/validation path process the repaired mask. */
+                start_x--;
+                continue;
+            }
             int candidate_threshold = threshold;
             if (component_width >= 2 && component_height >= 2 && component_width <= 32 && component_height <= 32) {
                 /* A distant dark background must not set the black threshold
@@ -834,14 +939,30 @@ static int finish_marker_roi_slice_step(const Image *image, XcrDmtxSearchState *
     if (score_out) *score_out = best_score;
     return found;
 }
+static int find_marker_roi_slice_window_timed(const Image *image, int sample_left, int sample_right,
+                                 int roi[4], int *orientation, float axes[8],
+                                 int *score_out, unsigned *qr_rejected, int step, int radius,
+                                 uint64_t phases_us[4])
+{
+    XcrDmtxSearchState state;
+    if (!begin_marker_roi_slice_step(image, sample_left, sample_right, step, radius, &state, phases_us)) return 0;
+    int found = finish_marker_roi_slice_step(image, &state, roi, orientation, axes,
+                                        score_out, qr_rejected, phases_us);
+    if (found && step == 4) atomic_store(&preferred_dense_radius, radius);
+    return found;
+}
+
 static int find_marker_roi_slice_step_timed(const Image *image, int sample_left, int sample_right,
                                  int roi[4], int *orientation, float axes[8],
                                  int *score_out, unsigned *qr_rejected, int step, uint64_t phases_us[4])
 {
-    XcrDmtxSearchState state;
-    if (!begin_marker_roi_slice_step(image, sample_left, sample_right, step, &state, phases_us)) return 0;
-    return finish_marker_roi_slice_step(image, &state, roi, orientation, axes,
-                                        score_out, qr_rejected, phases_us);
+    int radius = step == 4 ? atomic_load(&preferred_dense_radius) : 6;
+    int found = find_marker_roi_slice_window_timed(image, sample_left, sample_right,
+        roi, orientation, axes, score_out, qr_rejected, step, radius, phases_us);
+    if (!found && step == 4)
+        found = find_marker_roi_slice_window_timed(image, sample_left, sample_right,
+            roi, orientation, axes, score_out, qr_rejected, step, radius == 6 ? 2 : 6, phases_us);
+    return found;
 }
 
 static int find_marker_roi_slice_step(const Image *image, int sample_left, int sample_right,
@@ -1761,6 +1882,7 @@ int xcr_dmtx_prepare(const XcrGrayImage *image, XcrDmtxPrepared *prepared)
             &prepared->qr_rejected, prepared->sample_step, prepared->phases_us);
     }
     if (prepared->found) {
+        prepared->window_radius = prepared->sample_step == 4 ? atomic_load(&preferred_dense_radius) : 6;
         /* At this size the marker is >=18px wide (spacing / 7). Hysteresis
          * keeps small/quantized markers on the dense grid. Every search is
          * still full-frame, so translations have no stale-position gate. */
@@ -1804,7 +1926,8 @@ int xcr_dmtx_prepare_front(const XcrGrayImage *image, XcrDmtxPrepared *prepared)
     }
     int started_ok = begin_marker_roi_slice_step(&source, 0,
         (source.width + prepared->sample_step - 1) / prepared->sample_step,
-        prepared->sample_step, &prepared->search_state, prepared->phases_us);
+        prepared->sample_step, prepared->sample_step == 4 ? atomic_load(&preferred_dense_radius) : 6,
+        &prepared->search_state, prepared->phases_us);
     prepared->front_us = xcr_port_time_us() - started;
     return started_ok;
 }
@@ -1821,12 +1944,25 @@ int xcr_dmtx_prepare_finish(const XcrGrayImage *image, XcrDmtxPrepared *prepared
     prepared->found = finish_marker_roi_slice_step(&source, &prepared->search_state,
         prepared->roi, &prepared->orientation, prepared->axes, NULL,
         &prepared->qr_rejected, prepared->phases_us);
+    prepared->window_radius = prepared->search_state.window_radius;
+    if (prepared->sample_step == 4) {
+        if (prepared->found) {
+            atomic_store(&preferred_dense_radius, prepared->search_state.window_radius);
+        } else if (!image->deadline_us || xcr_port_time_us() < image->deadline_us) {
+            prepared->window_radius = prepared->search_state.window_radius == 6 ? 2 : 6;
+            prepared->found = find_marker_roi_slice_window_timed(&source, 0, (source.width + 3) / 4,
+                prepared->roi, &prepared->orientation, prepared->axes, NULL,
+                &prepared->qr_rejected, 4, prepared->window_radius,
+                prepared->phases_us);
+        }
+    }
     if (!prepared->found && prepared->sample_step > 4 &&
         (!image->deadline_us || xcr_port_time_us() < image->deadline_us)) {
         prepared->sample_step = 4;
         prepared->found = find_marker_roi_slice_step_timed(&source, 0, (source.width + 3) / 4,
             prepared->roi, &prepared->orientation, prepared->axes, NULL,
             &prepared->qr_rejected, prepared->sample_step, prepared->phases_us);
+        prepared->window_radius = atomic_load(&preferred_dense_radius);
     }
     if (prepared->found) {
         float horizontal = hypotf(prepared->axes[2], prepared->axes[3]);
@@ -1846,6 +1982,8 @@ int xcr_datamatrix_marked_decode_prepared(const Image *image, BarcodeResult *res
     int roi[4];
     int orientation = 0;
     int full_retry = 0;
+    int window_retry = 0;
+    int dense_radius = 6;
     int sample_step = marker_step(image);
     memset(&last_stats, 0, sizeof(last_stats));
     datamatrix_debug_stats_reset();
@@ -1854,13 +1992,19 @@ search_marker:
     memset(axes, 0, sizeof(axes));
     uint64_t prescreen_started = xcr_port_time_us();
     int found;
-    if (prepared && !full_retry && prepared->pixels == image->pixels &&
+    if (window_retry) {
+        sample_step = 4;
+        found = find_marker_roi_slice_window_timed(image, 0, (image->width + 3) / 4,
+            roi, &orientation, axes, NULL, &last_stats.qr_rejected, 4, dense_radius, NULL);
+        last_stats.prescreen_us += xcr_port_time_us() - prescreen_started;
+    } else if (prepared && !full_retry && prepared->pixels == image->pixels &&
         prepared->width == image->width && prepared->height == image->height) {
         found = prepared->found;
         memcpy(roi, prepared->roi, sizeof(roi));
         memcpy(axes, prepared->axes, sizeof(axes));
         orientation = prepared->orientation;
         sample_step = prepared->sample_step;
+        dense_radius = prepared->window_radius;
         last_stats.qr_rejected = prepared->qr_rejected;
         last_stats.prescreen_us = prepared->search_us;
     } else {
@@ -1877,6 +2021,7 @@ search_marker:
                 roi, &orientation, axes, NULL, &last_stats.qr_rejected, sample_step);
         }
         last_stats.prescreen_us += xcr_port_time_us() - prescreen_started;
+        if (sample_step == 4) dense_radius = atomic_load(&preferred_dense_radius);
     }
     last_stats.marker_roi_valid = found;
     last_stats.marker_sample_step = sample_step;
@@ -2025,6 +2170,16 @@ search_marker:
         full_retry = 2;
         goto search_marker;
     }
+    /* A wrong triple can pass geometry on the ordinary dense mask. Retry
+     * the other threshold window on this frame if its payload fails too. */
+    if (!decoded && sample_step == 4 && !window_retry && !xcr_deadline_expired(deadline)) {
+        window_retry = 1;
+        dense_radius = dense_radius == 6 ? 2 : 6;
+        goto search_marker;
+    }
+    if (decoded > 0 && window_retry && prepared &&
+        hypotf(axes[2], axes[3]) < 126 && hypotf(axes[4], axes[5]) < 126)
+        atomic_store(&preferred_marker_step, 4);
     /* If the sparse ROI needed all retries before the dense search decoded,
      * let the frontend own dense sampling for a short interval. This avoids
      * repeating that whole search and normalization sequence on the backend.

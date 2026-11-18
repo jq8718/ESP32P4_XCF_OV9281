@@ -1,0 +1,1204 @@
+[
+  {
+    "name": "20261118_163347_114708_frame_56657_1138431343",
+    "step": 6,
+    "repairs": [
+      {
+        "box": [
+          0,
+          0,
+          20,
+          35
+        ],
+        "original_points": 219,
+        "cutoff": 23.0,
+        "dark_points": 187,
+        "paper_points": 32,
+        "dark_mean": 16.176470588235293,
+        "paper_mean": 31.375,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          90,
+          43,
+          17,
+          4
+        ],
+        "original_points": 49,
+        "cutoff": 46.0,
+        "dark_points": 10,
+        "paper_points": 39,
+        "dark_mean": 23.0,
+        "paper_mean": 80.15384615384616,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          155,
+          47,
+          11,
+          21
+        ],
+        "original_points": 107,
+        "cutoff": 80.0,
+        "dark_points": 67,
+        "paper_points": 40,
+        "dark_mean": 63.417910447761194,
+        "paper_mean": 97.525,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          123,
+          67,
+          14,
+          5
+        ],
+        "original_points": 42,
+        "cutoff": 72.0,
+        "dark_points": 19,
+        "paper_points": 23,
+        "dark_mean": 65.21052631578948,
+        "paper_mean": 80.30434782608695,
+        "window_radius": 6
+      }
+    ],
+    "points_rethresholded": 417
+  },
+  {
+    "name": "20261118_163347_114708_frame_56657_1138431343",
+    "step": 4,
+    "repairs": [
+      {
+        "box": [
+          0,
+          0,
+          27,
+          54
+        ],
+        "original_points": 379,
+        "cutoff": 40.0,
+        "dark_points": 366,
+        "paper_points": 13,
+        "dark_mean": 16.92622950819672,
+        "paper_mean": 64.6923076923077,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          135,
+          64,
+          25,
+          7
+        ],
+        "original_points": 101,
+        "cutoff": 46.0,
+        "dark_points": 21,
+        "paper_points": 80,
+        "dark_mean": 20.904761904761905,
+        "paper_mean": 81.5375,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          231,
+          70,
+          18,
+          31
+        ],
+        "original_points": 223,
+        "cutoff": 75.0,
+        "dark_points": 116,
+        "paper_points": 107,
+        "dark_mean": 61.060344827586206,
+        "paper_mean": 89.77570093457943,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          190,
+          96,
+          9,
+          2
+        ],
+        "original_points": 14,
+        "cutoff": 97.0,
+        "dark_points": 9,
+        "paper_points": 5,
+        "dark_mean": 88.11111111111111,
+        "paper_mean": 113.2,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          44,
+          102,
+          30,
+          2
+        ],
+        "original_points": 32,
+        "cutoff": 62.0,
+        "dark_points": 8,
+        "paper_points": 24,
+        "dark_mean": 56.875,
+        "paper_mean": 71.33333333333333,
+        "window_radius": 6
+      }
+    ],
+    "points_rethresholded": 749
+  },
+  {
+    "name": "20261118_163347_507256_frame_56676_1138828780",
+    "step": 6,
+    "repairs": [
+      {
+        "box": [
+          0,
+          0,
+          20,
+          35
+        ],
+        "original_points": 220,
+        "cutoff": 23.0,
+        "dark_points": 190,
+        "paper_points": 30,
+        "dark_mean": 16.18421052631579,
+        "paper_mean": 31.033333333333335,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          90,
+          43,
+          15,
+          4
+        ],
+        "original_points": 44,
+        "cutoff": 43.0,
+        "dark_points": 6,
+        "paper_points": 38,
+        "dark_mean": 26.0,
+        "paper_mean": 78.23684210526316,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          155,
+          47,
+          11,
+          19
+        ],
+        "original_points": 103,
+        "cutoff": 85.0,
+        "dark_points": 77,
+        "paper_points": 26,
+        "dark_mean": 67.06493506493507,
+        "paper_mean": 104.46153846153847,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          122,
+          67,
+          15,
+          5
+        ],
+        "original_points": 41,
+        "cutoff": 68.0,
+        "dark_points": 19,
+        "paper_points": 22,
+        "dark_mean": 62.63157894736842,
+        "paper_mean": 79.4090909090909,
+        "window_radius": 6
+      }
+    ],
+    "points_rethresholded": 408
+  },
+  {
+    "name": "20261118_163347_507256_frame_56676_1138828780",
+    "step": 4,
+    "repairs": [
+      {
+        "box": [
+          0,
+          0,
+          27,
+          55
+        ],
+        "original_points": 388,
+        "cutoff": 40.0,
+        "dark_points": 375,
+        "paper_points": 13,
+        "dark_mean": 16.781333333333333,
+        "paper_mean": 65.07692307692308,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          135,
+          64,
+          25,
+          7
+        ],
+        "original_points": 100,
+        "cutoff": 43.0,
+        "dark_points": 21,
+        "paper_points": 79,
+        "dark_mean": 19.333333333333332,
+        "paper_mean": 79.0,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          231,
+          70,
+          18,
+          31
+        ],
+        "original_points": 228,
+        "cutoff": 76.0,
+        "dark_points": 120,
+        "paper_points": 108,
+        "dark_mean": 62.09166666666667,
+        "paper_mean": 90.88888888888889,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          190,
+          96,
+          9,
+          2
+        ],
+        "original_points": 14,
+        "cutoff": 90.0,
+        "dark_points": 9,
+        "paper_points": 5,
+        "dark_mean": 85.0,
+        "paper_mean": 109.6,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          44,
+          102,
+          28,
+          2
+        ],
+        "original_points": 29,
+        "cutoff": 55.0,
+        "dark_points": 7,
+        "paper_points": 22,
+        "dark_mean": 53.857142857142854,
+        "paper_mean": 70.54545454545455,
+        "window_radius": 6
+      }
+    ],
+    "points_rethresholded": 759
+  },
+  {
+    "name": "20261118_163347_857034_frame_56694_1139186489",
+    "step": 6,
+    "repairs": [
+      {
+        "box": [
+          0,
+          0,
+          20,
+          35
+        ],
+        "original_points": 220,
+        "cutoff": 24.0,
+        "dark_points": 193,
+        "paper_points": 27,
+        "dark_mean": 16.16580310880829,
+        "paper_mean": 32.44444444444444,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          90,
+          43,
+          15,
+          4
+        ],
+        "original_points": 47,
+        "cutoff": 46.0,
+        "dark_points": 6,
+        "paper_points": 41,
+        "dark_mean": 26.0,
+        "paper_mean": 75.36585365853658,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          42,
+          66,
+          16,
+          5
+        ],
+        "original_points": 20,
+        "cutoff": 78.0,
+        "dark_points": 16,
+        "paper_points": 4,
+        "dark_mean": 73.125,
+        "paper_mean": 86.25,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          122,
+          67,
+          16,
+          5
+        ],
+        "original_points": 43,
+        "cutoff": 68.0,
+        "dark_points": 20,
+        "paper_points": 23,
+        "dark_mean": 59.35,
+        "paper_mean": 77.21739130434783,
+        "window_radius": 6
+      }
+    ],
+    "points_rethresholded": 330
+  },
+  {
+    "name": "20261118_163347_857034_frame_56694_1139186489",
+    "step": 4,
+    "repairs": [
+      {
+        "box": [
+          0,
+          0,
+          27,
+          54
+        ],
+        "original_points": 385,
+        "cutoff": 32.0,
+        "dark_points": 365,
+        "paper_points": 20,
+        "dark_mean": 16.36986301369863,
+        "paper_mean": 50.7,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          135,
+          64,
+          25,
+          7
+        ],
+        "original_points": 103,
+        "cutoff": 39.0,
+        "dark_points": 20,
+        "paper_points": 83,
+        "dark_mean": 18.75,
+        "paper_mean": 76.18072289156626,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          231,
+          70,
+          18,
+          31
+        ],
+        "original_points": 230,
+        "cutoff": 77.0,
+        "dark_points": 127,
+        "paper_points": 103,
+        "dark_mean": 62.55905511811024,
+        "paper_mean": 91.99029126213593,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          190,
+          96,
+          7,
+          2
+        ],
+        "original_points": 11,
+        "cutoff": 83.0,
+        "dark_points": 7,
+        "paper_points": 4,
+        "dark_mean": 79.85714285714286,
+        "paper_mean": 104.0,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          76,
+          103,
+          18,
+          2
+        ],
+        "original_points": 25,
+        "cutoff": 74.0,
+        "dark_points": 17,
+        "paper_points": 8,
+        "dark_mean": 69.29411764705883,
+        "paper_mean": 85.625,
+        "window_radius": 6
+      }
+    ],
+    "points_rethresholded": 754
+  },
+  {
+    "name": "20261118_163348_237216_frame_56713_1139564026",
+    "step": 6,
+    "repairs": [
+      {
+        "box": [
+          0,
+          0,
+          20,
+          35
+        ],
+        "original_points": 217,
+        "cutoff": 31.0,
+        "dark_points": 209,
+        "paper_points": 8,
+        "dark_mean": 17.440191387559807,
+        "paper_mean": 49.5,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          90,
+          43,
+          17,
+          4
+        ],
+        "original_points": 52,
+        "cutoff": 44.0,
+        "dark_points": 10,
+        "paper_points": 42,
+        "dark_mean": 21.8,
+        "paper_mean": 75.42857142857143,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          122,
+          67,
+          16,
+          5
+        ],
+        "original_points": 42,
+        "cutoff": 68.0,
+        "dark_points": 19,
+        "paper_points": 23,
+        "dark_mean": 59.78947368421053,
+        "paper_mean": 77.1304347826087,
+        "window_radius": 6
+      }
+    ],
+    "points_rethresholded": 311
+  },
+  {
+    "name": "20261118_163348_237216_frame_56713_1139564026",
+    "step": 4,
+    "repairs": [
+      {
+        "box": [
+          0,
+          0,
+          27,
+          54
+        ],
+        "original_points": 380,
+        "cutoff": 38.0,
+        "dark_points": 365,
+        "paper_points": 15,
+        "dark_mean": 16.65205479452055,
+        "paper_mean": 60.46666666666667,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          135,
+          64,
+          25,
+          7
+        ],
+        "original_points": 105,
+        "cutoff": 44.0,
+        "dark_points": 21,
+        "paper_points": 84,
+        "dark_mean": 19.095238095238095,
+        "paper_mean": 76.3452380952381,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          231,
+          70,
+          18,
+          31
+        ],
+        "original_points": 226,
+        "cutoff": 75.0,
+        "dark_points": 115,
+        "paper_points": 111,
+        "dark_mean": 61.02608695652174,
+        "paper_mean": 89.88288288288288,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          190,
+          96,
+          8,
+          2
+        ],
+        "original_points": 13,
+        "cutoff": 90.0,
+        "dark_points": 8,
+        "paper_points": 5,
+        "dark_mean": 86.5,
+        "paper_mean": 105.4,
+        "window_radius": 6
+      }
+    ],
+    "points_rethresholded": 724
+  },
+  {
+    "name": "20261118_163348_602992_frame_56730_1139921748",
+    "step": 6,
+    "repairs": [
+      {
+        "box": [
+          0,
+          0,
+          20,
+          35
+        ],
+        "original_points": 219,
+        "cutoff": 24.0,
+        "dark_points": 189,
+        "paper_points": 30,
+        "dark_mean": 16.275132275132275,
+        "paper_mean": 32.233333333333334,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          90,
+          43,
+          17,
+          4
+        ],
+        "original_points": 51,
+        "cutoff": 48.0,
+        "dark_points": 10,
+        "paper_points": 41,
+        "dark_mean": 22.2,
+        "paper_mean": 76.97560975609755,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          155,
+          47,
+          11,
+          19
+        ],
+        "original_points": 103,
+        "cutoff": 84.0,
+        "dark_points": 76,
+        "paper_points": 27,
+        "dark_mean": 66.39473684210526,
+        "paper_mean": 103.62962962962963,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          122,
+          67,
+          15,
+          5
+        ],
+        "original_points": 44,
+        "cutoff": 68.0,
+        "dark_points": 20,
+        "paper_points": 24,
+        "dark_mean": 61.25,
+        "paper_mean": 79.20833333333333,
+        "window_radius": 6
+      }
+    ],
+    "points_rethresholded": 417
+  },
+  {
+    "name": "20261118_163348_602992_frame_56730_1139921748",
+    "step": 4,
+    "repairs": [
+      {
+        "box": [
+          0,
+          0,
+          27,
+          54
+        ],
+        "original_points": 382,
+        "cutoff": 35.0,
+        "dark_points": 364,
+        "paper_points": 18,
+        "dark_mean": 16.417582417582416,
+        "paper_mean": 54.333333333333336,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          135,
+          64,
+          25,
+          7
+        ],
+        "original_points": 100,
+        "cutoff": 41.0,
+        "dark_points": 20,
+        "paper_points": 80,
+        "dark_mean": 17.8,
+        "paper_mean": 77.6625,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          243,
+          70,
+          6,
+          31
+        ],
+        "original_points": 128,
+        "cutoff": 75.0,
+        "dark_points": 59,
+        "paper_points": 69,
+        "dark_mean": 58.898305084745765,
+        "paper_mean": 92.3913043478261,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          190,
+          96,
+          9,
+          2
+        ],
+        "original_points": 13,
+        "cutoff": 93.0,
+        "dark_points": 9,
+        "paper_points": 4,
+        "dark_mean": 88.77777777777777,
+        "paper_mean": 108.25,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          77,
+          103,
+          17,
+          2
+        ],
+        "original_points": 24,
+        "cutoff": 76.0,
+        "dark_points": 16,
+        "paper_points": 8,
+        "dark_mean": 68.8125,
+        "paper_mean": 87.0,
+        "window_radius": 6
+      }
+    ],
+    "points_rethresholded": 647
+  },
+  {
+    "name": "stutter_final01",
+    "step": 6,
+    "repairs": [
+      {
+        "box": [
+          210,
+          0,
+          4,
+          8
+        ],
+        "original_points": 20,
+        "cutoff": 31.0,
+        "dark_points": 16,
+        "paper_points": 4,
+        "dark_mean": 22.5,
+        "paper_mean": 45.75,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          68,
+          62,
+          6,
+          26
+        ],
+        "original_points": 90,
+        "cutoff": 85.0,
+        "dark_points": 43,
+        "paper_points": 47,
+        "dark_mean": 79.06976744186046,
+        "paper_mean": 91.8936170212766,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          27,
+          75,
+          36,
+          21
+        ],
+        "original_points": 158,
+        "cutoff": 62.0,
+        "dark_points": 120,
+        "paper_points": 38,
+        "dark_mean": 48.208333333333336,
+        "paper_mean": 77.0,
+        "window_radius": 6
+      }
+    ],
+    "points_rethresholded": 268
+  },
+  {
+    "name": "stutter_final01",
+    "step": 4,
+    "repairs": [
+      {
+        "box": [
+          315,
+          0,
+          5,
+          11
+        ],
+        "original_points": 31,
+        "cutoff": 28.0,
+        "dark_points": 25,
+        "paper_points": 6,
+        "dark_mean": 22.0,
+        "paper_mean": 41.0,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          84,
+          105,
+          3,
+          6
+        ],
+        "original_points": 11,
+        "cutoff": 92.0,
+        "dark_points": 7,
+        "paper_points": 4,
+        "dark_mean": 75.14285714285714,
+        "paper_mean": 115.5,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          100,
+          113,
+          9,
+          19
+        ],
+        "original_points": 99,
+        "cutoff": 85.0,
+        "dark_points": 68,
+        "paper_points": 31,
+        "dark_mean": 78.61764705882354,
+        "paper_mean": 91.90322580645162,
+        "window_radius": 6
+      }
+    ],
+    "points_rethresholded": 141
+  },
+  {
+    "name": "stutter_restored01",
+    "step": 6,
+    "repairs": [],
+    "points_rethresholded": 0
+  },
+  {
+    "name": "stutter_restored01",
+    "step": 4,
+    "repairs": [
+      {
+        "box": [
+          314,
+          0,
+          6,
+          11
+        ],
+        "original_points": 36,
+        "cutoff": 27.0,
+        "dark_points": 30,
+        "paper_points": 6,
+        "dark_mean": 22.033333333333335,
+        "paper_mean": 38.0,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          100,
+          90,
+          9,
+          42
+        ],
+        "original_points": 180,
+        "cutoff": 81.0,
+        "dark_points": 102,
+        "paper_points": 78,
+        "dark_mean": 75.1078431372549,
+        "paper_mean": 88.21794871794872,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          84,
+          105,
+          3,
+          6
+        ],
+        "original_points": 10,
+        "cutoff": 78.0,
+        "dark_points": 5,
+        "paper_points": 5,
+        "dark_mean": 69.2,
+        "paper_mean": 99.0,
+        "window_radius": 6
+      }
+    ],
+    "points_rethresholded": 226
+  },
+  {
+    "name": "stutter_restored_fail01",
+    "step": 6,
+    "repairs": [
+      {
+        "box": [
+          68,
+          60,
+          7,
+          27
+        ],
+        "original_points": 97,
+        "cutoff": 79.0,
+        "dark_points": 40,
+        "paper_points": 57,
+        "dark_mean": 73.15,
+        "paper_mean": 85.96491228070175,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          36,
+          75,
+          26,
+          15
+        ],
+        "original_points": 113,
+        "cutoff": 62.0,
+        "dark_points": 72,
+        "paper_points": 41,
+        "dark_mean": 46.513888888888886,
+        "paper_mean": 78.5609756097561,
+        "window_radius": 6
+      }
+    ],
+    "points_rethresholded": 210
+  },
+  {
+    "name": "stutter_restored_fail01",
+    "step": 4,
+    "repairs": [
+      {
+        "box": [
+          314,
+          0,
+          6,
+          12
+        ],
+        "original_points": 37,
+        "cutoff": 28.0,
+        "dark_points": 30,
+        "paper_points": 7,
+        "dark_mean": 22.066666666666666,
+        "paper_mean": 37.714285714285715,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          103,
+          92,
+          6,
+          21
+        ],
+        "original_points": 72,
+        "cutoff": 92.0,
+        "dark_points": 66,
+        "paper_points": 6,
+        "dark_mean": 83.60606060606061,
+        "paper_mean": 101.5,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          84,
+          105,
+          3,
+          6
+        ],
+        "original_points": 10,
+        "cutoff": 76.0,
+        "dark_points": 5,
+        "paper_points": 5,
+        "dark_mean": 70.0,
+        "paper_mean": 97.2,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          100,
+          113,
+          9,
+          19
+        ],
+        "original_points": 103,
+        "cutoff": 80.0,
+        "dark_points": 74,
+        "paper_points": 29,
+        "dark_mean": 73.83783783783784,
+        "paper_mean": 87.58620689655173,
+        "window_radius": 6
+      }
+    ],
+    "points_rethresholded": 222
+  },
+  {
+    "name": "blank",
+    "step": 6,
+    "repairs": [],
+    "points_rethresholded": 0
+  },
+  {
+    "name": "blank",
+    "step": 4,
+    "repairs": [],
+    "points_rethresholded": 0
+  },
+  {
+    "name": "covered",
+    "step": 6,
+    "repairs": [
+      {
+        "box": [
+          44,
+          0,
+          8,
+          20
+        ],
+        "original_points": 73,
+        "cutoff": 36.0,
+        "dark_points": 37,
+        "paper_points": 36,
+        "dark_mean": 30.972972972972972,
+        "paper_mean": 43.77777777777778,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          91,
+          0,
+          21,
+          6
+        ],
+        "original_points": 49,
+        "cutoff": 86.0,
+        "dark_points": 31,
+        "paper_points": 18,
+        "dark_mean": 79.93548387096774,
+        "paper_mean": 93.11111111111111,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          128,
+          0,
+          6,
+          20
+        ],
+        "original_points": 67,
+        "cutoff": 35.0,
+        "dark_points": 52,
+        "paper_points": 15,
+        "dark_mean": 24.21153846153846,
+        "paper_mean": 47.06666666666667,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          152,
+          0,
+          46,
+          20
+        ],
+        "original_points": 395,
+        "cutoff": 17.0,
+        "dark_points": 386,
+        "paper_points": 9,
+        "dark_mean": 8.784974093264248,
+        "paper_mean": 26.88888888888889,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          177,
+          6,
+          37,
+          14
+        ],
+        "original_points": 189,
+        "cutoff": 41.0,
+        "dark_points": 148,
+        "paper_points": 41,
+        "dark_mean": 34.2972972972973,
+        "paper_mean": 49.19512195121951,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          173,
+          69,
+          41,
+          3
+        ],
+        "original_points": 87,
+        "cutoff": 34.0,
+        "dark_points": 30,
+        "paper_points": 57,
+        "dark_mean": 19.333333333333332,
+        "paper_mean": 60.21052631578947,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          44,
+          77,
+          17,
+          3
+        ],
+        "original_points": 27,
+        "cutoff": 37.0,
+        "dark_points": 16,
+        "paper_points": 11,
+        "dark_mean": 30.1875,
+        "paper_mean": 44.72727272727273,
+        "window_radius": 6
+      }
+    ],
+    "points_rethresholded": 887
+  },
+  {
+    "name": "covered",
+    "step": 4,
+    "repairs": [
+      {
+        "box": [
+          33,
+          0,
+          8,
+          28
+        ],
+        "original_points": 103,
+        "cutoff": 69.0,
+        "dark_points": 94,
+        "paper_points": 9,
+        "dark_mean": 61.244680851063826,
+        "paper_mean": 79.44444444444444,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          67,
+          0,
+          11,
+          30
+        ],
+        "original_points": 159,
+        "cutoff": 38.0,
+        "dark_points": 105,
+        "paper_points": 54,
+        "dark_mean": 32.43809523809524,
+        "paper_mean": 44.98148148148148,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          192,
+          0,
+          9,
+          30
+        ],
+        "original_points": 146,
+        "cutoff": 33.0,
+        "dark_points": 109,
+        "paper_points": 37,
+        "dark_mean": 23.807339449541285,
+        "paper_mean": 42.810810810810814,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          264,
+          11,
+          56,
+          19
+        ],
+        "original_points": 319,
+        "cutoff": 42.0,
+        "dark_points": 241,
+        "paper_points": 78,
+        "dark_mean": 34.531120331950206,
+        "paper_mean": 50.88461538461539,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          5,
+          26,
+          9,
+          4
+        ],
+        "original_points": 18,
+        "cutoff": 52.0,
+        "dark_points": 6,
+        "paper_points": 12,
+        "dark_mean": 33.333333333333336,
+        "paper_mean": 76.25,
+        "window_radius": 6
+      },
+      {
+        "box": [
+          256,
+          103,
+          64,
+          4
+        ],
+        "original_points": 197,
+        "cutoff": 41.0,
+        "dark_points": 82,
+        "paper_points": 115,
+        "dark_mean": 22.365853658536587,
+        "paper_mean": 60.08695652173913,
+        "window_radius": 6
+      }
+    ],
+    "points_rethresholded": 942
+  }
+]

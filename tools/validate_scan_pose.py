@@ -106,6 +106,20 @@ def main():
     screenshot = np.array([[521.288, 287.283], [574.915, 294.349],
                            [569.467, 346.858], [515.192, 340.729]])
     cases = [('screenshot', screenshot, 30., None)]
+    prefixes = {30.: '0', 50.: '1', 70.: '2'}
+    # Known metric poses verify each payload size, including the new 70mm code.
+    for side in prefixes:
+        half = side / 2
+        obj = np.array([[-half, half, 0.], [half, half, 0.],
+                        [half, -half, 0.], [-half, -half, 0.]])
+        for degrees in (0, -25, 25):
+            yaw = math.radians(degrees)
+            c, s = math.cos(yaw), math.sin(yaw)
+            matrix = np.array([[c, 0., s], [0., 1., 0.], [-s, 0., c]]) @ np.diag([1., -1., -1.])
+            rotation, _ = cv2.Rodrigues(matrix)
+            points, _ = cv2.projectPoints(obj, rotation, np.array([25., 10., 500.]),
+                                         calibration['camera_matrix'], calibration['dist_coeffs'])
+            cases.append((f'size_{int(side)}_yaw_{degrees}', points.reshape(4, 2), side, matrix))
     spin_object = np.array([[-15., 15., 0.], [15., 15., 0.],
                             [15., -15., 0.], [-15., -15., 0.]])
     for degrees in (-20, -10, 0, 10, 20):
@@ -142,9 +156,23 @@ def main():
     failures, rows, elapsed = [], [], []
     for label, points, side, truth in cases:
         cal = dict(calibration, qr_size_mm=side)
-        reference = estimate_pose(points, 1280, 720, cal)
+        if label.startswith('size_'):
+            # These noiseless points were projected from this exact pose.
+            # Use that physical truth: a planar solver may choose the other
+            # ambiguous normal, so it is not the oracle for these new cases.
+            t = np.array([25., 10., 500.])
+            reference = dict(available=True,
+                yaw_y_deg=math.degrees(math.atan2(-truth[0, 2], -truth[2, 2])),
+                pitch_x_deg=math.degrees(math.asin(truth[1, 2])),
+                roll_z_deg=math.degrees(math.atan2(truth[1, 0], -truth[1, 1])),
+                range_m=float(np.linalg.norm(t))/1000., optical_depth_m=t[2]/1000.,
+                distance_to_plane_m=-float(np.dot(truth[:, 2], t))/1000.,
+                lateral_offset_x_m=t[0]/1000., rotation_matrix=truth.tolist(),
+                translation_mm=t.tolist(), reprojection_px=0.)
+        else:
+            reference = estimate_pose(points, 1280, 720, cal)
         started = time.perf_counter()
-        actual = p4(points, ord('0' if side == 30 else '1'))
+        actual = p4(points, ord(prefixes[side]))
         elapsed.append((time.perf_counter()-started)*1e6)
         if not reference['available'] or actual is None:
             failures.append({'case': label, 'reason': 'solver rejected', 'pc': reference, 'p4': None if actual is None else actual.tolist()})
@@ -154,7 +182,8 @@ def main():
         expected = np.array([reference[key] for key in names])
         difference = np.abs(actual[:8]-expected)
         difference[:3] = np.abs((actual[:3]-expected[:3]+180) % 360-180)
-        rows.append({'case': label, 'p4': actual[:8].tolist(), 'opencv': expected.tolist(), 'difference': difference.tolist(),
+        reference_name = 'ground_truth' if label.startswith('size_') else 'opencv'
+        rows.append({'case': label, 'p4': actual[:8].tolist(), reference_name: expected.tolist(), 'difference': difference.tolist(),
                      'p4_error_px': float(actual[8]), 'pc_error_px': reference['reprojection_px'], 'points': points.tolist()})
         if max(difference[:3]) > .1 or max(difference[3:7]) > .0002 or difference[7] > .0003:
             failures.append(rows[-1])
@@ -166,8 +195,14 @@ def main():
     for index, bad in enumerate(bad_inputs):
         if p4(bad, ord('0')) is not None:
             failures.append({'case': f'invalid_{index}', 'reason': 'accepted invalid input'})
-    if p4(screenshot, ord('2')) is not None:
-        failures.append({'case': 'invalid_prefix', 'reason': 'accepted unsupported size'})
+    base = p4(screenshot, ord('0'))
+    for side, prefix in prefixes.items():
+        scaled = p4(screenshot, ord(prefix))
+        if scaled is None or not np.allclose(scaled[3:8], base[3:8]*(side/30.), rtol=1e-4, atol=.0001):
+            failures.append({'case': f'size_scale_{prefix}', 'reason': 'distance did not scale with code size'})
+    for prefix in ('3', '9', 'A', '\x00'):
+        if p4(screenshot, ord(prefix)) is not None:
+            failures.append({'case': f'invalid_prefix_{ord(prefix)}', 'reason': 'accepted unsupported size'})
     report = {
         'source_sha256': hashlib.sha256((ROOT / 'port/standalone_idf_test/main/scan_pose.c').read_bytes()).hexdigest(),
         'cases': len(cases), 'failures': len(failures), 'screenshot': rows[0],

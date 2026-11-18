@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "cross_language_packets": 1000,
+  "crc_damage_cases": 1000,
+  "checks": [
+    "C parser W4/WX build",
+    "CRC known vector",
+    "leading zero/1-to-255-digit payload",
+    "compact/full/invalid pose",
+    "code side 0/1/2 -> 30/50/70 mm in C/F",
+    "frame wrap 999 to 0 in both modes",
+    "all int32 field boundaries",
+    "bad fields",
+    "sender NaN/Inf/overflow/rounding",
+    "output unchanged on rejection",
+    "calibration validation"
+  ]
+}

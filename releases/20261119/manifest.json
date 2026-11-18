@@ -1,0 +1,38 @@
+{
+  "releases/20261119/firmware/bootloader/bootloader.bin": {
+    "bytes": 22256,
+    "sha256": "e6fbfead068574d7ffc61122b0b2fa6f4f846408b78aad5b1daf3b2770714d53"
+  },
+  "releases/20261119/firmware/flash_args": {
+    "bytes": 158,
+    "sha256": "5e98eb24ab1ca33126dfa1a588a5e46c38a8db2ed0bf902fe3d756178e60a92e"
+  },
+  "releases/20261119/firmware/flasher_args.json": {
+    "bytes": 949,
+    "sha256": "0fcc3018f92ce4c2eef6bfb57f3598405f5bbb7265f0cdb89743e064882f59b6"
+  },
+  "releases/20261119/firmware/p4scan_ov9281.bin": {
+    "bytes": 893952,
+    "sha256": "e7f6d5465610650cda8da64b66e65347791797b119975a280b3312de5485bc0f"
+  },
+  "releases/20261119/firmware/partition_table/partition-table.bin": {
+    "bytes": 3072,
+    "sha256": "f69ab3a7a27256a9b02a121906b4d09488f62af845d539a445145a0fe1f1d3ce"
+  },
+  "releases/20261119/firmware/sdkconfig": {
+    "bytes": 78114,
+    "sha256": "4a6c406cfaa109dd3c73736ba26a7635a4f85343d815b3d53433421150c97183"
+  },
+  "dist/P4ScanOV9281Debugger.exe": {
+    "bytes": 93455922,
+    "sha256": "5c1419dee241a78b9d7cb57a52d379be1aa2686e4988d63f2236afcf5fb68740"
+  },
+  "tools/stm32_uart_debugger/release/AGV_3D_Test.exe": {
+    "bytes": 37632795,
+    "sha256": "b9235b00913ac6eb4a7c5a1bccc52933cc3b28ebf0140fed55701d0e3f50b581"
+  },
+  "releases/20261118/P4ScanOV9281Debugger_v1.0.0003_backup.zip": {
+    "bytes": 92919813,
+    "sha256": "0bcca197991664fa2c84c37d247052520a9cd89948c2dc04a4b47b28f74d66b9"
+  }
+}

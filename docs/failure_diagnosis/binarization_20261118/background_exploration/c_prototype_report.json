@@ -1,0 +1,6769 @@
+{
+  "mask_checks": 196,
+  "rows": [
+    {
+      "name": "20261118_163347_114708_frame_56657_1138431343",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012348",
+        "elapsed_us": 74281,
+        "marker_us": 48904,
+        "normalize_us": 14330,
+        "core_us": 11011,
+        "refine_us": 31,
+        "marker_roi": [
+          528,
+          256,
+          648,
+          384
+        ],
+        "angle_deg": 92.603,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 33,
+        "core_candidate_us": 4045,
+        "core_codeword_us": 2,
+        "core_ecc_us": 2,
+        "core_payload_us": 0,
+        "corners": [
+          556,
+          283,
+          620,
+          287,
+          617,
+          351,
+          553,
+          348
+        ]
+      },
+      "host_mean_us": 631.4375,
+      "counters": "COUNTERS searches=34 grid_samples=1926480 peak_extra_bytes=0"
+    },
+    {
+      "name": "20261118_163347_114708_frame_56657_1138431343",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012348",
+        "elapsed_us": 43407,
+        "marker_us": 15878,
+        "normalize_us": 14682,
+        "core_us": 12810,
+        "refine_us": 32,
+        "marker_roi": [
+          516,
+          246,
+          660,
+          396
+        ],
+        "angle_deg": 93.945,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 28,
+        "core_candidate_us": 4349,
+        "core_codeword_us": 3,
+        "core_ecc_us": 2,
+        "core_payload_us": 0,
+        "corners": [
+          556,
+          283,
+          620,
+          287,
+          617,
+          351,
+          553,
+          348
+        ]
+      },
+      "host_mean_us": 1219.84375,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "20261118_163347_114708_frame_56657_1138431343",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012348",
+        "elapsed_us": 43779,
+        "marker_us": 15811,
+        "normalize_us": 14302,
+        "core_us": 13627,
+        "refine_us": 33,
+        "marker_roi": [
+          516,
+          246,
+          660,
+          396
+        ],
+        "angle_deg": 93.945,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 33,
+        "core_candidate_us": 4493,
+        "core_codeword_us": 2,
+        "core_ecc_us": 1,
+        "core_payload_us": 0,
+        "corners": [
+          556,
+          283,
+          620,
+          287,
+          617,
+          351,
+          553,
+          348
+        ]
+      },
+      "host_mean_us": 1206.84375,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "20261118_163347_507256_frame_56676_1138828780",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012348",
+        "elapsed_us": 84330,
+        "marker_us": 56026,
+        "normalize_us": 15339,
+        "core_us": 12926,
+        "refine_us": 33,
+        "marker_roi": [
+          528,
+          256,
+          648,
+          384
+        ],
+        "angle_deg": 92.603,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 39,
+        "core_candidate_us": 4438,
+        "core_codeword_us": 3,
+        "core_ecc_us": 1,
+        "core_payload_us": 1,
+        "corners": [
+          556,
+          283,
+          620,
+          287,
+          616,
+          351,
+          553,
+          348
+        ]
+      },
+      "host_mean_us": 600.5,
+      "counters": "COUNTERS searches=34 grid_samples=1926480 peak_extra_bytes=0"
+    },
+    {
+      "name": "20261118_163347_507256_frame_56676_1138828780",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012348",
+        "elapsed_us": 43213,
+        "marker_us": 15523,
+        "normalize_us": 15140,
+        "core_us": 12513,
+        "refine_us": 32,
+        "marker_roi": [
+          516,
+          246,
+          660,
+          396
+        ],
+        "angle_deg": 93.945,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 32,
+        "core_candidate_us": 4407,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          556,
+          283,
+          620,
+          287,
+          616,
+          351,
+          553,
+          348
+        ]
+      },
+      "host_mean_us": 1232.0,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "20261118_163347_507256_frame_56676_1138828780",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012348",
+        "elapsed_us": 44875,
+        "marker_us": 15215,
+        "normalize_us": 14647,
+        "core_us": 14970,
+        "refine_us": 36,
+        "marker_roi": [
+          516,
+          246,
+          660,
+          396
+        ],
+        "angle_deg": 93.945,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 30,
+        "core_candidate_us": 4903,
+        "core_codeword_us": 3,
+        "core_ecc_us": 2,
+        "core_payload_us": 0,
+        "corners": [
+          556,
+          283,
+          620,
+          287,
+          616,
+          351,
+          553,
+          348
+        ]
+      },
+      "host_mean_us": 1178.0,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "20261118_163347_857034_frame_56694_1139186489",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012348",
+        "elapsed_us": 71671,
+        "marker_us": 50883,
+        "normalize_us": 7715,
+        "core_us": 13035,
+        "refine_us": 32,
+        "marker_roi": [
+          528,
+          256,
+          648,
+          384
+        ],
+        "angle_deg": 92.603,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 59,
+        "core_candidate_us": 3967,
+        "core_codeword_us": 2,
+        "core_ecc_us": 1,
+        "core_payload_us": 1,
+        "corners": [
+          556,
+          283,
+          620,
+          287,
+          616,
+          351,
+          553,
+          348
+        ]
+      },
+      "host_mean_us": 477.78125,
+      "counters": "COUNTERS searches=34 grid_samples=1926480 peak_extra_bytes=0"
+    },
+    {
+      "name": "20261118_163347_857034_frame_56694_1139186489",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012348",
+        "elapsed_us": 45678,
+        "marker_us": 15416,
+        "normalize_us": 16081,
+        "core_us": 14139,
+        "refine_us": 36,
+        "marker_roi": [
+          516,
+          246,
+          660,
+          396
+        ],
+        "angle_deg": 93.945,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 32,
+        "core_candidate_us": 4923,
+        "core_codeword_us": 4,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          556,
+          283,
+          620,
+          287,
+          616,
+          351,
+          553,
+          348
+        ]
+      },
+      "host_mean_us": 1255.96875,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "20261118_163347_857034_frame_56694_1139186489",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012348",
+        "elapsed_us": 47399,
+        "marker_us": 16551,
+        "normalize_us": 16918,
+        "core_us": 13890,
+        "refine_us": 34,
+        "marker_roi": [
+          516,
+          246,
+          660,
+          396
+        ],
+        "angle_deg": 93.945,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 35,
+        "core_candidate_us": 4608,
+        "core_codeword_us": 3,
+        "core_ecc_us": 1,
+        "core_payload_us": 0,
+        "corners": [
+          556,
+          283,
+          620,
+          287,
+          616,
+          351,
+          553,
+          348
+        ]
+      },
+      "host_mean_us": 1306.5625,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "20261118_163348_237216_frame_56713_1139564026",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012348",
+        "elapsed_us": 102588,
+        "marker_us": 65220,
+        "normalize_us": 20384,
+        "core_us": 16940,
+        "refine_us": 37,
+        "marker_roi": [
+          528,
+          256,
+          648,
+          384
+        ],
+        "angle_deg": 92.603,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 107,
+        "core_candidate_us": 5720,
+        "core_codeword_us": 4,
+        "core_ecc_us": 2,
+        "core_payload_us": 0,
+        "corners": [
+          556,
+          283,
+          620,
+          287,
+          616,
+          351,
+          553,
+          348
+        ]
+      },
+      "host_mean_us": 746.8125,
+      "counters": "COUNTERS searches=34 grid_samples=1926480 peak_extra_bytes=0"
+    },
+    {
+      "name": "20261118_163348_237216_frame_56713_1139564026",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012348",
+        "elapsed_us": 53441,
+        "marker_us": 17961,
+        "normalize_us": 19167,
+        "core_us": 16271,
+        "refine_us": 38,
+        "marker_roi": [
+          516,
+          246,
+          660,
+          396
+        ],
+        "angle_deg": 93.945,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 41,
+        "core_candidate_us": 5839,
+        "core_codeword_us": 2,
+        "core_ecc_us": 2,
+        "core_payload_us": 1,
+        "corners": [
+          556,
+          283,
+          620,
+          287,
+          616,
+          351,
+          553,
+          348
+        ]
+      },
+      "host_mean_us": 1283.3125,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "20261118_163348_237216_frame_56713_1139564026",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012348",
+        "elapsed_us": 45458,
+        "marker_us": 16293,
+        "normalize_us": 15435,
+        "core_us": 13688,
+        "refine_us": 34,
+        "marker_roi": [
+          516,
+          246,
+          660,
+          396
+        ],
+        "angle_deg": 93.945,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 37,
+        "core_candidate_us": 4431,
+        "core_codeword_us": 2,
+        "core_ecc_us": 1,
+        "core_payload_us": 1,
+        "corners": [
+          556,
+          283,
+          620,
+          287,
+          616,
+          351,
+          553,
+          348
+        ]
+      },
+      "host_mean_us": 1206.25,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "20261118_163348_602992_frame_56730_1139921748",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012348",
+        "elapsed_us": 77807,
+        "marker_us": 56637,
+        "normalize_us": 7973,
+        "core_us": 13154,
+        "refine_us": 36,
+        "marker_roi": [
+          528,
+          256,
+          648,
+          384
+        ],
+        "angle_deg": 92.603,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 65,
+        "core_candidate_us": 4275,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          556,
+          283,
+          620,
+          287,
+          616,
+          351,
+          553,
+          348
+        ]
+      },
+      "host_mean_us": 519.71875,
+      "counters": "COUNTERS searches=34 grid_samples=1926480 peak_extra_bytes=0"
+    },
+    {
+      "name": "20261118_163348_602992_frame_56730_1139921748",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012348",
+        "elapsed_us": 46471,
+        "marker_us": 16395,
+        "normalize_us": 16307,
+        "core_us": 13676,
+        "refine_us": 85,
+        "marker_roi": [
+          516,
+          246,
+          660,
+          396
+        ],
+        "angle_deg": 93.945,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 48,
+        "core_candidate_us": 4505,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          556,
+          283,
+          620,
+          287,
+          616,
+          351,
+          553,
+          348
+        ]
+      },
+      "host_mean_us": 1280.21875,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "20261118_163348_602992_frame_56730_1139921748",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012348",
+        "elapsed_us": 43693,
+        "marker_us": 15534,
+        "normalize_us": 15523,
+        "core_us": 12598,
+        "refine_us": 34,
+        "marker_roi": [
+          516,
+          246,
+          660,
+          396
+        ],
+        "angle_deg": 93.945,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 29,
+        "core_candidate_us": 4334,
+        "core_codeword_us": 2,
+        "core_ecc_us": 2,
+        "core_payload_us": 0,
+        "corners": [
+          556,
+          283,
+          620,
+          287,
+          616,
+          351,
+          553,
+          348
+        ]
+      },
+      "host_mean_us": 1245.5,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "current06",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 38203,
+        "marker_us": 15421,
+        "normalize_us": 8151,
+        "core_us": 14589,
+        "refine_us": 36,
+        "marker_roi": [
+          354,
+          360,
+          492,
+          498
+        ],
+        "angle_deg": 94.399,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 62,
+        "core_candidate_us": 4782,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          392,
+          397,
+          446,
+          399,
+          441,
+          454,
+          386,
+          452
+        ]
+      },
+      "host_mean_us": 291.0,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=0"
+    },
+    {
+      "name": "current06",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 38129,
+        "marker_us": 16759,
+        "normalize_us": 8253,
+        "core_us": 13077,
+        "refine_us": 34,
+        "marker_roi": [
+          354,
+          360,
+          492,
+          498
+        ],
+        "angle_deg": 94.399,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 57,
+        "core_candidate_us": 4280,
+        "core_codeword_us": 2,
+        "core_ecc_us": 2,
+        "core_payload_us": 1,
+        "corners": [
+          392,
+          397,
+          446,
+          399,
+          441,
+          454,
+          386,
+          452
+        ]
+      },
+      "host_mean_us": 1020.625,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "current06",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 39105,
+        "marker_us": 15918,
+        "normalize_us": 8458,
+        "core_us": 14690,
+        "refine_us": 33,
+        "marker_roi": [
+          354,
+          360,
+          492,
+          498
+        ],
+        "angle_deg": 94.399,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 60,
+        "core_candidate_us": 4830,
+        "core_codeword_us": 2,
+        "core_ecc_us": 1,
+        "core_payload_us": 1,
+        "corners": [
+          392,
+          397,
+          446,
+          399,
+          441,
+          454,
+          386,
+          452
+        ]
+      },
+      "host_mean_us": 1041.53125,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "current_1111_after_dense01",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 0,
+        "payload": "",
+        "elapsed_us": 50760,
+        "marker_us": 50757,
+        "normalize_us": 0,
+        "core_us": 0,
+        "refine_us": 0,
+        "marker_roi": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "angle_deg": 0.0,
+        "grid": [
+          0,
+          0
+        ],
+        "geometry_quality": 0,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 0,
+        "core_ecc_us": 0,
+        "core_payload_us": 0,
+        "corners": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "host_mean_us": 878.15625,
+      "counters": "COUNTERS searches=96 grid_samples=4508160 peak_extra_bytes=0"
+    },
+    {
+      "name": "current_1111_after_dense01",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 0,
+        "payload": "",
+        "elapsed_us": 66016,
+        "marker_us": 38069,
+        "normalize_us": 27797,
+        "core_us": 141,
+        "refine_us": 0,
+        "marker_roi": [
+          78,
+          102,
+          354,
+          378
+        ],
+        "angle_deg": -123.69,
+        "grid": [
+          0,
+          0
+        ],
+        "geometry_quality": 0,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 38,
+        "core_candidate_us": 0,
+        "core_codeword_us": 0,
+        "core_ecc_us": 0,
+        "core_payload_us": 0,
+        "corners": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "host_mean_us": 3484.46875,
+      "counters": "COUNTERS searches=64 grid_samples=2664960 peak_extra_bytes=58880"
+    },
+    {
+      "name": "current_1111_after_dense01",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 0,
+        "payload": "",
+        "elapsed_us": 35321,
+        "marker_us": 35318,
+        "normalize_us": 0,
+        "core_us": 0,
+        "refine_us": 0,
+        "marker_roi": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "angle_deg": 0.0,
+        "grid": [
+          0,
+          0
+        ],
+        "geometry_quality": 0,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 0,
+        "core_ecc_us": 0,
+        "core_payload_us": 0,
+        "corners": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "host_mean_us": 3153.09375,
+      "counters": "COUNTERS searches=64 grid_samples=2664960 peak_extra_bytes=58880"
+    },
+    {
+      "name": "current_1111_fail01",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 27673,
+        "marker_us": 17355,
+        "normalize_us": 112,
+        "core_us": 8034,
+        "refine_us": 63,
+        "marker_roi": [
+          102,
+          144,
+          474,
+          468
+        ],
+        "angle_deg": -83.26,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 3,
+        "core_ecc_us": 15,
+        "core_payload_us": 1,
+        "corners": [
+          402,
+          423,
+          148,
+          416,
+          171,
+          186,
+          407,
+          219
+        ]
+      },
+      "host_mean_us": 309.53125,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=0"
+    },
+    {
+      "name": "current_1111_fail01",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 28350,
+        "marker_us": 17770,
+        "normalize_us": 101,
+        "core_us": 7665,
+        "refine_us": 60,
+        "marker_roi": [
+          108,
+          144,
+          468,
+          468
+        ],
+        "angle_deg": -83.32,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 3,
+        "core_ecc_us": 6,
+        "core_payload_us": 1,
+        "corners": [
+          402,
+          423,
+          148,
+          416,
+          171,
+          185,
+          407,
+          219
+        ]
+      },
+      "host_mean_us": 1214.40625,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "current_1111_fail01",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 26888,
+        "marker_us": 17226,
+        "normalize_us": 118,
+        "core_us": 7317,
+        "refine_us": 67,
+        "marker_roi": [
+          108,
+          144,
+          468,
+          468
+        ],
+        "angle_deg": -83.32,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 2,
+        "core_ecc_us": 7,
+        "core_payload_us": 0,
+        "corners": [
+          402,
+          423,
+          148,
+          416,
+          171,
+          185,
+          407,
+          219
+        ]
+      },
+      "host_mean_us": 1146.03125,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "current_1111_fail02",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 23510,
+        "marker_us": 14774,
+        "normalize_us": 101,
+        "core_us": 6399,
+        "refine_us": 58,
+        "marker_roi": [
+          102,
+          144,
+          474,
+          468
+        ],
+        "angle_deg": -83.26,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 3,
+        "core_ecc_us": 9,
+        "core_payload_us": 1,
+        "corners": [
+          402,
+          423,
+          148,
+          416,
+          171,
+          185,
+          407,
+          219
+        ]
+      },
+      "host_mean_us": 306.84375,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=0"
+    },
+    {
+      "name": "current_1111_fail02",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 24904,
+        "marker_us": 15422,
+        "normalize_us": 122,
+        "core_us": 6723,
+        "refine_us": 59,
+        "marker_roi": [
+          108,
+          144,
+          468,
+          468
+        ],
+        "angle_deg": -83.32,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 3,
+        "core_ecc_us": 5,
+        "core_payload_us": 0,
+        "corners": [
+          402,
+          423,
+          148,
+          416,
+          171,
+          185,
+          407,
+          219
+        ]
+      },
+      "host_mean_us": 1135.15625,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "current_1111_fail02",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 24670,
+        "marker_us": 15598,
+        "normalize_us": 100,
+        "core_us": 6625,
+        "refine_us": 55,
+        "marker_roi": [
+          108,
+          144,
+          468,
+          468
+        ],
+        "angle_deg": -83.32,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 2,
+        "core_ecc_us": 8,
+        "core_payload_us": 0,
+        "corners": [
+          402,
+          423,
+          148,
+          416,
+          171,
+          185,
+          407,
+          219
+        ]
+      },
+      "host_mean_us": 1118.4375,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "current_1111_fixed01",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 23370,
+        "marker_us": 14612,
+        "normalize_us": 103,
+        "core_us": 6592,
+        "refine_us": 57,
+        "marker_roi": [
+          156,
+          174,
+          498,
+          480
+        ],
+        "angle_deg": -84.019,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 2,
+        "core_ecc_us": 10,
+        "core_payload_us": 1,
+        "corners": [
+          431,
+          439,
+          196,
+          434,
+          216,
+          215,
+          434,
+          246
+        ]
+      },
+      "host_mean_us": 304.59375,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=0"
+    },
+    {
+      "name": "current_1111_fixed01",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 24697,
+        "marker_us": 15521,
+        "normalize_us": 103,
+        "core_us": 6923,
+        "refine_us": 55,
+        "marker_roi": [
+          156,
+          174,
+          498,
+          480
+        ],
+        "angle_deg": -84.019,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 2,
+        "core_ecc_us": 8,
+        "core_payload_us": 0,
+        "corners": [
+          431,
+          439,
+          196,
+          434,
+          216,
+          215,
+          434,
+          246
+        ]
+      },
+      "host_mean_us": 1140.5625,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "current_1111_fixed01",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 25205,
+        "marker_us": 16081,
+        "normalize_us": 112,
+        "core_us": 6670,
+        "refine_us": 57,
+        "marker_roi": [
+          156,
+          174,
+          498,
+          480
+        ],
+        "angle_deg": -84.019,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 3,
+        "core_ecc_us": 7,
+        "core_payload_us": 0,
+        "corners": [
+          431,
+          439,
+          196,
+          434,
+          216,
+          215,
+          434,
+          246
+        ]
+      },
+      "host_mean_us": 1087.28125,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "current_1111_restored01",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 23858,
+        "marker_us": 14548,
+        "normalize_us": 110,
+        "core_us": 6782,
+        "refine_us": 63,
+        "marker_roi": [
+          150,
+          126,
+          564,
+          516
+        ],
+        "angle_deg": -82.271,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 1,
+        "core_ecc_us": 11,
+        "core_payload_us": 0,
+        "corners": [
+          487,
+          476,
+          200,
+          462,
+          237,
+          173,
+          505,
+          231
+        ]
+      },
+      "host_mean_us": 313.59375,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=0"
+    },
+    {
+      "name": "current_1111_restored01",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 25612,
+        "marker_us": 16292,
+        "normalize_us": 116,
+        "core_us": 6832,
+        "refine_us": 66,
+        "marker_roi": [
+          150,
+          126,
+          570,
+          510
+        ],
+        "angle_deg": -81.529,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 2,
+        "core_ecc_us": 10,
+        "core_payload_us": 0,
+        "corners": [
+          487,
+          476,
+          199,
+          462,
+          238,
+          173,
+          504,
+          231
+        ]
+      },
+      "host_mean_us": 1135.15625,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "current_1111_restored01",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 25072,
+        "marker_us": 16063,
+        "normalize_us": 131,
+        "core_us": 6709,
+        "refine_us": 70,
+        "marker_roi": [
+          156,
+          126,
+          564,
+          510
+        ],
+        "angle_deg": -81.469,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 2,
+        "core_ecc_us": 5,
+        "core_payload_us": 0,
+        "corners": [
+          487,
+          476,
+          200,
+          463,
+          237,
+          173,
+          504,
+          231
+        ]
+      },
+      "host_mean_us": 1143.90625,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "fail01",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 55984,
+        "marker_us": 34709,
+        "normalize_us": 7839,
+        "core_us": 13394,
+        "refine_us": 34,
+        "marker_roi": [
+          372,
+          260,
+          484,
+          376
+        ],
+        "angle_deg": 85.815,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 70,
+        "core_candidate_us": 4735,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          396,
+          286,
+          451,
+          282,
+          454,
+          340,
+          399,
+          343
+        ]
+      },
+      "host_mean_us": 423.90625,
+      "counters": "COUNTERS searches=33 grid_samples=1868880 peak_extra_bytes=0"
+    },
+    {
+      "name": "fail01",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 56001,
+        "marker_us": 35123,
+        "normalize_us": 7817,
+        "core_us": 13012,
+        "refine_us": 32,
+        "marker_roi": [
+          372,
+          260,
+          484,
+          376
+        ],
+        "angle_deg": 85.815,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 44,
+        "core_candidate_us": 4322,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          396,
+          286,
+          451,
+          282,
+          454,
+          340,
+          399,
+          343
+        ]
+      },
+      "host_mean_us": 2172.21875,
+      "counters": "COUNTERS searches=33 grid_samples=1868880 peak_extra_bytes=58880"
+    },
+    {
+      "name": "fail01",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 60786,
+        "marker_us": 37326,
+        "normalize_us": 8753,
+        "core_us": 14664,
+        "refine_us": 36,
+        "marker_roi": [
+          372,
+          260,
+          484,
+          376
+        ],
+        "angle_deg": 85.815,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 78,
+        "core_candidate_us": 5061,
+        "core_codeword_us": 2,
+        "core_ecc_us": 2,
+        "core_payload_us": 1,
+        "corners": [
+          396,
+          286,
+          451,
+          282,
+          454,
+          340,
+          399,
+          343
+        ]
+      },
+      "host_mean_us": 2123.125,
+      "counters": "COUNTERS searches=33 grid_samples=1868880 peak_extra_bytes=58880"
+    },
+    {
+      "name": "fail03",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 42140,
+        "marker_us": 17037,
+        "normalize_us": 8930,
+        "core_us": 16133,
+        "refine_us": 35,
+        "marker_roi": [
+          360,
+          240,
+          498,
+          378
+        ],
+        "angle_deg": 90.0,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 61,
+        "core_candidate_us": 5337,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          397,
+          277,
+          452,
+          273,
+          455,
+          331,
+          400,
+          334
+        ]
+      },
+      "host_mean_us": 330.03125,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=0"
+    },
+    {
+      "name": "fail03",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 42038,
+        "marker_us": 17303,
+        "normalize_us": 9100,
+        "core_us": 15584,
+        "refine_us": 47,
+        "marker_roi": [
+          360,
+          240,
+          498,
+          378
+        ],
+        "angle_deg": 90.0,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 57,
+        "core_candidate_us": 5396,
+        "core_codeword_us": 3,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          397,
+          277,
+          452,
+          273,
+          455,
+          331,
+          400,
+          334
+        ]
+      },
+      "host_mean_us": 1107.53125,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "fail03",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 35660,
+        "marker_us": 15226,
+        "normalize_us": 8051,
+        "core_us": 12346,
+        "refine_us": 30,
+        "marker_roi": [
+          360,
+          240,
+          498,
+          378
+        ],
+        "angle_deg": 90.0,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 54,
+        "core_candidate_us": 4181,
+        "core_codeword_us": 2,
+        "core_ecc_us": 2,
+        "core_payload_us": 0,
+        "corners": [
+          397,
+          277,
+          452,
+          273,
+          455,
+          331,
+          400,
+          334
+        ]
+      },
+      "host_mean_us": 1077.15625,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "fail04",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 37306,
+        "marker_us": 14938,
+        "normalize_us": 8861,
+        "core_us": 13466,
+        "refine_us": 35,
+        "marker_roi": [
+          354,
+          234,
+          492,
+          378
+        ],
+        "angle_deg": 90.0,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 51,
+        "core_candidate_us": 4702,
+        "core_codeword_us": 2,
+        "core_ecc_us": 2,
+        "core_payload_us": 0,
+        "corners": [
+          391,
+          273,
+          446,
+          269,
+          449,
+          327,
+          394,
+          330
+        ]
+      },
+      "host_mean_us": 269.90625,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=0"
+    },
+    {
+      "name": "fail04",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 37169,
+        "marker_us": 16031,
+        "normalize_us": 7721,
+        "core_us": 13379,
+        "refine_us": 33,
+        "marker_roi": [
+          354,
+          234,
+          492,
+          378
+        ],
+        "angle_deg": 90.0,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 80,
+        "core_candidate_us": 4427,
+        "core_codeword_us": 2,
+        "core_ecc_us": 2,
+        "core_payload_us": 1,
+        "corners": [
+          391,
+          273,
+          446,
+          269,
+          449,
+          327,
+          394,
+          330
+        ]
+      },
+      "host_mean_us": 1083.21875,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "fail04",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 37989,
+        "marker_us": 16445,
+        "normalize_us": 8114,
+        "core_us": 13391,
+        "refine_us": 33,
+        "marker_roi": [
+          354,
+          234,
+          492,
+          378
+        ],
+        "angle_deg": 90.0,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 60,
+        "core_candidate_us": 4549,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          391,
+          273,
+          446,
+          269,
+          449,
+          327,
+          394,
+          330
+        ]
+      },
+      "host_mean_us": 1075.46875,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "half_fixed_current",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 54212,
+        "marker_us": 33280,
+        "normalize_us": 7958,
+        "core_us": 12936,
+        "refine_us": 31,
+        "marker_roi": [
+          412,
+          160,
+          512,
+          268
+        ],
+        "angle_deg": 93.691,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 58,
+        "core_candidate_us": 4381,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          440,
+          187,
+          482,
+          190,
+          479,
+          234,
+          436,
+          231
+        ]
+      },
+      "host_mean_us": 460.625,
+      "counters": "COUNTERS searches=33 grid_samples=1868880 peak_extra_bytes=0"
+    },
+    {
+      "name": "half_fixed_current",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 59179,
+        "marker_us": 35502,
+        "normalize_us": 8148,
+        "core_us": 15487,
+        "refine_us": 35,
+        "marker_roi": [
+          412,
+          160,
+          512,
+          268
+        ],
+        "angle_deg": 93.691,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 53,
+        "core_candidate_us": 5455,
+        "core_codeword_us": 2,
+        "core_ecc_us": 4,
+        "core_payload_us": 0,
+        "corners": [
+          440,
+          187,
+          482,
+          190,
+          479,
+          234,
+          436,
+          231
+        ]
+      },
+      "host_mean_us": 2048.375,
+      "counters": "COUNTERS searches=33 grid_samples=1868880 peak_extra_bytes=58880"
+    },
+    {
+      "name": "half_fixed_current",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 58631,
+        "marker_us": 35821,
+        "normalize_us": 7960,
+        "core_us": 14799,
+        "refine_us": 44,
+        "marker_roi": [
+          412,
+          160,
+          512,
+          268
+        ],
+        "angle_deg": 93.691,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 50,
+        "core_candidate_us": 4585,
+        "core_codeword_us": 3,
+        "core_ecc_us": 4,
+        "core_payload_us": 0,
+        "corners": [
+          440,
+          187,
+          482,
+          190,
+          479,
+          234,
+          436,
+          231
+        ]
+      },
+      "host_mean_us": 2054.25,
+      "counters": "COUNTERS searches=33 grid_samples=1868880 peak_extra_bytes=58880"
+    },
+    {
+      "name": "half_light01",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 62203,
+        "marker_us": 32511,
+        "normalize_us": 15705,
+        "core_us": 13930,
+        "refine_us": 38,
+        "marker_roi": [
+          432,
+          168,
+          544,
+          284
+        ],
+        "angle_deg": 92.793,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 38,
+        "core_candidate_us": 4421,
+        "core_codeword_us": 3,
+        "core_ecc_us": 1,
+        "core_payload_us": 1,
+        "corners": [
+          457,
+          193,
+          514,
+          195,
+          510,
+          254,
+          454,
+          251
+        ]
+      },
+      "host_mean_us": 579.125,
+      "counters": "COUNTERS searches=33 grid_samples=1868880 peak_extra_bytes=0"
+    },
+    {
+      "name": "half_light01",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 64356,
+        "marker_us": 35798,
+        "normalize_us": 15187,
+        "core_us": 13332,
+        "refine_us": 35,
+        "marker_roi": [
+          432,
+          168,
+          544,
+          284
+        ],
+        "angle_deg": 92.862,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 29,
+        "core_candidate_us": 4157,
+        "core_codeword_us": 2,
+        "core_ecc_us": 2,
+        "core_payload_us": 0,
+        "corners": [
+          457,
+          193,
+          514,
+          195,
+          510,
+          254,
+          454,
+          251
+        ]
+      },
+      "host_mean_us": 2058.8125,
+      "counters": "COUNTERS searches=33 grid_samples=1868880 peak_extra_bytes=58880"
+    },
+    {
+      "name": "half_light01",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 75448,
+        "marker_us": 36727,
+        "normalize_us": 22188,
+        "core_us": 16490,
+        "refine_us": 36,
+        "marker_roi": [
+          432,
+          168,
+          544,
+          284
+        ],
+        "angle_deg": 92.862,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 63,
+        "core_candidate_us": 6765,
+        "core_codeword_us": 2,
+        "core_ecc_us": 4,
+        "core_payload_us": 0,
+        "corners": [
+          457,
+          193,
+          514,
+          195,
+          510,
+          254,
+          454,
+          251
+        ]
+      },
+      "host_mean_us": 2236.09375,
+      "counters": "COUNTERS searches=33 grid_samples=1868880 peak_extra_bytes=58880"
+    },
+    {
+      "name": "half_light02",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 72897,
+        "marker_us": 38461,
+        "normalize_us": 18672,
+        "core_us": 15725,
+        "refine_us": 34,
+        "marker_roi": [
+          428,
+          164,
+          544,
+          284
+        ],
+        "angle_deg": 94.289,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 45,
+        "core_candidate_us": 5375,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 1,
+        "corners": [
+          457,
+          193,
+          513,
+          195,
+          510,
+          254,
+          454,
+          251
+        ]
+      },
+      "host_mean_us": 596.34375,
+      "counters": "COUNTERS searches=33 grid_samples=1868880 peak_extra_bytes=0"
+    },
+    {
+      "name": "half_light02",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 48488,
+        "marker_us": 17424,
+        "normalize_us": 17694,
+        "core_us": 13329,
+        "refine_us": 34,
+        "marker_roi": [
+          420,
+          156,
+          558,
+          300
+        ],
+        "angle_deg": 94.086,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 32,
+        "core_candidate_us": 4772,
+        "core_codeword_us": 3,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          457,
+          193,
+          513,
+          195,
+          510,
+          254,
+          454,
+          251
+        ]
+      },
+      "host_mean_us": 1126.90625,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "half_light02",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 45236,
+        "marker_us": 16566,
+        "normalize_us": 14892,
+        "core_us": 13739,
+        "refine_us": 33,
+        "marker_roi": [
+          420,
+          156,
+          558,
+          300
+        ],
+        "angle_deg": 94.086,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 44,
+        "core_candidate_us": 4483,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          457,
+          193,
+          513,
+          195,
+          510,
+          254,
+          454,
+          251
+        ]
+      },
+      "host_mean_us": 1141.34375,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "half_restored01",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 60277,
+        "marker_us": 31830,
+        "normalize_us": 15085,
+        "core_us": 13327,
+        "refine_us": 30,
+        "marker_roi": [
+          432,
+          168,
+          548,
+          288
+        ],
+        "angle_deg": 92.726,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 30,
+        "core_candidate_us": 4274,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          461,
+          194,
+          517,
+          196,
+          513,
+          255,
+          458,
+          252
+        ]
+      },
+      "host_mean_us": 596.65625,
+      "counters": "COUNTERS searches=33 grid_samples=1868880 peak_extra_bytes=0"
+    },
+    {
+      "name": "half_restored01",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 66782,
+        "marker_us": 37065,
+        "normalize_us": 16129,
+        "core_us": 13550,
+        "refine_us": 31,
+        "marker_roi": [
+          432,
+          168,
+          548,
+          288
+        ],
+        "angle_deg": 92.726,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 36,
+        "core_candidate_us": 4531,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          461,
+          194,
+          517,
+          196,
+          513,
+          255,
+          458,
+          252
+        ]
+      },
+      "host_mean_us": 2079.9375,
+      "counters": "COUNTERS searches=33 grid_samples=1868880 peak_extra_bytes=58880"
+    },
+    {
+      "name": "half_restored01",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 64484,
+        "marker_us": 35072,
+        "normalize_us": 15802,
+        "core_us": 13564,
+        "refine_us": 39,
+        "marker_roi": [
+          432,
+          168,
+          548,
+          288
+        ],
+        "angle_deg": 92.726,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 30,
+        "core_candidate_us": 4426,
+        "core_codeword_us": 2,
+        "core_ecc_us": 4,
+        "core_payload_us": 1,
+        "corners": [
+          461,
+          194,
+          517,
+          196,
+          513,
+          255,
+          458,
+          252
+        ]
+      },
+      "host_mean_us": 2179.75,
+      "counters": "COUNTERS searches=33 grid_samples=1868880 peak_extra_bytes=58880"
+    },
+    {
+      "name": "half_restored_fail01",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 62494,
+        "marker_us": 33085,
+        "normalize_us": 15884,
+        "core_us": 13482,
+        "refine_us": 36,
+        "marker_roi": [
+          432,
+          168,
+          548,
+          288
+        ],
+        "angle_deg": 92.726,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 35,
+        "core_candidate_us": 4319,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          461,
+          194,
+          517,
+          196,
+          513,
+          255,
+          458,
+          252
+        ]
+      },
+      "host_mean_us": 582.34375,
+      "counters": "COUNTERS searches=33 grid_samples=1868880 peak_extra_bytes=0"
+    },
+    {
+      "name": "half_restored_fail01",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 46932,
+        "marker_us": 15463,
+        "normalize_us": 16500,
+        "core_us": 14881,
+        "refine_us": 80,
+        "marker_roi": [
+          426,
+          156,
+          564,
+          300
+        ],
+        "angle_deg": 94.086,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 51,
+        "core_candidate_us": 4716,
+        "core_codeword_us": 2,
+        "core_ecc_us": 4,
+        "core_payload_us": 0,
+        "corners": [
+          461,
+          194,
+          517,
+          196,
+          513,
+          255,
+          458,
+          252
+        ]
+      },
+      "host_mean_us": 1143.875,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "half_restored_fail01",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 45028,
+        "marker_us": 15528,
+        "normalize_us": 15656,
+        "core_us": 13760,
+        "refine_us": 78,
+        "marker_roi": [
+          426,
+          156,
+          564,
+          300
+        ],
+        "angle_deg": 94.086,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 36,
+        "core_candidate_us": 4672,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          461,
+          194,
+          517,
+          196,
+          513,
+          255,
+          458,
+          252
+        ]
+      },
+      "host_mean_us": 1149.5625,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "half_restored_fail02",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 0,
+        "payload": "",
+        "elapsed_us": 49932,
+        "marker_us": 49929,
+        "normalize_us": 0,
+        "core_us": 0,
+        "refine_us": 0,
+        "marker_roi": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "angle_deg": 0.0,
+        "grid": [
+          0,
+          0
+        ],
+        "geometry_quality": 0,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 0,
+        "core_ecc_us": 0,
+        "core_payload_us": 0,
+        "corners": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "host_mean_us": 786.84375,
+      "counters": "COUNTERS searches=96 grid_samples=4508160 peak_extra_bytes=0"
+    },
+    {
+      "name": "half_restored_fail02",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 0,
+        "payload": "",
+        "elapsed_us": 33471,
+        "marker_us": 33468,
+        "normalize_us": 0,
+        "core_us": 0,
+        "refine_us": 0,
+        "marker_roi": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "angle_deg": 0.0,
+        "grid": [
+          0,
+          0
+        ],
+        "geometry_quality": 0,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 0,
+        "core_ecc_us": 0,
+        "core_payload_us": 0,
+        "corners": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "host_mean_us": 2642.25,
+      "counters": "COUNTERS searches=64 grid_samples=2664960 peak_extra_bytes=58880"
+    },
+    {
+      "name": "half_restored_fail02",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 0,
+        "payload": "",
+        "elapsed_us": 38743,
+        "marker_us": 38740,
+        "normalize_us": 0,
+        "core_us": 0,
+        "refine_us": 0,
+        "marker_roi": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "angle_deg": 0.0,
+        "grid": [
+          0,
+          0
+        ],
+        "geometry_quality": 0,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 0,
+        "core_ecc_us": 0,
+        "core_payload_us": 0,
+        "corners": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "host_mean_us": 2758.125,
+      "counters": "COUNTERS searches=64 grid_samples=2664960 peak_extra_bytes=58880"
+    },
+    {
+      "name": "half_restored_fail03",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 66100,
+        "marker_us": 32394,
+        "normalize_us": 20338,
+        "core_us": 13329,
+        "refine_us": 34,
+        "marker_roi": [
+          432,
+          168,
+          548,
+          288
+        ],
+        "angle_deg": 92.726,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 46,
+        "core_candidate_us": 4546,
+        "core_codeword_us": 2,
+        "core_ecc_us": 2,
+        "core_payload_us": 0,
+        "corners": [
+          461,
+          194,
+          517,
+          196,
+          513,
+          255,
+          457,
+          252
+        ]
+      },
+      "host_mean_us": 602.9375,
+      "counters": "COUNTERS searches=33 grid_samples=1868880 peak_extra_bytes=0"
+    },
+    {
+      "name": "half_restored_fail03",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 65027,
+        "marker_us": 36310,
+        "normalize_us": 15563,
+        "core_us": 13116,
+        "refine_us": 30,
+        "marker_roi": [
+          432,
+          168,
+          548,
+          288
+        ],
+        "angle_deg": 92.726,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 30,
+        "core_candidate_us": 4468,
+        "core_codeword_us": 3,
+        "core_ecc_us": 2,
+        "core_payload_us": 0,
+        "corners": [
+          461,
+          194,
+          517,
+          196,
+          513,
+          255,
+          457,
+          252
+        ]
+      },
+      "host_mean_us": 2066.375,
+      "counters": "COUNTERS searches=33 grid_samples=1868880 peak_extra_bytes=58880"
+    },
+    {
+      "name": "half_restored_fail03",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 64824,
+        "marker_us": 36007,
+        "normalize_us": 15216,
+        "core_us": 13558,
+        "refine_us": 36,
+        "marker_roi": [
+          432,
+          168,
+          548,
+          288
+        ],
+        "angle_deg": 92.726,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 33,
+        "core_candidate_us": 4124,
+        "core_codeword_us": 2,
+        "core_ecc_us": 2,
+        "core_payload_us": 1,
+        "corners": [
+          461,
+          194,
+          517,
+          196,
+          513,
+          255,
+          457,
+          252
+        ]
+      },
+      "host_mean_us": 2114.9375,
+      "counters": "COUNTERS searches=33 grid_samples=1868880 peak_extra_bytes=58880"
+    },
+    {
+      "name": "light_fixed_current",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 57601,
+        "marker_us": 34956,
+        "normalize_us": 8917,
+        "core_us": 13689,
+        "refine_us": 34,
+        "marker_roi": [
+          412,
+          160,
+          516,
+          268
+        ],
+        "angle_deg": 93.691,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 59,
+        "core_candidate_us": 4610,
+        "core_codeword_us": 3,
+        "core_ecc_us": 2,
+        "core_payload_us": 0,
+        "corners": [
+          443,
+          188,
+          485,
+          190,
+          483,
+          235,
+          441,
+          232
+        ]
+      },
+      "host_mean_us": 434.375,
+      "counters": "COUNTERS searches=33 grid_samples=1868880 peak_extra_bytes=0"
+    },
+    {
+      "name": "light_fixed_current",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 57465,
+        "marker_us": 36028,
+        "normalize_us": 7256,
+        "core_us": 14142,
+        "refine_us": 34,
+        "marker_roi": [
+          412,
+          160,
+          516,
+          268
+        ],
+        "angle_deg": 93.691,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 43,
+        "core_candidate_us": 4705,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 1,
+        "corners": [
+          443,
+          188,
+          485,
+          190,
+          483,
+          235,
+          441,
+          232
+        ]
+      },
+      "host_mean_us": 2200.71875,
+      "counters": "COUNTERS searches=33 grid_samples=1868880 peak_extra_bytes=58880"
+    },
+    {
+      "name": "light_fixed_current",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 58020,
+        "marker_us": 36613,
+        "normalize_us": 7738,
+        "core_us": 13627,
+        "refine_us": 32,
+        "marker_roi": [
+          412,
+          160,
+          516,
+          268
+        ],
+        "angle_deg": 93.691,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 45,
+        "core_candidate_us": 4645,
+        "core_codeword_us": 3,
+        "core_ecc_us": 1,
+        "core_payload_us": 0,
+        "corners": [
+          443,
+          188,
+          485,
+          190,
+          483,
+          235,
+          441,
+          232
+        ]
+      },
+      "host_mean_us": 2196.6875,
+      "counters": "COUNTERS searches=33 grid_samples=1868880 peak_extra_bytes=58880"
+    },
+    {
+      "name": "light_on01",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 55327,
+        "marker_us": 32845,
+        "normalize_us": 7566,
+        "core_us": 14878,
+        "refine_us": 33,
+        "marker_roi": [
+          412,
+          160,
+          516,
+          268
+        ],
+        "angle_deg": 93.691,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 52,
+        "core_candidate_us": 4602,
+        "core_codeword_us": 2,
+        "core_ecc_us": 2,
+        "core_payload_us": 0,
+        "corners": [
+          443,
+          188,
+          485,
+          190,
+          483,
+          235,
+          441,
+          232
+        ]
+      },
+      "host_mean_us": 437.0,
+      "counters": "COUNTERS searches=33 grid_samples=1868880 peak_extra_bytes=0"
+    },
+    {
+      "name": "light_on01",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 59883,
+        "marker_us": 37932,
+        "normalize_us": 7782,
+        "core_us": 14132,
+        "refine_us": 31,
+        "marker_roi": [
+          412,
+          160,
+          516,
+          268
+        ],
+        "angle_deg": 93.691,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 53,
+        "core_candidate_us": 5201,
+        "core_codeword_us": 2,
+        "core_ecc_us": 2,
+        "core_payload_us": 0,
+        "corners": [
+          443,
+          188,
+          485,
+          190,
+          483,
+          235,
+          441,
+          232
+        ]
+      },
+      "host_mean_us": 2170.125,
+      "counters": "COUNTERS searches=33 grid_samples=1868880 peak_extra_bytes=58880"
+    },
+    {
+      "name": "light_on01",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 58524,
+        "marker_us": 36636,
+        "normalize_us": 8534,
+        "core_us": 13314,
+        "refine_us": 33,
+        "marker_roi": [
+          412,
+          160,
+          516,
+          268
+        ],
+        "angle_deg": 93.691,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 50,
+        "core_candidate_us": 4496,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          443,
+          188,
+          485,
+          190,
+          483,
+          235,
+          441,
+          232
+        ]
+      },
+      "host_mean_us": 2195.6875,
+      "counters": "COUNTERS searches=33 grid_samples=1868880 peak_extra_bytes=58880"
+    },
+    {
+      "name": "light_on02",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 63943,
+        "marker_us": 39171,
+        "normalize_us": 9059,
+        "core_us": 15674,
+        "refine_us": 31,
+        "marker_roi": [
+          412,
+          160,
+          516,
+          268
+        ],
+        "angle_deg": 93.691,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 67,
+        "core_candidate_us": 5220,
+        "core_codeword_us": 3,
+        "core_ecc_us": 2,
+        "core_payload_us": 1,
+        "corners": [
+          443,
+          188,
+          485,
+          190,
+          483,
+          235,
+          441,
+          232
+        ]
+      },
+      "host_mean_us": 430.78125,
+      "counters": "COUNTERS searches=33 grid_samples=1868880 peak_extra_bytes=0"
+    },
+    {
+      "name": "light_on02",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 66958,
+        "marker_us": 40933,
+        "normalize_us": 9508,
+        "core_us": 16480,
+        "refine_us": 32,
+        "marker_roi": [
+          412,
+          160,
+          516,
+          268
+        ],
+        "angle_deg": 93.691,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 57,
+        "core_candidate_us": 5508,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          443,
+          188,
+          485,
+          190,
+          483,
+          235,
+          441,
+          232
+        ]
+      },
+      "host_mean_us": 2171.03125,
+      "counters": "COUNTERS searches=33 grid_samples=1868880 peak_extra_bytes=58880"
+    },
+    {
+      "name": "light_on02",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 56644,
+        "marker_us": 35474,
+        "normalize_us": 7517,
+        "core_us": 13614,
+        "refine_us": 31,
+        "marker_roi": [
+          412,
+          160,
+          516,
+          268
+        ],
+        "angle_deg": 93.691,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 44,
+        "core_candidate_us": 4775,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          443,
+          188,
+          485,
+          190,
+          483,
+          235,
+          441,
+          232
+        ]
+      },
+      "host_mean_us": 2190.28125,
+      "counters": "COUNTERS searches=33 grid_samples=1868880 peak_extra_bytes=58880"
+    },
+    {
+      "name": "sample02",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 36240,
+        "marker_us": 15411,
+        "normalize_us": 7087,
+        "core_us": 13705,
+        "refine_us": 32,
+        "marker_roi": [
+          354,
+          234,
+          498,
+          384
+        ],
+        "angle_deg": 85.914,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 49,
+        "core_candidate_us": 4475,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          395,
+          279,
+          451,
+          275,
+          454,
+          332,
+          398,
+          336
+        ]
+      },
+      "host_mean_us": 270.8125,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=0"
+    },
+    {
+      "name": "sample02",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 37602,
+        "marker_us": 17140,
+        "normalize_us": 8042,
+        "core_us": 12380,
+        "refine_us": 34,
+        "marker_roi": [
+          354,
+          234,
+          498,
+          384
+        ],
+        "angle_deg": 85.914,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 67,
+        "core_candidate_us": 4079,
+        "core_codeword_us": 3,
+        "core_ecc_us": 1,
+        "core_payload_us": 1,
+        "corners": [
+          395,
+          279,
+          451,
+          275,
+          454,
+          332,
+          398,
+          336
+        ]
+      },
+      "host_mean_us": 1087.5625,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "sample02",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 40795,
+        "marker_us": 15979,
+        "normalize_us": 9724,
+        "core_us": 15041,
+        "refine_us": 43,
+        "marker_roi": [
+          354,
+          234,
+          498,
+          384
+        ],
+        "angle_deg": 85.914,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 66,
+        "core_candidate_us": 4930,
+        "core_codeword_us": 3,
+        "core_ecc_us": 2,
+        "core_payload_us": 0,
+        "corners": [
+          395,
+          279,
+          451,
+          275,
+          454,
+          332,
+          398,
+          336
+        ]
+      },
+      "host_mean_us": 1077.8125,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "slow_current01",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 53304,
+        "marker_us": 32293,
+        "normalize_us": 7681,
+        "core_us": 13294,
+        "refine_us": 30,
+        "marker_roi": [
+          424,
+          164,
+          520,
+          264
+        ],
+        "angle_deg": 90.0,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 48,
+        "core_candidate_us": 4433,
+        "core_codeword_us": 2,
+        "core_ecc_us": 2,
+        "core_payload_us": 0,
+        "corners": [
+          447,
+          189,
+          489,
+          188,
+          489,
+          233,
+          447,
+          233
+        ]
+      },
+      "host_mean_us": 469.78125,
+      "counters": "COUNTERS searches=33 grid_samples=1868880 peak_extra_bytes=0"
+    },
+    {
+      "name": "slow_current01",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 60467,
+        "marker_us": 39692,
+        "normalize_us": 7825,
+        "core_us": 12910,
+        "refine_us": 32,
+        "marker_roi": [
+          424,
+          164,
+          520,
+          264
+        ],
+        "angle_deg": 90.0,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 48,
+        "core_candidate_us": 4441,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          447,
+          189,
+          489,
+          188,
+          489,
+          233,
+          447,
+          233
+        ]
+      },
+      "host_mean_us": 1991.15625,
+      "counters": "COUNTERS searches=33 grid_samples=1868880 peak_extra_bytes=58880"
+    },
+    {
+      "name": "slow_current01",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 58826,
+        "marker_us": 37656,
+        "normalize_us": 7910,
+        "core_us": 13221,
+        "refine_us": 33,
+        "marker_roi": [
+          424,
+          164,
+          520,
+          264
+        ],
+        "angle_deg": 90.0,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 50,
+        "core_candidate_us": 4376,
+        "core_codeword_us": 3,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          447,
+          189,
+          489,
+          188,
+          489,
+          233,
+          447,
+          233
+        ]
+      },
+      "host_mean_us": 2037.625,
+      "counters": "COUNTERS searches=33 grid_samples=1868880 peak_extra_bytes=58880"
+    },
+    {
+      "name": "slow_current02",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 53646,
+        "marker_us": 32866,
+        "normalize_us": 7765,
+        "core_us": 12977,
+        "refine_us": 32,
+        "marker_roi": [
+          424,
+          164,
+          520,
+          264
+        ],
+        "angle_deg": 90.0,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 56,
+        "core_candidate_us": 4617,
+        "core_codeword_us": 3,
+        "core_ecc_us": 3,
+        "core_payload_us": 1,
+        "corners": [
+          447,
+          189,
+          489,
+          188,
+          489,
+          233,
+          447,
+          233
+        ]
+      },
+      "host_mean_us": 465.9375,
+      "counters": "COUNTERS searches=33 grid_samples=1868880 peak_extra_bytes=0"
+    },
+    {
+      "name": "slow_current02",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 56480,
+        "marker_us": 35561,
+        "normalize_us": 8122,
+        "core_us": 12760,
+        "refine_us": 31,
+        "marker_roi": [
+          424,
+          164,
+          520,
+          264
+        ],
+        "angle_deg": 90.0,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 51,
+        "core_candidate_us": 4226,
+        "core_codeword_us": 2,
+        "core_ecc_us": 2,
+        "core_payload_us": 0,
+        "corners": [
+          447,
+          189,
+          489,
+          188,
+          489,
+          233,
+          447,
+          233
+        ]
+      },
+      "host_mean_us": 2039.0,
+      "counters": "COUNTERS searches=33 grid_samples=1868880 peak_extra_bytes=58880"
+    },
+    {
+      "name": "slow_current02",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 57018,
+        "marker_us": 36120,
+        "normalize_us": 7520,
+        "core_us": 13339,
+        "refine_us": 32,
+        "marker_roi": [
+          424,
+          164,
+          520,
+          264
+        ],
+        "angle_deg": 90.0,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 52,
+        "core_candidate_us": 4433,
+        "core_codeword_us": 2,
+        "core_ecc_us": 2,
+        "core_payload_us": 0,
+        "corners": [
+          447,
+          189,
+          489,
+          188,
+          489,
+          233,
+          447,
+          233
+        ]
+      },
+      "host_mean_us": 2078.125,
+      "counters": "COUNTERS searches=33 grid_samples=1868880 peak_extra_bytes=58880"
+    },
+    {
+      "name": "stutter_fail01",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 0,
+        "payload": "",
+        "elapsed_us": 86067,
+        "marker_us": 55489,
+        "normalize_us": 30426,
+        "core_us": 145,
+        "refine_us": 0,
+        "marker_roi": [
+          306,
+          246,
+          708,
+          624
+        ],
+        "angle_deg": -167.196,
+        "grid": [
+          0,
+          0
+        ],
+        "geometry_quality": 0,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 35,
+        "core_candidate_us": 0,
+        "core_codeword_us": 0,
+        "core_ecc_us": 0,
+        "core_payload_us": 0,
+        "corners": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "host_mean_us": 1532.21875,
+      "counters": "COUNTERS searches=96 grid_samples=4508160 peak_extra_bytes=0"
+    },
+    {
+      "name": "stutter_fail01",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 0,
+        "payload": "",
+        "elapsed_us": 76839,
+        "marker_us": 35639,
+        "normalize_us": 33288,
+        "core_us": 336,
+        "refine_us": 0,
+        "marker_roi": [
+          724,
+          212,
+          1140,
+          656
+        ],
+        "angle_deg": -102.817,
+        "grid": [
+          0,
+          0
+        ],
+        "geometry_quality": 0,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 52,
+        "core_candidate_us": 22,
+        "core_codeword_us": 0,
+        "core_ecc_us": 0,
+        "core_payload_us": 0,
+        "corners": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "host_mean_us": 4179.5625,
+      "counters": "COUNTERS searches=64 grid_samples=2664960 peak_extra_bytes=58880"
+    },
+    {
+      "name": "stutter_fail01",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 0,
+        "payload": "",
+        "elapsed_us": 76617,
+        "marker_us": 38095,
+        "normalize_us": 27358,
+        "core_us": 11159,
+        "refine_us": 0,
+        "marker_roi": [
+          744,
+          276,
+          1218,
+          678
+        ],
+        "angle_deg": -102.626,
+        "grid": [
+          0,
+          0
+        ],
+        "geometry_quality": 0,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 50,
+        "core_candidate_us": 5569,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "host_mean_us": 3721.4375,
+      "counters": "COUNTERS searches=64 grid_samples=2664960 peak_extra_bytes=58880"
+    },
+    {
+      "name": "stutter_fail02",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 0,
+        "payload": "",
+        "elapsed_us": 49308,
+        "marker_us": 49305,
+        "normalize_us": 0,
+        "core_us": 0,
+        "refine_us": 0,
+        "marker_roi": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "angle_deg": 0.0,
+        "grid": [
+          0,
+          0
+        ],
+        "geometry_quality": 0,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 0,
+        "core_ecc_us": 0,
+        "core_payload_us": 0,
+        "corners": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "host_mean_us": 1171.96875,
+      "counters": "COUNTERS searches=96 grid_samples=4508160 peak_extra_bytes=0"
+    },
+    {
+      "name": "stutter_fail02",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 0,
+        "payload": "",
+        "elapsed_us": 82190,
+        "marker_us": 40545,
+        "normalize_us": 33995,
+        "core_us": 274,
+        "refine_us": 0,
+        "marker_roi": [
+          724,
+          208,
+          1140,
+          656
+        ],
+        "angle_deg": -102.817,
+        "grid": [
+          0,
+          0
+        ],
+        "geometry_quality": 0,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 49,
+        "core_candidate_us": 22,
+        "core_codeword_us": 0,
+        "core_ecc_us": 0,
+        "core_payload_us": 0,
+        "corners": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "host_mean_us": 4308.78125,
+      "counters": "COUNTERS searches=64 grid_samples=2664960 peak_extra_bytes=58880"
+    },
+    {
+      "name": "stutter_fail02",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 0,
+        "payload": "",
+        "elapsed_us": 72857,
+        "marker_us": 41159,
+        "normalize_us": 31482,
+        "core_us": 209,
+        "refine_us": 0,
+        "marker_roi": [
+          744,
+          276,
+          1218,
+          678
+        ],
+        "angle_deg": -103.062,
+        "grid": [
+          0,
+          0
+        ],
+        "geometry_quality": 0,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 63,
+        "core_candidate_us": 16,
+        "core_codeword_us": 0,
+        "core_ecc_us": 0,
+        "core_payload_us": 0,
+        "corners": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "host_mean_us": 3900.28125,
+      "counters": "COUNTERS searches=64 grid_samples=2664960 peak_extra_bytes=58880"
+    },
+    {
+      "name": "stutter_final01",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 25826,
+        "marker_us": 15899,
+        "normalize_us": 189,
+        "core_us": 7171,
+        "refine_us": 85,
+        "marker_roi": [
+          684,
+          276,
+          1146,
+          672
+        ],
+        "angle_deg": -99.612,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 2,
+        "core_ecc_us": 14,
+        "core_payload_us": 0,
+        "corners": [
+          1076,
+          566,
+          746,
+          608,
+          689,
+          336,
+          959,
+          223
+        ]
+      },
+      "host_mean_us": 443.96875,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=0"
+    },
+    {
+      "name": "stutter_final01",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 26112,
+        "marker_us": 16702,
+        "normalize_us": 131,
+        "core_us": 7062,
+        "refine_us": 85,
+        "marker_roi": [
+          684,
+          276,
+          1146,
+          672
+        ],
+        "angle_deg": -99.689,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 3,
+        "core_ecc_us": 8,
+        "core_payload_us": 1,
+        "corners": [
+          1075,
+          566,
+          743,
+          609,
+          691,
+          335,
+          960,
+          223
+        ]
+      },
+      "host_mean_us": 1220.59375,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "stutter_final01",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 27654,
+        "marker_us": 16383,
+        "normalize_us": 141,
+        "core_us": 8417,
+        "refine_us": 88,
+        "marker_roi": [
+          684,
+          276,
+          1146,
+          672
+        ],
+        "angle_deg": -99.689,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 1,
+        "core_ecc_us": 8,
+        "core_payload_us": 0,
+        "corners": [
+          1076,
+          566,
+          743,
+          609,
+          691,
+          335,
+          960,
+          223
+        ]
+      },
+      "host_mean_us": 1232.78125,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "stutter_restored01",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 27623,
+        "marker_us": 17088,
+        "normalize_us": 170,
+        "core_us": 7816,
+        "refine_us": 75,
+        "marker_roi": [
+          684,
+          276,
+          1146,
+          672
+        ],
+        "angle_deg": -99.612,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 3,
+        "core_ecc_us": 8,
+        "core_payload_us": 1,
+        "corners": [
+          1074,
+          567,
+          744,
+          608,
+          688,
+          336,
+          959,
+          223
+        ]
+      },
+      "host_mean_us": 444.6875,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=0"
+    },
+    {
+      "name": "stutter_restored01",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 24897,
+        "marker_us": 16007,
+        "normalize_us": 125,
+        "core_us": 6402,
+        "refine_us": 77,
+        "marker_roi": [
+          684,
+          276,
+          1146,
+          672
+        ],
+        "angle_deg": -99.612,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 3,
+        "core_ecc_us": 13,
+        "core_payload_us": 0,
+        "corners": [
+          1074,
+          567,
+          743,
+          608,
+          689,
+          335,
+          959,
+          223
+        ]
+      },
+      "host_mean_us": 1225.125,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "stutter_restored01",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 25221,
+        "marker_us": 16104,
+        "normalize_us": 132,
+        "core_us": 6742,
+        "refine_us": 81,
+        "marker_roi": [
+          684,
+          276,
+          1146,
+          672
+        ],
+        "angle_deg": -99.612,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 3,
+        "core_ecc_us": 14,
+        "core_payload_us": 1,
+        "corners": [
+          1074,
+          566,
+          743,
+          608,
+          689,
+          335,
+          959,
+          224
+        ]
+      },
+      "host_mean_us": 1190.1875,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "stutter_restored_fail01",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 23658,
+        "marker_us": 14547,
+        "normalize_us": 126,
+        "core_us": 6920,
+        "refine_us": 84,
+        "marker_roi": [
+          684,
+          276,
+          1146,
+          672
+        ],
+        "angle_deg": -99.612,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 3,
+        "core_ecc_us": 9,
+        "core_payload_us": 1,
+        "corners": [
+          1074,
+          566,
+          743,
+          609,
+          689,
+          335,
+          958,
+          224
+        ]
+      },
+      "host_mean_us": 449.40625,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=0"
+    },
+    {
+      "name": "stutter_restored_fail01",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 27635,
+        "marker_us": 16972,
+        "normalize_us": 134,
+        "core_us": 7866,
+        "refine_us": 93,
+        "marker_roi": [
+          684,
+          276,
+          1146,
+          672
+        ],
+        "angle_deg": -99.612,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 3,
+        "core_ecc_us": 16,
+        "core_payload_us": 0,
+        "corners": [
+          1074,
+          566,
+          743,
+          609,
+          689,
+          335,
+          958,
+          224
+        ]
+      },
+      "host_mean_us": 1210.0,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "stutter_restored_fail01",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 25863,
+        "marker_us": 15864,
+        "normalize_us": 127,
+        "core_us": 6959,
+        "refine_us": 98,
+        "marker_roi": [
+          684,
+          276,
+          1146,
+          672
+        ],
+        "angle_deg": -99.612,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 3,
+        "core_ecc_us": 13,
+        "core_payload_us": 0,
+        "corners": [
+          1075,
+          566,
+          743,
+          608,
+          689,
+          336,
+          958,
+          224
+        ]
+      },
+      "host_mean_us": 1201.59375,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "blank",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 0,
+        "payload": "",
+        "elapsed_us": 50912,
+        "marker_us": 50909,
+        "normalize_us": 0,
+        "core_us": 0,
+        "refine_us": 0,
+        "marker_roi": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "angle_deg": 0.0,
+        "grid": [
+          0,
+          0
+        ],
+        "geometry_quality": 0,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 0,
+        "core_ecc_us": 0,
+        "core_payload_us": 0,
+        "corners": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "host_mean_us": 666.21875,
+      "counters": "COUNTERS searches=96 grid_samples=4508160 peak_extra_bytes=0"
+    },
+    {
+      "name": "blank",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 0,
+        "payload": "",
+        "elapsed_us": 33084,
+        "marker_us": 33082,
+        "normalize_us": 0,
+        "core_us": 0,
+        "refine_us": 0,
+        "marker_roi": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "angle_deg": 0.0,
+        "grid": [
+          0,
+          0
+        ],
+        "geometry_quality": 0,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 0,
+        "core_ecc_us": 0,
+        "core_payload_us": 0,
+        "corners": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "host_mean_us": 1508.09375,
+      "counters": "COUNTERS searches=64 grid_samples=2664960 peak_extra_bytes=58880"
+    },
+    {
+      "name": "blank",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 0,
+        "payload": "",
+        "elapsed_us": 32334,
+        "marker_us": 32332,
+        "normalize_us": 0,
+        "core_us": 0,
+        "refine_us": 0,
+        "marker_roi": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "angle_deg": 0.0,
+        "grid": [
+          0,
+          0
+        ],
+        "geometry_quality": 0,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 0,
+        "core_ecc_us": 0,
+        "core_payload_us": 0,
+        "corners": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "host_mean_us": 1508.625,
+      "counters": "COUNTERS searches=64 grid_samples=2664960 peak_extra_bytes=58880"
+    },
+    {
+      "name": "covered",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 0,
+        "payload": "",
+        "elapsed_us": 51338,
+        "marker_us": 51334,
+        "normalize_us": 0,
+        "core_us": 0,
+        "refine_us": 0,
+        "marker_roi": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "angle_deg": 0.0,
+        "grid": [
+          0,
+          0
+        ],
+        "geometry_quality": 0,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 0,
+        "core_ecc_us": 0,
+        "core_payload_us": 0,
+        "corners": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "host_mean_us": 805.46875,
+      "counters": "COUNTERS searches=96 grid_samples=4508160 peak_extra_bytes=0"
+    },
+    {
+      "name": "covered",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 0,
+        "payload": "",
+        "elapsed_us": 34500,
+        "marker_us": 34496,
+        "normalize_us": 0,
+        "core_us": 0,
+        "refine_us": 0,
+        "marker_roi": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "angle_deg": 0.0,
+        "grid": [
+          0,
+          0
+        ],
+        "geometry_quality": 0,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 0,
+        "core_ecc_us": 0,
+        "core_payload_us": 0,
+        "corners": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "host_mean_us": 2385.03125,
+      "counters": "COUNTERS searches=64 grid_samples=2664960 peak_extra_bytes=58880"
+    },
+    {
+      "name": "covered",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 0,
+        "payload": "",
+        "elapsed_us": 32798,
+        "marker_us": 32796,
+        "normalize_us": 0,
+        "core_us": 0,
+        "refine_us": 0,
+        "marker_roi": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "angle_deg": 0.0,
+        "grid": [
+          0,
+          0
+        ],
+        "geometry_quality": 0,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 0,
+        "core_ecc_us": 0,
+        "core_payload_us": 0,
+        "corners": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "host_mean_us": 2451.5625,
+      "counters": "COUNTERS searches=64 grid_samples=2664960 peak_extra_bytes=58880"
+    },
+    {
+      "name": "large_centre",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 38114,
+        "marker_us": 15579,
+        "normalize_us": 8281,
+        "core_us": 14158,
+        "refine_us": 92,
+        "marker_roi": [
+          390,
+          108,
+          882,
+          588
+        ],
+        "angle_deg": -118.024,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 74,
+        "core_candidate_us": 4613,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          837,
+          421,
+          578,
+          538,
+          436,
+          273,
+          708,
+          154
+        ]
+      },
+      "host_mean_us": 328.5,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=0"
+    },
+    {
+      "name": "large_centre",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 38656,
+        "marker_us": 16265,
+        "normalize_us": 8588,
+        "core_us": 13711,
+        "refine_us": 88,
+        "marker_roi": [
+          390,
+          114,
+          882,
+          588
+        ],
+        "angle_deg": -117.834,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 70,
+        "core_candidate_us": 4935,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          837,
+          421,
+          577,
+          538,
+          436,
+          273,
+          708,
+          154
+        ]
+      },
+      "host_mean_us": 1182.5,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "large_centre",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 46885,
+        "marker_us": 18023,
+        "normalize_us": 9521,
+        "core_us": 19236,
+        "refine_us": 95,
+        "marker_roi": [
+          390,
+          114,
+          882,
+          588
+        ],
+        "angle_deg": -117.834,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 68,
+        "core_candidate_us": 6412,
+        "core_codeword_us": 3,
+        "core_ecc_us": 2,
+        "core_payload_us": 1,
+        "corners": [
+          837,
+          421,
+          577,
+          538,
+          436,
+          273,
+          708,
+          154
+        ]
+      },
+      "host_mean_us": 953.0625,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "shift_000",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 38550,
+        "marker_us": 16475,
+        "normalize_us": 8097,
+        "core_us": 13921,
+        "refine_us": 49,
+        "marker_roi": [
+          240,
+          156,
+          462,
+          372
+        ],
+        "angle_deg": -116.565,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 71,
+        "core_candidate_us": 4557,
+        "core_codeword_us": 3,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          413,
+          284,
+          327,
+          323,
+          280,
+          235,
+          370,
+          195
+        ]
+      },
+      "host_mean_us": 343.71875,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=0"
+    },
+    {
+      "name": "shift_000",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 44883,
+        "marker_us": 19287,
+        "normalize_us": 9456,
+        "core_us": 16084,
+        "refine_us": 48,
+        "marker_roi": [
+          240,
+          156,
+          462,
+          372
+        ],
+        "angle_deg": -116.565,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 76,
+        "core_candidate_us": 5648,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          413,
+          284,
+          327,
+          323,
+          280,
+          235,
+          370,
+          195
+        ]
+      },
+      "host_mean_us": 1173.25,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "shift_000",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 44091,
+        "marker_us": 18351,
+        "normalize_us": 8418,
+        "core_us": 17277,
+        "refine_us": 41,
+        "marker_roi": [
+          240,
+          156,
+          462,
+          372
+        ],
+        "angle_deg": -116.565,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 70,
+        "core_candidate_us": 5508,
+        "core_codeword_us": 3,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          413,
+          284,
+          327,
+          323,
+          280,
+          235,
+          370,
+          195
+        ]
+      },
+      "host_mean_us": 1149.375,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "shift_100",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 42151,
+        "marker_us": 16524,
+        "normalize_us": 9007,
+        "core_us": 16533,
+        "refine_us": 80,
+        "marker_roi": [
+          336,
+          156,
+          564,
+          372
+        ],
+        "angle_deg": -117.646,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 69,
+        "core_candidate_us": 6020,
+        "core_codeword_us": 3,
+        "core_ecc_us": 4,
+        "core_payload_us": 0,
+        "corners": [
+          513,
+          284,
+          427,
+          323,
+          380,
+          235,
+          470,
+          195
+        ]
+      },
+      "host_mean_us": 372.875,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=0"
+    },
+    {
+      "name": "shift_100",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 44427,
+        "marker_us": 20869,
+        "normalize_us": 8572,
+        "core_us": 14903,
+        "refine_us": 75,
+        "marker_roi": [
+          336,
+          156,
+          564,
+          372
+        ],
+        "angle_deg": -117.646,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 58,
+        "core_candidate_us": 4979,
+        "core_codeword_us": 2,
+        "core_ecc_us": 4,
+        "core_payload_us": 0,
+        "corners": [
+          513,
+          284,
+          427,
+          323,
+          380,
+          235,
+          470,
+          195
+        ]
+      },
+      "host_mean_us": 1143.84375,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "shift_100",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 37262,
+        "marker_us": 15479,
+        "normalize_us": 7957,
+        "core_us": 13742,
+        "refine_us": 77,
+        "marker_roi": [
+          336,
+          156,
+          564,
+          372
+        ],
+        "angle_deg": -117.646,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 63,
+        "core_candidate_us": 4641,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          513,
+          284,
+          427,
+          323,
+          380,
+          235,
+          470,
+          195
+        ]
+      },
+      "host_mean_us": 1159.40625,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "shift_150",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 35724,
+        "marker_us": 14544,
+        "normalize_us": 7552,
+        "core_us": 13581,
+        "refine_us": 40,
+        "marker_roi": [
+          390,
+          156,
+          612,
+          372
+        ],
+        "angle_deg": -116.565,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 58,
+        "core_candidate_us": 4631,
+        "core_codeword_us": 2,
+        "core_ecc_us": 2,
+        "core_payload_us": 0,
+        "corners": [
+          563,
+          284,
+          477,
+          323,
+          430,
+          235,
+          520,
+          195
+        ]
+      },
+      "host_mean_us": 323.3125,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=0"
+    },
+    {
+      "name": "shift_150",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 35694,
+        "marker_us": 14836,
+        "normalize_us": 7853,
+        "core_us": 12963,
+        "refine_us": 37,
+        "marker_roi": [
+          390,
+          156,
+          612,
+          372
+        ],
+        "angle_deg": -116.565,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 61,
+        "core_candidate_us": 4436,
+        "core_codeword_us": 2,
+        "core_ecc_us": 2,
+        "core_payload_us": 0,
+        "corners": [
+          563,
+          284,
+          477,
+          323,
+          430,
+          235,
+          520,
+          195
+        ]
+      },
+      "host_mean_us": 1100.96875,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "shift_150",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 35446,
+        "marker_us": 14530,
+        "normalize_us": 7493,
+        "core_us": 13380,
+        "refine_us": 37,
+        "marker_roi": [
+          390,
+          156,
+          612,
+          372
+        ],
+        "angle_deg": -116.565,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 52,
+        "core_candidate_us": 4186,
+        "core_codeword_us": 2,
+        "core_ecc_us": 1,
+        "core_payload_us": 1,
+        "corners": [
+          563,
+          284,
+          477,
+          323,
+          430,
+          235,
+          520,
+          195
+        ]
+      },
+      "host_mean_us": 1072.90625,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "shift_200",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 35345,
+        "marker_us": 14443,
+        "normalize_us": 7784,
+        "core_us": 13044,
+        "refine_us": 52,
+        "marker_roi": [
+          438,
+          156,
+          660,
+          372
+        ],
+        "angle_deg": -119.291,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 61,
+        "core_candidate_us": 4226,
+        "core_codeword_us": 3,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          613,
+          284,
+          527,
+          323,
+          480,
+          235,
+          570,
+          195
+        ]
+      },
+      "host_mean_us": 310.375,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=0"
+    },
+    {
+      "name": "shift_200",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 36756,
+        "marker_us": 15736,
+        "normalize_us": 7763,
+        "core_us": 13216,
+        "refine_us": 34,
+        "marker_roi": [
+          438,
+          156,
+          660,
+          372
+        ],
+        "angle_deg": -119.291,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 62,
+        "core_candidate_us": 4398,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          613,
+          284,
+          527,
+          323,
+          480,
+          235,
+          570,
+          195
+        ]
+      },
+      "host_mean_us": 1093.9375,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "shift_200",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 37353,
+        "marker_us": 15519,
+        "normalize_us": 7639,
+        "core_us": 14147,
+        "refine_us": 42,
+        "marker_roi": [
+          438,
+          156,
+          660,
+          372
+        ],
+        "angle_deg": -119.291,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 57,
+        "core_candidate_us": 4698,
+        "core_codeword_us": 3,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          613,
+          284,
+          527,
+          323,
+          480,
+          235,
+          570,
+          195
+        ]
+      },
+      "host_mean_us": 1079.90625,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "shift_250",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 38443,
+        "marker_us": 15509,
+        "normalize_us": 8682,
+        "core_us": 14167,
+        "refine_us": 76,
+        "marker_roi": [
+          486,
+          156,
+          714,
+          372
+        ],
+        "angle_deg": -117.646,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 74,
+        "core_candidate_us": 4582,
+        "core_codeword_us": 3,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          663,
+          284,
+          577,
+          323,
+          530,
+          235,
+          620,
+          195
+        ]
+      },
+      "host_mean_us": 358.15625,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=0"
+    },
+    {
+      "name": "shift_250",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 46392,
+        "marker_us": 19891,
+        "normalize_us": 9427,
+        "core_us": 16977,
+        "refine_us": 87,
+        "marker_roi": [
+          486,
+          156,
+          714,
+          372
+        ],
+        "angle_deg": -117.646,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 62,
+        "core_candidate_us": 5695,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          663,
+          284,
+          577,
+          323,
+          530,
+          235,
+          620,
+          195
+        ]
+      },
+      "host_mean_us": 1137.15625,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "shift_250",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 40342,
+        "marker_us": 17368,
+        "normalize_us": 8980,
+        "core_us": 13912,
+        "refine_us": 76,
+        "marker_roi": [
+          486,
+          156,
+          714,
+          372
+        ],
+        "angle_deg": -117.646,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 69,
+        "core_candidate_us": 4718,
+        "core_codeword_us": 2,
+        "core_ecc_us": 2,
+        "core_payload_us": 1,
+        "corners": [
+          663,
+          284,
+          577,
+          323,
+          530,
+          235,
+          620,
+          195
+        ]
+      },
+      "host_mean_us": 1083.09375,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "shift_300",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 34987,
+        "marker_us": 14683,
+        "normalize_us": 7642,
+        "core_us": 12616,
+        "refine_us": 39,
+        "marker_roi": [
+          540,
+          156,
+          762,
+          372
+        ],
+        "angle_deg": -116.565,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 68,
+        "core_candidate_us": 4069,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          713,
+          284,
+          627,
+          323,
+          580,
+          235,
+          670,
+          195
+        ]
+      },
+      "host_mean_us": 303.0625,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=0"
+    },
+    {
+      "name": "shift_300",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 36120,
+        "marker_us": 15451,
+        "normalize_us": 7543,
+        "core_us": 13082,
+        "refine_us": 37,
+        "marker_roi": [
+          540,
+          156,
+          762,
+          372
+        ],
+        "angle_deg": -116.565,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 63,
+        "core_candidate_us": 4447,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          713,
+          284,
+          627,
+          323,
+          580,
+          235,
+          670,
+          195
+        ]
+      },
+      "host_mean_us": 1003.28125,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "shift_300",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 36982,
+        "marker_us": 16123,
+        "normalize_us": 7715,
+        "core_us": 13099,
+        "refine_us": 38,
+        "marker_roi": [
+          540,
+          156,
+          762,
+          372
+        ],
+        "angle_deg": -116.565,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 62,
+        "core_candidate_us": 4178,
+        "core_codeword_us": 2,
+        "core_ecc_us": 1,
+        "core_payload_us": 1,
+        "corners": [
+          713,
+          284,
+          627,
+          323,
+          580,
+          235,
+          670,
+          195
+        ]
+      },
+      "host_mean_us": 1003.15625,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "shift_350",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 36440,
+        "marker_us": 15169,
+        "normalize_us": 8039,
+        "core_us": 13189,
+        "refine_us": 36,
+        "marker_roi": [
+          588,
+          156,
+          810,
+          372
+        ],
+        "angle_deg": -119.291,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 61,
+        "core_candidate_us": 4283,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          763,
+          284,
+          677,
+          323,
+          630,
+          235,
+          720,
+          195
+        ]
+      },
+      "host_mean_us": 298.125,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=0"
+    },
+    {
+      "name": "shift_350",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 35418,
+        "marker_us": 14989,
+        "normalize_us": 7654,
+        "core_us": 12738,
+        "refine_us": 32,
+        "marker_roi": [
+          588,
+          156,
+          810,
+          372
+        ],
+        "angle_deg": -119.291,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 57,
+        "core_candidate_us": 4210,
+        "core_codeword_us": 4,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          763,
+          284,
+          677,
+          323,
+          630,
+          235,
+          720,
+          195
+        ]
+      },
+      "host_mean_us": 1002.28125,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "shift_350",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 38261,
+        "marker_us": 15861,
+        "normalize_us": 8467,
+        "core_us": 13884,
+        "refine_us": 40,
+        "marker_roi": [
+          588,
+          156,
+          810,
+          372
+        ],
+        "angle_deg": -119.291,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 67,
+        "core_candidate_us": 4847,
+        "core_codeword_us": 3,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          763,
+          284,
+          677,
+          323,
+          630,
+          235,
+          720,
+          195
+        ]
+      },
+      "host_mean_us": 997.34375,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "shift_400",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 35602,
+        "marker_us": 15117,
+        "normalize_us": 7752,
+        "core_us": 12657,
+        "refine_us": 72,
+        "marker_roi": [
+          636,
+          156,
+          864,
+          372
+        ],
+        "angle_deg": -117.646,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 58,
+        "core_candidate_us": 4244,
+        "core_codeword_us": 2,
+        "core_ecc_us": 2,
+        "core_payload_us": 0,
+        "corners": [
+          813,
+          284,
+          727,
+          323,
+          680,
+          235,
+          770,
+          195
+        ]
+      },
+      "host_mean_us": 350.09375,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=0"
+    },
+    {
+      "name": "shift_400",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 38987,
+        "marker_us": 17647,
+        "normalize_us": 8239,
+        "core_us": 13016,
+        "refine_us": 78,
+        "marker_roi": [
+          636,
+          156,
+          864,
+          372
+        ],
+        "angle_deg": -117.646,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 63,
+        "core_candidate_us": 4106,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          813,
+          284,
+          727,
+          323,
+          680,
+          235,
+          770,
+          195
+        ]
+      },
+      "host_mean_us": 1028.65625,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "shift_400",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 37179,
+        "marker_us": 15669,
+        "normalize_us": 7674,
+        "core_us": 13757,
+        "refine_us": 73,
+        "marker_roi": [
+          636,
+          156,
+          864,
+          372
+        ],
+        "angle_deg": -117.646,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 79,
+        "core_candidate_us": 4462,
+        "core_codeword_us": 2,
+        "core_ecc_us": 2,
+        "core_payload_us": 0,
+        "corners": [
+          813,
+          284,
+          727,
+          323,
+          680,
+          235,
+          770,
+          195
+        ]
+      },
+      "host_mean_us": 1010.09375,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "shift_450",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 38087,
+        "marker_us": 15439,
+        "normalize_us": 8639,
+        "core_us": 13959,
+        "refine_us": 43,
+        "marker_roi": [
+          690,
+          156,
+          912,
+          372
+        ],
+        "angle_deg": -116.565,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 66,
+        "core_candidate_us": 4630,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          863,
+          284,
+          777,
+          323,
+          730,
+          235,
+          820,
+          195
+        ]
+      },
+      "host_mean_us": 287.8125,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=0"
+    },
+    {
+      "name": "shift_450",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 37617,
+        "marker_us": 15489,
+        "normalize_us": 8024,
+        "core_us": 14048,
+        "refine_us": 50,
+        "marker_roi": [
+          690,
+          156,
+          912,
+          372
+        ],
+        "angle_deg": -116.565,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 60,
+        "core_candidate_us": 4898,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          863,
+          284,
+          777,
+          323,
+          730,
+          235,
+          820,
+          195
+        ]
+      },
+      "host_mean_us": 953.15625,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "shift_450",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 36991,
+        "marker_us": 15688,
+        "normalize_us": 8031,
+        "core_us": 13224,
+        "refine_us": 43,
+        "marker_roi": [
+          690,
+          156,
+          912,
+          372
+        ],
+        "angle_deg": -116.565,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 62,
+        "core_candidate_us": 4466,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          863,
+          284,
+          777,
+          323,
+          730,
+          235,
+          820,
+          195
+        ]
+      },
+      "host_mean_us": 951.9375,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "shift_500",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 42176,
+        "marker_us": 16550,
+        "normalize_us": 9162,
+        "core_us": 16419,
+        "refine_us": 36,
+        "marker_roi": [
+          738,
+          156,
+          960,
+          372
+        ],
+        "angle_deg": -119.291,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 63,
+        "core_candidate_us": 5426,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          913,
+          284,
+          827,
+          323,
+          780,
+          235,
+          870,
+          195
+        ]
+      },
+      "host_mean_us": 292.25,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=0"
+    },
+    {
+      "name": "shift_500",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 41730,
+        "marker_us": 17145,
+        "normalize_us": 9339,
+        "core_us": 15202,
+        "refine_us": 35,
+        "marker_roi": [
+          738,
+          156,
+          960,
+          372
+        ],
+        "angle_deg": -119.291,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 62,
+        "core_candidate_us": 5089,
+        "core_codeword_us": 2,
+        "core_ecc_us": 2,
+        "core_payload_us": 1,
+        "corners": [
+          913,
+          284,
+          827,
+          323,
+          780,
+          235,
+          870,
+          195
+        ]
+      },
+      "host_mean_us": 950.90625,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "shift_500",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 36959,
+        "marker_us": 15033,
+        "normalize_us": 8275,
+        "core_us": 13602,
+        "refine_us": 41,
+        "marker_roi": [
+          738,
+          156,
+          960,
+          372
+        ],
+        "angle_deg": -119.291,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 73,
+        "core_candidate_us": 4602,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          913,
+          284,
+          827,
+          323,
+          780,
+          235,
+          870,
+          195
+        ]
+      },
+      "host_mean_us": 913.28125,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "shift_600",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 35753,
+        "marker_us": 15008,
+        "normalize_us": 7488,
+        "core_us": 13209,
+        "refine_us": 41,
+        "marker_roi": [
+          840,
+          156,
+          1062,
+          372
+        ],
+        "angle_deg": -116.565,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 51,
+        "core_candidate_us": 4150,
+        "core_codeword_us": 2,
+        "core_ecc_us": 2,
+        "core_payload_us": 0,
+        "corners": [
+          1013,
+          284,
+          927,
+          323,
+          880,
+          235,
+          970,
+          195
+        ]
+      },
+      "host_mean_us": 284.125,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=0"
+    },
+    {
+      "name": "shift_600",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 35581,
+        "marker_us": 15309,
+        "normalize_us": 7341,
+        "core_us": 12891,
+        "refine_us": 34,
+        "marker_roi": [
+          840,
+          156,
+          1062,
+          372
+        ],
+        "angle_deg": -116.565,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 54,
+        "core_candidate_us": 4360,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          1013,
+          284,
+          927,
+          323,
+          880,
+          235,
+          970,
+          195
+        ]
+      },
+      "host_mean_us": 896.6875,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "shift_600",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 6,
+        "payload": "012345",
+        "elapsed_us": 35618,
+        "marker_us": 15315,
+        "normalize_us": 7616,
+        "core_us": 12647,
+        "refine_us": 36,
+        "marker_roi": [
+          840,
+          156,
+          1062,
+          372
+        ],
+        "angle_deg": -116.565,
+        "grid": [
+          10,
+          10
+        ],
+        "geometry_quality": 2,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 6,
+        "core_finder_us": 60,
+        "core_candidate_us": 4396,
+        "core_codeword_us": 2,
+        "core_ecc_us": 3,
+        "core_payload_us": 0,
+        "corners": [
+          1013,
+          284,
+          927,
+          323,
+          880,
+          235,
+          970,
+          195
+        ]
+      },
+      "host_mean_us": 884.1875,
+      "counters": "COUNTERS searches=32 grid_samples=821760 peak_extra_bytes=856"
+    },
+    {
+      "name": "stress_0",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 0,
+        "payload": "",
+        "elapsed_us": 50351,
+        "marker_us": 50349,
+        "normalize_us": 0,
+        "core_us": 0,
+        "refine_us": 0,
+        "marker_roi": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "angle_deg": 0.0,
+        "grid": [
+          0,
+          0
+        ],
+        "geometry_quality": 0,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 0,
+        "core_ecc_us": 0,
+        "core_payload_us": 0,
+        "corners": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "host_mean_us": 3005.125,
+      "counters": "COUNTERS searches=96 grid_samples=4508160 peak_extra_bytes=0"
+    },
+    {
+      "name": "stress_0",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 0,
+        "payload": "",
+        "elapsed_us": 34572,
+        "marker_us": 34570,
+        "normalize_us": 0,
+        "core_us": 0,
+        "refine_us": 0,
+        "marker_roi": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "angle_deg": 0.0,
+        "grid": [
+          0,
+          0
+        ],
+        "geometry_quality": 0,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 0,
+        "core_ecc_us": 0,
+        "core_payload_us": 0,
+        "corners": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "host_mean_us": 3687.96875,
+      "counters": "COUNTERS searches=64 grid_samples=2664960 peak_extra_bytes=58880"
+    },
+    {
+      "name": "stress_0",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 0,
+        "payload": "",
+        "elapsed_us": 36903,
+        "marker_us": 36901,
+        "normalize_us": 0,
+        "core_us": 0,
+        "refine_us": 0,
+        "marker_roi": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "angle_deg": 0.0,
+        "grid": [
+          0,
+          0
+        ],
+        "geometry_quality": 0,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 0,
+        "core_ecc_us": 0,
+        "core_payload_us": 0,
+        "corners": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "host_mean_us": 3701.75,
+      "counters": "COUNTERS searches=64 grid_samples=2664960 peak_extra_bytes=58880"
+    },
+    {
+      "name": "stress_1",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 0,
+        "payload": "",
+        "elapsed_us": 52000,
+        "marker_us": 51997,
+        "normalize_us": 0,
+        "core_us": 0,
+        "refine_us": 0,
+        "marker_roi": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "angle_deg": 0.0,
+        "grid": [
+          0,
+          0
+        ],
+        "geometry_quality": 0,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 0,
+        "core_ecc_us": 0,
+        "core_payload_us": 0,
+        "corners": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "host_mean_us": 2773.1875,
+      "counters": "COUNTERS searches=96 grid_samples=4508160 peak_extra_bytes=0"
+    },
+    {
+      "name": "stress_1",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 0,
+        "payload": "",
+        "elapsed_us": 33628,
+        "marker_us": 33625,
+        "normalize_us": 0,
+        "core_us": 0,
+        "refine_us": 0,
+        "marker_roi": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "angle_deg": 0.0,
+        "grid": [
+          0,
+          0
+        ],
+        "geometry_quality": 0,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 0,
+        "core_ecc_us": 0,
+        "core_payload_us": 0,
+        "corners": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "host_mean_us": 3273.375,
+      "counters": "COUNTERS searches=64 grid_samples=2664960 peak_extra_bytes=58880"
+    },
+    {
+      "name": "stress_1",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 0,
+        "payload": "",
+        "elapsed_us": 34271,
+        "marker_us": 34268,
+        "normalize_us": 0,
+        "core_us": 0,
+        "refine_us": 0,
+        "marker_roi": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "angle_deg": 0.0,
+        "grid": [
+          0,
+          0
+        ],
+        "geometry_quality": 0,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 0,
+        "core_ecc_us": 0,
+        "core_payload_us": 0,
+        "corners": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "host_mean_us": 3369.34375,
+      "counters": "COUNTERS searches=64 grid_samples=2664960 peak_extra_bytes=58880"
+    },
+    {
+      "name": "stress_2",
+      "method": "current",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 0,
+        "payload": "",
+        "elapsed_us": 58949,
+        "marker_us": 58946,
+        "normalize_us": 0,
+        "core_us": 0,
+        "refine_us": 0,
+        "marker_roi": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "angle_deg": 0.0,
+        "grid": [
+          0,
+          0
+        ],
+        "geometry_quality": 0,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 0,
+        "core_ecc_us": 0,
+        "core_payload_us": 0,
+        "corners": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "host_mean_us": 2104.09375,
+      "counters": "COUNTERS searches=96 grid_samples=4508160 peak_extra_bytes=0"
+    },
+    {
+      "name": "stress_2",
+      "method": "directional17",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 0,
+        "payload": "",
+        "elapsed_us": 39504,
+        "marker_us": 39502,
+        "normalize_us": 0,
+        "core_us": 0,
+        "refine_us": 0,
+        "marker_roi": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "angle_deg": 0.0,
+        "grid": [
+          0,
+          0
+        ],
+        "geometry_quality": 0,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 0,
+        "core_ecc_us": 0,
+        "core_payload_us": 0,
+        "corners": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "host_mean_us": 2750.75,
+      "counters": "COUNTERS searches=64 grid_samples=2664960 peak_extra_bytes=58880"
+    },
+    {
+      "name": "stress_2",
+      "method": "directional33",
+      "first_frame": {
+        "iterations": 1,
+        "decoded": 0,
+        "payload": "",
+        "elapsed_us": 36848,
+        "marker_us": 36844,
+        "normalize_us": 0,
+        "core_us": 0,
+        "refine_us": 0,
+        "marker_roi": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "angle_deg": 0.0,
+        "grid": [
+          0,
+          0
+        ],
+        "geometry_quality": 0,
+        "split": 0,
+        "full_fallback": 0,
+        "sample_step": 4,
+        "core_finder_us": 0,
+        "core_candidate_us": 0,
+        "core_codeword_us": 0,
+        "core_ecc_us": 0,
+        "core_payload_us": 0,
+        "corners": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "host_mean_us": 3075.875,
+      "counters": "COUNTERS searches=64 grid_samples=2664960 peak_extra_bytes=58880"
+    }
+  ],
+  "source_sha256": "dd0df210f24dc5fa29e934de8b2009a11d43020bbacc3218f3bac2aa075efdd7",
+  "note": "Real C prototype includes deque morphology, allocation, search, decode and refinement; host times are not P4 timings. New method suppresses redundant identical-mask small-window retries. Extra memory reuses the existing candidate queue."
+}

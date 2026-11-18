@@ -1,0 +1,222 @@
+{
+  "config": {
+    "cpu_mhz": 360,
+    "psram_mhz": 200,
+    "sample_step": 4,
+    "window_radius": 2,
+    "formal_sha256": "111e5031ca669d1de4404a91f745044e387bb583e1fa195ca6d1206c7d98ca75",
+    "test_sha256": "eafc750c061d131b6b67b8322d9fdfa08ed8c20534b38f189c22e097434160d9"
+  },
+  "scenarios": {
+    "upload_off": {
+      "mcu": {
+        "interval_s": 29.152534,
+        "attempted": 1200,
+        "successful": 1200,
+        "first": {
+          "time_us": 14773127,
+          "frames": 600,
+          "ok": 588,
+          "cpu_mhz": 360,
+          "psram_config_mhz": 200
+        },
+        "last": {
+          "time_us": 43925661,
+          "frames": 1800,
+          "ok": 1788,
+          "cpu_mhz": 360,
+          "psram_config_mhz": 200
+        },
+        "attempt_fps": 41.16280252001421,
+        "success_fps": 41.16280252001421,
+        "success_pct": 100.0
+      },
+      "wall_elapsed_s": 30.01600000000326,
+      "timing_samples": 1236,
+      "successful_timing_samples": 1236,
+      "decode_us": {
+        "n": 1236,
+        "min": 32312,
+        "mean": 46147.45,
+        "median": 45376.0,
+        "p95": 56485,
+        "max": 78974
+      },
+      "core0_pct": {
+        "n": 30,
+        "min": 82.6,
+        "mean": 83.79,
+        "median": 83.85,
+        "p95": 84.3,
+        "max": 84.9
+      },
+      "core1_pct": {
+        "n": 30,
+        "min": 95.7,
+        "mean": 96.07,
+        "median": 96.0,
+        "p95": 96.5,
+        "max": 96.6
+      },
+      "frames_received": 0,
+      "stages": {
+        "frontend_us": 15060,
+        "wait_us": 9891.6,
+        "normalize_us": 3122.9,
+        "core_us": 2555.9666666666667,
+        "refine_us": 2447.5,
+        "step": 4,
+        "attempts": 1.0333333333333334
+      },
+      "phases": {
+        "sample_us": 5996.566666666667,
+        "binary_us": 8885.2,
+        "components_us": 5411.8,
+        "matching_us": 6634.733333333334
+      }
+    },
+    "upload_on": {
+      "mcu": {
+        "interval_s": 28.645177,
+        "attempted": 1000,
+        "successful": 888,
+        "first": {
+          "time_us": 90692493,
+          "frames": 3700,
+          "ok": 3683,
+          "cpu_mhz": 360,
+          "psram_config_mhz": 200
+        },
+        "last": {
+          "time_us": 119337670,
+          "frames": 4700,
+          "ok": 4571,
+          "cpu_mhz": 360,
+          "psram_config_mhz": 200
+        },
+        "attempt_fps": 34.909890764508106,
+        "success_fps": 30.999982998883198,
+        "success_pct": 88.8
+      },
+      "wall_elapsed_s": 30.0,
+      "timing_samples": 1045,
+      "successful_timing_samples": 933,
+      "decode_us": {
+        "n": 1045,
+        "min": 30112,
+        "mean": 49604.37,
+        "median": 47761,
+        "p95": 68787,
+        "max": 90341
+      },
+      "core0_pct": {
+        "n": 30,
+        "min": 78.6,
+        "mean": 81.98,
+        "median": 82.35,
+        "p95": 85.0,
+        "max": 85.0
+      },
+      "core1_pct": {
+        "n": 30,
+        "min": 91.3,
+        "mean": 94.68,
+        "median": 94.75,
+        "p95": 96.5,
+        "max": 97.2
+      },
+      "frames_received": 144,
+      "stages": {
+        "frontend_us": 16267.9,
+        "wait_us": 11347.1,
+        "normalize_us": 3736.366666666667,
+        "core_us": 2913.233333333333,
+        "refine_us": 1905.9666666666667,
+        "step": 4,
+        "attempts": 1.1333333333333333
+      },
+      "phases": {
+        "sample_us": 6577,
+        "binary_us": 9456.333333333334,
+        "components_us": 5418.933333333333,
+        "matching_us": 6454.266666666666
+      }
+    },
+    "upload_on_counters": {
+      "mcu": {
+        "interval_s": 26.139196,
+        "attempted": 900,
+        "successful": 900,
+        "first": {
+          "time_us": 17523095,
+          "frames": 700,
+          "ok": 696,
+          "decoded": 696,
+          "expired": 0,
+          "stale": 0,
+          "cpu_mhz": 360,
+          "psram_config_mhz": 200
+        },
+        "last": {
+          "time_us": 43662291,
+          "frames": 1600,
+          "ok": 1596,
+          "decoded": 1596,
+          "expired": 0,
+          "stale": 0,
+          "cpu_mhz": 360,
+          "psram_config_mhz": 200
+        },
+        "attempt_fps": 34.431051360569775,
+        "success_fps": 34.431051360569775,
+        "success_pct": 100.0,
+        "decoded": 900,
+        "expired": 0,
+        "stale": 0
+      },
+      "wall_elapsed_s": 30.0,
+      "timing_samples": 1035,
+      "successful_timing_samples": 1035,
+      "decode_us": {
+        "n": 1035,
+        "min": 34925,
+        "mean": 51622.11,
+        "median": 50430,
+        "p95": 68665,
+        "max": 86483
+      },
+      "core0_pct": {
+        "n": 30,
+        "min": 79.4,
+        "mean": 81.96,
+        "median": 81.44999999999999,
+        "p95": 85.6,
+        "max": 85.7
+      },
+      "core1_pct": {
+        "n": 30,
+        "min": 92.8,
+        "mean": 95.55,
+        "median": 95.9,
+        "p95": 96.9,
+        "max": 97.0
+      },
+      "frames_received": 145,
+      "stages": {
+        "frontend_us": 16085.6,
+        "wait_us": 10599.133333333333,
+        "normalize_us": 2809.4333333333334,
+        "core_us": 2393.633333333333,
+        "refine_us": 3309.766666666667,
+        "step": 4,
+        "attempts": 1
+      },
+      "phases": {
+        "sample_us": 6490.766666666666,
+        "binary_us": 9376.666666666666,
+        "components_us": 5173.833333333333,
+        "matching_us": 8076.6
+      }
+    }
+  }
+}

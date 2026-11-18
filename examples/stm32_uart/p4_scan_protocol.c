@@ -2,6 +2,17 @@
 #include <limits.h>
 #include <string.h>
 
+uint16_t p4_scan_code_side_mm(const uint8_t *payload, size_t payload_length)
+{
+    if (!payload || !payload_length) return 0;
+    switch (payload[0]) {
+    case '0': return 30;
+    case '1': return 50;
+    case '2': return 70;
+    default: return 0;
+    }
+}
+
 uint16_t p4_scan_crc16(const char *bytes, size_t length)
 {
     uint16_t crc = 0xffff;

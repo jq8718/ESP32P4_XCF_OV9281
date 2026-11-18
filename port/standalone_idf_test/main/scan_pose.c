@@ -292,11 +292,17 @@ static bool alternate_pose(const pose_candidate_t *seed, pose_candidate_t *alter
 bool scan_pose_estimate(const XcrBarcodeResult *result, scan_pose_result_t *pose)
 {
     if (!result || !pose || !result->geometry_valid || result->geometry_quality != 2 ||
-        result->length < 1 || (result->data[0] != '0' && result->data[0] != '1')) return false;
+        result->length < 1) return false;
+    float side;
+    switch (result->data[0]) {
+    case '0': side = 30.0f; break;
+    case '1': side = 50.0f; break;
+    case '2': side = 70.0f; break;
+    default: return false;
+    }
     scan_camera_calibration_t c;
     scan_pose_get_calibration(&c);
     if (!calibration_valid(&c)) return false;
-    const float side = result->data[0] == '0' ? 30.0f : 50.0f;
     const float half = side * 0.5f;
     const float object[4][2] = {{-half, half}, {half, half}, {half, -half}, {-half, -half}};
     float image[4][2], source[4][2];

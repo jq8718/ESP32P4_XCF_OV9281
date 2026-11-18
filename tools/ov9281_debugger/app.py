@@ -17,7 +17,7 @@ from PySide6.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, 
                                QMessageBox, QGraphicsView, QGraphicsScene, QFrame, QCheckBox, QDoubleSpinBox,
                                QTabWidget)
 
-from geometry import (load_calibration, estimate_pose, image_rotation, assumed_calibration,
+from geometry import (load_calibration, estimate_decoded_pose, image_rotation, assumed_calibration,
                       default_ov9281_calibration, opposite_edge_lengths)
 from angle_filter import AngleAverage
 from protocol import StreamParser, ScanRate, Snapshot, parse_uart_pose
@@ -493,7 +493,7 @@ class DebugWindow(QMainWindow):
         panel.addLayout(fov_row)
         self.rough_pose.toggled.connect(self.refresh_pose)
         self.assumed_fov.valueChanged.connect(self.refresh_pose)
-        self.calibration_note = QLabel('默认使用 OV9281 1280×720 标定参数，二维码有效码体边长 30 mm。导入 JSON 可覆盖默认值。')
+        self.calibration_note = QLabel('默认使用 OV9281 1280×720 内参；码体边长按内容首位0/1/2自动选择30/50/70 mm。导入JSON可更新内参与畸变。')
         self.calibration_note.setWordWrap(True)
         self.calibration_note.setObjectName('muted')
         panel.addWidget(self.calibration_note)
@@ -783,7 +783,7 @@ class DebugWindow(QMainWindow):
         if approximate:
             calibration = assumed_calibration(frame.width, frame.height, self.assumed_fov.value())
         pose_was_available = self.pose.get('available', False)
-        self.pose = estimate_pose(frame.corners, frame.width, frame.height, calibration,
+        self.pose = estimate_decoded_pose(frame.corners, frame.width, frame.height, calibration, frame.payload,
                                   max_reprojection_px=15 if approximate else 5) if frame.success else {'available': False, 'reason': '本帧无有效 DataMatrix 角点'}
         if frame.geometry_quality in (0, 1):
             self.pose = {'available': False, 'reason': '仅粗定位，精定位未通过质量检查，不用于AGV姿态估计'}
@@ -846,7 +846,7 @@ class DebugWindow(QMainWindow):
             self.pose_details.setText(description)
         elif not self.pose['available']:
             self.tx_offset.setText('横向偏移 tx：不可计算')
-            self.agv_angle.setText('三种距离：不可计算（需要有效角点、标定和30 mm码体尺寸）')
+            self.agv_angle.setText('三种距离：不可计算（需要有效角点、标定和已知码体尺寸）')
             self.plane_distance.setText('码平面垂直距离 distance_to_plane_m：不可计算')
             self.front_angle.setText('相对偏转角：不可计算')
             self.pose_details.setText(self.pose['reason'])
@@ -882,7 +882,7 @@ class DebugWindow(QMainWindow):
             self.calibration = load_calibration(path)
             self.angle_average.reset()
             self.last_angle_render = 0
-            self.calibration_note.setText(f'已加载：{Path(path).name}\n角点必须按码体定义的 P0、P1、P2、P3 顺序；JSON 中 qr_size_mm 应填写有效码体边长。')
+            self.calibration_note.setText(f'已加载内参与畸变：{Path(path).name}\n角点按P0→P1→P2→P3顺序；码体边长由内容首位0/1/2选择30/50/70 mm，JSON中的qr_size_mm不覆盖此规则。')
             if self.current:
                 self.display_frame(self.current)
         except (ValueError, KeyError, OSError) as error:

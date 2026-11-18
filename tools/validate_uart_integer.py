@@ -32,7 +32,7 @@ def main():
     batch = out/'compile.cmd'
     batch.write_text(f'@echo off\ncall "{vs}/VC/Auxiliary/Build/vcvars64.bat" >nul\n'
         f'cl /nologo /std:c11 /O2 /W4 /WX /LD "{source}" "{wrapper}" /link '
-        f'/EXPORT:p4_scan_parse_line /EXPORT:p4_scan_crc16 /EXPORT:checked_scale /OUT:"{out}/parser.dll"\n', encoding='utf-8')
+        f'/EXPORT:p4_scan_parse_line /EXPORT:p4_scan_crc16 /EXPORT:p4_scan_code_side_mm /EXPORT:checked_scale /OUT:"{out}/parser.dll"\n', encoding='utf-8')
     result = subprocess.run(['cmd', '/c', str(batch)], cwd=out, text=True, errors='replace', capture_output=True)
     if result.returncode:
         raise RuntimeError(result.stdout+result.stderr)
@@ -42,6 +42,13 @@ def main():
     library.p4_scan_crc16.argtypes = [ctypes.c_char_p, ctypes.c_size_t]
     library.p4_scan_crc16.restype = ctypes.c_uint16
     assert library.p4_scan_crc16(b'123456789', 9) == 0x29b1
+    library.p4_scan_code_side_mm.argtypes = [ctypes.c_char_p, ctypes.c_size_t]
+    library.p4_scan_code_side_mm.restype = ctypes.c_uint16
+    for payload, expected in ((b'012345', 30), (b'112345', 50), (b'212345', 70),
+                              (b'2', 70), (b'312345', 0), (b'A', 0), (b'', 0)):
+        assert library.p4_scan_code_side_mm(payload, len(payload)) == expected
+    assert library.p4_scan_code_side_mm(None, 6) == 0
+    assert library.p4_scan_code_side_mm(b'2', 0) == 0
 
     library.checked_scale.argtypes = [ctypes.c_float, ctypes.c_float, ctypes.POINTER(ctypes.c_int32)]
     library.checked_scale.restype = ctypes.c_int
@@ -108,6 +115,14 @@ def main():
                   '@SCAN,6,C,1,1,012345,1,2,3,4', '@SCAN,6,X,1,1,012345,1,2,3']
     for base in (compact_fields, full_fields):
         packet = Packet()
+        for payload in ('012345', '112345', '212345'):
+            sample = base.copy()
+            sample[5] = payload
+            raw = frame(','.join(sample))
+            assert library.p4_scan_parse_line(raw, len(raw), ctypes.byref(packet)) == 1
+            assert bytes(packet.payload[:packet.payload_length]).decode('ascii') == payload
+            assert parse_scan(raw)['payload'] == payload
+            assert library.p4_scan_code_side_mm(payload.encode(), len(payload)) == {'0': 30, '1': 50, '2': 70}[payload[0]]
         for seq in (998, 999, 0, 1):
             sample = base.copy()
             sample[3] = str(seq)
@@ -149,7 +164,7 @@ def main():
         raise AssertionError('invalid calibration accepted')
     report = dict(status='passed', cross_language_packets=count, crc_damage_cases=count,
                   checks=['C parser W4/WX build', 'CRC known vector', 'leading zero/1-to-255-digit payload',
-                          'compact/full/invalid pose', 'frame wrap 999 to 0 in both modes', 'all int32 field boundaries', 'bad fields', 'sender NaN/Inf/overflow/rounding',
+                          'compact/full/invalid pose', 'code side 0/1/2 -> 30/50/70 mm in C/F', 'frame wrap 999 to 0 in both modes', 'all int32 field boundaries', 'bad fields', 'sender NaN/Inf/overflow/rounding',
                           'output unchanged on rejection', 'calibration validation'])
     (out/'report.json').write_text(json.dumps(report, indent=2)+'\n', encoding='utf-8')
     print(json.dumps(report, indent=2))

@@ -1,0 +1,57 @@
+[
+  {
+    "source": "C:\\Users\\jq163\\Downloads\\captures\\20261118_163347_114708_frame_56657_1138431343.jpg",
+    "original_sha256": "1e17f09d65d8d5740b6bb44f0de88ee7e93b7e638913ea1da353e38582a34d06",
+    "files": [
+      "docs\\failure_diagnosis\\20261118_163347_114708_frame_56657_1138431343.jpg",
+      "docs\\failure_diagnosis\\20261118_163347_114708_frame_56657_1138431343.json",
+      "docs\\failure_diagnosis\\20261118_163347_114708_frame_56657_1138431343.gray8",
+      "docs\\failure_diagnosis\\20261118_163347_114708_frame_56657_1138431343.png"
+    ],
+    "gray8_source": "JPEG decompression, not original CSI RAW8"
+  },
+  {
+    "source": "C:\\Users\\jq163\\Downloads\\captures\\20261118_163347_507256_frame_56676_1138828780.jpg",
+    "original_sha256": "0394d81804fb28a2798fec223f596c8e106ccb94c3d012489ed2c9a93cf346b5",
+    "files": [
+      "docs\\failure_diagnosis\\20261118_163347_507256_frame_56676_1138828780.jpg",
+      "docs\\failure_diagnosis\\20261118_163347_507256_frame_56676_1138828780.json",
+      "docs\\failure_diagnosis\\20261118_163347_507256_frame_56676_1138828780.gray8",
+      "docs\\failure_diagnosis\\20261118_163347_507256_frame_56676_1138828780.png"
+    ],
+    "gray8_source": "JPEG decompression, not original CSI RAW8"
+  },
+  {
+    "source": "C:\\Users\\jq163\\Downloads\\captures\\20261118_163347_857034_frame_56694_1139186489.jpg",
+    "original_sha256": "d64ff3084f67d7248ac89b885d1b88cb9505d00294e4c8a09b9cb4fccf930ab5",
+    "files": [
+      "docs\\failure_diagnosis\\20261118_163347_857034_frame_56694_1139186489.jpg",
+      "docs\\failure_diagnosis\\20261118_163347_857034_frame_56694_1139186489.json",
+      "docs\\failure_diagnosis\\20261118_163347_857034_frame_56694_1139186489.gray8",
+      "docs\\failure_diagnosis\\20261118_163347_857034_frame_56694_1139186489.png"
+    ],
+    "gray8_source": "JPEG decompression, not original CSI RAW8"
+  },
+  {
+    "source": "C:\\Users\\jq163\\Downloads\\captures\\20261118_163348_237216_frame_56713_1139564026.jpg",
+    "original_sha256": "af6fe891704941459b36ff98b4ea2339749d086984027b560e88599e15ae9164",
+    "files": [
+      "docs\\failure_diagnosis\\20261118_163348_237216_frame_56713_1139564026.jpg",
+      "docs\\failure_diagnosis\\20261118_163348_237216_frame_56713_1139564026.json",
+      "docs\\failure_diagnosis\\20261118_163348_237216_frame_56713_1139564026.gray8",
+      "docs\\failure_diagnosis\\20261118_163348_237216_frame_56713_1139564026.png"
+    ],
+    "gray8_source": "JPEG decompression, not original CSI RAW8"
+  },
+  {
+    "source": "C:\\Users\\jq163\\Downloads\\captures\\20261118_163348_602992_frame_56730_1139921748.jpg",
+    "original_sha256": "2b9ef676c6ed2c507af986af8685f88710d47d7f3ef3b50e133c75c44bc6285a",
+    "files": [
+      "docs\\failure_diagnosis\\20261118_163348_602992_frame_56730_1139921748.jpg",
+      "docs\\failure_diagnosis\\20261118_163348_602992_frame_56730_1139921748.json",
+      "docs\\failure_diagnosis\\20261118_163348_602992_frame_56730_1139921748.gray8",
+      "docs\\failure_diagnosis\\20261118_163348_602992_frame_56730_1139921748.png"
+    ],
+    "gray8_source": "JPEG decompression, not original CSI RAW8"
+  }
+]

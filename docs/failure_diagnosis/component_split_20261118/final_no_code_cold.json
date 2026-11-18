@@ -1,0 +1,6014 @@
+{
+  "upload": false,
+  "elapsed_s": 20.0,
+  "attempts": 545,
+  "successes": 0,
+  "success_pct": 0.0,
+  "attempts_per_s": 27.25,
+  "successes_per_s": 0.0,
+  "decode_us": {
+    "n": 545,
+    "min": 39155,
+    "mean": 55323.59,
+    "median": 54909,
+    "p95": 68933,
+    "max": 77881
+  },
+  "success_decode_us": null,
+  "core0_pct": {
+    "n": 20,
+    "min": 54.2,
+    "mean": 55.34,
+    "median": 55.25,
+    "p95": 56.3,
+    "max": 56.3
+  },
+  "core1_pct": {
+    "n": 20,
+    "min": 97.1,
+    "mean": 97.42,
+    "median": 97.4,
+    "p95": 97.8,
+    "max": 97.8
+  },
+  "profiles": [
+    [
+      172,
+      8220,
+      17714,
+      0,
+      0,
+      0,
+      4,
+      0
+    ],
+    [
+      222,
+      11267,
+      11097,
+      0,
+      0,
+      0,
+      4,
+      0
+    ],
+    [
+      273,
+      8776,
+      19162,
+      0,
+      0,
+      0,
+      4,
+      0
+    ],
+    [
+      323,
+      8424,
+      16842,
+      0,
+      0,
+      0,
+      4,
+      0
+    ],
+    [
+      372,
+      8309,
+      2444,
+      0,
+      11781,
+      0,
+      4,
+      0
+    ],
+    [
+      422,
+      8374,
+      11789,
+      0,
+      0,
+      0,
+      4,
+      0
+    ],
+    [
+      474,
+      6810,
+      18024,
+      0,
+      0,
+      0,
+      4,
+      0
+    ],
+    [
+      524,
+      8229,
+      3981,
+      0,
+      0,
+      0,
+      4,
+      0
+    ],
+    [
+      575,
+      7371,
+      15435,
+      0,
+      0,
+      0,
+      4,
+      0
+    ],
+    [
+      624,
+      7171,
+      15022,
+      0,
+      0,
+      0,
+      4,
+      0
+    ],
+    [
+      674,
+      9310,
+      6295,
+      0,
+      13165,
+      0,
+      4,
+      0
+    ],
+    [
+      724,
+      8373,
+      10675,
+      0,
+      0,
+      0,
+      4,
+      0
+    ],
+    [
+      775,
+      8540,
+      1039,
+      0,
+      0,
+      0,
+      4,
+      0
+    ],
+    [
+      825,
+      10528,
+      7620,
+      0,
+      0,
+      0,
+      4,
+      0
+    ],
+    [
+      875,
+      11314,
+      5159,
+      0,
+      0,
+      0,
+      4,
+      0
+    ],
+    [
+      924,
+      8794,
+      11020,
+      0,
+      12822,
+      0,
+      4,
+      0
+    ],
+    [
+      975,
+      8766,
+      4659,
+      0,
+      13078,
+      0,
+      4,
+      0
+    ],
+    [
+      1025,
+      7006,
+      2923,
+      0,
+      0,
+      0,
+      4,
+      0
+    ],
+    [
+      1074,
+      6982,
+      3381,
+      0,
+      0,
+      0,
+      4,
+      0
+    ],
+    [
+      1123,
+      8541,
+      20179,
+      0,
+      0,
+      0,
+      4,
+      0
+    ]
+  ],
+  "fronts": [
+    [
+      172,
+      13454,
+      19579,
+      5485,
+      22
+    ],
+    [
+      222,
+      14919,
+      22188,
+      5829,
+      19
+    ],
+    [
+      273,
+      13725,
+      20356,
+      5373,
+      16
+    ],
+    [
+      323,
+      14189,
+      20263,
+      6238,
+      18
+    ],
+    [
+      372,
+      13163,
+      20010,
+      5291,
+      38
+    ],
+    [
+      422,
+      13737,
+      21799,
+      4804,
+      12
+    ],
+    [
+      474,
+      12880,
+      18938,
+      5036,
+      12
+    ],
+    [
+      524,
+      12803,
+      21034,
+      5478,
+      16
+    ],
+    [
+      575,
+      13148,
+      19295,
+      5264,
+      16
+    ],
+    [
+      624,
+      13921,
+      20285,
+      5017,
+      33
+    ],
+    [
+      674,
+      14538,
+      21435,
+      5049,
+      12
+    ],
+    [
+      724,
+      13755,
+      21824,
+      5202,
+      11
+    ],
+    [
+      775,
+      13128,
+      20240,
+      4988,
+      36
+    ],
+    [
+      825,
+      17329,
+      21340,
+      4842,
+      10
+    ],
+    [
+      875,
+      13422,
+      24659,
+      5015,
+      14
+    ],
+    [
+      924,
+      12713,
+      21673,
+      4865,
+      17
+    ],
+    [
+      975,
+      13369,
+      21474,
+      5111,
+      14
+    ],
+    [
+      1025,
+      12685,
+      19899,
+      5274,
+      13
+    ],
+    [
+      1074,
+      12713,
+      19994,
+      5080,
+      13
+    ],
+    [
+      1123,
+      13247,
+      20186,
+      5495,
+      21
+    ]
+  ],
+  "frames_received": 0,
+  "events": [
+    {
+      "type": "timing",
+      "received_s": 0.031000000017229468,
+      "data": {
+        "sequence": 143,
+        "capture_us": 3360732,
+        "decode_us": 55995,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.07800000003771856,
+      "data": {
+        "sequence": 145,
+        "capture_us": 3400481,
+        "decode_us": 63268,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.10899999999674037,
+      "data": {
+        "sequence": 147,
+        "capture_us": 3440212,
+        "decode_us": 56095,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.14100000000325963,
+      "data": {
+        "sequence": 149,
+        "capture_us": 3479962,
+        "decode_us": 49656,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.1720000000204891,
+      "data": {
+        "sequence": 151,
+        "capture_us": 3519697,
+        "decode_us": 42502,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.2190000000409782,
+      "data": {
+        "sequence": 152,
+        "capture_us": 3539578,
+        "decode_us": 66846,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.25,
+      "data": {
+        "sequence": 154,
+        "capture_us": 3579318,
+        "decode_us": 62261,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.28100000001722947,
+      "data": {
+        "sequence": 156,
+        "capture_us": 3619057,
+        "decode_us": 55697,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.3130000000237487,
+      "data": {
+        "sequence": 158,
+        "capture_us": 3658799,
+        "decode_us": 48937,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.35899999999674037,
+      "data": {
+        "sequence": 160,
+        "capture_us": 3698545,
+        "decode_us": 54523,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.39100000000325963,
+      "data": {
+        "sequence": 162,
+        "capture_us": 3738287,
+        "decode_us": 48074,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.4220000000204891,
+      "data": {
+        "sequence": 164,
+        "capture_us": 3778030,
+        "decode_us": 39705,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.45300000003771856,
+      "data": {
+        "sequence": 165,
+        "capture_us": 3797909,
+        "decode_us": 52438,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.5,
+      "data": {
+        "sequence": 167,
+        "capture_us": 3837658,
+        "decode_us": 58580,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.5310000000172295,
+      "data": {
+        "sequence": 169,
+        "capture_us": 3877388,
+        "decode_us": 51421,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.5780000000377186,
+      "data": {
+        "sequence": 171,
+        "capture_us": 3917144,
+        "decode_us": 44631,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.6089999999967404,
+      "data": {
+        "sequence": 172,
+        "capture_us": 3937011,
+        "decode_us": 57080,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.6560000000172295,
+      "data": {
+        "sequence": 174,
+        "capture_us": 3976746,
+        "decode_us": 63339,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.6880000000237487,
+      "data": {
+        "sequence": 176,
+        "capture_us": 4016495,
+        "decode_us": 57604,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.7190000000409782,
+      "data": {
+        "sequence": 178,
+        "capture_us": 4056237,
+        "decode_us": 53076,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.75,
+      "data": {
+        "sequence": 180,
+        "capture_us": 4095990,
+        "decode_us": 45775,
+        "success": false
+      }
+    },
+    {
+      "type": "cpu",
+      "received_s": 0.7660000000032596,
+      "data": {
+        "interval_ms": 1000,
+        "core0": 54.9,
+        "core1": 97.4
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.7970000000204891,
+      "data": {
+        "sequence": 181,
+        "capture_us": 4115864,
+        "decode_us": 70362,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.8280000000377186,
+      "data": {
+        "sequence": 183,
+        "capture_us": 4155596,
+        "decode_us": 67028,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.8589999999967404,
+      "data": {
+        "sequence": 185,
+        "capture_us": 4195340,
+        "decode_us": 60071,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.8910000000032596,
+      "data": {
+        "sequence": 187,
+        "capture_us": 4235083,
+        "decode_us": 53082,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.9380000000237487,
+      "data": {
+        "sequence": 189,
+        "capture_us": 4274834,
+        "decode_us": 59343,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 0.9839999999967404,
+      "data": {
+        "sequence": 191,
+        "capture_us": 4314567,
+        "decode_us": 53853,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.0160000000032596,
+      "data": {
+        "sequence": 193,
+        "capture_us": 4354324,
+        "decode_us": 47698,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.047000000020489,
+      "data": {
+        "sequence": 195,
+        "capture_us": 4394053,
+        "decode_us": 40621,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.0940000000409782,
+      "data": {
+        "sequence": 196,
+        "capture_us": 4413934,
+        "decode_us": 68184,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.125,
+      "data": {
+        "sequence": 198,
+        "capture_us": 4453679,
+        "decode_us": 62917,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.1560000000172295,
+      "data": {
+        "sequence": 200,
+        "capture_us": 4493413,
+        "decode_us": 55465,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.1880000000237487,
+      "data": {
+        "sequence": 202,
+        "capture_us": 4533162,
+        "decode_us": 49258,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.2339999999967404,
+      "data": {
+        "sequence": 204,
+        "capture_us": 4572903,
+        "decode_us": 55361,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.2660000000032596,
+      "data": {
+        "sequence": 206,
+        "capture_us": 4612645,
+        "decode_us": 49437,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.297000000020489,
+      "data": {
+        "sequence": 208,
+        "capture_us": 4652386,
+        "decode_us": 41894,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.3280000000377186,
+      "data": {
+        "sequence": 209,
+        "capture_us": 4672264,
+        "decode_us": 53848,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.375,
+      "data": {
+        "sequence": 211,
+        "capture_us": 4712007,
+        "decode_us": 61110,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.422000000020489,
+      "data": {
+        "sequence": 213,
+        "capture_us": 4751744,
+        "decode_us": 53778,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.4530000000377186,
+      "data": {
+        "sequence": 215,
+        "capture_us": 4791500,
+        "decode_us": 48261,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.4839999999967404,
+      "data": {
+        "sequence": 217,
+        "capture_us": 4831231,
+        "decode_us": 40607,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.5310000000172295,
+      "data": {
+        "sequence": 218,
+        "capture_us": 4851110,
+        "decode_us": 65899,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.5630000000237487,
+      "data": {
+        "sequence": 220,
+        "capture_us": 4890857,
+        "decode_us": 60561,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.5940000000409782,
+      "data": {
+        "sequence": 222,
+        "capture_us": 4930588,
+        "decode_us": 54871,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.625,
+      "data": {
+        "sequence": 224,
+        "capture_us": 4970337,
+        "decode_us": 49322,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.672000000020489,
+      "data": {
+        "sequence": 226,
+        "capture_us": 5010081,
+        "decode_us": 55332,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.7030000000377186,
+      "data": {
+        "sequence": 228,
+        "capture_us": 5049824,
+        "decode_us": 49549,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.7339999999967404,
+      "data": {
+        "sequence": 230,
+        "capture_us": 5089563,
+        "decode_us": 42161,
+        "success": false
+      }
+    },
+    {
+      "type": "cpu",
+      "received_s": 1.7660000000032596,
+      "data": {
+        "interval_ms": 1001,
+        "core0": 55.1,
+        "core1": 97.2
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.7660000000032596,
+      "data": {
+        "sequence": 231,
+        "capture_us": 5109442,
+        "decode_us": 54414,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.8130000000237487,
+      "data": {
+        "sequence": 233,
+        "capture_us": 5149184,
+        "decode_us": 61379,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.8440000000409782,
+      "data": {
+        "sequence": 235,
+        "capture_us": 5188922,
+        "decode_us": 54094,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.8910000000032596,
+      "data": {
+        "sequence": 237,
+        "capture_us": 5228672,
+        "decode_us": 47766,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.922000000020489,
+      "data": {
+        "sequence": 239,
+        "capture_us": 5268408,
+        "decode_us": 40289,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 1.9690000000409782,
+      "data": {
+        "sequence": 240,
+        "capture_us": 5288287,
+        "decode_us": 65474,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.0,
+      "data": {
+        "sequence": 242,
+        "capture_us": 5328033,
+        "decode_us": 60180,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.0310000000172295,
+      "data": {
+        "sequence": 244,
+        "capture_us": 5367770,
+        "decode_us": 54801,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.0630000000237487,
+      "data": {
+        "sequence": 246,
+        "capture_us": 5407541,
+        "decode_us": 48136,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.1089999999967404,
+      "data": {
+        "sequence": 248,
+        "capture_us": 5447255,
+        "decode_us": 53444,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.1410000000032596,
+      "data": {
+        "sequence": 250,
+        "capture_us": 5487012,
+        "decode_us": 47513,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.172000000020489,
+      "data": {
+        "sequence": 252,
+        "capture_us": 5526743,
+        "decode_us": 39722,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.2030000000377186,
+      "data": {
+        "sequence": 253,
+        "capture_us": 5546621,
+        "decode_us": 52499,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.25,
+      "data": {
+        "sequence": 255,
+        "capture_us": 5586368,
+        "decode_us": 58833,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.2810000000172295,
+      "data": {
+        "sequence": 257,
+        "capture_us": 5626099,
+        "decode_us": 51556,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.3130000000237487,
+      "data": {
+        "sequence": 259,
+        "capture_us": 5665850,
+        "decode_us": 45305,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.344000000040978,
+      "data": {
+        "sequence": 260,
+        "capture_us": 5685722,
+        "decode_us": 57024,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.3910000000032596,
+      "data": {
+        "sequence": 262,
+        "capture_us": 5725457,
+        "decode_us": 63119,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.4380000000237487,
+      "data": {
+        "sequence": 264,
+        "capture_us": 5765202,
+        "decode_us": 57351,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.469000000040978,
+      "data": {
+        "sequence": 266,
+        "capture_us": 5804961,
+        "decode_us": 52757,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.5,
+      "data": {
+        "sequence": 268,
+        "capture_us": 5844703,
+        "decode_us": 46330,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.547000000020489,
+      "data": {
+        "sequence": 269,
+        "capture_us": 5864574,
+        "decode_us": 70168,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.5780000000377186,
+      "data": {
+        "sequence": 271,
+        "capture_us": 5904306,
+        "decode_us": 67011,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.6089999999967404,
+      "data": {
+        "sequence": 273,
+        "capture_us": 5944052,
+        "decode_us": 59475,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.6410000000032596,
+      "data": {
+        "sequence": 275,
+        "capture_us": 5983795,
+        "decode_us": 54693,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.6880000000237487,
+      "data": {
+        "sequence": 277,
+        "capture_us": 6023546,
+        "decode_us": 63410,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.7339999999967404,
+      "data": {
+        "sequence": 279,
+        "capture_us": 6063286,
+        "decode_us": 57610,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.7660000000032596,
+      "data": {
+        "sequence": 281,
+        "capture_us": 6103034,
+        "decode_us": 52860,
+        "success": false
+      }
+    },
+    {
+      "type": "cpu",
+      "received_s": 2.7660000000032596,
+      "data": {
+        "interval_ms": 1000,
+        "core0": 55.6,
+        "core1": 97.1
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.797000000020489,
+      "data": {
+        "sequence": 283,
+        "capture_us": 6142776,
+        "decode_us": 46481,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.844000000040978,
+      "data": {
+        "sequence": 284,
+        "capture_us": 6162650,
+        "decode_us": 70049,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.875,
+      "data": {
+        "sequence": 286,
+        "capture_us": 6202382,
+        "decode_us": 67018,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.9060000000172295,
+      "data": {
+        "sequence": 288,
+        "capture_us": 6242126,
+        "decode_us": 60496,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.9380000000237487,
+      "data": {
+        "sequence": 290,
+        "capture_us": 6281871,
+        "decode_us": 53459,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 2.9839999999967404,
+      "data": {
+        "sequence": 292,
+        "capture_us": 6321617,
+        "decode_us": 59046,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.0160000000032596,
+      "data": {
+        "sequence": 294,
+        "capture_us": 6361353,
+        "decode_us": 53936,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.0630000000237487,
+      "data": {
+        "sequence": 296,
+        "capture_us": 6401108,
+        "decode_us": 46795,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.094000000040978,
+      "data": {
+        "sequence": 298,
+        "capture_us": 6440841,
+        "decode_us": 39810,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.1410000000032596,
+      "data": {
+        "sequence": 299,
+        "capture_us": 6460719,
+        "decode_us": 67824,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.172000000020489,
+      "data": {
+        "sequence": 301,
+        "capture_us": 6500468,
+        "decode_us": 62418,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.2030000000377186,
+      "data": {
+        "sequence": 303,
+        "capture_us": 6540197,
+        "decode_us": 55265,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.2339999999967404,
+      "data": {
+        "sequence": 305,
+        "capture_us": 6579941,
+        "decode_us": 49250,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.2810000000172295,
+      "data": {
+        "sequence": 307,
+        "capture_us": 6619690,
+        "decode_us": 54268,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.3130000000237487,
+      "data": {
+        "sequence": 309,
+        "capture_us": 6659428,
+        "decode_us": 48144,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.344000000040978,
+      "data": {
+        "sequence": 311,
+        "capture_us": 6699172,
+        "decode_us": 40828,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.375,
+      "data": {
+        "sequence": 312,
+        "capture_us": 6719051,
+        "decode_us": 53078,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.422000000020489,
+      "data": {
+        "sequence": 314,
+        "capture_us": 6758797,
+        "decode_us": 59916,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.4530000000377186,
+      "data": {
+        "sequence": 316,
+        "capture_us": 6798530,
+        "decode_us": 52716,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.5,
+      "data": {
+        "sequence": 318,
+        "capture_us": 6838285,
+        "decode_us": 46227,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.5310000000172295,
+      "data": {
+        "sequence": 319,
+        "capture_us": 6858162,
+        "decode_us": 58472,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.5780000000377186,
+      "data": {
+        "sequence": 321,
+        "capture_us": 6897892,
+        "decode_us": 64197,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.6089999999967404,
+      "data": {
+        "sequence": 323,
+        "capture_us": 6937642,
+        "decode_us": 58399,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.6410000000032596,
+      "data": {
+        "sequence": 325,
+        "capture_us": 6977375,
+        "decode_us": 53610,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.672000000020489,
+      "data": {
+        "sequence": 327,
+        "capture_us": 7017132,
+        "decode_us": 46373,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.719000000040978,
+      "data": {
+        "sequence": 329,
+        "capture_us": 7056862,
+        "decode_us": 51611,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.75,
+      "data": {
+        "sequence": 330,
+        "capture_us": 7076742,
+        "decode_us": 68686,
+        "success": false
+      }
+    },
+    {
+      "type": "cpu",
+      "received_s": 3.7660000000032596,
+      "data": {
+        "interval_ms": 1001,
+        "core0": 55.0,
+        "core1": 97.3
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.7810000000172295,
+      "data": {
+        "sequence": 333,
+        "capture_us": 7136350,
+        "decode_us": 42121,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.8130000000237487,
+      "data": {
+        "sequence": 334,
+        "capture_us": 7156229,
+        "decode_us": 54965,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.8589999999967404,
+      "data": {
+        "sequence": 336,
+        "capture_us": 7195964,
+        "decode_us": 61191,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.9060000000172295,
+      "data": {
+        "sequence": 338,
+        "capture_us": 7235712,
+        "decode_us": 54518,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.9380000000237487,
+      "data": {
+        "sequence": 340,
+        "capture_us": 7275455,
+        "decode_us": 47554,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 3.969000000040978,
+      "data": {
+        "sequence": 342,
+        "capture_us": 7315195,
+        "decode_us": 40106,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 4.01600000000326,
+      "data": {
+        "sequence": 343,
+        "capture_us": 7335071,
+        "decode_us": 67162,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 4.047000000020489,
+      "data": {
+        "sequence": 345,
+        "capture_us": 7374818,
+        "decode_us": 61133,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 4.078000000037719,
+      "data": {
+        "sequence": 347,
+        "capture_us": 7414554,
+        "decode_us": 53588,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 4.10899999999674,
+      "data": {
+        "sequence": 349,
+        "capture_us": 7454301,
+        "decode_us": 46760,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 4.1560000000172295,
+      "data": {
+        "sequence": 351,
+        "capture_us": 7494041,
+        "decode_us": 51450,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 4.188000000023749,
+      "data": {
+        "sequence": 352,
+        "capture_us": 7513920,
+        "decode_us": 68506,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 4.219000000040978,
+      "data": {
+        "sequence": 355,
+        "capture_us": 7573526,
+        "decode_us": 42027,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 4.25,
+      "data": {
+        "sequence": 356,
+        "capture_us": 7593408,
+        "decode_us": 54990,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 4.297000000020489,
+      "data": {
+        "sequence": 358,
+        "capture_us": 7633143,
+        "decode_us": 62013,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 4.344000000040978,
+      "data": {
+        "sequence": 360,
+        "capture_us": 7672889,
+        "decode_us": 55291,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 4.375,
+      "data": {
+        "sequence": 362,
+        "capture_us": 7712642,
+        "decode_us": 48408,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 4.4060000000172295,
+      "data": {
+        "sequence": 364,
+        "capture_us": 7752373,
+        "decode_us": 41241,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 4.453000000037719,
+      "data": {
+        "sequence": 365,
+        "capture_us": 7772252,
+        "decode_us": 68992,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 4.48399999999674,
+      "data": {
+        "sequence": 367,
+        "capture_us": 7811998,
+        "decode_us": 62600,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 4.51600000000326,
+      "data": {
+        "sequence": 368,
+        "capture_us": 7831895,
+        "decode_us": 75161,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 4.547000000020489,
+      "data": {
+        "sequence": 370,
+        "capture_us": 7891474,
+        "decode_us": 49106,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 4.594000000040978,
+      "data": {
+        "sequence": 372,
+        "capture_us": 7931219,
+        "decode_us": 53547,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 4.625,
+      "data": {
+        "sequence": 374,
+        "capture_us": 7970980,
+        "decode_us": 47966,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 4.6560000000172295,
+      "data": {
+        "sequence": 376,
+        "capture_us": 8010705,
+        "decode_us": 39813,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 4.688000000023749,
+      "data": {
+        "sequence": 377,
+        "capture_us": 8030584,
+        "decode_us": 54223,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 4.73399999999674,
+      "data": {
+        "sequence": 379,
+        "capture_us": 8070331,
+        "decode_us": 62870,
+        "success": false
+      }
+    },
+    {
+      "type": "cpu",
+      "received_s": 4.76600000000326,
+      "data": {
+        "interval_ms": 1000,
+        "core0": 54.5,
+        "core1": 97.5
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 4.7810000000172295,
+      "data": {
+        "sequence": 381,
+        "capture_us": 8110067,
+        "decode_us": 57023,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 4.813000000023749,
+      "data": {
+        "sequence": 383,
+        "capture_us": 8149812,
+        "decode_us": 52114,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 4.844000000040978,
+      "data": {
+        "sequence": 385,
+        "capture_us": 8189560,
+        "decode_us": 45372,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 4.89100000000326,
+      "data": {
+        "sequence": 386,
+        "capture_us": 8209437,
+        "decode_us": 69242,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 4.922000000020489,
+      "data": {
+        "sequence": 388,
+        "capture_us": 8249169,
+        "decode_us": 66185,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 4.953000000037719,
+      "data": {
+        "sequence": 390,
+        "capture_us": 8288912,
+        "decode_us": 58800,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 4.98399999999674,
+      "data": {
+        "sequence": 392,
+        "capture_us": 8328658,
+        "decode_us": 53506,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 5.0310000000172295,
+      "data": {
+        "sequence": 394,
+        "capture_us": 8368408,
+        "decode_us": 62145,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 5.078000000037719,
+      "data": {
+        "sequence": 396,
+        "capture_us": 8408141,
+        "decode_us": 56421,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 5.10899999999674,
+      "data": {
+        "sequence": 398,
+        "capture_us": 8447882,
+        "decode_us": 52208,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 5.14100000000326,
+      "data": {
+        "sequence": 400,
+        "capture_us": 8487635,
+        "decode_us": 45167,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 5.188000000023749,
+      "data": {
+        "sequence": 401,
+        "capture_us": 8507514,
+        "decode_us": 69216,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 5.219000000040978,
+      "data": {
+        "sequence": 403,
+        "capture_us": 8547244,
+        "decode_us": 66225,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 5.25,
+      "data": {
+        "sequence": 405,
+        "capture_us": 8586987,
+        "decode_us": 59629,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 5.2810000000172295,
+      "data": {
+        "sequence": 407,
+        "capture_us": 8626732,
+        "decode_us": 54200,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 5.344000000040978,
+      "data": {
+        "sequence": 409,
+        "capture_us": 8666483,
+        "decode_us": 62623,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 5.375,
+      "data": {
+        "sequence": 411,
+        "capture_us": 8706220,
+        "decode_us": 56516,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 5.4060000000172295,
+      "data": {
+        "sequence": 413,
+        "capture_us": 8745961,
+        "decode_us": 52045,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 5.438000000023749,
+      "data": {
+        "sequence": 415,
+        "capture_us": 8785711,
+        "decode_us": 45096,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 5.48399999999674,
+      "data": {
+        "sequence": 416,
+        "capture_us": 8805584,
+        "decode_us": 68933,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 5.51600000000326,
+      "data": {
+        "sequence": 418,
+        "capture_us": 8845319,
+        "decode_us": 65920,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 5.547000000020489,
+      "data": {
+        "sequence": 420,
+        "capture_us": 8885064,
+        "decode_us": 58383,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 5.594000000040978,
+      "data": {
+        "sequence": 422,
+        "capture_us": 8924807,
+        "decode_us": 52910,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 5.64100000000326,
+      "data": {
+        "sequence": 424,
+        "capture_us": 8964559,
+        "decode_us": 62485,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 5.672000000020489,
+      "data": {
+        "sequence": 426,
+        "capture_us": 9004292,
+        "decode_us": 56679,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 5.703000000037719,
+      "data": {
+        "sequence": 428,
+        "capture_us": 9044033,
+        "decode_us": 52290,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 5.73399999999674,
+      "data": {
+        "sequence": 430,
+        "capture_us": 9083790,
+        "decode_us": 44857,
+        "success": false
+      }
+    },
+    {
+      "type": "cpu",
+      "received_s": 5.76600000000326,
+      "data": {
+        "interval_ms": 1000,
+        "core0": 55.9,
+        "core1": 97.4
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 5.7810000000172295,
+      "data": {
+        "sequence": 431,
+        "capture_us": 9103649,
+        "decode_us": 69567,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 5.813000000023749,
+      "data": {
+        "sequence": 433,
+        "capture_us": 9143396,
+        "decode_us": 66218,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 5.844000000040978,
+      "data": {
+        "sequence": 435,
+        "capture_us": 9183136,
+        "decode_us": 59232,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 5.89100000000326,
+      "data": {
+        "sequence": 437,
+        "capture_us": 9222884,
+        "decode_us": 53167,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 5.938000000023749,
+      "data": {
+        "sequence": 439,
+        "capture_us": 9262638,
+        "decode_us": 61615,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 5.969000000040978,
+      "data": {
+        "sequence": 441,
+        "capture_us": 9302367,
+        "decode_us": 55425,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 6.0,
+      "data": {
+        "sequence": 443,
+        "capture_us": 9342121,
+        "decode_us": 50958,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 6.0310000000172295,
+      "data": {
+        "sequence": 445,
+        "capture_us": 9381863,
+        "decode_us": 43837,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 6.078000000037719,
+      "data": {
+        "sequence": 446,
+        "capture_us": 9401732,
+        "decode_us": 68345,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 6.10899999999674,
+      "data": {
+        "sequence": 448,
+        "capture_us": 9441475,
+        "decode_us": 64500,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 6.14100000000326,
+      "data": {
+        "sequence": 450,
+        "capture_us": 9481211,
+        "decode_us": 57305,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 6.188000000023749,
+      "data": {
+        "sequence": 452,
+        "capture_us": 9520954,
+        "decode_us": 52655,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 6.23399999999674,
+      "data": {
+        "sequence": 454,
+        "capture_us": 9560710,
+        "decode_us": 61475,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 6.26600000000326,
+      "data": {
+        "sequence": 456,
+        "capture_us": 9600442,
+        "decode_us": 55433,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 6.297000000020489,
+      "data": {
+        "sequence": 458,
+        "capture_us": 9640195,
+        "decode_us": 51092,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 6.328000000037719,
+      "data": {
+        "sequence": 460,
+        "capture_us": 9679938,
+        "decode_us": 43750,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 6.375,
+      "data": {
+        "sequence": 461,
+        "capture_us": 9699804,
+        "decode_us": 68240,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 6.4060000000172295,
+      "data": {
+        "sequence": 463,
+        "capture_us": 9739558,
+        "decode_us": 64527,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 6.438000000023749,
+      "data": {
+        "sequence": 465,
+        "capture_us": 9779287,
+        "decode_us": 57015,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 6.48399999999674,
+      "data": {
+        "sequence": 467,
+        "capture_us": 9819030,
+        "decode_us": 49771,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 6.5310000000172295,
+      "data": {
+        "sequence": 469,
+        "capture_us": 9858775,
+        "decode_us": 56441,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 6.563000000023749,
+      "data": {
+        "sequence": 471,
+        "capture_us": 9898517,
+        "decode_us": 50486,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 6.594000000040978,
+      "data": {
+        "sequence": 473,
+        "capture_us": 9938264,
+        "decode_us": 43372,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 6.625,
+      "data": {
+        "sequence": 474,
+        "capture_us": 9958140,
+        "decode_us": 55700,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 6.672000000020489,
+      "data": {
+        "sequence": 476,
+        "capture_us": 9997885,
+        "decode_us": 63199,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 6.703000000037719,
+      "data": {
+        "sequence": 478,
+        "capture_us": 10037623,
+        "decode_us": 55748,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 6.73399999999674,
+      "data": {
+        "sequence": 480,
+        "capture_us": 10077364,
+        "decode_us": 49030,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 6.76600000000326,
+      "data": {
+        "sequence": 482,
+        "capture_us": 10117106,
+        "decode_us": 39923,
+        "success": false
+      }
+    },
+    {
+      "type": "cpu",
+      "received_s": 6.76600000000326,
+      "data": {
+        "interval_ms": 1000,
+        "core0": 56.2,
+        "core1": 97.8
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 6.813000000023749,
+      "data": {
+        "sequence": 483,
+        "capture_us": 10136986,
+        "decode_us": 65785,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 6.844000000040978,
+      "data": {
+        "sequence": 485,
+        "capture_us": 10176731,
+        "decode_us": 60452,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 6.875,
+      "data": {
+        "sequence": 487,
+        "capture_us": 10216463,
+        "decode_us": 54234,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 6.9060000000172295,
+      "data": {
+        "sequence": 489,
+        "capture_us": 10256208,
+        "decode_us": 48015,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 6.953000000037719,
+      "data": {
+        "sequence": 491,
+        "capture_us": 10295953,
+        "decode_us": 52144,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 6.98399999999674,
+      "data": {
+        "sequence": 492,
+        "capture_us": 10315831,
+        "decode_us": 68431,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 7.0310000000172295,
+      "data": {
+        "sequence": 494,
+        "capture_us": 10355582,
+        "decode_us": 61155,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 7.063000000023749,
+      "data": {
+        "sequence": 496,
+        "capture_us": 10395315,
+        "decode_us": 53883,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 7.10899999999674,
+      "data": {
+        "sequence": 498,
+        "capture_us": 10435059,
+        "decode_us": 59877,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 7.14100000000326,
+      "data": {
+        "sequence": 500,
+        "capture_us": 10474799,
+        "decode_us": 54462,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 7.172000000020489,
+      "data": {
+        "sequence": 502,
+        "capture_us": 10514552,
+        "decode_us": 47395,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 7.203000000037719,
+      "data": {
+        "sequence": 504,
+        "capture_us": 10554284,
+        "decode_us": 40186,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 7.25,
+      "data": {
+        "sequence": 505,
+        "capture_us": 10574163,
+        "decode_us": 66571,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 7.2810000000172295,
+      "data": {
+        "sequence": 507,
+        "capture_us": 10613903,
+        "decode_us": 62371,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 7.313000000023749,
+      "data": {
+        "sequence": 509,
+        "capture_us": 10653644,
+        "decode_us": 55300,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 7.344000000040978,
+      "data": {
+        "sequence": 511,
+        "capture_us": 10693392,
+        "decode_us": 48681,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 7.39100000000326,
+      "data": {
+        "sequence": 513,
+        "capture_us": 10733130,
+        "decode_us": 53299,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 7.422000000020489,
+      "data": {
+        "sequence": 515,
+        "capture_us": 10772877,
+        "decode_us": 47388,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 7.453000000037719,
+      "data": {
+        "sequence": 516,
+        "capture_us": 10792759,
+        "decode_us": 59458,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 7.48399999999674,
+      "data": {
+        "sequence": 518,
+        "capture_us": 10832491,
+        "decode_us": 51759,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 7.5310000000172295,
+      "data": {
+        "sequence": 520,
+        "capture_us": 10872243,
+        "decode_us": 57968,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 7.578000000037719,
+      "data": {
+        "sequence": 522,
+        "capture_us": 10911976,
+        "decode_us": 50589,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 7.60899999999674,
+      "data": {
+        "sequence": 524,
+        "capture_us": 10951725,
+        "decode_us": 44130,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 7.64100000000326,
+      "data": {
+        "sequence": 525,
+        "capture_us": 10971597,
+        "decode_us": 56458,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 7.688000000023749,
+      "data": {
+        "sequence": 527,
+        "capture_us": 11011333,
+        "decode_us": 62378,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 7.719000000040978,
+      "data": {
+        "sequence": 529,
+        "capture_us": 11051077,
+        "decode_us": 56053,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 7.75,
+      "data": {
+        "sequence": 531,
+        "capture_us": 11090820,
+        "decode_us": 49437,
+        "success": false
+      }
+    },
+    {
+      "type": "cpu",
+      "received_s": 7.76600000000326,
+      "data": {
+        "interval_ms": 1000,
+        "core0": 55.2,
+        "core1": 97.7
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 7.7810000000172295,
+      "data": {
+        "sequence": 533,
+        "capture_us": 11130567,
+        "decode_us": 43078,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 7.828000000037719,
+      "data": {
+        "sequence": 534,
+        "capture_us": 11150439,
+        "decode_us": 70257,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 7.85899999999674,
+      "data": {
+        "sequence": 536,
+        "capture_us": 11190187,
+        "decode_us": 65921,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 7.89100000000326,
+      "data": {
+        "sequence": 538,
+        "capture_us": 11229932,
+        "decode_us": 57636,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 7.938000000023749,
+      "data": {
+        "sequence": 540,
+        "capture_us": 11269668,
+        "decode_us": 50853,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 7.969000000040978,
+      "data": {
+        "sequence": 542,
+        "capture_us": 11309415,
+        "decode_us": 57937,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 8.01600000000326,
+      "data": {
+        "sequence": 544,
+        "capture_us": 11349152,
+        "decode_us": 51641,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 8.047000000020489,
+      "data": {
+        "sequence": 546,
+        "capture_us": 11388906,
+        "decode_us": 45454,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 8.078000000037719,
+      "data": {
+        "sequence": 547,
+        "capture_us": 11408772,
+        "decode_us": 57854,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 8.125,
+      "data": {
+        "sequence": 549,
+        "capture_us": 11448514,
+        "decode_us": 64371,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 8.15600000001723,
+      "data": {
+        "sequence": 551,
+        "capture_us": 11488264,
+        "decode_us": 58903,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 8.188000000023749,
+      "data": {
+        "sequence": 553,
+        "capture_us": 11527998,
+        "decode_us": 53988,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 8.219000000040978,
+      "data": {
+        "sequence": 555,
+        "capture_us": 11567756,
+        "decode_us": 47395,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 8.26600000000326,
+      "data": {
+        "sequence": 557,
+        "capture_us": 11607486,
+        "decode_us": 52310,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 8.313000000023749,
+      "data": {
+        "sequence": 558,
+        "capture_us": 11627365,
+        "decode_us": 69065,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 8.344000000040978,
+      "data": {
+        "sequence": 561,
+        "capture_us": 11686972,
+        "decode_us": 43398,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 8.375,
+      "data": {
+        "sequence": 562,
+        "capture_us": 11706852,
+        "decode_us": 55208,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 8.422000000020489,
+      "data": {
+        "sequence": 564,
+        "capture_us": 11746587,
+        "decode_us": 61567,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 8.453000000037719,
+      "data": {
+        "sequence": 566,
+        "capture_us": 11786330,
+        "decode_us": 54791,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 8.48399999999674,
+      "data": {
+        "sequence": 568,
+        "capture_us": 11826082,
+        "decode_us": 48044,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 8.51600000000326,
+      "data": {
+        "sequence": 570,
+        "capture_us": 11865821,
+        "decode_us": 40320,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 8.563000000023749,
+      "data": {
+        "sequence": 571,
+        "capture_us": 11885696,
+        "decode_us": 67507,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 8.594000000040978,
+      "data": {
+        "sequence": 573,
+        "capture_us": 11925443,
+        "decode_us": 61711,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 8.625,
+      "data": {
+        "sequence": 575,
+        "capture_us": 11965176,
+        "decode_us": 53972,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 8.65600000001723,
+      "data": {
+        "sequence": 577,
+        "capture_us": 12004924,
+        "decode_us": 47034,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 8.703000000037719,
+      "data": {
+        "sequence": 579,
+        "capture_us": 12044662,
+        "decode_us": 53355,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 8.73399999999674,
+      "data": {
+        "sequence": 580,
+        "capture_us": 12064542,
+        "decode_us": 67700,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 8.76600000000326,
+      "data": {
+        "sequence": 582,
+        "capture_us": 12104282,
+        "decode_us": 59015,
+        "success": false
+      }
+    },
+    {
+      "type": "cpu",
+      "received_s": 8.76600000000326,
+      "data": {
+        "interval_ms": 1002,
+        "core0": 55.7,
+        "core1": 97.5
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 8.797000000020489,
+      "data": {
+        "sequence": 584,
+        "capture_us": 12144024,
+        "decode_us": 51565,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 8.844000000040978,
+      "data": {
+        "sequence": 586,
+        "capture_us": 12183776,
+        "decode_us": 58384,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 8.89100000000326,
+      "data": {
+        "sequence": 588,
+        "capture_us": 12223508,
+        "decode_us": 51026,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 8.922000000020489,
+      "data": {
+        "sequence": 590,
+        "capture_us": 12263261,
+        "decode_us": 45073,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 8.953000000037719,
+      "data": {
+        "sequence": 591,
+        "capture_us": 12283130,
+        "decode_us": 56435,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 9.0,
+      "data": {
+        "sequence": 593,
+        "capture_us": 12322866,
+        "decode_us": 63420,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 9.03100000001723,
+      "data": {
+        "sequence": 595,
+        "capture_us": 12362627,
+        "decode_us": 56264,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 9.063000000023749,
+      "data": {
+        "sequence": 597,
+        "capture_us": 12402353,
+        "decode_us": 49457,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 9.094000000040978,
+      "data": {
+        "sequence": 599,
+        "capture_us": 12442097,
+        "decode_us": 43294,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 9.14100000000326,
+      "data": {
+        "sequence": 600,
+        "capture_us": 12461972,
+        "decode_us": 70769,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 9.172000000020489,
+      "data": {
+        "sequence": 602,
+        "capture_us": 12501735,
+        "decode_us": 65149,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 9.203000000037719,
+      "data": {
+        "sequence": 603,
+        "capture_us": 12521581,
+        "decode_us": 77881,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 9.23399999999674,
+      "data": {
+        "sequence": 605,
+        "capture_us": 12581202,
+        "decode_us": 52899,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 9.297000000020489,
+      "data": {
+        "sequence": 607,
+        "capture_us": 12620954,
+        "decode_us": 61340,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 9.328000000037719,
+      "data": {
+        "sequence": 609,
+        "capture_us": 12660686,
+        "decode_us": 55331,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 9.35899999999674,
+      "data": {
+        "sequence": 611,
+        "capture_us": 12700439,
+        "decode_us": 50669,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 9.39100000000326,
+      "data": {
+        "sequence": 613,
+        "capture_us": 12740180,
+        "decode_us": 43327,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 9.438000000023749,
+      "data": {
+        "sequence": 614,
+        "capture_us": 12760052,
+        "decode_us": 68194,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 9.469000000040978,
+      "data": {
+        "sequence": 616,
+        "capture_us": 12799791,
+        "decode_us": 64081,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 9.5,
+      "data": {
+        "sequence": 618,
+        "capture_us": 12839531,
+        "decode_us": 56901,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 9.547000000020489,
+      "data": {
+        "sequence": 620,
+        "capture_us": 12879273,
+        "decode_us": 52038,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 9.594000000040978,
+      "data": {
+        "sequence": 622,
+        "capture_us": 12919024,
+        "decode_us": 60897,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 9.625,
+      "data": {
+        "sequence": 624,
+        "capture_us": 12958765,
+        "decode_us": 55135,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 9.65600000001723,
+      "data": {
+        "sequence": 626,
+        "capture_us": 12998519,
+        "decode_us": 50932,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 9.688000000023749,
+      "data": {
+        "sequence": 628,
+        "capture_us": 13038257,
+        "decode_us": 44290,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 9.73399999999674,
+      "data": {
+        "sequence": 629,
+        "capture_us": 13058127,
+        "decode_us": 69109,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 9.76600000000326,
+      "data": {
+        "sequence": 631,
+        "capture_us": 13097870,
+        "decode_us": 65600,
+        "success": false
+      }
+    },
+    {
+      "type": "cpu",
+      "received_s": 9.76600000000326,
+      "data": {
+        "interval_ms": 1001,
+        "core0": 55.7,
+        "core1": 97.4
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 9.813000000023749,
+      "data": {
+        "sequence": 633,
+        "capture_us": 13137607,
+        "decode_us": 59200,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 9.844000000040978,
+      "data": {
+        "sequence": 635,
+        "capture_us": 13177353,
+        "decode_us": 53831,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 9.89100000000326,
+      "data": {
+        "sequence": 637,
+        "capture_us": 13217106,
+        "decode_us": 62383,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 9.922000000020489,
+      "data": {
+        "sequence": 639,
+        "capture_us": 13256838,
+        "decode_us": 57041,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 9.953000000037719,
+      "data": {
+        "sequence": 641,
+        "capture_us": 13296594,
+        "decode_us": 52375,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 9.98399999999674,
+      "data": {
+        "sequence": 643,
+        "capture_us": 13336331,
+        "decode_us": 45556,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 10.03100000001723,
+      "data": {
+        "sequence": 644,
+        "capture_us": 13356211,
+        "decode_us": 69503,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 10.063000000023749,
+      "data": {
+        "sequence": 646,
+        "capture_us": 13395942,
+        "decode_us": 66388,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 10.094000000040978,
+      "data": {
+        "sequence": 648,
+        "capture_us": 13435691,
+        "decode_us": 58690,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 10.14100000000326,
+      "data": {
+        "sequence": 650,
+        "capture_us": 13475428,
+        "decode_us": 52709,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 10.188000000023749,
+      "data": {
+        "sequence": 652,
+        "capture_us": 13515178,
+        "decode_us": 61106,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 10.219000000040978,
+      "data": {
+        "sequence": 654,
+        "capture_us": 13554914,
+        "decode_us": 54833,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 10.25,
+      "data": {
+        "sequence": 656,
+        "capture_us": 13594667,
+        "decode_us": 50194,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 10.28100000001723,
+      "data": {
+        "sequence": 658,
+        "capture_us": 13634407,
+        "decode_us": 42971,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 10.328000000037719,
+      "data": {
+        "sequence": 659,
+        "capture_us": 13654279,
+        "decode_us": 67691,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 10.35899999999674,
+      "data": {
+        "sequence": 661,
+        "capture_us": 13694014,
+        "decode_us": 63358,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 10.39100000000326,
+      "data": {
+        "sequence": 663,
+        "capture_us": 13733758,
+        "decode_us": 56101,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 10.438000000023749,
+      "data": {
+        "sequence": 665,
+        "capture_us": 13773500,
+        "decode_us": 48981,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 10.48399999999674,
+      "data": {
+        "sequence": 667,
+        "capture_us": 13813249,
+        "decode_us": 55255,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 10.51600000000326,
+      "data": {
+        "sequence": 669,
+        "capture_us": 13852989,
+        "decode_us": 49736,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 10.547000000020489,
+      "data": {
+        "sequence": 671,
+        "capture_us": 13892732,
+        "decode_us": 42540,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 10.578000000037719,
+      "data": {
+        "sequence": 672,
+        "capture_us": 13912617,
+        "decode_us": 54033,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 10.625,
+      "data": {
+        "sequence": 674,
+        "capture_us": 13952355,
+        "decode_us": 61346,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 10.65600000001723,
+      "data": {
+        "sequence": 676,
+        "capture_us": 13992090,
+        "decode_us": 54313,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 10.688000000023749,
+      "data": {
+        "sequence": 678,
+        "capture_us": 14031844,
+        "decode_us": 48464,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 10.719000000040978,
+      "data": {
+        "sequence": 680,
+        "capture_us": 14071577,
+        "decode_us": 39882,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 10.76600000000326,
+      "data": {
+        "sequence": 681,
+        "capture_us": 14091456,
+        "decode_us": 65470,
+        "success": false
+      }
+    },
+    {
+      "type": "cpu",
+      "received_s": 10.78100000001723,
+      "data": {
+        "interval_ms": 1001,
+        "core0": 55.3,
+        "core1": 97.4
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 10.797000000020489,
+      "data": {
+        "sequence": 683,
+        "capture_us": 14131204,
+        "decode_us": 60117,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 10.828000000037719,
+      "data": {
+        "sequence": 685,
+        "capture_us": 14170935,
+        "decode_us": 54287,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 10.85899999999674,
+      "data": {
+        "sequence": 687,
+        "capture_us": 14210683,
+        "decode_us": 47330,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 10.90600000001723,
+      "data": {
+        "sequence": 689,
+        "capture_us": 14250422,
+        "decode_us": 53763,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 10.953000000037719,
+      "data": {
+        "sequence": 690,
+        "capture_us": 14270302,
+        "decode_us": 67975,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 10.98399999999674,
+      "data": {
+        "sequence": 693,
+        "capture_us": 14329913,
+        "decode_us": 40137,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 11.01600000000326,
+      "data": {
+        "sequence": 694,
+        "capture_us": 14349789,
+        "decode_us": 54190,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 11.063000000023749,
+      "data": {
+        "sequence": 696,
+        "capture_us": 14389539,
+        "decode_us": 62581,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 11.094000000040978,
+      "data": {
+        "sequence": 698,
+        "capture_us": 14429268,
+        "decode_us": 56534,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 11.125,
+      "data": {
+        "sequence": 700,
+        "capture_us": 14469015,
+        "decode_us": 52225,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 11.15600000001723,
+      "data": {
+        "sequence": 702,
+        "capture_us": 14508767,
+        "decode_us": 45569,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 11.203000000037719,
+      "data": {
+        "sequence": 703,
+        "capture_us": 14528639,
+        "decode_us": 69184,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 11.23399999999674,
+      "data": {
+        "sequence": 705,
+        "capture_us": 14568372,
+        "decode_us": 65943,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 11.28100000001723,
+      "data": {
+        "sequence": 707,
+        "capture_us": 14608112,
+        "decode_us": 58381,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 11.313000000023749,
+      "data": {
+        "sequence": 709,
+        "capture_us": 14647855,
+        "decode_us": 53352,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 11.35899999999674,
+      "data": {
+        "sequence": 711,
+        "capture_us": 14687622,
+        "decode_us": 61853,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 11.39100000000326,
+      "data": {
+        "sequence": 713,
+        "capture_us": 14727344,
+        "decode_us": 56547,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 11.422000000020489,
+      "data": {
+        "sequence": 715,
+        "capture_us": 14767086,
+        "decode_us": 52013,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 11.453000000037719,
+      "data": {
+        "sequence": 717,
+        "capture_us": 14806836,
+        "decode_us": 45173,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 11.5,
+      "data": {
+        "sequence": 718,
+        "capture_us": 14826710,
+        "decode_us": 69188,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 11.547000000020489,
+      "data": {
+        "sequence": 720,
+        "capture_us": 14866449,
+        "decode_us": 65652,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 11.578000000037719,
+      "data": {
+        "sequence": 722,
+        "capture_us": 14906188,
+        "decode_us": 58111,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 11.60899999999674,
+      "data": {
+        "sequence": 724,
+        "capture_us": 14945932,
+        "decode_us": 52283,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 11.65600000001723,
+      "data": {
+        "sequence": 726,
+        "capture_us": 14985683,
+        "decode_us": 60994,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 11.688000000023749,
+      "data": {
+        "sequence": 728,
+        "capture_us": 15025423,
+        "decode_us": 55390,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 11.719000000040978,
+      "data": {
+        "sequence": 730,
+        "capture_us": 15065172,
+        "decode_us": 51101,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 11.75,
+      "data": {
+        "sequence": 732,
+        "capture_us": 15104914,
+        "decode_us": 43670,
+        "success": false
+      }
+    },
+    {
+      "type": "cpu",
+      "received_s": 11.78100000001723,
+      "data": {
+        "interval_ms": 1000,
+        "core0": 56.3,
+        "core1": 97.8
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 11.797000000020489,
+      "data": {
+        "sequence": 733,
+        "capture_us": 15124786,
+        "decode_us": 68881,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 11.844000000040978,
+      "data": {
+        "sequence": 735,
+        "capture_us": 15164537,
+        "decode_us": 65293,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 11.875,
+      "data": {
+        "sequence": 737,
+        "capture_us": 15204265,
+        "decode_us": 58193,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 11.90600000001723,
+      "data": {
+        "sequence": 739,
+        "capture_us": 15244011,
+        "decode_us": 52810,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 11.953000000037719,
+      "data": {
+        "sequence": 741,
+        "capture_us": 15283760,
+        "decode_us": 61703,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 11.98399999999674,
+      "data": {
+        "sequence": 743,
+        "capture_us": 15323497,
+        "decode_us": 56281,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 12.03100000001723,
+      "data": {
+        "sequence": 745,
+        "capture_us": 15363241,
+        "decode_us": 51532,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 12.063000000023749,
+      "data": {
+        "sequence": 747,
+        "capture_us": 15402990,
+        "decode_us": 44764,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 12.094000000040978,
+      "data": {
+        "sequence": 748,
+        "capture_us": 15422861,
+        "decode_us": 68901,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 12.14100000000326,
+      "data": {
+        "sequence": 750,
+        "capture_us": 15462599,
+        "decode_us": 65355,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 12.172000000020489,
+      "data": {
+        "sequence": 752,
+        "capture_us": 15502340,
+        "decode_us": 57919,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 12.203000000037719,
+      "data": {
+        "sequence": 754,
+        "capture_us": 15542087,
+        "decode_us": 52125,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 12.25,
+      "data": {
+        "sequence": 756,
+        "capture_us": 15581836,
+        "decode_us": 60559,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 12.28100000001723,
+      "data": {
+        "sequence": 758,
+        "capture_us": 15621574,
+        "decode_us": 54909,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 12.313000000023749,
+      "data": {
+        "sequence": 760,
+        "capture_us": 15661327,
+        "decode_us": 50692,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 12.344000000040978,
+      "data": {
+        "sequence": 762,
+        "capture_us": 15701062,
+        "decode_us": 43101,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 12.39100000000326,
+      "data": {
+        "sequence": 763,
+        "capture_us": 15720937,
+        "decode_us": 67437,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 12.422000000020489,
+      "data": {
+        "sequence": 765,
+        "capture_us": 15760683,
+        "decode_us": 61726,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 12.469000000040978,
+      "data": {
+        "sequence": 767,
+        "capture_us": 15800415,
+        "decode_us": 55410,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 12.5,
+      "data": {
+        "sequence": 769,
+        "capture_us": 15840170,
+        "decode_us": 48945,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 12.547000000020489,
+      "data": {
+        "sequence": 771,
+        "capture_us": 15879902,
+        "decode_us": 54255,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 12.578000000037719,
+      "data": {
+        "sequence": 773,
+        "capture_us": 15919646,
+        "decode_us": 47869,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 12.60899999999674,
+      "data": {
+        "sequence": 775,
+        "capture_us": 15959390,
+        "decode_us": 40261,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 12.64100000000326,
+      "data": {
+        "sequence": 776,
+        "capture_us": 15979268,
+        "decode_us": 52892,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 12.688000000023749,
+      "data": {
+        "sequence": 778,
+        "capture_us": 16019017,
+        "decode_us": 59582,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 12.719000000040978,
+      "data": {
+        "sequence": 780,
+        "capture_us": 16058748,
+        "decode_us": 52577,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 12.75,
+      "data": {
+        "sequence": 782,
+        "capture_us": 16098503,
+        "decode_us": 46144,
+        "success": false
+      }
+    },
+    {
+      "type": "cpu",
+      "received_s": 12.78100000001723,
+      "data": {
+        "interval_ms": 1000,
+        "core0": 56.0,
+        "core1": 97.4
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 12.78100000001723,
+      "data": {
+        "sequence": 783,
+        "capture_us": 16118378,
+        "decode_us": 58900,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 12.828000000037719,
+      "data": {
+        "sequence": 785,
+        "capture_us": 16158110,
+        "decode_us": 64243,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 12.85899999999674,
+      "data": {
+        "sequence": 787,
+        "capture_us": 16197860,
+        "decode_us": 58196,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 12.90600000001723,
+      "data": {
+        "sequence": 789,
+        "capture_us": 16237593,
+        "decode_us": 53275,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 12.938000000023749,
+      "data": {
+        "sequence": 791,
+        "capture_us": 16277345,
+        "decode_us": 46698,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 12.98399999999674,
+      "data": {
+        "sequence": 793,
+        "capture_us": 16317082,
+        "decode_us": 51498,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 13.01600000000326,
+      "data": {
+        "sequence": 794,
+        "capture_us": 16336960,
+        "decode_us": 68853,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 13.047000000020489,
+      "data": {
+        "sequence": 797,
+        "capture_us": 16396568,
+        "decode_us": 42182,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 13.078000000037719,
+      "data": {
+        "sequence": 798,
+        "capture_us": 16416448,
+        "decode_us": 55093,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 13.125,
+      "data": {
+        "sequence": 800,
+        "capture_us": 16456182,
+        "decode_us": 62185,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 13.15600000001723,
+      "data": {
+        "sequence": 802,
+        "capture_us": 16495925,
+        "decode_us": 55394,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 13.188000000023749,
+      "data": {
+        "sequence": 804,
+        "capture_us": 16535680,
+        "decode_us": 48457,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 13.219000000040978,
+      "data": {
+        "sequence": 806,
+        "capture_us": 16575413,
+        "decode_us": 41449,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 13.26600000000326,
+      "data": {
+        "sequence": 807,
+        "capture_us": 16595292,
+        "decode_us": 68854,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 13.313000000023749,
+      "data": {
+        "sequence": 809,
+        "capture_us": 16635038,
+        "decode_us": 62244,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 13.344000000040978,
+      "data": {
+        "sequence": 810,
+        "capture_us": 16654941,
+        "decode_us": 74299,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 13.375,
+      "data": {
+        "sequence": 812,
+        "capture_us": 16714522,
+        "decode_us": 48021,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 13.422000000020489,
+      "data": {
+        "sequence": 814,
+        "capture_us": 16754258,
+        "decode_us": 52516,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 13.453000000037719,
+      "data": {
+        "sequence": 816,
+        "capture_us": 16794001,
+        "decode_us": 47213,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 13.48399999999674,
+      "data": {
+        "sequence": 818,
+        "capture_us": 16833748,
+        "decode_us": 39155,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 13.51600000000326,
+      "data": {
+        "sequence": 819,
+        "capture_us": 16853625,
+        "decode_us": 53362,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 13.563000000023749,
+      "data": {
+        "sequence": 821,
+        "capture_us": 16893371,
+        "decode_us": 62138,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 13.594000000040978,
+      "data": {
+        "sequence": 823,
+        "capture_us": 16933104,
+        "decode_us": 56301,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 13.64100000000326,
+      "data": {
+        "sequence": 825,
+        "capture_us": 16972846,
+        "decode_us": 52013,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 13.672000000020489,
+      "data": {
+        "sequence": 827,
+        "capture_us": 17012598,
+        "decode_us": 45634,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 13.703000000037719,
+      "data": {
+        "sequence": 828,
+        "capture_us": 17032478,
+        "decode_us": 69044,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 13.75,
+      "data": {
+        "sequence": 830,
+        "capture_us": 17072208,
+        "decode_us": 65927,
+        "success": false
+      }
+    },
+    {
+      "type": "cpu",
+      "received_s": 13.78100000001723,
+      "data": {
+        "interval_ms": 1002,
+        "core0": 54.8,
+        "core1": 97.6
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 13.78100000001723,
+      "data": {
+        "sequence": 832,
+        "capture_us": 17111954,
+        "decode_us": 58520,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 13.813000000023749,
+      "data": {
+        "sequence": 834,
+        "capture_us": 17151696,
+        "decode_us": 53267,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 13.85899999999674,
+      "data": {
+        "sequence": 836,
+        "capture_us": 17191446,
+        "decode_us": 61760,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 13.89100000000326,
+      "data": {
+        "sequence": 838,
+        "capture_us": 17231180,
+        "decode_us": 56002,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 13.922000000020489,
+      "data": {
+        "sequence": 840,
+        "capture_us": 17270933,
+        "decode_us": 51287,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 13.969000000040978,
+      "data": {
+        "sequence": 842,
+        "capture_us": 17310679,
+        "decode_us": 43461,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 14.0,
+      "data": {
+        "sequence": 843,
+        "capture_us": 17330541,
+        "decode_us": 67721,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 14.047000000020489,
+      "data": {
+        "sequence": 845,
+        "capture_us": 17370285,
+        "decode_us": 62842,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 14.078000000037719,
+      "data": {
+        "sequence": 847,
+        "capture_us": 17410024,
+        "decode_us": 55736,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 14.10899999999674,
+      "data": {
+        "sequence": 849,
+        "capture_us": 17449768,
+        "decode_us": 48980,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 14.15600000001723,
+      "data": {
+        "sequence": 851,
+        "capture_us": 17489511,
+        "decode_us": 54984,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 14.188000000023749,
+      "data": {
+        "sequence": 853,
+        "capture_us": 17529254,
+        "decode_us": 49706,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 14.219000000040978,
+      "data": {
+        "sequence": 855,
+        "capture_us": 17569001,
+        "decode_us": 42429,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 14.25,
+      "data": {
+        "sequence": 856,
+        "capture_us": 17588877,
+        "decode_us": 55047,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 14.297000000020489,
+      "data": {
+        "sequence": 858,
+        "capture_us": 17628623,
+        "decode_us": 62295,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 14.328000000037719,
+      "data": {
+        "sequence": 860,
+        "capture_us": 17668357,
+        "decode_us": 55082,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 14.35899999999674,
+      "data": {
+        "sequence": 862,
+        "capture_us": 17708107,
+        "decode_us": 49495,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 14.39100000000326,
+      "data": {
+        "sequence": 864,
+        "capture_us": 17747843,
+        "decode_us": 42129,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 14.438000000023749,
+      "data": {
+        "sequence": 865,
+        "capture_us": 17767723,
+        "decode_us": 66741,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 14.48399999999674,
+      "data": {
+        "sequence": 867,
+        "capture_us": 17807465,
+        "decode_us": 62823,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 14.51600000000326,
+      "data": {
+        "sequence": 869,
+        "capture_us": 17847201,
+        "decode_us": 55506,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 14.547000000020489,
+      "data": {
+        "sequence": 871,
+        "capture_us": 17886949,
+        "decode_us": 49517,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 14.594000000040978,
+      "data": {
+        "sequence": 873,
+        "capture_us": 17926696,
+        "decode_us": 55576,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 14.625,
+      "data": {
+        "sequence": 875,
+        "capture_us": 17966432,
+        "decode_us": 49216,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 14.65600000001723,
+      "data": {
+        "sequence": 877,
+        "capture_us": 18006176,
+        "decode_us": 42221,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 14.688000000023749,
+      "data": {
+        "sequence": 878,
+        "capture_us": 18026056,
+        "decode_us": 54666,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 14.73399999999674,
+      "data": {
+        "sequence": 880,
+        "capture_us": 18065797,
+        "decode_us": 62367,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 14.76600000000326,
+      "data": {
+        "sequence": 882,
+        "capture_us": 18105534,
+        "decode_us": 54976,
+        "success": false
+      }
+    },
+    {
+      "type": "cpu",
+      "received_s": 14.78100000001723,
+      "data": {
+        "interval_ms": 1001,
+        "core0": 55.7,
+        "core1": 97.2
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 14.797000000020489,
+      "data": {
+        "sequence": 884,
+        "capture_us": 18145286,
+        "decode_us": 50017,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 14.828000000037719,
+      "data": {
+        "sequence": 886,
+        "capture_us": 18185025,
+        "decode_us": 42355,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 14.875,
+      "data": {
+        "sequence": 887,
+        "capture_us": 18204901,
+        "decode_us": 67560,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 14.922000000020489,
+      "data": {
+        "sequence": 889,
+        "capture_us": 18244652,
+        "decode_us": 64814,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 14.953000000037719,
+      "data": {
+        "sequence": 891,
+        "capture_us": 18284379,
+        "decode_us": 57795,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 14.98399999999674,
+      "data": {
+        "sequence": 893,
+        "capture_us": 18324126,
+        "decode_us": 52102,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 15.03100000001723,
+      "data": {
+        "sequence": 895,
+        "capture_us": 18363872,
+        "decode_us": 60483,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 15.063000000023749,
+      "data": {
+        "sequence": 897,
+        "capture_us": 18403612,
+        "decode_us": 54055,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 15.094000000040978,
+      "data": {
+        "sequence": 899,
+        "capture_us": 18443365,
+        "decode_us": 49509,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 15.14100000000326,
+      "data": {
+        "sequence": 901,
+        "capture_us": 18483099,
+        "decode_us": 41797,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 15.172000000020489,
+      "data": {
+        "sequence": 902,
+        "capture_us": 18502976,
+        "decode_us": 66517,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 15.219000000040978,
+      "data": {
+        "sequence": 904,
+        "capture_us": 18542726,
+        "decode_us": 62047,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 15.25,
+      "data": {
+        "sequence": 906,
+        "capture_us": 18582454,
+        "decode_us": 55392,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 15.28100000001723,
+      "data": {
+        "sequence": 908,
+        "capture_us": 18622203,
+        "decode_us": 48590,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 15.328000000037719,
+      "data": {
+        "sequence": 910,
+        "capture_us": 18661946,
+        "decode_us": 53537,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 15.35899999999674,
+      "data": {
+        "sequence": 912,
+        "capture_us": 18701686,
+        "decode_us": 47779,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 15.39100000000326,
+      "data": {
+        "sequence": 914,
+        "capture_us": 18741429,
+        "decode_us": 40257,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 15.422000000020489,
+      "data": {
+        "sequence": 915,
+        "capture_us": 18761308,
+        "decode_us": 52687,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 15.469000000040978,
+      "data": {
+        "sequence": 917,
+        "capture_us": 18801053,
+        "decode_us": 59128,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 15.5,
+      "data": {
+        "sequence": 919,
+        "capture_us": 18840788,
+        "decode_us": 51758,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 15.53100000001723,
+      "data": {
+        "sequence": 921,
+        "capture_us": 18880539,
+        "decode_us": 45768,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 15.563000000023749,
+      "data": {
+        "sequence": 922,
+        "capture_us": 18900411,
+        "decode_us": 57921,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 15.60899999999674,
+      "data": {
+        "sequence": 924,
+        "capture_us": 18940149,
+        "decode_us": 63953,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 15.64100000000326,
+      "data": {
+        "sequence": 926,
+        "capture_us": 18979895,
+        "decode_us": 58280,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 15.688000000023749,
+      "data": {
+        "sequence": 928,
+        "capture_us": 19019633,
+        "decode_us": 52864,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 15.719000000040978,
+      "data": {
+        "sequence": 930,
+        "capture_us": 19059384,
+        "decode_us": 46579,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 15.76600000000326,
+      "data": {
+        "sequence": 932,
+        "capture_us": 19099120,
+        "decode_us": 51521,
+        "success": false
+      }
+    },
+    {
+      "type": "cpu",
+      "received_s": 15.78100000001723,
+      "data": {
+        "interval_ms": 1000,
+        "core0": 55.2,
+        "core1": 97.2
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 15.797000000020489,
+      "data": {
+        "sequence": 933,
+        "capture_us": 19119000,
+        "decode_us": 69096,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 15.828000000037719,
+      "data": {
+        "sequence": 936,
+        "capture_us": 19178612,
+        "decode_us": 42028,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 15.85899999999674,
+      "data": {
+        "sequence": 937,
+        "capture_us": 19198490,
+        "decode_us": 54991,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 15.90600000001723,
+      "data": {
+        "sequence": 939,
+        "capture_us": 19238222,
+        "decode_us": 62123,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 15.938000000023749,
+      "data": {
+        "sequence": 941,
+        "capture_us": 19277965,
+        "decode_us": 55553,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 15.969000000040978,
+      "data": {
+        "sequence": 943,
+        "capture_us": 19317710,
+        "decode_us": 49182,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 16.01600000000326,
+      "data": {
+        "sequence": 945,
+        "capture_us": 19357453,
+        "decode_us": 43234,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 16.06300000002375,
+      "data": {
+        "sequence": 946,
+        "capture_us": 19377333,
+        "decode_us": 70772,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 16.094000000040978,
+      "data": {
+        "sequence": 948,
+        "capture_us": 19417071,
+        "decode_us": 64788,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 16.125,
+      "data": {
+        "sequence": 949,
+        "capture_us": 19436939,
+        "decode_us": 77254,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 16.15600000001723,
+      "data": {
+        "sequence": 951,
+        "capture_us": 19496557,
+        "decode_us": 51738,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 16.20300000003772,
+      "data": {
+        "sequence": 953,
+        "capture_us": 19536309,
+        "decode_us": 59913,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 16.23399999999674,
+      "data": {
+        "sequence": 955,
+        "capture_us": 19576040,
+        "decode_us": 54245,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 16.26600000000326,
+      "data": {
+        "sequence": 957,
+        "capture_us": 19615793,
+        "decode_us": 49543,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 16.31300000002375,
+      "data": {
+        "sequence": 959,
+        "capture_us": 19655528,
+        "decode_us": 41398,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 16.344000000040978,
+      "data": {
+        "sequence": 960,
+        "capture_us": 19675407,
+        "decode_us": 66741,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 16.39100000000326,
+      "data": {
+        "sequence": 962,
+        "capture_us": 19715153,
+        "decode_us": 61524,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 16.42200000002049,
+      "data": {
+        "sequence": 964,
+        "capture_us": 19754886,
+        "decode_us": 55174,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 16.45300000003772,
+      "data": {
+        "sequence": 966,
+        "capture_us": 19794640,
+        "decode_us": 47936,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 16.5,
+      "data": {
+        "sequence": 968,
+        "capture_us": 19834375,
+        "decode_us": 53367,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 16.53100000001723,
+      "data": {
+        "sequence": 970,
+        "capture_us": 19874116,
+        "decode_us": 47424,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 16.56300000002375,
+      "data": {
+        "sequence": 972,
+        "capture_us": 19913860,
+        "decode_us": 39765,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 16.594000000040978,
+      "data": {
+        "sequence": 973,
+        "capture_us": 19933740,
+        "decode_us": 52494,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 16.64100000000326,
+      "data": {
+        "sequence": 975,
+        "capture_us": 19973486,
+        "decode_us": 58633,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 16.67200000002049,
+      "data": {
+        "sequence": 977,
+        "capture_us": 20013218,
+        "decode_us": 51850,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 16.70300000003772,
+      "data": {
+        "sequence": 979,
+        "capture_us": 20052973,
+        "decode_us": 45381,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 16.73399999999674,
+      "data": {
+        "sequence": 980,
+        "capture_us": 20072841,
+        "decode_us": 57830,
+        "success": false
+      }
+    },
+    {
+      "type": "cpu",
+      "received_s": 16.78100000001723,
+      "data": {
+        "interval_ms": 1000,
+        "core0": 54.2,
+        "core1": 97.5
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 16.78100000001723,
+      "data": {
+        "sequence": 982,
+        "capture_us": 20112580,
+        "decode_us": 64574,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 16.81300000002375,
+      "data": {
+        "sequence": 984,
+        "capture_us": 20152332,
+        "decode_us": 58802,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 16.85899999999674,
+      "data": {
+        "sequence": 986,
+        "capture_us": 20192067,
+        "decode_us": 53817,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 16.89100000000326,
+      "data": {
+        "sequence": 988,
+        "capture_us": 20231819,
+        "decode_us": 46831,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 16.93800000002375,
+      "data": {
+        "sequence": 990,
+        "capture_us": 20271551,
+        "decode_us": 53616,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 16.969000000040978,
+      "data": {
+        "sequence": 991,
+        "capture_us": 20291427,
+        "decode_us": 67866,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 17.0,
+      "data": {
+        "sequence": 994,
+        "capture_us": 20351042,
+        "decode_us": 40377,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 17.03100000001723,
+      "data": {
+        "sequence": 995,
+        "capture_us": 20370917,
+        "decode_us": 54404,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 17.07800000003772,
+      "data": {
+        "sequence": 997,
+        "capture_us": 20410659,
+        "decode_us": 60788,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 17.10899999999674,
+      "data": {
+        "sequence": 999,
+        "capture_us": 20450397,
+        "decode_us": 54658,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 17.14100000000326,
+      "data": {
+        "sequence": 1001,
+        "capture_us": 20490143,
+        "decode_us": 47844,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 17.17200000002049,
+      "data": {
+        "sequence": 1003,
+        "capture_us": 20529883,
+        "decode_us": 40310,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 17.219000000040978,
+      "data": {
+        "sequence": 1004,
+        "capture_us": 20549763,
+        "decode_us": 67629,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 17.26600000000326,
+      "data": {
+        "sequence": 1006,
+        "capture_us": 20589511,
+        "decode_us": 62544,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 17.29700000002049,
+      "data": {
+        "sequence": 1008,
+        "capture_us": 20629244,
+        "decode_us": 55062,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 17.32800000003772,
+      "data": {
+        "sequence": 1010,
+        "capture_us": 20668985,
+        "decode_us": 48264,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 17.375,
+      "data": {
+        "sequence": 1012,
+        "capture_us": 20708733,
+        "decode_us": 53017,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 17.40600000001723,
+      "data": {
+        "sequence": 1014,
+        "capture_us": 20748472,
+        "decode_us": 47126,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 17.43800000002375,
+      "data": {
+        "sequence": 1015,
+        "capture_us": 20768359,
+        "decode_us": 60021,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 17.469000000040978,
+      "data": {
+        "sequence": 1017,
+        "capture_us": 20808091,
+        "decode_us": 53632,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 17.51600000000326,
+      "data": {
+        "sequence": 1019,
+        "capture_us": 20847840,
+        "decode_us": 61402,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 17.54700000002049,
+      "data": {
+        "sequence": 1021,
+        "capture_us": 20887576,
+        "decode_us": 55196,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 17.57800000003772,
+      "data": {
+        "sequence": 1023,
+        "capture_us": 20927317,
+        "decode_us": 48930,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 17.625,
+      "data": {
+        "sequence": 1025,
+        "capture_us": 20967062,
+        "decode_us": 41682,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 17.65600000001723,
+      "data": {
+        "sequence": 1026,
+        "capture_us": 20986941,
+        "decode_us": 69220,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 17.70300000003772,
+      "data": {
+        "sequence": 1028,
+        "capture_us": 21026686,
+        "decode_us": 62934,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 17.73399999999674,
+      "data": {
+        "sequence": 1029,
+        "capture_us": 21046572,
+        "decode_us": 75295,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 17.76600000000326,
+      "data": {
+        "sequence": 1031,
+        "capture_us": 21106162,
+        "decode_us": 49644,
+        "success": false
+      }
+    },
+    {
+      "type": "cpu",
+      "received_s": 17.78100000001723,
+      "data": {
+        "interval_ms": 1001,
+        "core0": 55.5,
+        "core1": 97.4
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 17.81300000002375,
+      "data": {
+        "sequence": 1033,
+        "capture_us": 21145906,
+        "decode_us": 54892,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 17.844000000040978,
+      "data": {
+        "sequence": 1035,
+        "capture_us": 21185657,
+        "decode_us": 49126,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 17.875,
+      "data": {
+        "sequence": 1037,
+        "capture_us": 21225395,
+        "decode_us": 42176,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 17.90600000001723,
+      "data": {
+        "sequence": 1038,
+        "capture_us": 21245269,
+        "decode_us": 55228,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 17.95300000003772,
+      "data": {
+        "sequence": 1040,
+        "capture_us": 21285008,
+        "decode_us": 62511,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 17.98399999999674,
+      "data": {
+        "sequence": 1042,
+        "capture_us": 21324757,
+        "decode_us": 56184,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 18.01600000000326,
+      "data": {
+        "sequence": 1044,
+        "capture_us": 21364495,
+        "decode_us": 49582,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 18.06300000002375,
+      "data": {
+        "sequence": 1046,
+        "capture_us": 21404238,
+        "decode_us": 42907,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 18.094000000040978,
+      "data": {
+        "sequence": 1047,
+        "capture_us": 21424118,
+        "decode_us": 69954,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 18.14100000000326,
+      "data": {
+        "sequence": 1049,
+        "capture_us": 21463855,
+        "decode_us": 63891,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 18.17200000002049,
+      "data": {
+        "sequence": 1050,
+        "capture_us": 21483747,
+        "decode_us": 76096,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 18.20300000003772,
+      "data": {
+        "sequence": 1052,
+        "capture_us": 21543351,
+        "decode_us": 50036,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 18.25,
+      "data": {
+        "sequence": 1054,
+        "capture_us": 21583084,
+        "decode_us": 53173,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 18.28100000001723,
+      "data": {
+        "sequence": 1055,
+        "capture_us": 21602964,
+        "decode_us": 66613,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 18.31300000002375,
+      "data": {
+        "sequence": 1057,
+        "capture_us": 21642712,
+        "decode_us": 59347,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 18.344000000040978,
+      "data": {
+        "sequence": 1059,
+        "capture_us": 21682447,
+        "decode_us": 51758,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 18.39100000000326,
+      "data": {
+        "sequence": 1061,
+        "capture_us": 21722197,
+        "decode_us": 57760,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 18.42200000002049,
+      "data": {
+        "sequence": 1063,
+        "capture_us": 21761929,
+        "decode_us": 50757,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 18.45300000003772,
+      "data": {
+        "sequence": 1065,
+        "capture_us": 21801684,
+        "decode_us": 44416,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 18.48399999999674,
+      "data": {
+        "sequence": 1066,
+        "capture_us": 21821552,
+        "decode_us": 56154,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 18.53100000001723,
+      "data": {
+        "sequence": 1068,
+        "capture_us": 21861287,
+        "decode_us": 62861,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 18.56300000002375,
+      "data": {
+        "sequence": 1070,
+        "capture_us": 21901033,
+        "decode_us": 56161,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 18.594000000040978,
+      "data": {
+        "sequence": 1072,
+        "capture_us": 21940774,
+        "decode_us": 49227,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 18.625,
+      "data": {
+        "sequence": 1074,
+        "capture_us": 21980518,
+        "decode_us": 42037,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 18.67200000002049,
+      "data": {
+        "sequence": 1075,
+        "capture_us": 22000399,
+        "decode_us": 70010,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 18.719000000040978,
+      "data": {
+        "sequence": 1077,
+        "capture_us": 22040136,
+        "decode_us": 65006,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 18.75,
+      "data": {
+        "sequence": 1079,
+        "capture_us": 22079882,
+        "decode_us": 56718,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 18.78100000001723,
+      "data": {
+        "sequence": 1081,
+        "capture_us": 22119624,
+        "decode_us": 50463,
+        "success": false
+      }
+    },
+    {
+      "type": "cpu",
+      "received_s": 18.78100000001723,
+      "data": {
+        "interval_ms": 1001,
+        "core0": 54.8,
+        "core1": 97.4
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 18.82800000003772,
+      "data": {
+        "sequence": 1083,
+        "capture_us": 22159368,
+        "decode_us": 57050,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 18.85899999999674,
+      "data": {
+        "sequence": 1085,
+        "capture_us": 22199107,
+        "decode_us": 50358,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 18.89100000000326,
+      "data": {
+        "sequence": 1087,
+        "capture_us": 22238851,
+        "decode_us": 44107,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 18.92200000002049,
+      "data": {
+        "sequence": 1088,
+        "capture_us": 22258730,
+        "decode_us": 56654,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 18.969000000040978,
+      "data": {
+        "sequence": 1090,
+        "capture_us": 22298465,
+        "decode_us": 63019,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 19.0,
+      "data": {
+        "sequence": 1092,
+        "capture_us": 22338209,
+        "decode_us": 57475,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 19.03100000001723,
+      "data": {
+        "sequence": 1094,
+        "capture_us": 22377953,
+        "decode_us": 53109,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 19.07800000003772,
+      "data": {
+        "sequence": 1096,
+        "capture_us": 22417711,
+        "decode_us": 46394,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 19.10899999999674,
+      "data": {
+        "sequence": 1097,
+        "capture_us": 22437580,
+        "decode_us": 70280,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 19.15600000001723,
+      "data": {
+        "sequence": 1099,
+        "capture_us": 22477315,
+        "decode_us": 67548,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 19.18800000002375,
+      "data": {
+        "sequence": 1101,
+        "capture_us": 22517059,
+        "decode_us": 60816,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 19.219000000040978,
+      "data": {
+        "sequence": 1103,
+        "capture_us": 22556804,
+        "decode_us": 53583,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 19.26600000000326,
+      "data": {
+        "sequence": 1105,
+        "capture_us": 22596549,
+        "decode_us": 59998,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 19.29700000002049,
+      "data": {
+        "sequence": 1107,
+        "capture_us": 22636284,
+        "decode_us": 54333,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 19.32800000003772,
+      "data": {
+        "sequence": 1109,
+        "capture_us": 22676032,
+        "decode_us": 48155,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 19.35899999999674,
+      "data": {
+        "sequence": 1111,
+        "capture_us": 22715772,
+        "decode_us": 40888,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 19.40600000001723,
+      "data": {
+        "sequence": 1112,
+        "capture_us": 22735648,
+        "decode_us": 68613,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 19.45300000003772,
+      "data": {
+        "sequence": 1114,
+        "capture_us": 22775398,
+        "decode_us": 62671,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 19.48399999999674,
+      "data": {
+        "sequence": 1116,
+        "capture_us": 22815129,
+        "decode_us": 55145,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 19.51600000000326,
+      "data": {
+        "sequence": 1118,
+        "capture_us": 22854873,
+        "decode_us": 48267,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 19.56300000002375,
+      "data": {
+        "sequence": 1120,
+        "capture_us": 22894621,
+        "decode_us": 52959,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 19.594000000040978,
+      "data": {
+        "sequence": 1122,
+        "capture_us": 22934360,
+        "decode_us": 47042,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 19.625,
+      "data": {
+        "sequence": 1123,
+        "capture_us": 22954246,
+        "decode_us": 60076,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 19.65600000001723,
+      "data": {
+        "sequence": 1125,
+        "capture_us": 22993979,
+        "decode_us": 53032,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 19.70300000003772,
+      "data": {
+        "sequence": 1127,
+        "capture_us": 23033730,
+        "decode_us": 59497,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 19.73399999999674,
+      "data": {
+        "sequence": 1129,
+        "capture_us": 23073462,
+        "decode_us": 53111,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 19.76600000000326,
+      "data": {
+        "sequence": 1131,
+        "capture_us": 23113215,
+        "decode_us": 47045,
+        "success": false
+      }
+    },
+    {
+      "type": "cpu",
+      "received_s": 19.78100000001723,
+      "data": {
+        "interval_ms": 1001,
+        "core0": 55.2,
+        "core1": 97.3
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 19.79700000002049,
+      "data": {
+        "sequence": 1133,
+        "capture_us": 23152949,
+        "decode_us": 39833,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 19.844000000040978,
+      "data": {
+        "sequence": 1134,
+        "capture_us": 23172829,
+        "decode_us": 67638,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 19.89100000000326,
+      "data": {
+        "sequence": 1136,
+        "capture_us": 23212574,
+        "decode_us": 62024,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 19.92200000002049,
+      "data": {
+        "sequence": 1138,
+        "capture_us": 23252308,
+        "decode_us": 55216,
+        "success": false
+      }
+    },
+    {
+      "type": "timing",
+      "received_s": 19.95300000003772,
+      "data": {
+        "sequence": 1140,
+        "capture_us": 23292051,
+        "decode_us": 48662,
+        "success": false
+      }
+    }
+  ],
+  "result_packets": 0,
+  "result_packets_per_s": 0.0,
+  "timing_sequence_gaps": 453
+}

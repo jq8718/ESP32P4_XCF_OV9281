@@ -1,0 +1,9 @@
+{
+  "firmware_bytes": 893952,
+  "firmware_sha256": "e7f6d5465610650cda8da64b66e65347791797b119975a280b3312de5485bc0f",
+  "decoder_source_sha256": "ff32a0eed4e8ced6478d39da22ef2e44ec39312aafaf56e84961eaf7c6744650",
+  "idf": "5.4.0",
+  "flash_port": "COM4",
+  "cdc_port": "COM65",
+  "scope": "6px elongated component local Otsu, existing 4px fallback retained"
+}
