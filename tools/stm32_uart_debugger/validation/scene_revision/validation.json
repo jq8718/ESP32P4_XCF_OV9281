@@ -2,7 +2,7 @@
   "status": "passed",
   "checks": [
     "eight-field EMA",
-    "legacy UART compatibility",
+    "obsolete UART rejected",
     "frame-rate independence",
     "angle wrap",
     "raw data unchanged",
@@ -12,7 +12,13 @@
     "neutral scan-head wall alignment",
     "wheel ground contact",
     "in-place yaw position invariant",
-    "UI filtered pose wiring"
+    "UI filtered pose wiring",
+    "compact/full switch commands and acknowledgements",
+    "frame number wraps in history",
+    "compact wall position uses smoothed plane distance",
+    "yaw invariant wall clearance",
+    "missing compact fields cleared",
+    "calibration GET/SET/confirmation/error/timeout"
   ],
-  "mean_scene_paint_ms": 30.28382501118661
+  "mean_scene_paint_ms": 19.818041672503266
 }

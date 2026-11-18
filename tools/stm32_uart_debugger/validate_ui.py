@@ -6,15 +6,26 @@ from pathlib import Path
 import time
 
 from PySide6.QtWidgets import QApplication
-from app import MainWindow, configure_application, parse_pose_line
+from app import MainWindow, CalibrationDialog, configure_application, parse_pose_line
+from uart_protocol import frame, FACTORY_CAL, parse_reply, CAL_NAMES
 from pose_filter import POSE_FIELDS, PoseSmoother
 from scene import AgvView, scene_geometry, dot
 
 
 def main():
-    pose = parse_pose_line(b'012345,5213,2873,5749,2943,5695,3469,5152,3407,234,-7.69,-7.21,6.65,0.407,0.406,0.400,-0.024,-0.030')
-    legacy = parse_pose_line(b'012345,5213,2873,5749,2943,5695,3469,5152,3407,234,-7.69,-7.21,6.65,0.407,0.406,0.400,-0.024')
-    assert legacy['along_track_m'] is None and legacy['pose_valid']
+    pose = parse_pose_line(b'@SCAN,6,F,999,1,012345,5213,2873,5749,2943,5695,3469,5152,3407,-7690,-7210,6650,407,406,400,-24,-30*E379\r\n')
+    assert pose['payload'] == '012345'
+    for old in (b'012345,5213,2873,5749,2943,5695,3469,5152,3407,234,-7.69,-7.21,6.65,0.407,0.406,0.400,-0.024',
+                frame('@SCAN,1,C,234,1,30,-7690,-30'),
+                frame('@SCAN,2,C,234,1,30,-7690,406,-30'),
+                frame('@SCAN,3,C,234,1,30,-7690,406,400,-30'),
+                frame('@SCAN,4,C,235,1,303132333435,-7690,375,-30')):
+        try:
+            parse_pose_line(old)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError('obsolete protocol accepted')
     original = dict(pose)
     target = dict(pose)
     for field in POSE_FIELDS:
@@ -30,6 +41,28 @@ def main():
     expected_track = target['along_track_m']+(pose['along_track_m']-target['along_track_m'])*math.exp(-1)
     assert math.isclose(filtered['along_track_m'], expected_track, abs_tol=1e-10)
     assert pose == original, 'raw UART values were mutated'
+    compact = parse_pose_line(b'@SCAN,6,C,0,1,012345,-7690,375,-30*E08E\r\n')
+    assert compact['payload'] == '012345'
+    partial = PoseSmoother()
+    partial.set_target(pose, 0.)
+    partial.set_target(compact, 1.)
+    reduced = partial.advance(1.5)
+    assert reduced['pitch_x_deg'] is None and reduced['range_m'] is None
+    assert reduced['optical_depth_m'] is None
+    assert math.isclose(reduced['distance_to_plane_m'], .375+.025*math.exp(-.5/.45))
+    _, compact_anchor, _, _ = scene_geometry(compact)
+    assert compact_anchor[1] == .375
+    # Optical depth changes under in-place yaw; measured wall clearance stays fixed.
+    for yaw in (0., 30., -30.):
+        turn = dict(compact, yaw_y_deg=yaw, optical_depth_m=.5*math.cos(math.radians(yaw)),
+                    distance_to_plane_m=.5, along_track_m=0.)
+        _, anchor, _, _ = scene_geometry(turn)
+        assert anchor == (0., .5, .25)
+    _, closer, _, _ = scene_geometry(dict(compact, distance_to_plane_m=.25))
+    assert closer[1] == .25
+    assert reduced['yaw_y_deg'] is not None and reduced['along_track_m'] is not None
+    partial.set_target(pose, 2.)
+    assert partial.advance(2.1)['range_m'] == pose['range_m']
     # A fixed time constant must give the same result at different UI frame rates.
     stepped = PoseSmoother()
     stepped.set_target(pose, 0.)
@@ -97,10 +130,59 @@ def main():
     assert window.values['tx_m'][0].text() == f"{target['tx_m']:+.3f} m"
     assert window.values['along_track_m'][0].text() == f"{target['along_track_m']:+.3f} m"
     assert window.grab().save(str(out/'window.png'))
+    assert not window.full_upload.isChecked()
+    assert window.history.columnWidth(1) < 90
+    assert window.history.columnWidth(1) >= window.history.fontMetrics().horizontalAdvance('888888') + 10
+    commands = []
+    window.send_command = lambda text: commands.append(text) or True
+    window.full_upload.setChecked(True)
+    assert commands[-1] == '@OUT,FULL'
+    window.receive_reply(dict(kind='output', mode='FULL'))
+    assert '已确认' in window.mode_status.text()
+    window.full_upload.setChecked(False)
+    assert commands[-1] == '@OUT,COMPACT'
+    window.receive_reply(dict(kind='output', mode='COMPACT'))
+    window.receive_result(compact)
+    assert [window.history.item(i, 0).text() for i in (1, 2)] == ['999', '0']
+    assert window.values['range_m'][0].text() == '—'
+    assert window.values['optical_depth_m'][0].text() == '—'
+    assert window.values['distance_to_plane_m'][0].text() == '0.375 m'
+    assert window.simulation.pose['distance_to_plane_m'] is not None
+    assert scene_geometry(window.simulation.pose)[1][1] == window.pose_smoother.current['distance_to_plane_m']
+    assert '#086cac' in window.content.styleSheet()
+    assert window.values['along_track_m'][0].text() == '-0.030 m'
+    assert '未上传' in window.frame_info.text()
+    app.processEvents()
+    assert window.grab().save(str(out/'compact.png'))
+    dialog = CalibrationDialog(window)
+    dialog.show()
+    dialog.read_device()
+    assert commands[-1] == '@CAL,GET'
+    reply = parse_reply(('@CAL,DATA,'+','.join(str(FACTORY_CAL[k]) for k in CAL_NAMES)).encode())
+    dialog.response(reply)
+    assert '已读取' in dialog.message.text()
+    dialog.inputs['fx'].setValue(734.25)
+    dialog.download()
+    assert commands[-1].startswith('@CAL,SET,1280,720,734.25,')
+    changed = dict(FACTORY_CAL, fx=734.25)
+    dialog.response(dict(kind='calibration', values=changed))
+    assert '下载成功' in dialog.message.text()
+    dialog.download()
+    dialog.response(dict(kind='error', command='@CAL', reason='flash'))
+    assert 'flash' in dialog.message.text()
+    dialog.read_device()
+    dialog.command_timeout()
+    assert '无法判断' in dialog.message.text()
+    app.processEvents()
+    assert dialog.grab().save(str(out/'calibration.png'))
+    dialog.close()
     window.close()
-    report = {'status':'passed','checks':['eight-field EMA','legacy UART compatibility','frame-rate independence','angle wrap',
+    report = {'status':'passed','checks':['eight-field EMA','obsolete UART rejected','frame-rate independence','angle wrap',
               'raw data unchanged','invalid pose reset','rigid side camera mount','25 cm optical height',
-              'neutral scan-head wall alignment','wheel ground contact','in-place yaw position invariant','UI filtered pose wiring'],
+              'neutral scan-head wall alignment','wheel ground contact','in-place yaw position invariant',
+              'UI filtered pose wiring','compact/full switch commands and acknowledgements', 'frame number wraps in history',
+              'compact wall position uses smoothed plane distance', 'yaw invariant wall clearance',
+              'missing compact fields cleared','calibration GET/SET/confirmation/error/timeout'],
               'mean_scene_paint_ms':sum(timings)/len(timings)}
     (out/'validation.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
     print(json.dumps(report,ensure_ascii=False,indent=2))

@@ -36,7 +36,7 @@ OV9281 RAW8 → CSI/DMA 四缓冲 → Core0 全图采样、局部二值化（帧
 
 在 PowerShell 执行 `./build_p4.ps1`，产物为 `build/p4scan_ov9281.bin`。工程使用 ESP-IDF 5.4、16 MB Flash，分区表和 CDC 输出格式沿用参考工程。`USB_PROTOCOL.md` 说明主机协议。根目录 `uvc_example.c` 仅作原始示例参考，不参与构建。
 
-STM32 USB Host 对接说明见 [CDC 通信协议](docs/STM32_CDC_PROTOCOL.md)，包括初始化命令、定位字段、有效性检查和接收流程。
+STM32 通过 GPIO41/42 UART 连接，接线、整数帧和内参命令见 [UART 通信协议](docs/STM32_UART_PROTOCOL.md)。
 
 上板后依次确认：日志中的 OV9281 ID 为 `9281`；CSI 格式为 1280×720 RAW8 且收到首帧；按键和 WS2812 正常；CDC 扫描结果及 UVC 预览与参考工程协议一致。DataMatrix 已用现场码样验证；QR 模式仍需单独切换配置并上板验证。
 
@@ -59,6 +59,8 @@ AGV 实时模式默认使用跨帧两级流水线：Core 0 整图搜索外部标
 2026-11-18 版本进一步将连通域和候选几何移至 Core 1，保留同帧密采样补救。增加停帧诊断及连续 5 秒无帧的整机重启保护；UART 追加 `along_track_m`，用于绕相机光心旋转时稳定的固定过道方向位置。详见 [完整改进、实测与回退说明](docs/releases/20261118/README.md)。
 
 两个独立 UI 的源码和 EXE 均在本仓库：摄像头调试器 [P4ScanOV9281Debugger.exe](dist/P4ScanOV9281Debugger.exe)（v1.0.0003，源码 `tools/ov9281_debugger`）；UART 3D 接收器 [AGV_3D_Test.exe](tools/stm32_uart_debugger/release/AGV_3D_Test.exe)（v1.0.0015，源码 `tools/stm32_uart_debugger`）。已烧录固件及构建配置保存在 `releases/20261118/firmware`，校验清单见 `docs/releases/20261118/manifest.json`。
+
+当前工作版本 AGV UI 已更新至 v1.0.0021，支持完整/精简上传和相机内参下载。GPIO UART 使用协议 v6（含 CRC16），帧号在 0～999 之间循环，解码内容直接发送数字字符串，保留前导零。默认精简帧含偏航、码平面垂直距离与沿过道偏移，3D 离墙位置使用平滑后的垂直距离。协议与支持两种模式的 STM32 C 示例见 [UART 整数协议](docs/STM32_UART_PROTOCOL.md)。上述 `releases/20261118` 与 manifest 对应已发布的 v1.0.0015 检查点。
 
 当前环境的小码漏检已定位为外部标记在 6 像素采样网格上欠采样。现增加同帧 4 像素补救搜索，并校正小标记距离容差和采样坐标映射。失败原图、180 个平移案例及实机验证见 [故障分析](docs/failure_diagnosis/README.md)。最终现场固定画面开图/关图均约 50 次成功定位/秒；持续触发密集补救时吞吐量会下降。
 

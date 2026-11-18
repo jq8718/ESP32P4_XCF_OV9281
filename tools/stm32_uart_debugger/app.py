@@ -1,11 +1,11 @@
 import argparse
-import csv
 import json
-import io
 import math
 import sys
 import time
 from collections import deque
+from queue import Queue, Empty
+from pathlib import Path
 
 import serial
 from serial.tools import list_ports
@@ -14,7 +14,8 @@ from PySide6.QtGui import QColor, QLinearGradient, QPainter, QPen, QPolygonF, QF
 from PySide6.QtWidgets import (QApplication, QComboBox, QHBoxLayout, QLabel,
                                QMainWindow, QMessageBox, QPushButton, QSplitter,
                                QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget,
-                               QPlainTextEdit, QHeaderView, QFrame, QGridLayout)
+                               QPlainTextEdit, QHeaderView, QFrame, QGridLayout,
+                               QCheckBox, QDialog, QFormLayout, QDoubleSpinBox, QFileDialog)
 
 try:
     from build_version import BUILD_VERSION
@@ -23,52 +24,44 @@ except ImportError:
 
 from pose_filter import PoseSmoother
 from scene import AgvView
+from uart_protocol import (parse_scan, parse_reply, CAL_NAMES, FACTORY_CAL,
+                           validate_calibration, calibration_command)
 
 
 def parse_pose_line(line: bytes) -> dict:
-    fields = next(csv.reader(io.StringIO(line.decode('latin1')), strict=True))
-    if len(fields) not in (17, 18):
-        raise ValueError(f'字段数应为17或18，实际为{len(fields)}')
-    coordinates = [int(value) / 10.0 for value in fields[1:9]]
-    if any(not math.isfinite(v) or v < 0 or v > 1280 for v in coordinates[::2]):
-        raise ValueError('X坐标超出图像范围')
-    if any(not math.isfinite(v) or v < 0 or v > 720 for v in coordinates[1::2]):
-        raise ValueError('Y坐标超出图像范围')
-    sequence = int(fields[9])
-    if not 0 <= sequence <= 0xffffffff:
-        raise ValueError('帧号超出范围')
-    names = ('yaw_y_deg', 'pitch_x_deg', 'roll_z_deg', 'range_m',
-             'optical_depth_m', 'distance_to_plane_m', 'tx_m')
-    values = {}
-    for name, field in zip(names, fields[10:]):
-        value = float(field) if field else None
-        if value is not None and not math.isfinite(value):
-            raise ValueError(f'{name}不是有限数值')
-        values[name] = value
-    values['along_track_m'] = float(fields[17]) if len(fields) == 18 and fields[17] else None
-    if values['along_track_m'] is not None and not math.isfinite(values['along_track_m']):
-        raise ValueError('along_track_m不是有限数值')
-    return {'payload': fields[0], 'corners': [coordinates[i:i + 2] for i in range(0, 8, 2)],
-            'sequence': sequence, **values,
-            'pose_valid': all(values[name] is not None for name in names)}
+    return parse_scan(line)
 
 
 class UartReader(QThread):
     line = Signal(str)
     result = Signal(object)
     state = Signal(str)
+    reply = Signal(object)
+    opened = Signal()
 
     def __init__(self, port, baud):
         super().__init__()
         self.port_name = port
         self.baud = baud
+        self.commands = Queue()
+
+    def send_command(self, command):
+        self.commands.put(command.encode('ascii') + b'\r\n')
 
     def run(self):
         try:
-            with serial.Serial(self.port_name, self.baud, timeout=0.1) as port:
-                self.state.emit(f'已连接 {self.port_name} · {self.baud} baud · 8N1 · 仅接收')
+            with serial.Serial(self.port_name, self.baud, timeout=0.05, write_timeout=.5) as port:
+                self.state.emit(f'已连接 {self.port_name} · {self.baud} baud · 8N1')
+                self.opened.emit()
                 buffer = bytearray()
                 while not self.isInterruptionRequested():
+                    while not self.commands.empty():
+                        try:
+                            command = self.commands.get_nowait()
+                        except Empty:
+                            break
+                        if port.write(command) != len(command):
+                            raise OSError('串口命令发送不完整')
                     buffer.extend(port.read(min(max(port.in_waiting, 1), 4096)))
                     while b'\n' in buffer:
                         end = buffer.index(10)
@@ -79,8 +72,11 @@ class UartReader(QThread):
                         text = raw.decode('ascii', errors='replace')
                         self.line.emit(text)
                         try:
-                            self.result.emit(parse_pose_line(raw))
-                        except (ValueError, csv.Error, UnicodeError) as error:
+                            if raw.startswith((b'@CAL,', b'@OUT,')):
+                                self.reply.emit(parse_reply(raw))
+                            else:
+                                self.result.emit(parse_pose_line(raw))
+                        except (ValueError, UnicodeError) as error:
                             self.state.emit(f'收到非姿态行或格式错误：{error}')
                     if len(buffer) > 8192:
                         buffer.clear()
@@ -89,6 +85,132 @@ class UartReader(QThread):
             self.state.emit(f'串口错误：{error}')
         finally:
             self.state.emit('串口已断开')
+
+
+class CalibrationDialog(QDialog):
+    """Edit values locally; write only on an explicit download click."""
+    def __init__(self, owner):
+        super().__init__(owner)
+        self.owner = owner
+        self.pending = None
+        self.setWindowTitle('相机内参 · 读取 / 下载至 P4 Flash')
+        self.resize(540, 600)
+        layout = QVBoxLayout(self)
+        intro = QLabel('分辨率固定 1280×720。USB-UART TX 还需接 P4 GPIO42 RX。\n下载后立即生效并保存至 Flash，断电保留。')
+        intro.setWordWrap(True)
+        layout.addWidget(intro)
+        form = QFormLayout()
+        self.inputs = {}
+        for name in CAL_NAMES[2:]:
+            box = QDoubleSpinBox()
+            box.setDecimals(9)
+            if name in ('fx', 'fy'):
+                box.setRange(100, 10000)
+            elif name in ('cx', 'cy'):
+                box.setRange(0, 1279.999999 if name == 'cx' else 719.999999)
+            else:
+                box.setRange(-10, 10)
+            box.setSingleStep(.01 if name in ('fx', 'fy', 'cx', 'cy') else .0001)
+            form.addRow(name, box)
+            self.inputs[name] = box
+        layout.addLayout(form)
+        self.message = QLabel('请先读取设备当前内参。默认值仅供参考，尚未写入设备。')
+        self.message.setWordWrap(True)
+        layout.addWidget(self.message)
+        buttons = QGridLayout()
+        for i, (text, action) in enumerate((('读取 P4 当前内参', self.read_device),
+                ('下载内参到 P4 Flash', self.download), ('导入 JSON', self.import_json),
+                ('导出 JSON', self.export_json), ('填入工厂默认值', self.factory))):
+            button = QPushButton(text)
+            button.clicked.connect(action)
+            buttons.addWidget(button, i//2, i%2)
+            if i == 1:
+                self.download_button = button
+        layout.addLayout(buttons)
+        self.timeout = QTimer(self)
+        self.timeout.setSingleShot(True)
+        self.timeout.timeout.connect(self.command_timeout)
+        self.set_values(owner.calibration or FACTORY_CAL)
+
+    def set_values(self, c):
+        for name, box in self.inputs.items():
+            box.setValue(c[name])
+
+    def values(self):
+        return validate_calibration(dict(width=1280, height=720,
+            **{name: box.value() for name, box in self.inputs.items()}))
+
+    def read_device(self):
+        if self.pending:
+            self.message.setText('请等待当前内参操作完成。')
+            return
+        if self.owner.send_command('@CAL,GET'):
+            self.pending = 'read'
+            self.timeout.start(3000)
+            self.message.setText('正在读取设备当前内参…')
+
+    def download(self):
+        if self.pending:
+            self.message.setText('请等待当前内参操作完成。')
+            return
+        try:
+            c = self.values()
+            if self.owner.send_command(calibration_command(c)):
+                self.pending = c
+                self.download_button.setEnabled(False)
+                self.timeout.start(5000)
+                self.message.setText('等待 P4 保存 Flash 后回读确认…')
+        except ValueError as e:
+            self.message.setText(str(e))
+
+    def response(self, reply):
+        if reply['kind'] == 'calibration':
+            c = reply['values']
+            if isinstance(self.pending, dict):
+                match = all(math.isclose(c[k], self.pending[k], rel_tol=2e-6, abs_tol=2e-6) for k in CAL_NAMES)
+                self.message.setText('下载成功：P4 已保存 Flash，并回读确认。' if match else '回读与下载值不一致，请重新读取核对。')
+            else:
+                self.message.setText('已读取 P4 当前生效内参。')
+            self.set_values(c)
+        elif reply['kind'] == 'error' and reply['command'] == '@CAL':
+            self.message.setText('设备拒绝内参：' + reply['reason'])
+        else:
+            return
+        self.timeout.stop()
+        self.pending = None
+        self.download_button.setEnabled(True)
+
+    def command_timeout(self):
+        self.pending = None
+        self.download_button.setEnabled(True)
+        self.message.setText('未收到确认，无法判断操作是否完成。请检查 TX→GPIO42 接线，再读取设备核对。')
+
+    def factory(self):
+        self.set_values(FACTORY_CAL)
+        self.message.setText('已填入工厂值；点击下载才会写入 P4。')
+
+    def import_json(self):
+        filename, _ = QFileDialog.getOpenFileName(self, '导入相机内参', '', 'JSON (*.json)')
+        if filename:
+            try:
+                c = json.loads(Path(filename).read_text(encoding='utf-8-sig'))
+                if 'camera_matrix' in c:
+                    k, d = c['camera_matrix'], c['dist_coeffs']
+                    size = c['image_size']
+                    c = dict(zip(CAL_NAMES, (size[0], size[1], k[0][0], k[1][1], k[0][2], k[1][2], *d)))
+                self.set_values(validate_calibration(c))
+                self.message.setText('已导入；点击下载才会写入 P4。')
+            except (ValueError, KeyError, TypeError, IndexError, OSError) as e:
+                self.message.setText('导入失败：' + str(e))
+
+    def export_json(self):
+        filename, _ = QFileDialog.getSaveFileName(self, '导出当前编辑内参', 'camera_calibration.json', 'JSON (*.json)')
+        if filename:
+            try:
+                Path(filename).write_text(json.dumps(self.values(), indent=2)+'\n', encoding='utf-8')
+                self.message.setText('已导出当前编辑值。')
+            except (ValueError, OSError) as e:
+                self.message.setText('导出失败：' + str(e))
 
 
 class YawWaveform(QWidget):
@@ -183,6 +305,11 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.args = args
         self.reader = None
+        self.calibration = None
+        self.calibration_dialog = None
+        self.mode_timeout = QTimer(self)
+        self.mode_timeout.setSingleShot(True)
+        self.mode_timeout.timeout.connect(lambda: self.mode_status.setText('未确认模式：检查 TX→GPIO42 或固件版本'))
         self.received = 0
         self.last_content = ''
         self.pose_smoother = PoseSmoother(.45)
@@ -211,9 +338,21 @@ class MainWindow(QMainWindow):
         self.connect_button = QPushButton('连接接收')
         self.connect_button.clicked.connect(self.toggle_connection)
         bar.addWidget(self.connect_button)
-        self.status = QLabel('P4 GPIO41 TX → USB-UART RX；共地。软件仅监听串口，不发送命令。')
+        self.status = QLabel('P4 GPIO41 TX→转接器 RX；转接器 TX→P4 GPIO42 RX；共地。')
         bar.addWidget(self.status, 1)
         layout.addLayout(bar)
+
+        controls = QHBoxLayout()
+        self.full_upload = QCheckBox('上传完整数据（四角点、3 个角度、5 个距离）')
+        self.full_upload.setChecked(False)
+        self.full_upload.toggled.connect(self.request_output_mode)
+        controls.addWidget(self.full_upload)
+        self.mode_status = QLabel('未勾选：仅帧号、内容、偏航角、离墙距离、沿过道偏移')
+        controls.addWidget(self.mode_status, 1)
+        calibration_button = QPushButton('相机内参 · 读取 / 下载')
+        calibration_button.clicked.connect(self.show_calibration)
+        controls.addWidget(calibration_button)
+        layout.addLayout(controls)
 
         splitter = QSplitter(Qt.Orientation.Horizontal)
         left = QWidget()
@@ -236,13 +375,14 @@ class MainWindow(QMainWindow):
             self.values[key] = (value, unit)
         left_layout.addLayout(grid)
         self.content = QLabel('解码内容：等待数据')
-        self.content.setStyleSheet('font-size:18px;font-weight:600;padding:8px;background:white')
+        self.content.setStyleSheet('font-size:18px;font-weight:600;padding:8px;background:white;color:#086cac')
         left_layout.addWidget(self.content)
         self.frame_info = QLabel('帧号：—    角点：—')
         left_layout.addWidget(self.frame_info)
         self.history = QTableWidget(0, 6)
         self.history.setHorizontalHeaderLabels(['帧号', '内容', 'yaw (°)', 'tx (m)', '沿过道 (m)', '时间'])
-        self.history.horizontalHeader().setSectionResizeMode(1, QHeaderView.ResizeMode.Stretch)
+        self.history.horizontalHeader().setSectionResizeMode(1, QHeaderView.ResizeMode.Fixed)
+        self.history.setColumnWidth(1, self.history.fontMetrics().horizontalAdvance('888888') + 14)
         for column, width in ((0, 52), (2, 68), (3, 68), (4, 83), (5, 70)):
             self.history.setColumnWidth(column, width)
         self.history.setEditTriggers(QTableWidget.EditTrigger.NoEditTriggers)
@@ -303,6 +443,7 @@ class MainWindow(QMainWindow):
 
     def toggle_connection(self):
         if self.reader and self.reader.isRunning():
+            self.mode_timeout.stop()
             self.reader.requestInterruption()
             self.reader.wait(1000)
             self.reader = None
@@ -321,8 +462,50 @@ class MainWindow(QMainWindow):
         self.reader.line.connect(self.receive_line)
         self.reader.result.connect(self.receive_result)
         self.reader.state.connect(self.status.setText)
+        self.reader.reply.connect(self.receive_reply)
+        self.reader.opened.connect(self.connected)
         self.reader.start()
         self.connect_button.setText('断开接收')
+
+    def send_command(self, command):
+        if not self.reader or not self.reader.isRunning():
+            self.status.setText('请先连接双向 UART 串口。')
+            return False
+        self.reader.send_command(command)
+        return True
+
+    def connected(self):
+        self.request_output_mode()
+        self.send_command('@CAL,GET')
+
+    def request_output_mode(self, checked=None):
+        mode = 'FULL' if self.full_upload.isChecked() else 'COMPACT'
+        if self.send_command('@OUT,' + mode):
+            self.mode_status.setText('正在请求' + ('完整' if mode == 'FULL' else '精简') + '上传…')
+            self.mode_timeout.start(3000)
+        else:
+            self.mode_status.setText('连接后应用：' + ('完整上传' if mode == 'FULL' else '精简上传'))
+
+    def receive_reply(self, reply):
+        if reply['kind'] == 'output':
+            desired = 'FULL' if self.full_upload.isChecked() else 'COMPACT'
+            if reply['mode'] == desired:
+                self.mode_timeout.stop()
+                self.mode_status.setText(('完整' if desired == 'FULL' else '精简') + '上传已确认 · 整数 / CRC16')
+        elif reply['kind'] == 'calibration':
+            self.calibration = reply['values']
+        elif reply['kind'] == 'error':
+            self.status.setText('P4 命令错误：' + reply['reason'])
+        if self.calibration_dialog:
+            self.calibration_dialog.response(reply)
+
+    def show_calibration(self):
+        if self.calibration_dialog is None:
+            self.calibration_dialog = CalibrationDialog(self)
+        self.calibration_dialog.show()
+        self.calibration_dialog.raise_()
+        if self.reader and self.reader.isRunning():
+            self.calibration_dialog.read_device()
 
     def receive_line(self, line):
         self.raw.appendPlainText(line)
@@ -338,7 +521,8 @@ class MainWindow(QMainWindow):
         self.simulation.set_pose(filtered)
         self.last_content = result['payload']
         self.content.setText(f"解码内容：{result['payload']}")
-        self.frame_info.setText(f"帧号：{result['sequence']}    角点 P0→P3：{result['corners']}")
+        corners = str(result['corners']) if result['corners'] else '精简模式未上传'
+        self.frame_info.setText(f"帧号：{result['sequence']}    角点 P0→P3：{corners}")
         for key, label, unit in self.PARAMS:
             value, suffix = self.values[key]
             number = result[key]
@@ -351,7 +535,12 @@ class MainWindow(QMainWindow):
                  '—' if result['along_track_m'] is None else f"{result['along_track_m']:+.3f}",
                  time.strftime('%H:%M:%S'))
         for column, text in enumerate(cells):
-            self.history.setItem(row, column, QTableWidgetItem(text))
+            item = QTableWidgetItem(text)
+            if column == 1:
+                item.setForeground(QColor('#086cac'))
+                if len(text) > 6:
+                    item.setToolTip(text)
+            self.history.setItem(row, column, item)
         while self.history.rowCount() > 500:
             self.history.removeRow(0)
         self.history.scrollToBottom()
@@ -405,7 +594,7 @@ def configure_application(app):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='只接收并显示 P4 发给 STM32 的 GPIO41/42 UART 结果')
+    parser = argparse.ArgumentParser(description='P4→STM32 UART 调试、完整/精简上传与相机内参下载')
     parser.add_argument('--port')
     parser.add_argument('--auto-connect', action='store_true')
     parser.add_argument('--smoke-seconds', type=float, default=0)

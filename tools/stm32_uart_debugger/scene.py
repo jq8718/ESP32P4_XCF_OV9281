@@ -46,14 +46,14 @@ def scene_geometry(pose):
     values = pose or {}
     yaw, pitch, roll = (values.get(key) or 0.0 for key in ('yaw_y_deg', 'pitch_x_deg', 'roll_z_deg'))
     rotate = body_rotation(yaw, pitch, roll)
-    gap = values.get('distance_to_plane_m', .55)
-    tx = values.get('tx_m') or 0.0
+    gap = values.get('distance_to_plane_m')
+    if gap is None:
+        gap = .55  # Installation illustration only, before valid telemetry.
     along_track = values.get('along_track_m')
-    # Scene X has the old tx sign; the measured aisle-forward axis is -scene X.
-    # Retain the old 17-field display until the upgraded P4 field is present.
+    # Measured aisle-forward is -scene X.
     # Rotate around the fixed-height optical centre, so label and lens stay
     # at 25 cm even when the illustrative body tilts.
-    anchor = ((-along_track if along_track is not None else tx)*2.4, gap, .25)
+    anchor = (-(along_track or 0.0)*2.4, gap, .25)
     camera_local = (0.0, -.315, .25)
     world_points = {}
 
@@ -296,7 +296,6 @@ class AgvView(QWidget):
                 renderer.line(a,b,'#287cbe',1.3)
         renderer.line(lens,(0,.009,.25),'#ed9c27',1.6,True)
         front = world((.48,0,.24))
-        rear = world((-.49,0,.22))
 
         def tag(point, text, color, offset):
             projected = renderer.project(point)
@@ -313,10 +312,10 @@ class AgvView(QWidget):
             painter.drawRoundedRect(QRectF(x,y,w,24),6,6)
             painter.setPen(QColor(color))
             painter.drawText(QPointF(x+8,y+17),text)
-        tag(front,'车头 →','#126d86',(8,-22))
-        tag(rear,'车尾 · 红尾灯','#9e4951',(-85,12))
-        tag(lens,'右侧中置相机 · 25 cm','#185775',(20,7))
-        tag((0,.01,.39),'墙上二维码 · 25 cm','#425f75',(8,-20))
+        tag(front,'车头 ↑','#126d86',(8,-22))
+        wall_gap = self.pose.get('distance_to_plane_m') if self.pose else None
+        if wall_gap is not None:
+            tag((0,.01,.39),f'{wall_gap * 100:.1f} cm','#425f75',(8,-20))
 
         # Screen-space labels are painted last, so walls cannot cover the HUD.
         painter.setPen(Qt.PenStyle.NoPen)
@@ -337,12 +336,16 @@ class AgvView(QWidget):
             p = self.pose
             track = p.get('along_track_m')
             track_text = f'{track:+.3f} m' if track is not None else '—'
+            def shown(key, digits=2):
+                return '—' if p.get(key) is None else f'{p[key]:+.{digits}f}'
             painter.drawText(22,self.height()-58,
-                             f"平滑姿态：yaw {p['yaw_y_deg']:+.2f}°  ·  pitch {p['pitch_x_deg']:+.2f}°  ·  roll {p['roll_z_deg']:+.2f}°")
+                             f"平滑姿态：yaw {shown('yaw_y_deg')}°  ·  pitch {shown('pitch_x_deg')}°  ·  roll {shown('roll_z_deg')}°")
             painter.drawText(22,self.height()-39,
-                             f"平滑距离：离墙 {p['distance_to_plane_m']:.3f} m  ·  沿过道 {track_text}  ·  tx {p['tx_m']:+.3f} m")
+                             f"平滑距离：离墙 {shown('distance_to_plane_m',3)} m  ·  沿过道 {track_text}  ·  tx {shown('tx_m',3)} m")
             painter.setPen(QColor('#688094'))
-            painter.drawText(22,self.height()-21,'姿态和距离均平滑后显示；沿过道位移在场景中放大 2.4 倍。')
+            painter.drawText(22,self.height()-21,
+                '精简模式：离墙使用平滑后的码平面垂直距离；俯仰/横滚未上传。' if p.get('compact') else
+                '姿态和距离均平滑后显示；沿过道位移在场景中放大 2.4 倍。')
         else:
             painter.drawText(22,self.height()-48,'等待串口姿态数据 · 当前为安装位置示意')
         painter.end()

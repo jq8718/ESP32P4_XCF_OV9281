@@ -1,5 +1,6 @@
 """Time-based display smoothing; UART values are never modified in place."""
 import math
+from uart_protocol import COMPACT_POSE_NAMES
 
 POSE_FIELDS = ('yaw_y_deg', 'pitch_x_deg', 'roll_z_deg', 'range_m',
                'optical_depth_m', 'distance_to_plane_m', 'tx_m')
@@ -18,8 +19,9 @@ class PoseSmoother:
         self.timestamp = None
 
     def set_target(self, pose, timestamp):
+        required = COMPACT_POSE_NAMES if pose and pose.get('compact') else POSE_FIELDS
         if not pose or not pose.get('pose_valid') or any(
-                pose.get(key) is None or not math.isfinite(pose[key]) for key in POSE_FIELDS):
+                pose.get(key) is None or not math.isfinite(pose[key]) for key in required):
             self.reset()
             return
         self.advance(timestamp)
@@ -34,16 +36,16 @@ class PoseSmoother:
         dt = max(0.0, timestamp-self.timestamp)
         alpha = -math.expm1(-dt/self.time_constant)
         filtered = dict(self.target)
-        for key in POSE_FIELDS:
-            previous = self.current[key]
-            delta = self.target[key]-previous
+        for key in POSE_FIELDS + OPTIONAL_FIELDS:
+            previous, target = self.current.get(key), self.target.get(key)
+            if target is None or previous is None:
+                filtered[key] = target
+                continue
+            delta = target-previous
             if key in ANGLE_FIELDS:
                 delta = (delta+180) % 360-180
             value = previous+alpha*delta
             filtered[key] = (value+180) % 360-180 if key in ANGLE_FIELDS else value
-        for key in OPTIONAL_FIELDS:
-            previous, target = self.current.get(key), self.target.get(key)
-            filtered[key] = None if previous is None or target is None else previous+alpha*(target-previous)
         self.timestamp = timestamp
         self.current = filtered
         return dict(filtered)
