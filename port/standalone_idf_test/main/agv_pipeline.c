@@ -235,6 +235,7 @@ static void finish_decoded_slot(int slot_index)
     XcrStatus status = slot->status;
     uint64_t geometry_start = esp_timer_get_time();
     if (count > 0 && result.symbology == XCR_SYM_DATAMATRIX &&
+        result.geometry_quality != XCR_GEOMETRY_REFINED &&
         frame_is_fresh(image.timestamp_us, geometry_start, deadline_us)) {
         slot->marker_stats.geometry_refined = xcr_datamatrix_refine(&image, &result);
         slot->marker_stats.geometry_us = esp_timer_get_time() - geometry_start;

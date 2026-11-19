@@ -5,9 +5,11 @@
 #endif
 #include "xcr_port.h"
 #include "xcr_dmtx.h"
+#if XCR_DMTX_BODY_RECOVERY
+#include "xcr_dm_body.h"
+#endif
 #include <math.h>
 #include <stdlib.h>
-#include <stdatomic.h>
 #include <string.h>
 #ifdef ESP_PLATFORM
 #include "esp_heap_caps.h"
@@ -42,14 +44,6 @@ static void trace_marker_pgm(const char *name, const uint8_t *pixels, int width,
 #endif
 
 static XcrDmtxStats last_stats;
-/* Grid scale only, never a previous-frame position/ROI. Atomic because a
- * caller may run preparations on another core; no image data is retained. */
-static atomic_int preferred_marker_step = ATOMIC_VAR_INIT(6);
-/* A threshold-window choice only; no image or previous-frame position. */
-static atomic_int preferred_dense_radius = ATOMIC_VAR_INIT(6);
-/* Sampling choice only; every frame is searched over its entire extent. */
-static atomic_int dense_decode_frames = ATOMIC_VAR_INIT(0);
-
 #ifndef XCR_DM_NORMALIZED_SIDE
 #define XCR_DM_NORMALIZED_SIDE 128
 #endif
@@ -948,7 +942,6 @@ static int find_marker_roi_slice_window_timed(const Image *image, int sample_lef
     if (!begin_marker_roi_slice_step(image, sample_left, sample_right, step, radius, &state, phases_us)) return 0;
     int found = finish_marker_roi_slice_step(image, &state, roi, orientation, axes,
                                         score_out, qr_rejected, phases_us);
-    if (found && step == 4) atomic_store(&preferred_dense_radius, radius);
     return found;
 }
 
@@ -956,7 +949,7 @@ static int find_marker_roi_slice_step_timed(const Image *image, int sample_left,
                                  int roi[4], int *orientation, float axes[8],
                                  int *score_out, unsigned *qr_rejected, int step, uint64_t phases_us[4])
 {
-    int radius = step == 4 ? atomic_load(&preferred_dense_radius) : 6;
+    int radius = 6;
     int found = find_marker_roi_slice_window_timed(image, sample_left, sample_right,
         roi, orientation, axes, score_out, qr_rejected, step, radius, phases_us);
     if (!found && step == 4)
@@ -1840,6 +1833,7 @@ int xcr_datamatrix_refine(const XcrGrayImage *image, XcrBarcodeResult *result)
     geometry.geometry_seed_valid = result->geometry_seed_valid;
     memcpy(geometry.geometry_seed, result->geometry_seed, sizeof(geometry.geometry_seed));
     XcrDeadline deadline = {.deadline_us = image->deadline_us};
+    if (result->geometry_quality == XCR_GEOMETRY_REFINED) return 1;
     int refined = dm_refine_seeded(&source, &geometry, &deadline);
     memcpy(result->corners, geometry.corners, sizeof(result->corners));
     result->geometry_quality = geometry.geometry_quality;
@@ -1864,13 +1858,6 @@ int xcr_dmtx_prepare(const XcrGrayImage *image, XcrDmtxPrepared *prepared)
     Image source = {.pixels = (uint8_t *)image->pixels, .width = image->width, .height = image->height};
     uint64_t started = xcr_port_time_us();
     prepared->sample_step = marker_step(&source);
-    if (prepared->sample_step == 6)
-        prepared->sample_step = atomic_load(&preferred_marker_step);
-    int dense_remaining = atomic_load(&dense_decode_frames);
-    if (dense_remaining > 0) {
-        prepared->sample_step = 4;
-        atomic_compare_exchange_strong(&dense_decode_frames, &dense_remaining, dense_remaining - 1);
-    }
     prepared->found = find_marker_roi_slice_step_timed(&source, 0,
         (source.width + prepared->sample_step - 1) / prepared->sample_step, prepared->roi,
         &prepared->orientation, prepared->axes, NULL, &prepared->qr_rejected, prepared->sample_step, prepared->phases_us);
@@ -1881,22 +1868,19 @@ int xcr_dmtx_prepare(const XcrGrayImage *image, XcrDmtxPrepared *prepared)
             prepared->roi, &prepared->orientation, prepared->axes, NULL,
             &prepared->qr_rejected, prepared->sample_step, prepared->phases_us);
     }
-    if (prepared->found) {
-        prepared->window_radius = prepared->sample_step == 4 ? atomic_load(&preferred_dense_radius) : 6;
-        /* At this size the marker is >=18px wide (spacing / 7). Hysteresis
-         * keeps small/quantized markers on the dense grid. Every search is
-         * still full-frame, so translations have no stale-position gate. */
-        float horizontal = hypotf(prepared->axes[2], prepared->axes[3]);
-        float vertical = hypotf(prepared->axes[4], prepared->axes[5]);
-        int next_step = prepared->sample_step == 4 && horizontal < 126 && vertical < 126 ? 4 : 6;
-        atomic_store(&preferred_marker_step, next_step);
-    }
+    prepared->window_radius = 6;
     prepared->search_us = xcr_port_time_us() - started;
     return 1;
 }
 
 void xcr_dmtx_prepare_discard(XcrDmtxPrepared *prepared)
 {
+#if XCR_DMTX_BODY_RECOVERY
+    if (prepared && prepared->body_state) {
+        xcr_dm_body_discard(prepared->body_state);
+        prepared->body_state = NULL;
+    }
+#endif
     if (prepared && prepared->search_state.workspace) {
         xcr_free(prepared->search_state.workspace);
         prepared->search_state.workspace = NULL;
@@ -1916,17 +1900,20 @@ int xcr_dmtx_prepare_front(const XcrGrayImage *image, XcrDmtxPrepared *prepared)
     prepared->height = image->height;
     Image source = {.pixels = (uint8_t *)image->pixels, .width = image->width, .height = image->height};
     uint64_t started = xcr_port_time_us();
-    prepared->sample_step = marker_step(&source);
-    if (prepared->sample_step == 6)
-        prepared->sample_step = atomic_load(&preferred_marker_step);
-    int dense_remaining = atomic_load(&dense_decode_frames);
-    if (dense_remaining > 0) {
-        prepared->sample_step = 4;
-        atomic_compare_exchange_strong(&dense_decode_frames, &dense_remaining, dense_remaining - 1);
+#if XCR_DMTX_BODY_RECOVERY
+    XcrDeadline deadline = {.deadline_us = image->deadline_us};
+    prepared->body_state = xcr_dm_body_prepare(&source, 2, &deadline, &prepared->body_threshold_us);
+    if (prepared->body_state) {
+        prepared->sample_step = 2;
+        prepared->front_us = xcr_port_time_us() - started;
+        prepared->search_us = prepared->front_us;
+        return 1;
     }
+#endif
+    prepared->sample_step = marker_step(&source);
     int started_ok = begin_marker_roi_slice_step(&source, 0,
         (source.width + prepared->sample_step - 1) / prepared->sample_step,
-        prepared->sample_step, prepared->sample_step == 4 ? atomic_load(&preferred_dense_radius) : 6,
+        prepared->sample_step, 6,
         &prepared->search_state, prepared->phases_us);
     prepared->front_us = xcr_port_time_us() - started;
     return started_ok;
@@ -1934,6 +1921,10 @@ int xcr_dmtx_prepare_front(const XcrGrayImage *image, XcrDmtxPrepared *prepared)
 
 int xcr_dmtx_prepare_finish(const XcrGrayImage *image, XcrDmtxPrepared *prepared)
 {
+#if XCR_DMTX_BODY_RECOVERY
+    if (image && prepared && prepared->body_state && prepared->pixels == image->pixels &&
+        prepared->sequence == image->sequence) return 1;
+#endif
     if (!image || !prepared || !prepared->search_state.workspace ||
         prepared->pixels != image->pixels || prepared->sequence != image->sequence) {
         xcr_dmtx_prepare_discard(prepared);
@@ -1945,34 +1936,60 @@ int xcr_dmtx_prepare_finish(const XcrGrayImage *image, XcrDmtxPrepared *prepared
         prepared->roi, &prepared->orientation, prepared->axes, NULL,
         &prepared->qr_rejected, prepared->phases_us);
     prepared->window_radius = prepared->search_state.window_radius;
-    if (prepared->sample_step == 4) {
-        if (prepared->found) {
-            atomic_store(&preferred_dense_radius, prepared->search_state.window_radius);
-        } else if (!image->deadline_us || xcr_port_time_us() < image->deadline_us) {
+#if !XCR_DMTX_BODY_RECOVERY
+    if (prepared->sample_step == 4 && !prepared->found &&
+        (!image->deadline_us || xcr_port_time_us() < image->deadline_us)) {
             prepared->window_radius = prepared->search_state.window_radius == 6 ? 2 : 6;
             prepared->found = find_marker_roi_slice_window_timed(&source, 0, (source.width + 3) / 4,
                 prepared->roi, &prepared->orientation, prepared->axes, NULL,
                 &prepared->qr_rejected, 4, prepared->window_radius,
                 prepared->phases_us);
-        }
     }
+#endif
+#if !XCR_DMTX_BODY_RECOVERY
     if (!prepared->found && prepared->sample_step > 4 &&
         (!image->deadline_us || xcr_port_time_us() < image->deadline_us)) {
         prepared->sample_step = 4;
         prepared->found = find_marker_roi_slice_step_timed(&source, 0, (source.width + 3) / 4,
             prepared->roi, &prepared->orientation, prepared->axes, NULL,
             &prepared->qr_rejected, prepared->sample_step, prepared->phases_us);
-        prepared->window_radius = atomic_load(&preferred_dense_radius);
+        prepared->window_radius = 6;
     }
-    if (prepared->found) {
-        float horizontal = hypotf(prepared->axes[2], prepared->axes[3]);
-        float vertical = hypotf(prepared->axes[4], prepared->axes[5]);
-        int next_step = prepared->sample_step == 4 && horizontal < 126 && vertical < 126 ? 4 : 6;
-        atomic_store(&preferred_marker_step, next_step);
-    }
+#endif
     prepared->search_us = prepared->front_us + xcr_port_time_us() - started;
     return 1;
 }
+
+#if XCR_DMTX_BODY_RECOVERY
+static int dm_try_body(const Image *image, BarcodeResult *result, const XcrDeadline *deadline)
+{
+    uint64_t start = xcr_port_time_us();
+    XcrDeadline budget = deadline ? *deadline : (XcrDeadline){0};
+    uint64_t limit = start + 58000;
+    if (!budget.deadline_us || budget.deadline_us > limit) budget.deadline_us = limit;
+    if (deadline && deadline->deadline_us > start + 6000)
+        if (budget.deadline_us > deadline->deadline_us - 6000)
+            budget.deadline_us = deadline->deadline_us - 6000;
+    int step = 3;
+    XcrDeadline first_budget = budget;
+    /* A missing 3px L pattern must not consume the 2px rescue's time. */
+    if (step == 3 && (!first_budget.deadline_us || first_budget.deadline_us > start + 22000))
+        first_budget.deadline_us = start + 22000;
+    int decoded = xcr_dm_body_decode(image, result, step, &first_budget, &last_stats.body_threshold_us);
+    if (!decoded && !xcr_deadline_expired(&budget)) {
+        step = step == 3 ? 2 : 3;
+        decoded = xcr_dm_body_decode(image, result, step, &budget, &last_stats.body_threshold_us);
+    }
+    last_stats.body_us += xcr_port_time_us() - start;
+    last_stats.decode_us += last_stats.body_us;
+    if (decoded > 0) {
+        last_stats.marker_sample_step = step;
+        last_stats.marker_roi_valid = 0;
+        memset(last_stats.marker_roi, 0, sizeof(last_stats.marker_roi));
+    }
+    return decoded;
+}
+#endif
 
 int xcr_datamatrix_marked_decode_prepared(const Image *image, BarcodeResult *result,
     const XcrDeadline *deadline, int defer_geometry, const XcrDmtxPrepared *prepared)
@@ -1985,8 +2002,43 @@ int xcr_datamatrix_marked_decode_prepared(const Image *image, BarcodeResult *res
     int window_retry = 0;
     int dense_radius = 6;
     int sample_step = marker_step(image);
+    int decoded = 0;
+#if XCR_DMTX_BODY_RECOVERY
+    int body_attempted = 0;
+#endif
     memset(&last_stats, 0, sizeof(last_stats));
     datamatrix_debug_stats_reset();
+#if XCR_DMTX_BODY_RECOVERY
+    if (prepared && prepared->body_state && prepared->pixels == image->pixels &&
+        prepared->width == image->width && prepared->height == image->height) {
+        body_attempted = 1;
+        last_stats.prescreen_us = prepared->front_us;
+        last_stats.body_threshold_us = prepared->body_threshold_us;
+        last_stats.marker_sample_step = 2;
+        XcrDeadline body_deadline = deadline ? *deadline : (XcrDeadline){0};
+        uint64_t limit = xcr_port_time_us() + 24000;
+        if (!body_deadline.deadline_us || body_deadline.deadline_us > limit)
+            body_deadline.deadline_us = limit;
+        uint64_t body_start = xcr_port_time_us();
+        XcrDmBodyTrace body_trace = {0};
+        decoded = xcr_dm_body_finish(image, result, 2, prepared->body_state, &body_deadline, &body_trace);
+        last_stats.body_candidate_px = body_trace.candidate_px;
+        last_stats.body_gray_attempts = body_trace.gray_attempts;
+        last_stats.body_binarizer = body_trace.binarizer;
+        last_stats.body_us = last_stats.decode_us = xcr_port_time_us() - body_start;
+        if (decoded > 0) {
+            /* An ECC-valid symbol can still have a bad perspective seed.
+             * Confirm its current-frame corners before bypassing the
+             * original marker path; otherwise STM32 would receive no pose. */
+            uint64_t geometry_start = xcr_port_time_us();
+            last_stats.geometry_refined = dm_refine_seeded(image, result, deadline);
+            last_stats.geometry_us = xcr_port_time_us() - geometry_start;
+            if (last_stats.geometry_refined) goto finish_decode;
+            decoded = 0;
+        }
+        prepared = NULL;
+    }
+#endif
 search_marker:
     memset(result, 0, sizeof(*result));
     memset(axes, 0, sizeof(axes));
@@ -2021,11 +2073,31 @@ search_marker:
                 roi, &orientation, axes, NULL, &last_stats.qr_rejected, sample_step);
         }
         last_stats.prescreen_us += xcr_port_time_us() - prescreen_started;
-        if (sample_step == 4) dense_radius = atomic_load(&preferred_dense_radius);
+        if (sample_step == 4) dense_radius = 6;
     }
     last_stats.marker_roi_valid = found;
     last_stats.marker_sample_step = sample_step;
+    if (!found && !xcr_deadline_expired(deadline)) {
+#if XCR_DMTX_BODY_RECOVERY
+        if (!body_attempted++) {
+            decoded = dm_try_body(image, result, deadline);
+            if (decoded > 0) goto finish_decode;
+        }
+        if (prepared && !full_retry && !window_retry && !xcr_deadline_expired(deadline)) {
+            if (sample_step > 4) {
+                full_retry = 2;
+                goto search_marker;
+            }
+            if (sample_step == 4) {
+                window_retry = 1;
+                dense_radius = dense_radius == 6 ? 2 : 6;
+                goto search_marker;
+            }
+        }
+#endif
+    }
     if (!found || xcr_deadline_expired(deadline)) {
+#if !XCR_DMTX_BODY_RECOVERY
         /* Use the native finder periodically when the external marker gate
          * misses a symbol; the fast path still owns the ordinary cadence. */
         static unsigned standard_probe;
@@ -2033,19 +2105,19 @@ search_marker:
             (++standard_probe & 3U) == 0) {
             uint64_t probe_start = xcr_port_time_us();
             int decoded = datamatrix_decode_aligned(image, result);
-            last_stats.decode_us = xcr_port_time_us() - probe_start;
+            last_stats.decode_us += xcr_port_time_us() - probe_start;
             if (decoded > 0 && result->geometry_valid) {
                 result->geometry_quality = XCR_GEOMETRY_COARSE;
                 last_stats.total_us = xcr_port_time_us() - started;
                 return decoded;
             }
         }
+#endif
         last_stats.total_us = xcr_port_time_us() - started;
         return 0;
     }
     last_stats.angle_degrees = atan2f(axes[3], axes[2]) * 57.2957795f;
     memcpy(last_stats.marker_roi, roi, sizeof(roi));
-    int decoded = 0;
     float horizontal_length = hypotf(axes[2], axes[3]);
     float vertical_length = hypotf(axes[4], axes[5]);
     float axis_dot = fabsf(axes[2] * axes[4] + axes[3] * axes[5]);
@@ -2056,6 +2128,12 @@ search_marker:
     /* Preserve the ordinary Otsu fast path and the original larger retry.
      * In between, retry the same small ROI with a local shadow threshold. */
     for (int attempt = 0; attempt < 3 && !decoded && !xcr_deadline_expired(deadline); attempt++) {
+#if XCR_DMTX_BODY_RECOVERY
+    if (attempt == 1 && !body_attempted++) {
+        decoded = dm_try_body(image, result, deadline);
+        if (decoded > 0) goto finish_decode;
+    }
+#endif
     uint64_t sample_start = xcr_port_time_us();
     last_stats.normalize_attempts++;
     const int large_retry = attempt == 2;
@@ -2177,17 +2255,13 @@ search_marker:
         dense_radius = dense_radius == 6 ? 2 : 6;
         goto search_marker;
     }
-    if (decoded > 0 && window_retry && prepared &&
-        hypotf(axes[2], axes[3]) < 126 && hypotf(axes[4], axes[5]) < 126)
-        atomic_store(&preferred_marker_step, 4);
-    /* If the sparse ROI needed all retries before the dense search decoded,
-     * let the frontend own dense sampling for a short interval. This avoids
-     * repeating that whole search and normalization sequence on the backend.
-     * Periodically try the ordinary grid again when the interval expires. */
-    if (decoded > 0 && full_retry == 2 && prepared)
-        atomic_store(&dense_decode_frames, 32);
-    if (decoded > 0 && result->geometry_valid) result->geometry_quality = XCR_GEOMETRY_COARSE;
-    if (decoded > 0 && result->geometry_valid && !defer_geometry) {
+#if XCR_DMTX_BODY_RECOVERY
+finish_decode:
+#endif
+    if (decoded > 0 && result->geometry_valid && result->geometry_quality != XCR_GEOMETRY_REFINED)
+        result->geometry_quality = XCR_GEOMETRY_COARSE;
+    if (decoded > 0 && result->geometry_valid && !defer_geometry &&
+        result->geometry_quality != XCR_GEOMETRY_REFINED) {
         uint64_t geometry_start = xcr_port_time_us();
         last_stats.geometry_refined = dm_refine_seeded(image, result, deadline);
         last_stats.geometry_us = xcr_port_time_us() - geometry_start;

@@ -21,6 +21,20 @@ set(XCR_DECODER_SRCS
     "vendor/quirc/version_db.c"
 )
 
+set(XCR_DM_BODY_SRCS
+    "src/xcr_dm_body.cpp"
+    "vendor/zxing_dm/BitMatrix.cpp"
+    "vendor/zxing_dm/GridSampler.cpp"
+    "vendor/zxing_dm/LocalGrid.cpp"
+    "vendor/zxing_dm/PerspectiveTransform.cpp"
+    "vendor/zxing_dm/WhiteRectDetector.cpp"
+    "vendor/zxing_dm/datamatrix/DMDetector.cpp"
+    "vendor/zxing_dm/datamatrix/DMVersion.cpp")
+list(APPEND XCR_DECODER_SRCS ${XCR_DM_BODY_SRCS})
+if(IDF_TARGET STREQUAL "esp32p4")
+    list(APPEND XCR_DECODER_SRCS "src/xcr_dm_body_pie.S")
+endif()
+
 if(P4SCAN_LOCAL_FILTER_TEST)
     if(NOT P4SCAN_LOCAL_FILTER_VARIANT)
         set(P4SCAN_LOCAL_FILTER_VARIANT gaussian5)
@@ -40,7 +54,7 @@ endif()
 idf_component_register(
     SRCS ${XCR_DECODER_SRCS}
     INCLUDE_DIRS "include"
-    PRIV_INCLUDE_DIRS "vendor/include" "vendor/quirc" "vendor/libdmtx" "../../p0a_audit/xcr_work/src/include"
+    PRIV_INCLUDE_DIRS "vendor/include" "vendor/quirc" "vendor/libdmtx" "vendor/zxing_dm" "../../p0a_audit/xcr_work/src/include"
     PRIV_REQUIRES esp_timer freertos
 )
 
@@ -50,6 +64,12 @@ target_compile_options(${COMPONENT_LIB} PRIVATE
     -Wno-unused-function
     -Wno-unused-variable
 )
+set_source_files_properties(${XCR_DM_BODY_SRCS} PROPERTIES
+    COMPILE_DEFINITIONS ZXING_INTERNAL
+    COMPILE_OPTIONS "-std=gnu++20;-O3;-fexceptions;-fsingle-precision-constant")
+if(NOT P4SCAN_LOCAL_FILTER_TEST)
+    set_source_files_properties("src/xcr_dmtx.c" PROPERTIES COMPILE_DEFINITIONS XCR_DMTX_BODY_RECOVERY=1)
+endif()
 target_compile_definitions(${COMPONENT_LIB} PRIVATE
     QUIRC_FLOAT_TYPE=float
     QUIRC_USE_TGMATH

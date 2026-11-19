@@ -1,6 +1,7 @@
 /build/
 /build_idf60/
 /build_rev3/
+/build_replay*/
 /managed_components/
 /dist/*
 /.vscode/

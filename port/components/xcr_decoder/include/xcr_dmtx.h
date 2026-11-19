@@ -14,6 +14,10 @@ typedef struct {
     uint64_t total_us;
     uint64_t prescreen_us;
     uint64_t geometry_us;
+    uint64_t body_us, body_threshold_us;
+    float body_candidate_px;
+    unsigned body_gray_attempts;
+    int body_binarizer;
     unsigned geometry_refined;
     unsigned qr_rejected;
     unsigned scale;
@@ -50,6 +54,8 @@ typedef struct {
     uint64_t search_us;
     uint64_t phases_us[4]; /* Sampling, binary, components, candidate geometry. */
     uint64_t front_us;
+    void *body_state; /* Current-frame binary only, owned by this camera slot. */
+    uint64_t body_threshold_us;
     XcrDmtxSearchState search_state;
 } XcrDmtxPrepared;
 int xcr_dmtx_prepare(const XcrGrayImage *image, XcrDmtxPrepared *prepared);
