@@ -22,13 +22,27 @@ def main():
               '-Iport/components/xcr_decoder/vendor/include',
               '-Iport/components/xcr_decoder/vendor/quirc']
     has_body = b'xcr_dm_body' in baseline.read_bytes()
-    baseline_flags = ['-DXCR_DMTX_BODY_RECOVERY=1',
+    baseline_flags = ['-I' + str(WORK), '-DXCR_DMTX_BODY_RECOVERY=1',
                       '-Iport/components/xcr_decoder/src'] if has_body else []
+    # Compile HEAD's C++ wrapper too: linking baseline C to the working tree
+    # wrapper hides regressions in candidate routing and early rejection.
+    if has_body:
+        for name in ('xcr_dm_body.h', 'xcr_dm_body.cpp'):
+            (WORK / name).write_bytes(subprocess.check_output(
+                ['git', 'show', 'HEAD:port/components/xcr_decoder/src/' + name], cwd=ROOT))
+        subprocess.run(['g++', '-O3', '-std=c++20', '-fsingle-precision-constant',
+                        '-DZXING_INTERNAL', '-Iport/components/xcr_decoder/vendor/zxing_dm',
+                        '-Iport/components/xcr_decoder/include',
+                        '-Iport/components/xcr_decoder/vendor/include', '-c',
+                        str(WORK / 'xcr_dm_body.cpp'), '-o', str(WORK / 'baseline_body.o')],
+                       cwd=ROOT, check=True)
     subprocess.run(common + baseline_flags + ['-c', str(baseline), '-o', str(WORK / 'baseline.o')], cwd=ROOT, check=True)
     objects = [str(ROOT / 'build/dm_stage_trace' / f'trace_{n}.o') for n in ('main', 'port', 'core')]
     body_names = ('xcr_dm_body', 'BitMatrix', 'GridSampler', 'LocalGrid',
                   'PerspectiveTransform', 'WhiteRectDetector', 'DMDetector', 'DMVersion')
-    body_objects = [str(ROOT / 'build/dm_stage_trace' / (n + '.o')) for n in body_names] if has_body else []
+    body_objects = [str(WORK / 'baseline_body.o') if n == 'xcr_dm_body' else
+                    str(ROOT / 'build/dm_stage_trace' / (n + '.o'))
+                    for n in body_names] if has_body else []
     subprocess.run(['g++' if has_body else 'gcc', str(WORK / 'baseline.o'), *objects,
                     *body_objects, '-lm', '-o', str(WORK / 'baseline')], check=True)
     paths = sorted((ROOT / 'docs/failure_diagnosis').glob('*.gray8'))

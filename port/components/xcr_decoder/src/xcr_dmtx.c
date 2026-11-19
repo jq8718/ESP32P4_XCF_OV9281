@@ -409,17 +409,19 @@ static int normalized_local_binary(uint8_t *pixels, int side)
 }
 
 static int begin_marker_roi_slice_step(const Image *image, int sample_left, int sample_right,
-                                 int step, int radius, XcrDmtxSearchState *state, uint64_t phases_us[4])
+                                 int step, int radius, XcrDmtxSearchState *state, uint64_t phases_us[4], const XcrDeadline *deadline)
 {
     memset(state, 0, sizeof(*state));
+    if (xcr_deadline_expired(deadline)) return 0;
+    state->deadline_us = deadline ? deadline->deadline_us : 0;
     const int width = sample_right - sample_left;
     const int height = (image->height + step - 1) / step;
     if (width <= 0) return 0;
     const size_t count = (size_t)width * (size_t)height;
-    /* Keep the established fast-grid work/memory schedule for image upload.
-     * Dense retries use rolling box sums and a narrower queue to reduce
-     * their workspace (288000 -> at most 175680 bytes at step 4). */
-    const int integral_grid = step == 6;
+    /* Rolling sums preserve the clipped box mean. A 16-bit flood queue
+     * reduces the 6px workspace from 128400 to 78966 bytes at 1280x720;
+     * the 4px workspace is still at most 175680 bytes. */
+    const int integral_grid = 0;
     /* The compact retry uses 5 dense samples (20px). Bright background
      * above dark paper can join its top markers with the normal 52px box.
      * Keep the established window first for ordinary scenes: shrinking it
@@ -446,6 +448,7 @@ static int begin_marker_roi_slice_step(const Image *image, int sample_left, int 
     if (!workspace) return 0;
     uint64_t phase_started = xcr_port_time_us();
     for (int y = 0; y < height; y++) {
+        if (!(y & 7) && xcr_deadline_expired(deadline)) { xcr_free(workspace); return 0; }
         for (int x = 0; x < width; x++) {
             int source_x = (x + sample_left) * step;
             /* Sample directly here. Almost every pixel of a dim RAW8 frame
@@ -470,6 +473,7 @@ static int begin_marker_roi_slice_step(const Image *image, int sample_left, int 
     if (threshold > 160) threshold = 160;
     if (integral_grid) {
         for (int y = 0; y < height; y++) {
+            if (!(y & 7) && xcr_deadline_expired(deadline)) { xcr_free(workspace); return 0; }
             for (int x = 0; x < width; x++) {
                 int left = x > 6 ? x - 6 : 0;
                 int top = y > 6 ? y - 6 : 0;
@@ -488,6 +492,7 @@ static int begin_marker_roi_slice_step(const Image *image, int sample_left, int 
     for (int y = 0; y < height && y <= radius; y++)
         for (int x = 0; x < width; x++) columns[x] += mask[y * width + x];
     for (int y = 0; y < height; y++) {
+        if (!(y & 7) && xcr_deadline_expired(deadline)) { xcr_free(workspace); return 0; }
         memcpy(history + (y % history_rows) * width, mask + y * width, width);
         int sum = 0;
         for (int x = 0; x < width && x <= radius; x++) sum += columns[x];
@@ -609,6 +614,7 @@ static int finish_marker_roi_slice_step(const Image *image, XcrDmtxSearchState *
                                  int *score_out, unsigned *qr_rejected, uint64_t phases_us[4])
 {
     if (!state || !state->workspace) return 0;
+    XcrDeadline deadline = {.deadline_us = state->deadline_us};
     int width = state->width, height = state->height, step = state->step;
     int sample_left = state->sample_left, threshold = state->threshold;
     int narrow_queue = state->narrow_queue;
@@ -623,6 +629,7 @@ static int finish_marker_roi_slice_step(const Image *image, XcrDmtxSearchState *
     MarkerSplitBudget split_budget = {0};
     uint64_t phase_started = xcr_port_time_us();
     for (int start_y = 0; start_y < height; start_y++) {
+        if (!(start_y & 7) && xcr_deadline_expired(&deadline)) goto expired;
         for (int start_x = 0; start_x < width; start_x++) {
             size_t start = (size_t)start_y * width + start_x;
             if (!mask[start]) continue;
@@ -634,6 +641,7 @@ static int finish_marker_roi_slice_step(const Image *image, XcrDmtxSearchState *
             if (narrow_queue) queue16[tail++] = start_y * width + start_x;
             else queue32[tail++] = start_y * width + start_x;
             while (head < tail) {
+                if (!(head & 255) && xcr_deadline_expired(&deadline)) goto expired;
                 int point = narrow_queue ? queue16[head++] : queue32[head++];
                 int x = point % width;
                 int y = point / width;
@@ -758,6 +766,10 @@ static int finish_marker_roi_slice_step(const Image *image, XcrDmtxSearchState *
     phase_started = xcr_port_time_us();
     int found = 0;
     int best_score = 0;
+#if defined(XCR_DM_TRACE_STAGES) && !defined(ESP_PLATFORM)
+    if (getenv("XCR_DM_MARKER_COUNTS"))
+        fprintf(stderr, "marker_counts step=%d radius=%d candidates=%d\n", step, state->window_radius, candidate_count);
+#endif
     trace_marker_boxes("04_marker_candidates.csv", candidates, candidate_count, step);
 #if XCR_MARKER_DEBUG
     for (int candidate = 0; candidate < candidate_count; candidate++)
@@ -765,6 +777,7 @@ static int finish_marker_roi_slice_step(const Image *image, XcrDmtxSearchState *
                 candidates[candidate].y, candidates[candidate].w, candidates[candidate].h, candidates[candidate].area);
 #endif
     for (int first = 0; first < candidate_count; first++) {
+        if (xcr_deadline_expired(&deadline)) goto expired;
         for (int second = first + 1; second < candidate_count; second++) {
             for (int third = second + 1; third < candidate_count; third++) {
                 MarkerCandidate *a = &candidates[first];
@@ -932,14 +945,19 @@ static int finish_marker_roi_slice_step(const Image *image, XcrDmtxSearchState *
     state->workspace = NULL;
     if (score_out) *score_out = best_score;
     return found;
+expired:
+    xcr_free(workspace);
+    state->workspace = NULL;
+    if (score_out) *score_out = 0;
+    return 0;
 }
 static int find_marker_roi_slice_window_timed(const Image *image, int sample_left, int sample_right,
                                  int roi[4], int *orientation, float axes[8],
                                  int *score_out, unsigned *qr_rejected, int step, int radius,
-                                 uint64_t phases_us[4])
+                                 uint64_t phases_us[4], const XcrDeadline *deadline)
 {
     XcrDmtxSearchState state;
-    if (!begin_marker_roi_slice_step(image, sample_left, sample_right, step, radius, &state, phases_us)) return 0;
+    if (!begin_marker_roi_slice_step(image, sample_left, sample_right, step, radius, &state, phases_us, deadline)) return 0;
     int found = finish_marker_roi_slice_step(image, &state, roi, orientation, axes,
                                         score_out, qr_rejected, phases_us);
     return found;
@@ -947,14 +965,14 @@ static int find_marker_roi_slice_window_timed(const Image *image, int sample_lef
 
 static int find_marker_roi_slice_step_timed(const Image *image, int sample_left, int sample_right,
                                  int roi[4], int *orientation, float axes[8],
-                                 int *score_out, unsigned *qr_rejected, int step, uint64_t phases_us[4])
+                                 int *score_out, unsigned *qr_rejected, int step, uint64_t phases_us[4], const XcrDeadline *deadline)
 {
     int radius = 6;
     int found = find_marker_roi_slice_window_timed(image, sample_left, sample_right,
-        roi, orientation, axes, score_out, qr_rejected, step, radius, phases_us);
-    if (!found && step == 4)
+        roi, orientation, axes, score_out, qr_rejected, step, radius, phases_us, deadline);
+    if (!found && step == 4 && !xcr_deadline_expired(deadline))
         found = find_marker_roi_slice_window_timed(image, sample_left, sample_right,
-            roi, orientation, axes, score_out, qr_rejected, step, radius == 6 ? 2 : 6, phases_us);
+            roi, orientation, axes, score_out, qr_rejected, step, radius == 6 ? 2 : 6, phases_us, deadline);
     return found;
 }
 
@@ -963,7 +981,7 @@ static int find_marker_roi_slice_step(const Image *image, int sample_left, int s
                                  int *score_out, unsigned *qr_rejected, int step)
 {
     return find_marker_roi_slice_step_timed(image, sample_left, sample_right, roi,
-        orientation, axes, score_out, qr_rejected, step, NULL);
+        orientation, axes, score_out, qr_rejected, step, NULL, NULL);
 }
 
 static int find_marker_roi_slice(const Image *image, int sample_left, int sample_right,
@@ -1863,16 +1881,17 @@ int xcr_dmtx_prepare(const XcrGrayImage *image, XcrDmtxPrepared *prepared)
     prepared->height = image->height;
     Image source = {.pixels = (uint8_t *)image->pixels, .width = image->width, .height = image->height};
     uint64_t started = xcr_port_time_us();
+    XcrDeadline marker_deadline = {.deadline_us = image->deadline_us};
     prepared->sample_step = marker_step(&source);
     prepared->found = find_marker_roi_slice_step_timed(&source, 0,
         (source.width + prepared->sample_step - 1) / prepared->sample_step, prepared->roi,
-        &prepared->orientation, prepared->axes, NULL, &prepared->qr_rejected, prepared->sample_step, prepared->phases_us);
+        &prepared->orientation, prepared->axes, NULL, &prepared->qr_rejected, prepared->sample_step, prepared->phases_us, &marker_deadline);
     if (!prepared->found && prepared->sample_step > 4 &&
         (!image->deadline_us || xcr_port_time_us() < image->deadline_us)) {
         prepared->sample_step = 4;
         prepared->found = find_marker_roi_slice_step_timed(&source, 0, (source.width + 3) / 4,
             prepared->roi, &prepared->orientation, prepared->axes, NULL,
-            &prepared->qr_rejected, prepared->sample_step, prepared->phases_us);
+            &prepared->qr_rejected, prepared->sample_step, prepared->phases_us, &marker_deadline);
     }
     prepared->window_radius = 6;
     prepared->search_us = xcr_port_time_us() - started;
@@ -1916,11 +1935,12 @@ int xcr_dmtx_prepare_front(const XcrGrayImage *image, XcrDmtxPrepared *prepared)
         return 1;
     }
 #endif
+    XcrDeadline marker_deadline = {.deadline_us = image->deadline_us};
     prepared->sample_step = marker_step(&source);
     int started_ok = begin_marker_roi_slice_step(&source, 0,
         (source.width + prepared->sample_step - 1) / prepared->sample_step,
         prepared->sample_step, 6,
-        &prepared->search_state, prepared->phases_us);
+        &prepared->search_state, prepared->phases_us, &marker_deadline);
     prepared->front_us = xcr_port_time_us() - started;
     return started_ok;
 }
@@ -1938,6 +1958,9 @@ int xcr_dmtx_prepare_finish(const XcrGrayImage *image, XcrDmtxPrepared *prepared
     }
     Image source = {.pixels = (uint8_t *)image->pixels, .width = image->width, .height = image->height};
     uint64_t started = xcr_port_time_us();
+#if !XCR_DMTX_BODY_RECOVERY
+    XcrDeadline marker_deadline = {.deadline_us = image->deadline_us};
+#endif
     prepared->found = finish_marker_roi_slice_step(&source, &prepared->search_state,
         prepared->roi, &prepared->orientation, prepared->axes, NULL,
         &prepared->qr_rejected, prepared->phases_us);
@@ -1949,7 +1972,7 @@ int xcr_dmtx_prepare_finish(const XcrGrayImage *image, XcrDmtxPrepared *prepared
             prepared->found = find_marker_roi_slice_window_timed(&source, 0, (source.width + 3) / 4,
                 prepared->roi, &prepared->orientation, prepared->axes, NULL,
                 &prepared->qr_rejected, 4, prepared->window_radius,
-                prepared->phases_us);
+                prepared->phases_us, &marker_deadline);
     }
 #endif
 #if !XCR_DMTX_BODY_RECOVERY
@@ -1958,7 +1981,7 @@ int xcr_dmtx_prepare_finish(const XcrGrayImage *image, XcrDmtxPrepared *prepared
         prepared->sample_step = 4;
         prepared->found = find_marker_roi_slice_step_timed(&source, 0, (source.width + 3) / 4,
             prepared->roi, &prepared->orientation, prepared->axes, NULL,
-            &prepared->qr_rejected, prepared->sample_step, prepared->phases_us);
+            &prepared->qr_rejected, prepared->sample_step, prepared->phases_us, &marker_deadline);
         prepared->window_radius = 6;
     }
 #endif
@@ -2009,6 +2032,7 @@ int xcr_datamatrix_marked_decode_prepared(const Image *image, BarcodeResult *res
     int dense_radius = 6;
     int sample_step = marker_step(image);
     int decoded = 0;
+    int weak_body = 0;
 #if XCR_DMTX_BODY_RECOVERY
     int body_attempted = 0;
 #endif
@@ -2021,31 +2045,22 @@ int xcr_datamatrix_marked_decode_prepared(const Image *image, BarcodeResult *res
         last_stats.prescreen_us = prepared->front_us;
         last_stats.body_threshold_us = prepared->body_threshold_us;
         last_stats.marker_sample_step = 2;
-        XcrDeadline body_deadline = deadline ? *deadline : (XcrDeadline){0};
-        uint64_t limit = xcr_port_time_us() + 24000;
-        if (!body_deadline.deadline_us || body_deadline.deadline_us > limit)
-            body_deadline.deadline_us = limit;
         uint64_t body_start = xcr_port_time_us();
         XcrDmBodyTrace body_trace = {0};
-        /* 12 ms ordinary search + at most 32 ms local small-symbol rescue. */
+        /* One ordinary search; spend the remaining budget only on local hints. */
         XcrDeadline search_deadline = deadline ? *deadline : (XcrDeadline){0};
         if (!search_deadline.deadline_us || search_deadline.deadline_us > body_start + 44000)
             search_deadline.deadline_us = body_start + 44000;
         int hint_step = 1;
-        decoded = xcr_dm_body_search(image, result, prepared->body_state, &search_deadline, &hint_step);
+        decoded = xcr_dm_body_search_traced(image, result, prepared->body_state,
+            &search_deadline, &hint_step, &body_trace);
         if (decoded > 0)
             last_stats.marker_sample_step = hint_step;
-        else {
-            limit = xcr_port_time_us() + 24000;
-            body_deadline = deadline ? *deadline : (XcrDeadline){0};
-            if (!body_deadline.deadline_us || body_deadline.deadline_us > limit)
-                body_deadline.deadline_us = limit;
-            decoded = xcr_dm_body_finish(image, result, 2, prepared->body_state, &body_deadline, &body_trace);
-        }
         last_stats.body_candidate_px = body_trace.candidate_px;
         last_stats.body_gray_attempts = body_trace.gray_attempts;
         last_stats.body_binarizer = body_trace.binarizer;
         last_stats.body_us = last_stats.decode_us = xcr_port_time_us() - body_start;
+        weak_body = body_trace.weak_frame;
         if (decoded > 0) {
             /* An ECC-valid symbol can still have a bad perspective seed.
              * Confirm its current-frame corners before bypassing the
@@ -2067,7 +2082,7 @@ search_marker:
     if (window_retry) {
         sample_step = 4;
         found = find_marker_roi_slice_window_timed(image, 0, (image->width + 3) / 4,
-            roi, &orientation, axes, NULL, &last_stats.qr_rejected, 4, dense_radius, NULL);
+            roi, &orientation, axes, NULL, &last_stats.qr_rejected, 4, dense_radius, NULL, deadline);
         last_stats.prescreen_us += xcr_port_time_us() - prescreen_started;
     } else if (prepared && !full_retry && prepared->pixels == image->pixels &&
         prepared->width == image->width && prepared->height == image->height) {
@@ -2082,15 +2097,22 @@ search_marker:
     } else {
         sample_step = full_retry == 2 ? 4 : marker_step(image);
         if (full_retry == 2)
-            found = find_marker_roi_slice_step(image, 0, (image->width + 3) / 4,
-                roi, &orientation, axes, NULL, &last_stats.qr_rejected, sample_step);
+            found = find_marker_roi_slice_step_timed(image, 0, (image->width + 3) / 4,
+                roi, &orientation, axes, NULL, &last_stats.qr_rejected, sample_step, NULL, deadline);
         else
-            found = full_retry ? find_marker_roi(image, roi, &orientation, axes) :
-                                find_marker_roi_parallel(image, roi, &orientation, axes);
+            /* A whole-grid pass avoids scanning the overlap twice and then
+             * repeating the entire image when neither half has a marker triple. */
+            found = find_marker_roi_slice_window_timed(image, 0,
+                (image->width + sample_step - 1) / sample_step, roi, &orientation, axes,
+                NULL, &last_stats.qr_rejected, sample_step, 6, NULL, deadline);
         if (!found && sample_step > 4 && !xcr_deadline_expired(deadline)) {
             sample_step = 4;
-            found = find_marker_roi_slice_step(image, 0, (image->width + 3) / 4,
-                roi, &orientation, axes, NULL, &last_stats.qr_rejected, sample_step);
+            if (weak_body)
+                found = find_marker_roi_slice_window_timed(image, 0, (image->width + 3) / 4,
+                    roi, &orientation, axes, NULL, &last_stats.qr_rejected, 4, 6, NULL, deadline);
+            else
+                found = find_marker_roi_slice_step_timed(image, 0, (image->width + 3) / 4,
+                    roi, &orientation, axes, NULL, &last_stats.qr_rejected, sample_step, NULL, deadline);
         }
         last_stats.prescreen_us += xcr_port_time_us() - prescreen_started;
         if (sample_step == 4) dense_radius = 6;

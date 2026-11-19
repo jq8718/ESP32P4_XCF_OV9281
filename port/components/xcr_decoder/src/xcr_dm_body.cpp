@@ -263,6 +263,7 @@ static int body_finish(const Image* image, BarcodeResult* result, int step,
         int gray_candidates = 0;
         for (auto&& found : ZXing::DataMatrix::Detect(bits, true, true, false, cancelled)) {
             if (trace) {
+                trace->detector_candidates++;
                 float shortest_squared = INFINITY;
                 for (int p = 0; p < 4; ++p) {
                     auto delta = found.position()[p] - found.position()[(p + 1) & 3];
@@ -297,6 +298,7 @@ static int body_finish(const Image* image, BarcodeResult* result, int step,
             *result = candidate;
             return length;
         }
+        if (trace) trace->search_complete = !xcr_deadline_expired(deadline);
     } catch (const std::exception&) {
         /* The fast path can still run if scratch allocation fails. */
     }
@@ -330,8 +332,8 @@ static void threshold_otsu(const std::vector<uint8_t>& pixels, ZXing::BitMatrix&
     }
 }
 
-extern "C" int xcr_dm_body_search(const Image* image, BarcodeResult* result,
-    const void* state, const XcrDeadline* deadline, int* sample_step)
+extern "C" int xcr_dm_body_search_traced(const Image* image, BarcodeResult* result,
+    const void* state, const XcrDeadline* deadline, int* sample_step, XcrDmBodyTrace* trace)
 {
     if (!image || !result || !state || xcr_deadline_expired(deadline))
         return 0;
@@ -341,6 +343,25 @@ extern "C" int xcr_dm_body_search(const Image* image, BarcodeResult* result,
         std::array<Hint, 12> hints{};
         const int w = bits.width(), h = bits.height();
         auto rank_current_hint = [&](Hint hint) {
+            int quiet_min = 12;
+            int radius = hint.size / 2 + 2;
+            if (hint.x < radius || hint.y < radius || hint.x + radius >= w || hint.y + radius >= h)
+                return;
+            for (int side = 0; side < 4; ++side) {
+                int quiet = 0;
+                for (int i = 0; i < 12; ++i) {
+                    int offset = (2 * i - 11) * hint.size / 24;
+                    int x = hint.x + (side < 2 ? (side ? radius : -radius) : offset);
+                    int y = hint.y + (side >= 2 ? (side == 3 ? radius : -radius) : offset);
+                    quiet += !bits.get(x, y);
+                }
+                quiet_min = std::min(quiet_min, quiet);
+            }
+#ifndef ESP_PLATFORM
+            if (std::getenv("XCR_SMALL_TRACE"))
+                std::fprintf(stderr, "quiet %d %d size=%d min=%d\n", hint.x, hint.y, hint.size, quiet_min);
+#endif
+            if (quiet_min < 6) return;
             // The label's small external dots distinguish it from L-like
             // desk/monitor edges. Rank, rather than require, those dots.
             int dots = 0;
@@ -432,17 +453,32 @@ extern "C" int xcr_dm_body_search(const Image* image, BarcodeResult* result,
         // candidate gets four cheap local trials; otherwise search the 2px map
         // before trying background textures at full pixel resolution.
         const bool tiny_first = hints[0].score >= 90;
+        if (trace) trace->hint_score = hints[0].score;
+        XcrDmBodyTrace ordinary_trace{};
         auto ordinary_search = [&]() {
             XcrDeadline quick = deadline ? *deadline : XcrDeadline{};
             uint64_t limit = xcr_port_time_us() + 12000;
             if (!quick.deadline_us || quick.deadline_us > limit) quick.deadline_us = limit;
-            int length = body_finish(image, result, 2, const_cast<void*>(state), &quick, nullptr, 3);
+            int length = body_finish(image, result, 2, const_cast<void*>(state), &quick, &ordinary_trace, 3);
+            if (trace) {
+                trace->detector_candidates = ordinary_trace.detector_candidates;
+                trace->search_complete = ordinary_trace.search_complete;
+                trace->candidate_px = ordinary_trace.candidate_px;
+                trace->gray_attempts = ordinary_trace.gray_attempts;
+                trace->binarizer = ordinary_trace.binarizer;
+            }
             if (length > 0 && sample_step) *sample_step = 2;
             return length;
         };
         if (!tiny_first) {
             int length = ordinary_search();
             if (length > 0) return length;
+            // Neither a plausible short L nor a detected quadrilateral in
+            // this frame: do not turn desk edges into full-resolution retries.
+            if (hints[0].score < 90 && !ordinary_trace.detector_candidates) {
+                if (trace) trace->weak_frame = 1;
+                return 0;
+            }
         }
         // Give each candidate a cheap first pass before spending time on
         // interpolation for a false L from the textured background.
@@ -541,6 +577,12 @@ extern "C" int xcr_dm_body_search(const Image* image, BarcodeResult* result,
         // The normal detector still runs if there is no memory for a crop.
     }
     return 0;
+}
+
+extern "C" int xcr_dm_body_search(const Image* image, BarcodeResult* result,
+    const void* state, const XcrDeadline* deadline, int* sample_step)
+{
+    return xcr_dm_body_search_traced(image, result, state, deadline, sample_step, nullptr);
 }
 
 extern "C" int xcr_dm_body_decode(const Image* image, BarcodeResult* result, int step,

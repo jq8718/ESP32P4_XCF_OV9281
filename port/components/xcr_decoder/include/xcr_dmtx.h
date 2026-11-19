@@ -38,6 +38,7 @@ int xcr_dmtx_parallel_start(void);
 /* Per-frame state owned by the camera slot. No previous-frame position hint. */
 typedef struct {
     void *workspace;
+    uint64_t deadline_us; /* Current frame only; checked inside marker loops. */
     int width, height, sample_left, step, threshold, narrow_queue, window_radius;
 } XcrDmtxSearchState;
 typedef struct {

@@ -1,0 +1,221 @@
+{
+  "baseline_no_code": {
+    "upload": false,
+    "elapsed_s": 10.01500000001397,
+    "attempts": 114,
+    "successes": 0,
+    "success_pct": 0.0,
+    "attempts_per_s": 11.382925611566748,
+    "successes_per_s": 0.0,
+    "decode_us": {
+      "n": 114,
+      "min": 100555,
+      "mean": 110857.36,
+      "median": 109633.5,
+      "p95": 117106,
+      "max": 162600
+    },
+    "success_decode_us": null,
+    "core0_pct": {
+      "n": 10,
+      "min": 84.2,
+      "mean": 85.15,
+      "median": 85.2,
+      "p95": 86.0,
+      "max": 86.0
+    },
+    "core1_pct": {
+      "n": 10,
+      "min": 98.8,
+      "mean": 98.95,
+      "median": 98.95,
+      "p95": 99.2,
+      "max": 99.2
+    },
+    "frames_received": 0,
+    "result_packets": 0,
+    "result_packets_per_s": 0.0,
+    "timing_sequence_gaps": 386,
+    "source_log": "build/no_code_latency_20261119/baseline_covered.json"
+  },
+  "optimized_no_code": {
+    "upload": false,
+    "elapsed_s": 10.0,
+    "attempts": 146,
+    "successes": 0,
+    "success_pct": 0.0,
+    "attempts_per_s": 14.6,
+    "successes_per_s": 0.0,
+    "decode_us": {
+      "n": 146,
+      "min": 78998,
+      "mean": 91048.02,
+      "median": 90911.5,
+      "p95": 100243,
+      "max": 108604
+    },
+    "success_decode_us": null,
+    "core0_pct": {
+      "n": 10,
+      "min": 80.5,
+      "mean": 80.88,
+      "median": 80.95,
+      "p95": 81.1,
+      "max": 81.1
+    },
+    "core1_pct": {
+      "n": 10,
+      "min": 98.5,
+      "mean": 98.65,
+      "median": 98.6,
+      "p95": 98.8,
+      "max": 98.8
+    },
+    "frames_received": 0,
+    "result_packets": 0,
+    "result_packets_per_s": 0.0,
+    "timing_sequence_gaps": 354,
+    "source_log": "build/no_code_latency_20261119/bounded_nocode.json",
+    "note": "最终搜索策略的遮码测试；之后仅调整源码说明及不参与BODY_RECOVERY构建的局部变量声明。"
+  },
+  "baseline_code": {
+    "upload": false,
+    "elapsed_s": 10.01500000001397,
+    "attempts": 121,
+    "successes": 37,
+    "success_pct": 30.578512396694215,
+    "attempts_per_s": 12.081877184206812,
+    "successes_per_s": 3.69445831252605,
+    "decode_us": {
+      "n": 121,
+      "min": 90878,
+      "mean": 106587.11,
+      "median": 105459,
+      "p95": 118088,
+      "max": 120745
+    },
+    "success_decode_us": {
+      "n": 37,
+      "min": 90878,
+      "mean": 95048.08,
+      "median": 94746,
+      "p95": 99202,
+      "max": 99334
+    },
+    "core0_pct": {
+      "n": 10,
+      "min": 81.6,
+      "mean": 84.55,
+      "median": 84.95,
+      "p95": 86.3,
+      "max": 86.3
+    },
+    "core1_pct": {
+      "n": 10,
+      "min": 98.6,
+      "mean": 98.88,
+      "median": 98.9,
+      "p95": 99.1,
+      "max": 99.1
+    },
+    "frames_received": 0,
+    "result_packets": 34,
+    "result_packets_per_s": 3.3949076385374513,
+    "timing_sequence_gaps": 366,
+    "source_log": "build/no_code_latency_20261119/baseline_restored.json"
+  },
+  "final_code": {
+    "upload": false,
+    "elapsed_s": 10.0,
+    "attempts": 176,
+    "successes": 175,
+    "success_pct": 99.43181818181819,
+    "attempts_per_s": 17.6,
+    "successes_per_s": 17.5,
+    "decode_us": {
+      "n": 176,
+      "min": 67522,
+      "mean": 79717.58,
+      "median": 79116.5,
+      "p95": 88276,
+      "max": 102392
+    },
+    "success_decode_us": {
+      "n": 175,
+      "min": 67522,
+      "mean": 79588.01,
+      "median": 78998,
+      "p95": 87717,
+      "max": 98582
+    },
+    "core0_pct": {
+      "n": 10,
+      "min": 85.6,
+      "mean": 86.07,
+      "median": 86.1,
+      "p95": 86.3,
+      "max": 86.3
+    },
+    "core1_pct": {
+      "n": 10,
+      "min": 98.1,
+      "mean": 98.36,
+      "median": 98.35,
+      "p95": 98.7,
+      "max": 98.7
+    },
+    "frames_received": 0,
+    "result_packets": 176,
+    "result_packets_per_s": 17.6,
+    "timing_sequence_gaps": 324,
+    "source_log": "build/no_code_latency_20261119/final_restored.json"
+  },
+  "upload_comparison": {
+    "upload": true,
+    "elapsed_s": 10.01500000001397,
+    "attempts": 162,
+    "successes": 156,
+    "success_pct": 96.29629629629629,
+    "attempts_per_s": 16.175736395384327,
+    "successes_per_s": 15.576635047407128,
+    "decode_us": {
+      "n": 162,
+      "min": 66136,
+      "mean": 84616.51,
+      "median": 86495.0,
+      "p95": 98853,
+      "max": 103959
+    },
+    "success_decode_us": {
+      "n": 156,
+      "min": 66136,
+      "mean": 84084.88,
+      "median": 86161.5,
+      "p95": 98335,
+      "max": 99592
+    },
+    "core0_pct": {
+      "n": 10,
+      "min": 82.3,
+      "mean": 83.66,
+      "median": 83.6,
+      "p95": 84.4,
+      "max": 84.4
+    },
+    "core1_pct": {
+      "n": 10,
+      "min": 98.6,
+      "mean": 98.77,
+      "median": 98.8,
+      "p95": 99.0,
+      "max": 99.0
+    },
+    "frames_received": 47,
+    "result_packets": 153,
+    "result_packets_per_s": 15.27708437341853,
+    "timing_sequence_gaps": 247,
+    "source_log": "build/no_code_latency_20261119/release_upload.json",
+    "note": "最终整理前的同一搜索策略；当时6px缓冲仍用积分图。最终固件上传复测时COM65被占用，未获得新的上传数据。"
+  },
+  "firmware_sha256": "46e57aa8221059777d8251cfdcec8fe88adb1b00ad8e7266734739a11e29c0ee"
+}

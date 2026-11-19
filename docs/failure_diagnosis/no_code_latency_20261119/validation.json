@@ -1,0 +1,35 @@
+{
+  "baseline_revision": "773bd2ecd5280f460488f1ff7b2657ac728f68a7",
+  "regression": {
+    "cases": 1185,
+    "baseline_refined": 1090,
+    "current_refined": 1090,
+    "new_failures": 0,
+    "negative_false_positives": 0
+  },
+  "additional_cases": {
+    "cases": 59,
+    "refined": 59
+  },
+  "sanitizers": {
+    "cases": 59,
+    "decoded": 59,
+    "memory_errors": 0
+  },
+  "deadline_cleanup": {
+    "budgets_us": [
+      1,
+      50,
+      200,
+      500,
+      1000,
+      2000,
+      5000
+    ],
+    "repeats_per_budget": 20,
+    "runs": 140,
+    "leaks": 0
+  },
+  "firmware_sha256": "46e57aa8221059777d8251cfdcec8fe88adb1b00ad8e7266734739a11e29c0ee",
+  "firmware_bytes": 997008
+}
