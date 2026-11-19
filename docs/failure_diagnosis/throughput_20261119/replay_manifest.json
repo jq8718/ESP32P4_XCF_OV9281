@@ -1,0 +1,58 @@
+[
+  {
+    "id": 0,
+    "file": "build\\live_failure_20261119\\scene1.gray8",
+    "jpeg_bytes": 224890,
+    "source_sha256": "80391eca770a336a64442f8654521f8dbbd09154b089c60e6365427ef936e9f7",
+    "replay_jpeg_sha256": "8bdf3700ee077d2e3e8275974f09c3d30892964156a49aa96f5ea31dc5e8c39c"
+  },
+  {
+    "id": 1,
+    "file": "build\\live_failure_20261119\\scene2.gray8",
+    "jpeg_bytes": 226608,
+    "source_sha256": "55a3f17f6db0fa46c310d03af9f52526e63b69059780ea2962e85811f10c8da3",
+    "replay_jpeg_sha256": "1044b20d03b2bdf0216439fa6834d0e2f87d16c067e93ffbd584ee40d0d21dcd"
+  },
+  {
+    "id": 2,
+    "file": "build\\live_failure_20261119\\scene3.gray8",
+    "jpeg_bytes": 227222,
+    "source_sha256": "3cb25dd6f5a9bdcb14c8d2179070a79146f0b550e048ea5a23bd4c97af5c50b8",
+    "replay_jpeg_sha256": "08b74319c1e19cfde26cbb00a1eb32b90ccd7b64d07c9fc7a5b58886d996438a"
+  },
+  {
+    "id": 3,
+    "file": "build\\live_failure_20261119\\verified_scene.gray8",
+    "jpeg_bytes": 233881,
+    "source_sha256": "6af26b9d75ae728e46b9640bdb7d2e73c8df981c9ca27e58d47e72156bf4011c",
+    "replay_jpeg_sha256": "bb6bd80ac91500f8a431780197636bbd74f7f70b57aaca98fd4b73521504183e"
+  },
+  {
+    "id": 4,
+    "file": "build\\near_code_20261119\\before.gray8",
+    "jpeg_bytes": 227336,
+    "source_sha256": "81f206cd5d2eb31e38ff2b5c96f2e8ef906442947038a37ea17a98a074393bf3",
+    "replay_jpeg_sha256": "11c08162ff35a7b56de8d84fde018d700c2a30804e5a62965ac4562a30c79152"
+  },
+  {
+    "id": 5,
+    "file": "build\\near_code_20261119\\final_scene.gray8",
+    "jpeg_bytes": 189125,
+    "source_sha256": "36c679bf9db64f1d5ceeae5523ccdbd428b4623c91a24b3b6197151940b088bd",
+    "replay_jpeg_sha256": "8977fbcfaf63c4504c7e029c716e518da8de33dd25abca63bace4bcaed5bfc93"
+  },
+  {
+    "id": 6,
+    "file": "build\\near_code_20261119\\final_fixed_scene.gray8",
+    "jpeg_bytes": 210516,
+    "source_sha256": "a103210cbc269aeb31662b63bdf0bcb6c6c6d608a46c2ff24e9e6a8d58105394",
+    "replay_jpeg_sha256": "01ecdc9ffcf7d35546b4a29ff5e8cc57ce1e2553669eebd49765a4f219d2bc4e"
+  },
+  {
+    "id": 7,
+    "file": "build\\near_code_20261119\\adaptive2_fail.gray8",
+    "jpeg_bytes": 209950,
+    "source_sha256": "78c7447632a80d430322b6d9344cbf89038607d918ddb1cedb19ea9e578be157",
+    "replay_jpeg_sha256": "1fcf8a9279e9867a5be3ae7364141e267b5e3f03e716fac275df9a4d08d90fe0"
+  }
+]

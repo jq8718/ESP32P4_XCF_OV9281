@@ -5,6 +5,8 @@
 #include "PerspectiveTransform.h"
 #include <algorithm>
 #include <array>
+#include <cstdio>
+#include <cstdlib>
 #include <cstring>
 #include <memory>
 #include "xcr_dm_body.h"
@@ -36,12 +38,13 @@ template<int Step>
 static bool threshold(const Image& image, ZXing::BitMatrix& bits, const XcrDeadline* deadline)
 {
     constexpr int radius = 5;
-    constexpr uint8_t constants[] = {8, Step == 2 ? 6 : 0};
+    static constexpr int bias = Step <= 2 ? 6 : 0;
+    constexpr uint8_t constants[] = {8, bias};
 #ifdef CONFIG_IDF_TARGET_ESP32P4
     alignas(16) static constexpr auto vector_constants = [] {
         std::array<uint8_t, 32> values{};
         std::fill_n(values.begin(), 16, 8);
-        std::fill_n(values.begin() + 16, 16, Step == 2 ? 6 : 0);
+        std::fill_n(values.begin() + 16, 16, bias);
         return values;
     }();
 #endif
@@ -245,8 +248,8 @@ static int decode_gray_candidate(const Image& image, BarcodeResult& result,
     return 0;
 }
 
-extern "C" int xcr_dm_body_finish(const Image* image, BarcodeResult* result, int step,
-    void* state, const XcrDeadline* deadline, XcrDmBodyTrace* trace)
+static int body_finish(const Image* image, BarcodeResult* result, int step,
+    void* state, const XcrDeadline* deadline, XcrDmBodyTrace* trace, int gray_limit)
 {
     if (!state || !image || !result || xcr_deadline_expired(deadline))
         return 0;
@@ -280,7 +283,7 @@ extern "C" int xcr_dm_body_finish(const Image* image, BarcodeResult* result, int
                         modules[y * 10 + x] = grid.get(x, 9 - y);
                 length = datamatrix_decode_grid10(modules, &candidate);
             }
-            if (length <= 0 && gray_candidates++ < 3)
+            if (length <= 0 && gray_candidates++ < gray_limit)
                 length = decode_gray_candidate(*image, candidate, found.position(), step, deadline, trace);
             if (length <= 0)
                 continue;
@@ -300,6 +303,245 @@ extern "C" int xcr_dm_body_finish(const Image* image, BarcodeResult* result, int
     return 0;
 }
 
+extern "C" int xcr_dm_body_finish(const Image* image, BarcodeResult* result, int step,
+    void* state, const XcrDeadline* deadline, XcrDmBodyTrace* trace)
+{
+    return body_finish(image, result, step, state, deadline, trace, 3);
+}
+
+static void threshold_otsu(const std::vector<uint8_t>& pixels, ZXing::BitMatrix& bits)
+{
+    unsigned histogram[256] = {}, total = pixels.size(), sum = 0;
+    for (uint8_t v : pixels) { histogram[v]++; sum += v; }
+    unsigned n = 0, dark_sum = 0;
+    float best = -1;
+    int cutoff = 128;
+    for (int v = 0; v < 255; ++v) {
+        n += histogram[v]; dark_sum += v * histogram[v];
+        if (!n || n == total) continue;
+        float delta = float(dark_sum) / n - float(sum - dark_sum) / (total - n);
+        float score = float(n) * (total - n) * delta * delta;
+        if (score > best) { best = score; cutoff = v; }
+    }
+    for (int y = 0; y < bits.height(); ++y) {
+        auto* row = bits.row(y).begin();
+        for (int x = 0; x < bits.width(); ++x)
+            row[x] = pixels[y * bits.width() + x] <= cutoff ? ZXing::BitMatrix::SET_V : 0;
+    }
+}
+
+extern "C" int xcr_dm_body_search(const Image* image, BarcodeResult* result,
+    const void* state, const XcrDeadline* deadline, int* sample_step)
+{
+    if (!image || !result || !state || xcr_deadline_expired(deadline))
+        return 0;
+    try {
+        const auto& bits = *static_cast<const ZXing::BitMatrix*>(state);
+        struct Hint { int x, y, size, score; };
+        std::array<Hint, 12> hints{};
+        const int w = bits.width(), h = bits.height();
+        auto rank_current_hint = [&](Hint hint) {
+            // The label's small external dots distinguish it from L-like
+            // desk/monitor edges. Rank, rather than require, those dots.
+            int dots = 0;
+            for (int dy : {-1, 1})
+                for (int dx : {-1, 1}) {
+                    bool matched = false;
+                    int cx = hint.x + dx * (3 * hint.size / 4);
+                    int cy = hint.y + dy * (3 * hint.size / 4);
+                    for (int y = std::max(3, cy - 4); y <= std::min(h - 4, cy + 4) && !matched; ++y)
+                        for (int x = std::max(3, cx - 4); x <= std::min(w - 4, cx + 4); ++x) {
+                            if (!bits.get(x, y) || !bits.get(x + 1, y) ||
+                                !bits.get(x, y + 1) || !bits.get(x + 1, y + 1))
+                                continue;
+                            int r = 2;
+                            if (x < r || y < r || x + r + 1 >= w || y + r + 1 >= h) continue;
+                            int quiet = !bits.get(x - r, y) + !bits.get(x + r + 1, y) +
+                                        !bits.get(x, y - r) + !bits.get(x, y + r + 1) +
+                                        !bits.get(x - r, y - r) + !bits.get(x + r + 1, y + r + 1);
+                            if (quiet >= 5) { matched = true; break; }
+                        }
+                    dots += matched;
+                }
+            hint.score += dots * 12;
+            auto* worst = &*std::min_element(hints.begin(), hints.end(),
+                                            [](Hint a, Hint b) { return a.score < b.score; });
+            for (auto& previous : hints) {
+                if (previous.score && std::abs(hint.x - previous.x) < 8 &&
+                    std::abs(hint.y - previous.y) < 8) {
+                    worst = &previous;
+                    break;
+                }
+            }
+            if (hint.score > worst->score)
+                *worst = hint;
+        };
+        auto inspect = [&](int left, int right, int y) {
+            int span = right - left;
+            if (span < 10 || span > 20 || left < 3 || right + 3 >= w)
+                return;
+            for (int x : {left, right - 1}) {
+                int outside = x == left ? -1 : 1;
+                for (int dy : {-1, 1}) {
+                    if (bits.get(x, y - 3 * dy) || y + span * dy < 0 || y + span * dy >= h)
+                        continue;
+                    int strength = 0, background = 0;
+                    for (int j : {2, span / 3, span / 2, 3 * span / 4, span - 2}) {
+                        const auto* row = bits.row(y + j * dy).begin();
+                        strength += row[x] ? 2 : (row[x - 1] || row[x + 1] ? 1 : 0);
+                        background += !row[x + 3 * outside];
+                    }
+                    if (strength < 7 || background < 4)
+                        continue;
+                    const auto* outer = bits.row(y - 2 * dy).begin();
+                    int quiet = !outer[left + span / 4] + !outer[left + span / 2] +
+                                !outer[left + 3 * span / 4];
+                    int transitions = 0;
+                    for (int j : {span / 3, span / 2, 2 * span / 3}) {
+                        const auto* row = bits.row(y + j * dy).begin();
+                        int changes = 0;
+                        for (int k = left + 3; k < right - 2; ++k)
+                            changes += row[k] != row[k - 1];
+                        transitions += std::min(changes, 6);
+                    }
+                    // At ~24 px a 2px map merges alternating modules. Keep
+                    // its strong solid L even when only 3 transitions remain;
+                    // full-resolution detection and ECC still validate it.
+                    if (quiet >= 2 && transitions >= (span < 14 ? 3 : 6))
+                        rank_current_hint({left + span / 2, y + (span / 2) * dy, span,
+                                  2 * strength + 3 * background + 3 * quiet + 2 * transitions});
+                }
+            }
+        };
+        // Preserve the two solid legs as a cheap hint even when the
+        // alternating modules are undersampled. Scan the current map only.
+        for (int y = 4; y + 4 < h; ++y) {
+            if ((y & 15) == 4 && xcr_deadline_expired(deadline))
+                break;
+            const auto* row = bits.row(y).begin();
+            for (int x = 0; x < w;) {
+                while (x < w && !row[x]) ++x;
+                int left = x;
+                while (x < w && (row[x] || (x + 1 < w && row[x + 1]))) ++x;
+                if (x != left)
+                    inspect(left, x, y);
+            }
+        }
+        std::sort(hints.begin(), hints.end(), [](Hint a, Hint b) { return a.score > b.score; });
+        // Decide from this frame's short L candidates only. A confident tiny
+        // candidate gets four cheap local trials; otherwise search the 2px map
+        // before trying background textures at full pixel resolution.
+        const bool tiny_first = hints[0].score >= 90;
+        auto ordinary_search = [&]() {
+            XcrDeadline quick = deadline ? *deadline : XcrDeadline{};
+            uint64_t limit = xcr_port_time_us() + 12000;
+            if (!quick.deadline_us || quick.deadline_us > limit) quick.deadline_us = limit;
+            int length = body_finish(image, result, 2, const_cast<void*>(state), &quick, nullptr, 3);
+            if (length > 0 && sample_step) *sample_step = 2;
+            return length;
+        };
+        if (!tiny_first) {
+            int length = ordinary_search();
+            if (length > 0) return length;
+        }
+        // Give each candidate a cheap first pass before spending time on
+        // interpolation for a false L from the textured background.
+        for (int pass = 0; pass < 2 && !xcr_deadline_expired(deadline); ++pass) {
+        if (pass && tiny_first) {
+            int length = ordinary_search();
+            if (length > 0) return length;
+        }
+        for (const auto& hint : hints) {
+            if (!pass && &hint == hints.data() + 4)
+                break;
+#ifndef ESP_PLATFORM
+            if (std::getenv("XCR_SMALL_TRACE"))
+                std::fprintf(stderr, "hint %d %d size=%d score=%d\n", hint.x, hint.y, hint.size, hint.score);
+#endif
+            if (!hint.score || xcr_deadline_expired(deadline))
+                break;
+            XcrDeadline candidate_deadline = deadline ? *deadline : XcrDeadline{};
+            // Interpolation and gray-grid validation need more than 4 ms on
+            // P4 under CSI/PSRAM contention; an early timeout costs a full retry.
+            uint64_t candidate_limit = xcr_port_time_us() + (hint.size < 14 ? 8000 : pass ? 6000 : 2000);
+            if (!candidate_deadline.deadline_us || candidate_deadline.deadline_us > candidate_limit)
+                candidate_deadline.deadline_us = candidate_limit;
+            const XcrDeadline* crop_deadline = &candidate_deadline;
+            int half = hint.size + 15;
+            int left = std::max(0, 2 * hint.x - half), top = std::max(0, 2 * hint.y - half);
+            int width = std::min(image->width, 2 * hint.x + half) - left;
+            int height = std::min(image->height, 2 * hint.y + half) - top;
+            std::vector<uint8_t> pixels(size_t(width) * height);
+            for (int y = 0; y < height; ++y)
+                std::memcpy(pixels.data() + y * width, image->pixels + (top + y) * image->width + left, width);
+            Image crop{};
+            crop.pixels = pixels.data();
+            crop.width = width;
+            crop.height = height;
+            ZXing::BitMatrix full(width, height);
+            BarcodeResult candidate{};
+            int length = 0;
+            if (!pass && hint.size >= 14) {
+                if (!threshold<1>(crop, full, crop_deadline)) continue;
+                length = body_finish(&crop, &candidate, 1, &full, crop_deadline, nullptr, 0);
+            }
+            if (pass && !xcr_deadline_expired(crop_deadline)) {
+                // Small shaded labels may have enough contrast locally but
+                // too little for the background-aware stencil. Threshold only
+                // this hint and retain every original pixel.
+                threshold_otsu(pixels, full);
+                length = xcr_dm_body_finish(&crop, &candidate, 1, &full, crop_deadline, nullptr);
+            }
+            int scale = 1;
+            if ((pass || hint.size < 14) && length <= 0 && !xcr_deadline_expired(crop_deadline)) {
+                // Interpolate only a small candidate. This supplies the
+                // line tracer with subpixel phase choices on 2-3 px modules.
+                std::vector<uint8_t> enlarged(size_t(width) * height * 4);
+                for (int y = 0; y < 2 * height; ++y)
+                    for (int x = 0; x < 2 * width; ++x) {
+                        int x0 = x / 2, x1 = std::min(x0 + 1, width - 1);
+                        int y0 = y / 2, y1 = std::min(y0 + 1, height - 1);
+                        int a = pixels[y0 * width + x0], b = pixels[y0 * width + x1];
+                        int c = pixels[y1 * width + x0], d = pixels[y1 * width + x1];
+                        enlarged[y * 2 * width + x] = ((2 - (y & 1)) * ((2 - (x & 1)) * a + (x & 1) * b) +
+                            (y & 1) * ((2 - (x & 1)) * c + (x & 1) * d) + 2) / 4;
+                    }
+                Image expanded{};
+                expanded.pixels = enlarged.data();
+                expanded.width = 2 * width;
+                expanded.height = 2 * height;
+                ZXing::BitMatrix smooth(2 * width, 2 * height);
+                if (threshold<1>(expanded, smooth, crop_deadline)) {
+                    length = xcr_dm_body_finish(&expanded, &candidate, 1, &smooth, crop_deadline, nullptr);
+                    scale = 2;
+                    if (length <= 0 && !xcr_deadline_expired(crop_deadline)) {
+                        threshold_otsu(enlarged, smooth);
+                        length = xcr_dm_body_finish(&expanded, &candidate, 1, &smooth, crop_deadline, nullptr);
+                    }
+                }
+            }
+            if (length <= 0)
+                continue;
+#ifndef ESP_PLATFORM
+            if (std::getenv("XCR_SMALL_TRACE"))
+                std::fprintf(stderr, "recovered pass=%d scale=%d\n", pass, scale);
+#endif
+            for (int p = 0; p < 4; ++p) {
+                candidate.corners[2 * p] = (candidate.corners[2 * p] + scale / 2) / scale + left;
+                candidate.corners[2 * p + 1] = (candidate.corners[2 * p + 1] + scale / 2) / scale + top;
+                candidate.geometry_seed[2 * p] = candidate.corners[2 * p];
+                candidate.geometry_seed[2 * p + 1] = candidate.corners[2 * p + 1];
+            }
+            *result = candidate;
+            if (sample_step) *sample_step = 1;
+            return length;
+        }
+        }
+    } catch (const std::exception&) {
+        // The normal detector still runs if there is no memory for a crop.
+    }
+    return 0;
+}
 
 extern "C" int xcr_dm_body_decode(const Image* image, BarcodeResult* result, int step,
     const XcrDeadline* deadline, uint64_t* threshold_us)

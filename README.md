@@ -2,6 +2,8 @@
 
 本工程从 `../ESP32P4_XCF` 的实时扫描固件移植。沿用 XCR 解码器、双核最新帧流水线、按键与状态灯、USB CDC 结果协议和 MJPEG UVC 预览；采集端改为 OV9281 的 1280×720、50 fps、RAW8、双通道 MIPI CSI 模式。默认解码模式与参考工程相同，为 DataMatrix；可在 `XCR_DATAMATRIX_ONLY` 配置中切换至 QR 模式。
 
+整机联调的固件镜像、烧录参数和小码解码改进见[输出给整机测试20261119](releases/20261119/whole-machine-test/README.md)。
+
 ## 软件设计
 
 ```text

@@ -1,0 +1,87 @@
+I (355) esp_image: segment 1: paddr=001d4274 vaddr=30100000 size=00068h (   104) load
+I (356) esp_image: segment 2: paddr=001d42e4 vaddr=4ff00000 size=0bd34h ( 48436) load
+I (367) esp_image: segment 3: paddr=001e0020 vaddr=40000020 size=7c528h (509224) map
+I (440) esp_image: segment 4: paddr=0025c550 vaddr=4ff0bd34 size=041c4h ( 16836) load
+I (444) esp_image: segment 5: paddr=0026071c vaddr=4ff0ff00 size=027e0h ( 10208) load
+I (451) boot: Loaded app from partition at offset 0x10000
+I (451) boot: Disabling RNG early entropy source...
+I (465) hex_psram: vendor id    : 0x0d (AP)
+I (466) hex_psram: Latency      : 0x01 (Fixed)
+I (466) hex_psram: DriveStr.    : 0x00 (25 Ohm)
+I (467) hex_psram: dev id       : 0x03 (generation 4)
+I (471) hex_psram: density      : 0x07 (256 Mbit)
+I (476) hex_psram: good-die     : 0x06 (Pass)
+I (480) hex_psram: SRF          : 0x02 (Slow Refresh)
+I (485) hex_psram: BurstType    : 0x00 ( Wrap)
+I (489) hex_psram: BurstLen     : 0x03 (2048 Byte)
+I (493) hex_psram: BitMode      : 0x01 (X16 Mode)
+I (498) hex_psram: Readlatency  : 0x04 (14 cycles@Fixed)
+I (503) hex_psram: DriveStrength: 0x00 (1/1)
+I (507) MSPI DQS: tuning success, best phase id is 2
+I (685) MSPI DQS: tuning success, best delayline id is 11
+I (685) esp_psram: Found 32MB PSRAM device
+I (686) esp_psram: Speed: 200MHz
+I (687) hex_psram: psram CS IO is dedicated
+I (689) cpu_start: Multicore app
+I (1598) esp_psram: SPI SRAM memory test OK
+I (1608) cpu_start: Pro cpu start user code
+I (1608) cpu_start: cpu freq: 360000000 Hz
+I (1608) app_init: Application information:
+I (1608) app_init: Project name:     p4scan_ov9281
+I (1613) app_init: App version:      release/20261118-core-balance-a
+I (1619) app_init: Compile time:     Nov 19 2026 11:15:41
+I (1624) app_init: ELF file SHA256:  2b5658bee...
+I (1628) app_init: ESP-IDF:          v1.0.0-dirty
+I (1633) efuse_init: Min chip rev:     v0.1
+I (1636) efuse_init: Max chip rev:     v1.99
+I (1641) efuse_init: Chip rev:         v1.3
+I (1645) heap_init: Initializing. RAM available for dynamic allocation:
+I (1651) heap_init: At 4FF1A440 len 00020B80 (130 KiB): RAM
+I (1656) heap_init: At 4FF3AFC0 len 00004BF0 (18 KiB): RAM
+I (1661) heap_init: At 4FF40000 len 00060000 (384 KiB): RAM
+I (1667) heap_init: At 50108080 len 00007F80 (31 KiB): RTCRAM
+I (1672) heap_init: At 30100068 len 00001F98 (7 KiB): TCM
+I (1677) esp_psram: Adding pool of 32768K of PSRAM memory to heap allocator
+I (1685) spi_flash: detected chip: generic
+I (1688) spi_flash: flash io: dio
+I (1691) main_task: Started on CPU0
+I (1694) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations
+I (1702) main_task: Calling app_main()
+I (1705) main_task: Returned from app_main()
+P4_VERIFY_OK
+P4_REPLAY_BEGIN,8
+P4_REPLAY_MODE,independent_forward
+P4_REPLAY,0,1,2,56845,012345
+P4_PROFILE,0,1,0,11672,0,43666,45173,43666,9350,0,0,0
+P4_REPLAY,1,1,2,25670,012345
+P4_PROFILE,1,1,0,11660,0,12474,14010,12474,9327,0,0,0
+P4_REPLAY,2,1,2,27225,012345
+P4_PROFILE,2,1,0,11665,0,14020,15560,14020,9339,0,0,0
+P4_REPLAY,3,1,2,25626,012345
+P4_PROFILE,3,1,0,11646,0,12462,13980,12462,9326,0,0,0
+P4_REPLAY,4,1,2,31073,012345
+P4_PROFILE,4,2,0,11679,0,17673,19394,17673,9361,0,0,0
+P4_REPLAY,5,1,2,27522,012345
+P4_PROFILE,5,2,0,11619,0,14185,15903,14185,9297,0,0,0
+P4_REPLAY,6,1,2,27820,012345
+P4_PROFILE,6,1,0,11644,0,14627,16176,14627,9317,0,0,0
+P4_REPLAY,7,1,2,26351,012345
+P4_PROFILE,7,1,0,11666,0,13146,14685,13146,9337,0,0,0
+P4_REPLAY_MODE,independent_reverse
+P4_REPLAY,7,1,2,26344,012345
+P4_PROFILE,7,1,0,11659,0,13148,14685,13148,9333,0,0,0
+P4_REPLAY,6,1,2,27802,012345
+P4_PROFILE,6,1,0,11642,0,14613,16160,14613,9318,0,0,0
+P4_REPLAY,5,1,2,27530,012345
+P4_PROFILE,5,2,0,11628,0,14182,15902,14182,9302,0,0,0
+P4_REPLAY,4,1,2,31032,012345
+P4_PROFILE,4,2,0,11674,0,17643,19358,17643,9353,0,0,0
+P4_REPLAY,3,1,2,25642,012345
+P4_PROFILE,3,1,0,11664,0,12464,13978,12464,9340,0,0,0
+P4_REPLAY,2,1,2,27229,012345
+P4_PROFILE,2,1,0,11678,0,14009,15551,14009,9354,0,0,0
+P4_REPLAY,1,1,2,25648,012345
+P4_PROFILE,1,1,0,11644,0,12472,14004,12472,9324,0,0,0
+P4_REPLAY,0,1,2,56463,012345
+P4_PROFILE,0,1,0,11641,0,43326,44822,43326,9322,0,0,0
+P4_REPLAY_END

@@ -21,9 +21,16 @@ def main():
               '-Iport/components/xcr_decoder/include',
               '-Iport/components/xcr_decoder/vendor/include',
               '-Iport/components/xcr_decoder/vendor/quirc']
-    subprocess.run(common + ['-c', str(baseline), '-o', str(WORK / 'baseline.o')], cwd=ROOT, check=True)
+    has_body = b'xcr_dm_body' in baseline.read_bytes()
+    baseline_flags = ['-DXCR_DMTX_BODY_RECOVERY=1',
+                      '-Iport/components/xcr_decoder/src'] if has_body else []
+    subprocess.run(common + baseline_flags + ['-c', str(baseline), '-o', str(WORK / 'baseline.o')], cwd=ROOT, check=True)
     objects = [str(ROOT / 'build/dm_stage_trace' / f'trace_{n}.o') for n in ('main', 'port', 'core')]
-    subprocess.run(['gcc', str(WORK / 'baseline.o'), *objects, '-lm', '-o', str(WORK / 'baseline')], check=True)
+    body_names = ('xcr_dm_body', 'BitMatrix', 'GridSampler', 'LocalGrid',
+                  'PerspectiveTransform', 'WhiteRectDetector', 'DMDetector', 'DMVersion')
+    body_objects = [str(ROOT / 'build/dm_stage_trace' / (n + '.o')) for n in body_names] if has_body else []
+    subprocess.run(['g++' if has_body else 'gcc', str(WORK / 'baseline.o'), *objects,
+                    *body_objects, '-lm', '-o', str(WORK / 'baseline')], check=True)
     paths = sorted((ROOT / 'docs/failure_diagnosis').glob('*.gray8'))
     extra = sorted((ROOT / 'build/parallel_host_cases').glob('*.gray8'))
     cases = [(p, 'phase', dx, dy) for p in paths for dy in range(6) for dx in range(6)]

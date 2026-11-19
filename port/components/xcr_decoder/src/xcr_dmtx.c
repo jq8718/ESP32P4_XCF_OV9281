@@ -1476,16 +1476,22 @@ static int dm_refine_original_mode(const Image *image, BarcodeResult *result, co
         float delta_x = corners[next * 2] - corners[side * 2];
         float delta_y = corners[next * 2 + 1] - corners[side * 2 + 1];
         float length = sqrtf(delta_x * delta_x + delta_y * delta_y);
-        if (length < 32) return 0;
+        const int small_symbol = result->grid_rows == 10 && result->grid_cols == 10 && length < 32;
+        if (length < (small_symbol ? 22 : 32)) return 0;
         float normal_x = -delta_y / length, normal_y = delta_x / length;
         float tangent_x = delta_x / length, tangent_y = delta_y / length;
+        if (small_symbol) {
+            // One pixel along a short timing edge can cross into the next module.
+            tangent_x *= 0.5f;
+            tangent_y *= 0.5f;
+        }
         float midpoint_x = (corners[next * 2] + corners[side * 2]) * 0.5f;
         float midpoint_y = (corners[next * 2 + 1] + corners[side * 2 + 1]) * 0.5f;
         if ((center_x - midpoint_x) * normal_x + (center_y - midpoint_y) * normal_y > 0) {
             normal_x = -normal_x;
             normal_y = -normal_y;
         }
-        int radius = (int)fminf(solid_corner_only ? 64 : search_fraction > 0.1f ? 40 : 24,
+        int radius = small_symbol ? 3 : (int)fminf(solid_corner_only ? 64 : search_fraction > 0.1f ? 40 : 24,
                                fmaxf(4, length * search_fraction));
         DmEdgeSample samples[32];
         int count = 0;
@@ -2021,7 +2027,21 @@ int xcr_datamatrix_marked_decode_prepared(const Image *image, BarcodeResult *res
             body_deadline.deadline_us = limit;
         uint64_t body_start = xcr_port_time_us();
         XcrDmBodyTrace body_trace = {0};
-        decoded = xcr_dm_body_finish(image, result, 2, prepared->body_state, &body_deadline, &body_trace);
+        /* 12 ms ordinary search + at most 32 ms local small-symbol rescue. */
+        XcrDeadline search_deadline = deadline ? *deadline : (XcrDeadline){0};
+        if (!search_deadline.deadline_us || search_deadline.deadline_us > body_start + 44000)
+            search_deadline.deadline_us = body_start + 44000;
+        int hint_step = 1;
+        decoded = xcr_dm_body_search(image, result, prepared->body_state, &search_deadline, &hint_step);
+        if (decoded > 0)
+            last_stats.marker_sample_step = hint_step;
+        else {
+            limit = xcr_port_time_us() + 24000;
+            body_deadline = deadline ? *deadline : (XcrDeadline){0};
+            if (!body_deadline.deadline_us || body_deadline.deadline_us > limit)
+                body_deadline.deadline_us = limit;
+            decoded = xcr_dm_body_finish(image, result, 2, prepared->body_state, &body_deadline, &body_trace);
+        }
         last_stats.body_candidate_px = body_trace.candidate_px;
         last_stats.body_gray_attempts = body_trace.gray_attempts;
         last_stats.body_binarizer = body_trace.binarizer;

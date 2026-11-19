@@ -1,0 +1,18 @@
+port/components/xcr_decoder/vendor/symbologies/datamatrix.c: In function ‘dm_decode_payload’:
+port/components/xcr_decoder/vendor/symbologies/datamatrix.c:2061:56: warning: ‘__builtin___snprintf_chk’ output may be truncated before the last format character [-Wformat-truncation=]
+ 2061 |                 snprintf(digits, sizeof(digits), "%06ld", eci);
+      |                                                        ^
+In file included from /usr/include/stdio.h:894,
+                 from port/components/xcr_decoder/vendor/symbologies/datamatrix.c:89:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:71:10: note: ‘__builtin___snprintf_chk’ output between 7 and 8 bytes into a destination of size 7
+   71 |   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   72 |                                    __glibc_objsize (__s), __fmt,
+      |                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   73 |                                    __va_arg_pack ());
+      |                                    ~~~~~~~~~~~~~~~~~
+{"iterations":1,"decoded":6,"payload":"012345","elapsed_us":21545,"marker_us":9076,"normalize_us":0,"core_us":11429,"refine_us":337,"marker_roi":[0,0,0,0],"angle_deg":0.000,"grid":[10,10],"geometry_quality":2,"split":0,"full_fallback":0,"sample_step":1,"core_finder_us":0,"core_candidate_us":0,"core_codeword_us":143,"core_ecc_us":260,"core_payload_us":124,"corners":[673,382,701,381,701,409,673,409]}
+{"iterations":1,"decoded":6,"payload":"012345","elapsed_us":10510,"marker_us":8942,"normalize_us":0,"core_us":1492,"refine_us":72,"marker_roi":[0,0,0,0],"angle_deg":0.000,"grid":[10,10],"geometry_quality":2,"split":0,"full_fallback":0,"sample_step":1,"core_finder_us":0,"core_candidate_us":0,"core_codeword_us":14,"core_ecc_us":2,"core_payload_us":1,"corners":[605,498,634,499,633,528,604,527]}
+{"iterations":1,"decoded":6,"payload":"012345","elapsed_us":13411,"marker_us":9193,"normalize_us":0,"core_us":4098,"refine_us":113,"marker_roi":[0,0,0,0],"angle_deg":0.000,"grid":[10,10],"geometry_quality":2,"split":0,"full_fallback":0,"sample_step":1,"core_finder_us":0,"core_candidate_us":0,"core_codeword_us":4,"core_ecc_us":2,"core_payload_us":1,"corners":[611,510,640,511,638,540,610,539]}
+{"iterations":1,"decoded":0,"payload":"","elapsed_us":13667,"marker_us":11121,"normalize_us":0,"core_us":2539,"refine_us":0,"marker_roi":[0,0,0,0],"angle_deg":0.000,"grid":[0,0],"geometry_quality":0,"split":0,"full_fallback":0,"sample_step":4,"core_finder_us":0,"core_candidate_us":0,"core_codeword_us":0,"core_ecc_us":0,"core_payload_us":0,"corners":[0,0,0,0,0,0,0,0]}
+{"iterations":1,"decoded":0,"payload":"","elapsed_us":20255,"marker_us":11873,"normalize_us":0,"core_us":8369,"refine_us":0,"marker_roi":[0,0,0,0],"angle_deg":0.000,"grid":[0,0],"geometry_quality":0,"split":0,"full_fallback":0,"sample_step":4,"core_finder_us":0,"core_candidate_us":0,"core_codeword_us":0,"core_ecc_us":0,"core_payload_us":0,"corners":[0,0,0,0,0,0,0,0]}

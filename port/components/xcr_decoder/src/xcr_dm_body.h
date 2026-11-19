@@ -13,6 +13,9 @@ void *xcr_dm_body_prepare(const Image *image, int step, const XcrDeadline *deadl
     uint64_t *threshold_us);
 int xcr_dm_body_finish(const Image *image, BarcodeResult *result, int step,
     void *state, const XcrDeadline *deadline, XcrDmBodyTrace *trace);
+/* Current-frame 2px search followed by bounded 1px small-symbol recovery. */
+int xcr_dm_body_search(const Image *image, BarcodeResult *result, const void *state,
+    const XcrDeadline *deadline, int *sample_step);
 void xcr_dm_body_discard(void *state);
 int xcr_dm_body_decode(const Image *image, BarcodeResult *result, int step,
     const XcrDeadline *deadline, uint64_t *threshold_us);
